@@ -63,7 +63,7 @@ public class Test_PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        dirInput = Vector3.zero;
     }
 
     // Update is called once per frame

@@ -259,19 +259,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.00001
+      value: 0.0000324542
       objectReference: {fileID: 0}
     - target: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.93
+      value: 32.227024
       objectReference: {fileID: 0}
     - target: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
       propertyPath: m_LocalScale.z
-      value: 14.97
+      value: 48.583946
       objectReference: {fileID: 0}
     - target: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 79.1
       objectReference: {fileID: 0}
     - target: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -767,7 +767,7 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
   walkSpeed: 2
-  sprintSpeed: 5
+  sprintSpeed: 7
 --- !u!1 &1139056230
 GameObject:
   m_ObjectHideFlags: 0
