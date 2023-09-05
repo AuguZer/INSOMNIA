@@ -16,14 +16,21 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] Transform lookBackPoint;
 
-    Vector3 targetRotation;
+    public Vector3 targetRotation;
 
     float xRotation;
+
+    public float xRot;
 
 
     Vector2 lookInput;
 
     bool isLookingBack;
+
+    private void Awake()
+    {
+     
+    }
 
     private void OnEnable()
     {
@@ -41,6 +48,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBack(InputAction.CallbackContext ctx)
     {
+        xRot = transform.rotation.x;
         isLookingBack = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotation), rotationSpeed));
     }
@@ -49,7 +57,7 @@ public class PlayerCam : MonoBehaviour
     {
         StopAllCoroutines();
         isLookingBack = false;
-        StartCoroutine(LerpRotationCam(Quaternion.Euler(targetRotation), Quaternion.Euler(new Vector3(0f, 0f, 0f)), rotationSpeed));
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
     }
     // Start is called before the first frame update
     void Start()
@@ -61,7 +69,6 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetRotation = new Vector3(transform.localRotation.x, 145f, 0f);
         if (isLookingBack) return;
         //get mouse input
         lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
