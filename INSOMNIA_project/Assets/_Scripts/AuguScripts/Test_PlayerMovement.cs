@@ -21,6 +21,9 @@ public class Test_PlayerMovement : MonoBehaviour
     bool isRunning;
     bool isCrouching;
 
+    public Vector3 targetRotation;
+    [SerializeField] float rotationSpeed = 5f;
+
     private void OnEnable()
     {
         inputActions.Enable();
@@ -63,7 +66,6 @@ public class Test_PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dirInput = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -90,7 +92,40 @@ public class Test_PlayerMovement : MonoBehaviour
 
     private void Crouch()
     {
-        if (isCrouching) characterController.height = 1f;
-        else characterController.height = 2f;
+        if (isCrouching)
+        {
+            characterController.height = 1.2f;
+            characterController.center = new Vector3(0f, -.2f, 0f);
+        }
+        else
+        {
+            characterController.height = 2f;
+            characterController.center = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "test")
+        {
+            Debug.Log("izi");
+            StartCoroutine(LerpRotationCam(Quaternion.Euler(targetRotation), rotationSpeed));
+        }
+    }
+
+    IEnumerator LerpRotationCam(Quaternion endValue, float duration)
+    {
+        float t = 0f;
+        Quaternion startValue = transform.rotation;
+
+        while (t < duration)
+        {
+            transform.rotation = Quaternion.Lerp(startValue, endValue, t / duration);
+            t += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.rotation = endValue;
     }
 }
