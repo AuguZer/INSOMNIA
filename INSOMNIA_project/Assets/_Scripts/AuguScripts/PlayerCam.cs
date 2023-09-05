@@ -48,7 +48,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBack(InputAction.CallbackContext ctx)
     {
-        xRot = transform.rotation.x;
+        StopAllCoroutines();
         isLookingBack = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotation), rotationSpeed));
     }
@@ -56,8 +56,8 @@ public class PlayerCam : MonoBehaviour
     private void OnStopLookBack(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
-        isLookingBack = false;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
+        StartCoroutine(EndLookBack());
     }
     // Start is called before the first frame update
     void Start()
@@ -109,5 +109,11 @@ public class PlayerCam : MonoBehaviour
             yield return null;
         }
         transform.localRotation = endValue;
+    }
+
+    IEnumerator EndLookBack()
+    {
+        yield return new WaitForSeconds(rotationSpeed);
+        isLookingBack = false;
     }
 }
