@@ -42,9 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LookBack",
+                    "name": "LookBackR",
                     "type": "Button",
                     "id": "f6893f94-df13-4484-8a78-ad1f8f959549",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookBackL",
+                    "type": "Button",
+                    "id": "09fc2c87-df07-44c4-9c51-21657f7d188d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -242,7 +251,7 @@
                 {
                     "name": "",
                     "id": "9aedf165-596b-4077-83e2-1699760916ec",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -279,7 +288,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookBack",
+                    "action": "LookBackR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -290,7 +299,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookBack",
+                    "action": "LookBackR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80d709fe-4554-43cb-a3c4-81e3de64150b",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookBackL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "860697cf-2968-4083-bfd6-e8e8152430f3",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookBackL",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

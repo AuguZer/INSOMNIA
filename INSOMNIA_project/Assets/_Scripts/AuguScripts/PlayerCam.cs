@@ -13,10 +13,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float rotationSpeed = 5f;
 
     public Transform playerBody;
-
-    [SerializeField] Transform lookBackPoint;
-
-    public Vector3 targetRotation;
+    public Vector3 targetRotationR;
+    public Vector3 targetRotationL;
 
     float xRotation;
 
@@ -35,30 +33,48 @@ public class PlayerCam : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Enable();
-        inputActions.FindAction("LookBack").started += OnStartLookBack;
-        inputActions.FindAction("LookBack").canceled += OnStopLookBack;
+        inputActions.FindAction("LookBackR").started += OnStartLookBackR;
+        inputActions.FindAction("LookBackR").canceled += OnStopLookBackR;
+        inputActions.FindAction("LookBackL").started += OnStartLookBackL;
+        inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
     }
 
     private void OnDisable()
     {
         inputActions.Disable();
-        inputActions.FindAction("LookBack").started -= OnStartLookBack;
-        inputActions.FindAction("LookBack").canceled -= OnStopLookBack;
+        inputActions.FindAction("LookBackR").started -= OnStartLookBackR;
+        inputActions.FindAction("LookBackR").canceled -= OnStopLookBackR;
+        inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
+        inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
     }
 
-    private void OnStartLookBack(InputAction.CallbackContext ctx)
+    private void OnStartLookBackR(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
         isLookingBack = true;
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotation), rotationSpeed));
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed));
     }
 
-    private void OnStopLookBack(InputAction.CallbackContext ctx)
+    private void OnStopLookBackR(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
         StartCoroutine(EndLookBack());
     }
+
+    private void OnStartLookBackL(InputAction.CallbackContext ctx)
+    {
+        StopAllCoroutines();
+        isLookingBack = true;
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed));
+    }
+    private void OnStopLookBackL(InputAction.CallbackContext ctx)
+    {
+        StopAllCoroutines();
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
+        StartCoroutine(EndLookBack());
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,13 +104,6 @@ public class PlayerCam : MonoBehaviour
 
     }
 
-    private void LookBack()
-    {
-        if (isLookingBack)
-        {
-            //transform.LookAt(look);
-        }
-    }
 
     IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration)
     {

@@ -848,10 +848,10 @@ MonoBehaviour:
     type: 3}
   sensX: 100
   sensY: 100
-  rotationSpeed: 0.3
+  rotationSpeed: 0.2
   playerBody: {fileID: 1055425154}
-  lookBackPoint: {fileID: 505837533}
-  targetRotation: {x: 0, y: 145, z: 0}
+  targetRotationR: {x: 0, y: 130, z: 0}
+  targetRotationL: {x: 0, y: -130, z: 0}
   xRot: 0
 --- !u!1 &1016182890
 GameObject:
