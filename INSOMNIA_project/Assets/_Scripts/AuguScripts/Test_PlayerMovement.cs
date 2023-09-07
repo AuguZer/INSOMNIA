@@ -21,8 +21,6 @@ public class Test_PlayerMovement : MonoBehaviour
     bool isRunning;
     bool isCrouching;
 
-    public Vector3 targetRotation;
-    [SerializeField] float rotationSpeed = 5f;
 
     private void OnEnable()
     {
@@ -104,28 +102,5 @@ public class Test_PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "test")
-        {
-            Debug.Log("izi");
-            StartCoroutine(LerpRotationCam(Quaternion.Euler(targetRotation), rotationSpeed));
-        }
-    }
 
-    IEnumerator LerpRotationCam(Quaternion endValue, float duration)
-    {
-        float t = 0f;
-        Quaternion startValue = transform.rotation;
-
-        while (t < duration)
-        {
-            transform.rotation = Quaternion.Lerp(startValue, endValue, t / duration);
-            t += Time.deltaTime;
-
-            yield return null;
-        }
-
-        transform.rotation = endValue;
-    }
 }

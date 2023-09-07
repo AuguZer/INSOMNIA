@@ -15,6 +15,8 @@ public class PlayerCam : MonoBehaviour
     public Transform playerBody;
     public Vector3 targetRotationR;
     public Vector3 targetRotationL;
+    public Vector3 targetPositionR;
+    public Vector3 targetPositionL;
 
     float xRotation;
 
@@ -35,8 +37,8 @@ public class PlayerCam : MonoBehaviour
         inputActions.Enable();
         inputActions.FindAction("LookBackR").started += OnStartLookBackR;
         inputActions.FindAction("LookBackR").canceled += OnStopLookBackR;
-        inputActions.FindAction("LookBackL").started += OnStartLookBackL;
-        inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
+        //inputActions.FindAction("LookBackL").started += OnStartLookBackL;
+        //inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
     }
 
     private void OnDisable()
@@ -44,36 +46,36 @@ public class PlayerCam : MonoBehaviour
         inputActions.Disable();
         inputActions.FindAction("LookBackR").started -= OnStartLookBackR;
         inputActions.FindAction("LookBackR").canceled -= OnStopLookBackR;
-        inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
-        inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
+        //inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
+        //inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
     }
 
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
         isLookingBack = true;
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed));
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed, transform.localPosition, targetPositionR));
     }
 
     private void OnStopLookBackR(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
         StartCoroutine(EndLookBack());
     }
 
-    private void OnStartLookBackL(InputAction.CallbackContext ctx)
-    {
-        StopAllCoroutines();
-        isLookingBack = true;
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed));
-    }
-    private void OnStopLookBackL(InputAction.CallbackContext ctx)
-    {
-        StopAllCoroutines();
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
-        StartCoroutine(EndLookBack());
-    }
+    //private void OnStartLookBackL(InputAction.CallbackContext ctx)
+    //{
+    //    StopAllCoroutines();
+    //    isLookingBack = true;
+    //    StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed));
+    //}
+    //private void OnStopLookBackL(InputAction.CallbackContext ctx)
+    //{
+    //    StopAllCoroutines();
+    //    StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
+    //    StartCoroutine(EndLookBack());
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +87,7 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Return si LookBack
         if (isLookingBack) return;
         //get mouse input
         lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
@@ -105,7 +108,7 @@ public class PlayerCam : MonoBehaviour
     }
 
 
-    IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration)
+    IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)
     {
         float t = 0f;
         //Quaternion startValue = transform.localRotation;
@@ -113,11 +116,13 @@ public class PlayerCam : MonoBehaviour
         while (t < duration)
         {
             transform.localRotation = Quaternion.Lerp(startValue, endValue, t / duration);
+            transform.localPosition = Vector3.Lerp(startPos, endPos, t / duration);
             t += Time.deltaTime;
 
             yield return null;
         }
         transform.localRotation = endValue;
+        transform.localPosition = endPos;
     }
 
     IEnumerator EndLookBack()
