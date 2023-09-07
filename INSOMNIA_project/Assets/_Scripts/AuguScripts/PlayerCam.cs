@@ -37,8 +37,8 @@ public class PlayerCam : MonoBehaviour
         inputActions.Enable();
         inputActions.FindAction("LookBackR").started += OnStartLookBackR;
         inputActions.FindAction("LookBackR").canceled += OnStopLookBackR;
-        //inputActions.FindAction("LookBackL").started += OnStartLookBackL;
-        //inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
+        inputActions.FindAction("LookBackL").started += OnStartLookBackL;
+        inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
     }
 
     private void OnDisable()
@@ -46,8 +46,8 @@ public class PlayerCam : MonoBehaviour
         inputActions.Disable();
         inputActions.FindAction("LookBackR").started -= OnStartLookBackR;
         inputActions.FindAction("LookBackR").canceled -= OnStopLookBackR;
-        //inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
-        //inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
+        inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
+        inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
     }
 
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
@@ -64,18 +64,18 @@ public class PlayerCam : MonoBehaviour
         StartCoroutine(EndLookBack());
     }
 
-    //private void OnStartLookBackL(InputAction.CallbackContext ctx)
-    //{
-    //    StopAllCoroutines();
-    //    isLookingBack = true;
-    //    StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed));
-    //}
-    //private void OnStopLookBackL(InputAction.CallbackContext ctx)
-    //{
-    //    StopAllCoroutines();
-    //    StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed));
-    //    StartCoroutine(EndLookBack());
-    //}
+    private void OnStartLookBackL(InputAction.CallbackContext ctx)
+    {
+        StopAllCoroutines();
+        isLookingBack = true;
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed, transform.localPosition, targetPositionL));
+    }
+    private void OnStopLookBackL(InputAction.CallbackContext ctx)
+    {
+        StopAllCoroutines();
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
+        StartCoroutine(EndLookBack());
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -850,8 +850,8 @@ MonoBehaviour:
   sensY: 100
   rotationSpeed: 0.2
   playerBody: {fileID: 1055425154}
-  targetRotationR: {x: 0, y: 0, z: 15}
-  targetRotationL: {x: 0, y: 0, z: 0}
+  targetRotationR: {x: 0, y: 0, z: -15}
+  targetRotationL: {x: 0, y: 0, z: 15}
   targetPositionR: {x: 0.6, y: 0.61, z: 0.451}
   targetPositionL: {x: -0.6, y: 0.61, z: 0.451}
   xRot: 0
