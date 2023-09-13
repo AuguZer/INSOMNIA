@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
+  cam: {fileID: 961739749}
   speed: 3
   dirInput: {x: 0, y: 0, z: 0}
 --- !u!1 &1139056230

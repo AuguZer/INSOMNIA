@@ -9,11 +9,15 @@ public class PlayerInputManager : MonoBehaviour
 
     CharacterController characterController;
     PlayerStateManager playerStateManager;
+    PlayerCam playerCam;
 
+    [SerializeField] GameObject cam;
     public float speed;
 
     Vector3 moveInput;
     public Vector3 dirInput;
+
+    
 
     private void OnEnable()
     {
@@ -33,6 +37,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerStateManager = GetComponent<PlayerStateManager>();
+        playerCam = GetComponentInParent<PlayerCam>();
     }
 
     private void OnStartRun (InputAction.CallbackContext ctx)
@@ -72,6 +77,28 @@ public class PlayerInputManager : MonoBehaviour
         if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
         {
             playerStateManager.isCrouching = true;
+            StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .2f, cam.transform.localPosition.z), .2f));
         }
+
+
+        //if (!playerStateManager.isCrouching)
+        //{
+        //    StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .61f, cam.transform.localPosition.z), .2f));
+        //}
+    }
+
+    IEnumerator LerpCameraToCrouch(Vector3 startPos, Vector3 endPos, float duration)
+    {
+        float t = 0f;
+
+        while (t < duration)
+        {
+            cam.transform.localPosition = Vector3.Lerp(startPos, endPos, t/duration);
+            t+= Time.deltaTime;
+
+            yield return null;
+        }
+
+        cam.transform.localPosition = endPos;
     }
 }
