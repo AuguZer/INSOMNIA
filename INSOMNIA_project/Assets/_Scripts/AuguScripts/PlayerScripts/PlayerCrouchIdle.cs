@@ -7,6 +7,8 @@ public class PlayerCrouchIdle : PlayerBaseState
     public override void OnStateEnter(PlayerStateManager playerState)
     {
         playerState.state = PlayerStateManager.PlayerState.CrouchIdle;
+        playerState.inputManager.characterController.height = 1;
+        playerState.inputManager.characterController.center = new Vector3(0f, -.5f, 0f);
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {

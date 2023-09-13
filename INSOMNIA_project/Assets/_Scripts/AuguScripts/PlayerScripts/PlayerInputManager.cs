@@ -7,7 +7,7 @@ public class PlayerInputManager : MonoBehaviour
 {
     [SerializeField] public InputActionAsset inputActions;
 
-    CharacterController characterController;
+    public CharacterController characterController;
     PlayerStateManager playerStateManager;
     PlayerCam playerCam;
 
