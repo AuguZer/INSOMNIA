@@ -1143,8 +1143,9 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   playerCam: {fileID: 0}
   state: 0
-  walkSpeed: 2
+  walkSpeed: 3
   runSpeed: 8
+  isRunning: 0
 --- !u!114 &1055425158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,7 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  speed: 2
+  speed: 3
   dirInput: {x: 0, y: 0, z: 0}
 --- !u!1 &1139056230
 GameObject:

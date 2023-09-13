@@ -172,17 +172,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "f41b9f88-b8e8-4aec-aa86-e9a86eabcc27",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "GamepadLook",
                     "id": "f19927d2-f0bf-452d-918e-56f08b7dc1f8",
                     "path": "2DVector(mode=2)",
@@ -230,6 +219,61 @@
                     "name": "right",
                     "id": "8b137c19-9c4a-49d9-9c4b-a789bd5390b1",
                     "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Mouse",
+                    "id": "cc401c0a-a01e-47a0-bbd6-07c4c83778ce",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "1161971e-bd84-4f55-b76a-264361aa50e0",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c4805462-9c6f-400b-bfa1-b923bf73d205",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "f9680aed-f830-4845-ab62-f59c85ef48ce",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "4357bc32-5ccc-47c6-9d69-a0f13f198aaa",
+                    "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

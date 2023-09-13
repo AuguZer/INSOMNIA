@@ -91,7 +91,6 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Look on side
         if (playerInputManager.dirInput == Vector3.zero)
         {
             //Rot & Pos to the RIGHT
