@@ -27,6 +27,6 @@ public class PlayerCrouch : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-
+        playerState.inputManager.LerpCameraToCrouch(playerState.inputManager.cam.transform.localPosition, new Vector3(playerState.inputManager.cam.transform.localPosition.x, .61f, playerState.inputManager.cam.transform.localPosition.z), .2f);
     }
 }

@@ -11,12 +11,11 @@ public class PlayerInputManager : MonoBehaviour
     PlayerStateManager playerStateManager;
     PlayerCam playerCam;
 
-    [SerializeField] GameObject cam;
+    public GameObject cam;
     public float speed;
 
     Vector3 moveInput;
     public Vector3 dirInput;
-
     
 
     private void OnEnable()
@@ -87,7 +86,7 @@ public class PlayerInputManager : MonoBehaviour
         //}
     }
 
-    IEnumerator LerpCameraToCrouch(Vector3 startPos, Vector3 endPos, float duration)
+    public IEnumerator LerpCameraToCrouch(Vector3 startPos, Vector3 endPos, float duration)
     {
         float t = 0f;
 
