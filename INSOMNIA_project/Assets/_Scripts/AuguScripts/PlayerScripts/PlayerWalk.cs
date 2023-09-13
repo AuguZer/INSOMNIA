@@ -21,6 +21,11 @@ public class PlayerWalk : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Run);
         }
+        //TO CROUCH
+        if (playerState.isCrouching)
+        {
+            playerState.TransitionToState(playerState.Crouch);
+        }
         //TO LOOK
         if (playerState.playerCam.isLooking)
         {

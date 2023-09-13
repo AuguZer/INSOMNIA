@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    [SerializeField] InputActionAsset inputActions;
+    [SerializeField] public InputActionAsset inputActions;
 
     CharacterController characterController;
     PlayerStateManager playerStateManager;
@@ -54,6 +54,7 @@ public class PlayerInputManager : MonoBehaviour
     void Update()
     {
         MoveInput();
+        CrouchInput();
     }
 
     private void MoveInput()
@@ -64,5 +65,13 @@ public class PlayerInputManager : MonoBehaviour
         Vector3 move = transform.right * dirInput.x + transform.forward * dirInput.z;
 
         characterController.Move(move.normalized * speed * Time.deltaTime);
+    }
+
+    private void CrouchInput()
+    {
+        if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
+        {
+            playerStateManager.isCrouching = true;
+        }
     }
 }

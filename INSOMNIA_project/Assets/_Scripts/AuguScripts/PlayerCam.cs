@@ -116,7 +116,7 @@ public class PlayerCam : MonoBehaviour
         //Return si LookBack
         if (isLooking) return;
         //get mouse input
-        lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
+        lookInput = inputActions.FindAction("Look").ReadValue<Vector2>().normalized;
         //Add mouse sensitivity
         float mouseX = lookInput.x * sensX * Time.deltaTime;
         float mouseY = lookInput.y * sensY * Time.deltaTime;

@@ -20,6 +20,11 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Run);
         }
+        //TO CROUCHIDLE
+        if (playerState.isCrouching)
+        {
+            playerState.TransitionToState(playerState.CrouchIdle);
+        }
         //TO LOOK
         if (playerState.playerCam.isLooking)
         {

@@ -1145,7 +1145,9 @@ MonoBehaviour:
   state: 0
   walkSpeed: 3
   runSpeed: 8
+  crouchSpeed: 1.5
   isRunning: 0
+  isCrouching: 0
 --- !u!114 &1055425158
 MonoBehaviour:
   m_ObjectHideFlags: 0

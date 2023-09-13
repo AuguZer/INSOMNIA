@@ -9,6 +9,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerWalk Walk = new PlayerWalk();
     public PlayerLook Look = new PlayerLook();
     public PlayerRun Run = new PlayerRun();
+    public PlayerCrouchIdle CrouchIdle = new PlayerCrouchIdle();
+    public PlayerCrouch Crouch = new PlayerCrouch();
 
 
     public PlayerInputManager inputManager;
@@ -19,6 +21,8 @@ public class PlayerStateManager : MonoBehaviour
         Idle,
         Walk,
         Run,
+        CrouchIdle,
+        Crouch,
         Look
     }
 
@@ -29,9 +33,11 @@ public class PlayerStateManager : MonoBehaviour
     [Header("STATS")]
     public float walkSpeed;
     public float runSpeed;
+    public float crouchSpeed;
 
     [Header("BOOLS")]
     public bool isRunning;
+    public bool isCrouching;
 
     private void Awake()
     {
