@@ -846,8 +846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  sensX: 100
-  sensY: 100
+  sensX: 300
+  sensY: 300
   rotationSpeed: 0.2
   playerBody: {fileID: 1055425154}
   targetRotationR: {x: 0, y: 0, z: -15}
@@ -855,6 +855,8 @@ MonoBehaviour:
   targetPositionR: {x: 0.6, y: 0.61, z: 0.451}
   targetPositionL: {x: -0.6, y: 0.61, z: 0.451}
   xRot: 0
+  lookInput: {x: 0, y: 0}
+  isLooking: 0
 --- !u!1 &1016182890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1057,8 @@ GameObject:
   - component: {fileID: 1055425154}
   - component: {fileID: 1055425155}
   - component: {fileID: 1055425156}
+  - component: {fileID: 1055425157}
+  - component: {fileID: 1055425158}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -1115,7 +1119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055425153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38731b9873b0ea047ad2b8f1eab662ed, type: 3}
   m_Name: 
@@ -1124,6 +1128,39 @@ MonoBehaviour:
     type: 3}
   walkSpeed: 2
   sprintSpeed: 8
+--- !u!114 &1055425157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055425153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0429624103183348bf97918ee066fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 0}
+  playerCam: {fileID: 0}
+  state: 0
+  walkSpeed: 2
+  runSpeed: 8
+--- !u!114 &1055425158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055425153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e45eb082052e3c4e82491435ae56186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
+    type: 3}
+  speed: 2
+  dirInput: {x: 0, y: 0, z: 0}
 --- !u!1 &1139056230
 GameObject:
   m_ObjectHideFlags: 0

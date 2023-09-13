@@ -23,13 +23,17 @@ public class PlayerCam : MonoBehaviour
     public float xRot;
 
 
-    Vector2 lookInput;
+    public Vector2 lookInput;
 
-    bool isLookingBack;
+    public bool isLooking;
+
+    PlayerStateManager playerStateManager;
+    PlayerInputManager playerInputManager;
 
     private void Awake()
     {
-     
+     playerStateManager = GetComponentInParent<PlayerStateManager>();
+        playerInputManager = GetComponentInParent<PlayerInputManager>();
     }
 
     private void OnEnable()
@@ -53,7 +57,7 @@ public class PlayerCam : MonoBehaviour
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
-        isLookingBack = true;
+        isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed, transform.localPosition, targetPositionR));
     }
 
@@ -67,7 +71,7 @@ public class PlayerCam : MonoBehaviour
     private void OnStartLookBackL(InputAction.CallbackContext ctx)
     {
         StopAllCoroutines();
-        isLookingBack = true;
+        isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed, transform.localPosition, targetPositionL));
     }
     private void OnStopLookBackL(InputAction.CallbackContext ctx)
@@ -87,8 +91,31 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Look on side
+        if (playerInputManager.dirInput == Vector3.zero)
+        {
+            //Rot & Pos to the RIGHT
+            targetRotationR = new Vector3(0f, 0f, -15f);
+            targetPositionR = new Vector3(.6f, .61f, .451f);
+
+            //Rot & Pos to the LEFT
+            targetRotationL = new Vector3(0f, 0f, 15f);
+            targetPositionL = new Vector3(-.6f, .61f,.451f);
+        }
+        //Look back
+        else
+        {
+            //Rot & Pos to the RIGHT
+            targetRotationR = new Vector3(0f, 130f, -5f);
+            targetPositionR = new Vector3(0f, .61f, .451f);
+
+            //Rot & Pos to the LEFT
+            targetRotationL = new Vector3(0f, -130f, 5f);
+            targetPositionL = new Vector3(0f, .61f, .451f);
+        }
+
         //Return si LookBack
-        if (isLookingBack) return;
+        if (isLooking) return;
         //get mouse input
         lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
         //Add mouse sensitivity
@@ -128,6 +155,6 @@ public class PlayerCam : MonoBehaviour
     IEnumerator EndLookBack()
     {
         yield return new WaitForSeconds(rotationSpeed);
-        isLookingBack = false;
+        isLooking = false;
     }
 }
