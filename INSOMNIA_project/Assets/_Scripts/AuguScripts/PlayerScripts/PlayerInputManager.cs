@@ -16,7 +16,7 @@ public class PlayerInputManager : MonoBehaviour
 
     Vector3 moveInput;
     public Vector3 dirInput;
-    
+
 
     private void OnEnable()
     {
@@ -39,7 +39,7 @@ public class PlayerInputManager : MonoBehaviour
         playerCam = GetComponentInParent<PlayerCam>();
     }
 
-    private void OnStartRun (InputAction.CallbackContext ctx)
+    private void OnStartRun(InputAction.CallbackContext ctx)
     {
         playerStateManager.isRunning = true;
     }
@@ -51,7 +51,7 @@ public class PlayerInputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -75,15 +75,17 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
         {
-            playerStateManager.isCrouching = true;
-            StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .2f, cam.transform.localPosition.z), .2f));
+            if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
+            {
+                playerStateManager.isCrouching = false;
+                StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .61f, cam.transform.localPosition.z), .2f));
+            }
+            else
+            {
+                playerStateManager.isCrouching = true;
+                StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .12f, cam.transform.localPosition.z), .2f));
+            }
         }
-
-
-        //if (!playerStateManager.isCrouching)
-        //{
-        //    StartCoroutine(LerpCameraToCrouch(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, .61f, cam.transform.localPosition.z), .2f));
-        //}
     }
 
     public IEnumerator LerpCameraToCrouch(Vector3 startPos, Vector3 endPos, float duration)
@@ -92,8 +94,8 @@ public class PlayerInputManager : MonoBehaviour
 
         while (t < duration)
         {
-            cam.transform.localPosition = Vector3.Lerp(startPos, endPos, t/duration);
-            t+= Time.deltaTime;
+            cam.transform.localPosition = Vector3.Lerp(startPos, endPos, t / duration);
+            t += Time.deltaTime;
 
             yield return null;
         }

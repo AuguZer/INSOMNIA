@@ -10,20 +10,21 @@ public class PlayerCrouchIdle : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        //TO CROUCH
         if (playerState.isCrouching && playerState.inputManager.dirInput != Vector3.zero)
         {
             playerState.TransitionToState(playerState.Crouch);
         }
-        if (playerState.inputManager.inputActions.FindAction("Crouch").WasPerformedThisFrame())
+
+        //TO IDLE
+        if (!playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero)
         {
             playerState.TransitionToState(playerState.Idle);
-            playerState.isCrouching = false;
         }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-        playerState.inputManager.LerpCameraToCrouch(playerState.inputManager.cam.transform.localPosition, new Vector3(playerState.inputManager.cam.transform.localPosition.x, .61f, playerState.inputManager.cam.transform.localPosition.z), .2f);
-        Debug.Log("out");
+ 
     }
 }

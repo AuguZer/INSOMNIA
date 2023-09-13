@@ -846,8 +846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  sensX: 300
-  sensY: 300
+  sensX: 200
+  sensY: 200
   rotationSpeed: 0.2
   playerBody: {fileID: 1055425154}
   targetRotationR: {x: 0, y: 0, z: -15}
