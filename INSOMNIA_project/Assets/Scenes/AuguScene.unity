@@ -1148,6 +1148,7 @@ MonoBehaviour:
   crouchSpeed: 1.5
   isRunning: 0
   isCrouching: 0
+  isCrawling: 0
 --- !u!114 &1055425158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,9 +1163,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
+  characterController: {fileID: 0}
   cam: {fileID: 961739749}
   speed: 3
   dirInput: {x: 0, y: 0, z: 0}
+  camYposNormal: 0.61
+  camYposCrouch: 0.12
+  camYposCrawl: -0.7
+  camRotationSpeed: 0.2
 --- !u!1 &1139056230
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerRun Run = new PlayerRun();
     public PlayerCrouchIdle CrouchIdle = new PlayerCrouchIdle();
     public PlayerCrouch Crouch = new PlayerCrouch();
+    public PlayerCrawlIdle CrawlIdle = new PlayerCrawlIdle();
+    public PlayerCrawl Crawl = new PlayerCrawl();
 
 
     public PlayerInputManager inputManager;
@@ -23,6 +25,8 @@ public class PlayerStateManager : MonoBehaviour
         Run,
         CrouchIdle,
         Crouch,
+        CrawlIdle,
+        Crawl,
         Look
     }
 
@@ -38,6 +42,7 @@ public class PlayerStateManager : MonoBehaviour
     [Header("BOOLS")]
     public bool isRunning;
     public bool isCrouching;
+    public bool isCrawling;
 
     private void Awake()
     {
@@ -57,6 +62,7 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         currentState.OnStateUpdate(this);
+
     }
 
     public void TransitionToState(PlayerBaseState nextState)

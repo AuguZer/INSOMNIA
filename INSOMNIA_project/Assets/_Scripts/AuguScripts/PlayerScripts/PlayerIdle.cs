@@ -28,6 +28,11 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrouchIdle);
         }
+        //TO CRAWLIDLE
+        if (playerState.isCrawling)
+        {
+            playerState.TransitionToState(playerState.CrawlIdle);
+        }
         //TO LOOK
         if (playerState.playerCam.isLooking)
         {
@@ -37,6 +42,6 @@ public class PlayerIdle : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-      
+
     }
 }
