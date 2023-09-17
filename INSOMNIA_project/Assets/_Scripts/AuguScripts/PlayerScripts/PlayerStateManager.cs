@@ -44,6 +44,9 @@ public class PlayerStateManager : MonoBehaviour
     public bool isCrouching;
     public bool isCrawling;
 
+
+    public int posNumber;
+
     private void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();

@@ -82,17 +82,26 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
         {
-            //CROUCH
-            playerStateManager.isCrouching = true;
-            StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrouch, cam.transform.localPosition.z), camSpeed));
-            //playerStateManager.isCrawling = false;
-
-
             //CROUCH TO STAND
             if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
             {
                 playerStateManager.isCrouching = false;
                 StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
+            }
+
+            else if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
+            {
+                playerStateManager.isCrawling = false;
+                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrouch, cam.transform.localPosition.z), camSpeed));
+            }
+            else
+            {
+                //CROUCH
+                if (playerStateManager.posNumber == 0)
+                {
+                    playerStateManager.isCrouching = true;
+                    StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrouch, cam.transform.localPosition.z), camSpeed));
+                }
             }
         }
     }
@@ -101,25 +110,38 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (inputActions.FindAction("Crawl").WasPerformedThisFrame())
         {
-            //CRAWL
-            playerStateManager.isCrawling = true;
-            StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrawl, cam.transform.localPosition.z), camSpeed));
-
-            playerStateManager.isCrouching = false;
-            Debug.Log("hold to crawl");
-            if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
+            if (playerStateManager.posNumber == 0)
             {
-                playerStateManager.isCrawling = false;
-                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
-            }
-
-            if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
-            {
+                playerStateManager.posNumber++;
+                playerStateManager.isCrawling = true;
+                //CRAWL
                 StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrawl, cam.transform.localPosition.z), camSpeed));
+
+            }
+
+            //CRAWL TO STAND
+            if (playerStateManager.posNumber > 0)
+            {
+                if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
+                {
+                    playerStateManager.isCrawling = false;
+                    playerStateManager.isCrouching = false;
+                    StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
+                }
+                if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
+                {
+                    if (!playerStateManager.isCrawling)
+                    {
+                        StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
+                    }
+                }
             }
 
 
-
+            //if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
+            //{
+            //    StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrawl, cam.transform.localPosition.z), camSpeed));
+            //}
         }
     }
 
@@ -141,11 +163,6 @@ public class PlayerInputManager : MonoBehaviour
     IEnumerator CrouchToCrawl()
     {
         yield return new WaitForSeconds(.5f);
-        if (!playerStateManager.isCrawling)
-        {
-            playerStateManager.isCrouching = false;
-            StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
-        }
 
 
     }

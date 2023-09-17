@@ -23,6 +23,12 @@ public class PlayerCrouchIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Idle);
         }
+
+        //TO CRAWLIDLE
+        if (playerState.isCrawling)
+        {
+            playerState.TransitionToState(playerState.CrawlIdle);
+        }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)
