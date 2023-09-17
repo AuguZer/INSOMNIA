@@ -95,11 +95,6 @@ public class PlayerInputManager : MonoBehaviour
                 StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
             }
         }
-
-
-        //if (inputActions.FindAction("Crouch").WasReleasedThisFrame() && !playerStateManager.isCrawling)
-        //{
-        //}
     }
 
     private void CrawlInput()
