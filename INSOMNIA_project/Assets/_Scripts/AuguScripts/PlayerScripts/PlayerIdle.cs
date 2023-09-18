@@ -9,8 +9,6 @@ public class PlayerIdle : PlayerBaseState
         playerState.state = PlayerStateManager.PlayerState.Idle;
         playerState.inputManager.characterController.height = 2;
         playerState.inputManager.characterController.center = Vector3.zero;
-        playerState.posNumber = 0;
-
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {

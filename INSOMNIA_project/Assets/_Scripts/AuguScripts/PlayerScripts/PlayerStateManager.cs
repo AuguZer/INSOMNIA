@@ -38,15 +38,12 @@ public class PlayerStateManager : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
     public float crouchSpeed;
+    public float crawlSpeed;
 
     [Header("BOOLS")]
     public bool isRunning;
     public bool isCrouching;
     public bool isCrawling;
-    public bool isStanding;
-
-
-    public int posNumber;
 
     private void Awake()
     {

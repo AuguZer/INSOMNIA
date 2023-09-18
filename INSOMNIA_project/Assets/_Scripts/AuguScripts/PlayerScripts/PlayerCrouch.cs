@@ -24,6 +24,11 @@ public class PlayerCrouch : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Walk);
         }
+        //TO CRAWL
+        if (playerState.isCrawling && playerState.inputManager.dirInput != Vector3.zero)
+        {
+            playerState.TransitionToState(playerState.Crawl);
+        }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

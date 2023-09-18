@@ -23,6 +23,12 @@ public class PlayerCrawlIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrouchIdle);
         }
+
+        //TO CRAWL
+        if (playerState.isCrawling && playerState.inputManager.dirInput != Vector3.zero)
+        {
+            playerState.TransitionToState(playerState.Crawl);
+        }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)
