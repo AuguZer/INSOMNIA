@@ -17,6 +17,12 @@ public class PlayerCrawlIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Idle);
         }
+
+        //TO CROUCH IDLE
+        if (playerState.isCrouching)
+        {
+            playerState.TransitionToState(playerState.CrouchIdle);
+        }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

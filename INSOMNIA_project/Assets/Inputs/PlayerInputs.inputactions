@@ -38,7 +38,7 @@
                     "id": "7b40e337-027b-41e1-996a-f8bae06ffba2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
@@ -65,7 +65,7 @@
                     "id": "cb70b824-c133-4d81-841b-0a02e5674ccf",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -316,7 +316,7 @@
                     "name": "",
                     "id": "a60aeac0-c15b-4f04-9169-6221dc526388",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
@@ -327,7 +327,7 @@
                     "name": "",
                     "id": "69f4c041-1103-44d6-bf94-c1e936307a38",
                     "path": "<Keyboard>/ctrl",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
@@ -397,6 +397,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crawl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerCrouch",
+            "id": "0d968fe7-52d5-4481-ad3f-7e57e4d289a8",
+            "actions": [
+                {
+                    "name": "CrouchToIdle",
+                    "type": "Button",
+                    "id": "e1c1520b-9e0e-4389-8ed1-514d30bd456b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "64dc5d91-ef5d-48bd-b9ca-8eccd74b4a7b",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CrouchToIdle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

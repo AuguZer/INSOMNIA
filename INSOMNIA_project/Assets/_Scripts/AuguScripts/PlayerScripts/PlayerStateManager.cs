@@ -43,6 +43,7 @@ public class PlayerStateManager : MonoBehaviour
     public bool isRunning;
     public bool isCrouching;
     public bool isCrawling;
+    public bool isStanding;
 
 
     public int posNumber;
