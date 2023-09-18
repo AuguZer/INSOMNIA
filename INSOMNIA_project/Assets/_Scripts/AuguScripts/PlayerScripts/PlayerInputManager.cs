@@ -97,10 +97,12 @@ public class PlayerInputManager : MonoBehaviour
         {
             playerStateManager.isCrouching = true;
             playerStateManager.isCrawling = false;
+            StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrouch, cam.transform.localPosition.z), camSpeed));
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
             {
                 playerStateManager.isCrouching = false;
+                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
             }
 
 
@@ -113,10 +115,12 @@ public class PlayerInputManager : MonoBehaviour
         {
             playerStateManager.isCrawling = true;
             playerStateManager.isCrouching = false;
+            StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrawl, cam.transform.localPosition.z), camSpeed));
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
             {
                 playerStateManager.isCrawling = false;
+                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, cam.transform.localPosition.z), camSpeed));
             }
         }
     }
