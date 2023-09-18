@@ -31,11 +31,11 @@ public class PlayerWalk : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Crawl);
         }
-        //TO LOOK
-        if (playerState.playerCam.isLooking)
-        {
-            playerState.TransitionToState(playerState.Look);
-        }
+        ////TO LOOK
+        //if (playerState.playerCam.isLooking)
+        //{
+        //    playerState.TransitionToState(playerState.Look);
+        //}
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

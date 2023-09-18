@@ -19,10 +19,10 @@ public class PlayerInputManager : MonoBehaviour
     public Vector3 dirInput;
 
     [Header("CAMERA POSITION & SPEED")]
-    [SerializeField] float camYposNormal = .61f;
-    [SerializeField] float camYposCrouch = .12f;
-    [SerializeField] float camYposCrawl = .05f;
-    [SerializeField] float camSpeed = .2f;
+    [SerializeField] public float camYposNormal = .61f;
+    [SerializeField] public float camYposCrouch = .12f;
+    [SerializeField] public float camYposCrawl = .05f;
+    [SerializeField] public float camSpeed = .2f;
 
 
     private void OnEnable()

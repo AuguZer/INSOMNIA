@@ -32,11 +32,11 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrawlIdle);
         }
-        //TO LOOK
-        if (playerState.playerCam.isLooking)
-        {
-            playerState.TransitionToState(playerState.Look);
-        }
+        ////TO LOOK
+        //if (playerState.playerCam.isLooking)
+        //{
+        //    playerState.TransitionToState(playerState.Look);
+        //}
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

@@ -10,6 +10,10 @@ public class PlayerLook : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        if (playerState.isCrouching) playerState.inputManager.speed = playerState.crouchSpeed;
+        if (playerState.isCrawling) playerState.inputManager.speed = playerState.crawlSpeed;
+        if (playerState.isRunning) playerState.inputManager.speed = playerState.runSpeed;
+
         //TO IDLE
         if (!playerState.playerCam.isLooking && playerState.inputManager.dirInput == Vector3.zero)
         {
@@ -24,6 +28,16 @@ public class PlayerLook : PlayerBaseState
         if (!playerState.playerCam.isLooking && playerState.isRunning)
         {
             playerState.TransitionToState(playerState.Run);
+        }
+        //TO CRCOUCH
+        if (!playerState.playerCam.isLooking && playerState.isCrouching)
+        {
+            playerState.TransitionToState(playerState.Crouch);
+        }
+        //TO CRAWL
+        if (!playerState.playerCam.isLooking && playerState.isCrawling)
+        {
+            playerState.TransitionToState(playerState.Crawl);
         }
     }
 

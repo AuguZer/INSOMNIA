@@ -1059,7 +1059,6 @@ GameObject:
   - component: {fileID: 1055425156}
   - component: {fileID: 1055425157}
   - component: {fileID: 1055425158}
-  - component: {fileID: 1055425159}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -1173,69 +1172,6 @@ MonoBehaviour:
   camYposCrouch: 0.12
   camYposCrawl: -0.7
   camSpeed: 0.2
---- !u!114 &1055425159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055425153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a0fa1335-8017-4813-b4c6-04f6a90ec216
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cccc5787-5e6e-457b-b998-3e9304b543de
-    m_ActionName: Player/Look[/Mouse/delta/up,/Mouse/delta/down,/Mouse/delta/left,/Mouse/delta/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 393b0f4a-7204-4366-ab95-5890103d8314
-    m_ActionName: Player/Run[/Keyboard/shift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7b40e337-027b-41e1-996a-f8bae06ffba2
-    m_ActionName: Player/Crouch[/Keyboard/ctrl]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f6893f94-df13-4484-8a78-ad1f8f959549
-    m_ActionName: Player/LookBackR[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 09fc2c87-df07-44c4-9c51-21657f7d188d
-    m_ActionName: Player/LookBackL[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cb70b824-c133-4d81-841b-0a02e5674ccf
-    m_ActionName: Player/Crawl[/Keyboard/ctrl]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e1c1520b-9e0e-4389-8ed1-514d30bd456b
-    m_ActionName: PlayerCrouch/CrouchToIdle[/Keyboard/ctrl]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1139056230
 GameObject:
   m_ObjectHideFlags: 0
