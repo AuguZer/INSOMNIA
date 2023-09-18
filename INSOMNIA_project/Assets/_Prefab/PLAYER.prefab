@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7207316340061104541}
   - component: {fileID: 4424088952924468627}
-  - component: {fileID: 9202153549290258022}
   - component: {fileID: 1975958765272266576}
   - component: {fileID: 3373168887280241369}
   m_Layer: 0
@@ -35,7 +34,7 @@ Transform:
   - {fileID: 8600993751151992138}
   - {fileID: 275927046200293898}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4424088952924468627
 CharacterController:
@@ -63,22 +62,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9202153549290258022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699773195466166027}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38731b9873b0ea047ad2b8f1eab662ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
-    type: 3}
-  walkSpeed: 2
-  sprintSpeed: 8
 --- !u!114 &1975958765272266576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,8 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  sensX: 200
-  sensY: 200
+  sensX: 300
+  sensY: 300
   rotationSpeed: 0.2
   playerBody: {fileID: 7207316340061104541}
   targetRotationR: {x: 0, y: 0, z: -15}
@@ -381,7 +364,6 @@ GameObject:
   - component: {fileID: 5329633657906759402}
   - component: {fileID: 3709972655420720479}
   - component: {fileID: 2409894678521253272}
-  - component: {fileID: 4027769752137241875}
   m_Layer: 0
   m_Name: EYES
   m_TagString: Untagged
@@ -454,24 +436,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4027769752137241875
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8494651834278684529}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

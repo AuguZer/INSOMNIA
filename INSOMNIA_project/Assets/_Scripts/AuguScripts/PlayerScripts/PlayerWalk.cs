@@ -8,6 +8,8 @@ public class PlayerWalk : PlayerBaseState
     {
         playerState.state = PlayerStateManager.PlayerState.Walk;
         playerState.inputManager.speed = playerState.walkSpeed;
+        playerState.inputManager.characterController.height = 2;
+        playerState.inputManager.characterController.center = Vector3.zero;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
