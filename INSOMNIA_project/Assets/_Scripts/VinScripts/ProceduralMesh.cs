@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class ProceduralMesh : MonoBehaviour
 {
+    public float yValue = 0;
+
     Mesh mesh;
 
     Vector3[] vertices;
@@ -16,7 +18,7 @@ public class ProceduralMesh : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
         MakeMeshData();
         CreateMesh();
@@ -24,9 +26,15 @@ public class ProceduralMesh : MonoBehaviour
 
     void MakeMeshData()
     {
-        vertices = new Vector3[] { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 1f), new Vector3(1f, 0f, 0f), new Vector3(1f, 0f, 1f) };
+        vertices = new Vector3[] { new Vector3(0f, yValue, 0f),
+                                    new Vector3(0f, 0f, 1f),
+                                    new Vector3(1f, 0f, 0f),
+                                    new Vector3(1f, 0f, 1f),
+                                    new Vector3(0, 0f, 1f),
+                                    new Vector3(1f, 0f, 0f)
+        };
 
-        triangles = new int[] { 0, 1, 2, 1, 3, 2 };
+        triangles = new int[] { 0, 1, 2, 3, 5, 4 };
 
         //Cube Data
         //Vector3 v0 = new Vector3(0f, 0f, 0f);
@@ -51,5 +59,7 @@ public class ProceduralMesh : MonoBehaviour
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+
+        mesh.RecalculateNormals();
     }
 }
