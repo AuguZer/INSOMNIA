@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-public class ProceduralCube : MonoBehaviour
+public class VoxelRender : MonoBehaviour
 {
     Mesh mesh;
     List<Vector3> vertices = new List<Vector3>();
@@ -12,29 +12,40 @@ public class ProceduralCube : MonoBehaviour
     public float scale = 1f;
     float adjScale;
 
-    public int posX;
-    public int posY;
-    public int posZ;
-
     private void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh;
+        adjScale = scale * .5f;
     }
 
-    private void Update()
+    private void Start()
     {
-        adjScale = scale * .5f;
-        MakeCube(adjScale, new Vector3(posX * scale, posY * scale, posZ * scale));
+        GenerateVoxelMesh(new VoxelData());
         UpdateMesh();
     }
 
-    void MakeCube(float cubeScale, Vector3 cubePos)
+    void GenerateVoxelMesh(VoxelData voxelData)
     {
         vertices.Clear();
         triangles.Clear();
 
+        for (int z = 0; z < voxelData.Depth; z++)
+        {
+            for(int x = 0; x < voxelData.Width; x++)
+            {
+                if(voxelData.GetCell(x, z) == 0)
+                {
+                    continue;
+                }
+                
+                MakeCube(adjScale, new Vector3(x * scale, 0, z * scale));
+            }
+        }
+    }
 
-        for(int i = 0; i < 6; i++)
+    void MakeCube(float cubeScale, Vector3 cubePos)
+    {
+        for (int i = 0; i < 6; i++)
         {
             MakeFace(i, cubeScale, cubePos);
         }

@@ -26,13 +26,13 @@ public static class CubeMeshData
         new int[] { 3, 2, 7, 6}
     };
 
-    public static Vector3[] faceVertices(int direction)
+    public static Vector3[] faceVertices(int direction, float scale, Vector3 position)
     {
         Vector3[] fv = new Vector3[4];
 
         for(int i = 0; i < fv.Length; i++)
         {
-            fv[i] = vertices[faceTriangles[direction][i]];
+            fv[i] = (vertices[faceTriangles[direction][i]] * scale) + position;
         }
 
         return fv;
