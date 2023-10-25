@@ -38,21 +38,24 @@ public class VoxelRender : MonoBehaviour
                     continue;
                 }
                 
-                MakeCube(adjScale, new Vector3(x * scale, 0, z * scale));
+                MakeCube(adjScale, new Vector3(x * scale, 0, z * scale), x, z, voxelData);
             }
         }
     }
 
-    void MakeCube(float cubeScale, Vector3 cubePos)
+    void MakeCube(float cubeScale, Vector3 cubePos, int x, int z, VoxelData voxelData)
     {
         for (int i = 0; i < 6; i++)
         {
-            MakeFace(i, cubeScale, cubePos);
+            if(voxelData.GetNeighbor(x, z, (Direction)i) == 0)
+            {
+                MakeFace((Direction)i, cubeScale, cubePos);
+            }
         }
 
     }
 
-    void MakeFace(int direction, float faceScale, Vector3 facePos)
+    void MakeFace(Direction direction, float faceScale, Vector3 facePos)
     {
         vertices.AddRange(CubeMeshData.faceVertices(direction, faceScale, facePos));
         int vCount = vertices.Count;

@@ -38,4 +38,9 @@ public static class CubeMeshData
         return fv;
     }
 
+    public static Vector3[] faceVertices(Direction direction, float scale, Vector3 position)
+    {
+        return faceVertices((int)direction, scale, position);
+    }
+
 }
