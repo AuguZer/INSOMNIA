@@ -390,9 +390,9 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
   grabArea: {fileID: 8732694326133758212}
-  grabRange: 3
+  grabRange: 2
   grabForce: 150
-  grabDrag: 5
+  grabDrag: 20
   leftButtonDown: 0
 --- !u!1 &6126315097861069944
 GameObject:

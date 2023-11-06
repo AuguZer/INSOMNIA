@@ -65,7 +65,12 @@ public class Grabber : MonoBehaviour
             {
                 //Move Object
                 MoveObject();
+                if (Vector3.Distance(heldObj.transform.position, grabArea.position) > 1f)
+                {
+                    DropObject();
+                }
             }
+
         }
         if (leftButtonDown == false)
         {
@@ -82,7 +87,7 @@ public class Grabber : MonoBehaviour
             heldObjRB = grabObj.GetComponent<Rigidbody>();
             heldObjRB.useGravity = false;
             heldObjRB.drag = grabDrag;
-            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+            heldObjRB.constraints = RigidbodyConstraints.FreezeRotationZ;
 
             heldObjRB.transform.parent = grabArea;
             heldObj = grabObj;
@@ -111,9 +116,4 @@ public class Grabber : MonoBehaviour
 
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(grabArea.position, .5f);
-    }
 }
