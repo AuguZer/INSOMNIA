@@ -15,6 +15,7 @@ public class Grabber : MonoBehaviour
     [Header("Physics Settings")]
     [SerializeField] float grabRange = 5f;
     [SerializeField] float grabForce = 150f;
+    [SerializeField] float grabDrag = 10f;
 
     [SerializeField] bool leftButtonDown;
     // Start is called before the first frame update
@@ -42,7 +43,7 @@ public class Grabber : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -54,24 +55,24 @@ public class Grabber : MonoBehaviour
             {
                 RaycastHit hit;
 
-                if(Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
+                if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
                 {
                     //Grab Object
                     GrabObject(hit.transform.gameObject);
                 }
             }
-            else
+            if (heldObj != null)
             {
-                //Drop Object
-                DropObject();
+                //Move Object
+                MoveObject();
             }
         }
-        if (heldObj != null)
+        if (leftButtonDown == false)
         {
-            //Move Object
-            MoveObject();
+            //Drop Object
+            DropObject();
         }
-     
+
     }
 
     private void GrabObject(GameObject grabObj)
@@ -80,7 +81,7 @@ public class Grabber : MonoBehaviour
         {
             heldObjRB = grabObj.GetComponent<Rigidbody>();
             heldObjRB.useGravity = false;
-            heldObjRB.drag = 10f;
+            heldObjRB.drag = grabDrag;
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
 
             heldObjRB.transform.parent = grabArea;
@@ -90,22 +91,24 @@ public class Grabber : MonoBehaviour
 
     private void DropObject()
     {
-            heldObjRB.useGravity = true;
-            heldObjRB.drag = 1f;
-            heldObjRB.constraints = RigidbodyConstraints.None;
+        if (heldObjRB == null) return;
 
-            heldObjRB.transform.parent = null;
-            heldObj = null; 
+        heldObjRB.useGravity = true;
+        heldObjRB.drag = 1f;
+        heldObjRB.constraints = RigidbodyConstraints.None;
+
+        heldObjRB.transform.parent = null;
+        heldObj = null;
     }
 
     private void MoveObject()
     {
-        if (Vector3.Distance(heldObj.transform.position, grabArea.position)> .1f)
+        if (Vector3.Distance(heldObj.transform.position, grabArea.position) > .1f)
         {
             Vector3 moveDirection = (grabArea.position - heldObj.transform.position);
             heldObjRB.AddForce(moveDirection * grabForce);
         }
-       
+
     }
 
     private void OnDrawGizmosSelected()
