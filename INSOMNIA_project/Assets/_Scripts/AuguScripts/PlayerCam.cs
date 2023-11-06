@@ -169,13 +169,13 @@ public class PlayerCam : MonoBehaviour
         float mouseX = lookInput.x * sensX * Time.deltaTime;
         float mouseY = lookInput.y * sensY * Time.deltaTime;
 
+        playerBody.Rotate(Vector3.up * mouseX);
         //Limit view on Y axis
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
         //Apply
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
 
  
 
