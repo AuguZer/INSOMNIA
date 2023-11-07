@@ -59,7 +59,7 @@ public class Grabber : MonoBehaviour
                 {
                     //Grab Object
                     GrabObject(hit.transform.gameObject);
-                    InteractWithDoor(hit.transform.gameObject);
+                  
                 }
             }
             if (heldObj != null)
@@ -79,11 +79,23 @@ public class Grabber : MonoBehaviour
             DropObject();
         }
 
+        if (inputActions.FindAction("Interact").WasPerformedThisFrame())
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
+            {
+               InteractWithDoor(hit.transform.gameObject);
+            }
+
+        }
+
+
     }
 
     private void InteractWithDoor(GameObject door)
     {
-        if (door.tag == "Door")
+        if (door.gameObject.tag == "Door")
         {
             if (!door.GetComponent<Door>().doorOpen)
             {
