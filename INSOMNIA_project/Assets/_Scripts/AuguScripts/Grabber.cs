@@ -72,7 +72,7 @@ public class Grabber : MonoBehaviour
             }
 
         }
-        if (leftButtonDown == false)
+        if (!leftButtonDown)
         {
             //Drop Object
             DropObject();
@@ -82,15 +82,18 @@ public class Grabber : MonoBehaviour
 
     private void GrabObject(GameObject grabObj)
     {
-        if (grabObj.GetComponent<Rigidbody>())
+        if (grabObj.tag == "PickUpObj")
         {
-            heldObjRB = grabObj.GetComponent<Rigidbody>();
-            heldObjRB.useGravity = false;
-            heldObjRB.drag = grabDrag;
-            heldObjRB.constraints = RigidbodyConstraints.FreezeRotationZ;
+            if (grabObj.GetComponent<Rigidbody>())
+            {
+                heldObjRB = grabObj.GetComponent<Rigidbody>();
+                heldObjRB.useGravity = false;
+                heldObjRB.drag = grabDrag;
+                heldObjRB.constraints = RigidbodyConstraints.FreezeRotationZ;
 
-            heldObjRB.transform.parent = grabArea;
-            heldObj = grabObj;
+                heldObjRB.transform.parent = grabArea;
+                heldObj = grabObj;
+            }
         }
     }
 
