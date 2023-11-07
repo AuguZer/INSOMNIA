@@ -59,6 +59,7 @@ public class Grabber : MonoBehaviour
                 {
                     //Grab Object
                     GrabObject(hit.transform.gameObject);
+                    InteractWithDoor(hit.transform.gameObject);
                 }
             }
             if (heldObj != null)
@@ -78,6 +79,21 @@ public class Grabber : MonoBehaviour
             DropObject();
         }
 
+    }
+
+    private void InteractWithDoor(GameObject door)
+    {
+        if (door.tag == "Door")
+        {
+            if (!door.GetComponent<Door>().doorOpen)
+            {
+                door.GetComponent<Door>().doorOpen = true;
+            }
+            else
+            {
+                door.GetComponent<Door>().doorOpen = false;
+            }
+        }
     }
 
     private void GrabObject(GameObject grabObj)

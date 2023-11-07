@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class Door : MonoBehaviour
+public class DoorBool : MonoBehaviour
 {
 
 
@@ -81,7 +81,7 @@ public class Door : MonoBehaviour
         foreach (var door in UseDoors)
         {
            
-            door.Door.GetComponent<Door>().MoveMyDoor();
+            door.Door.GetComponent<DoorBool>().MoveMyDoor();
 
         }
 

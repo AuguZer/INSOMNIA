@@ -22,7 +22,7 @@ public class DoorAction : MonoBehaviour {
                 if (hit.transform.tag == "door")
                 {
 
-                hit.transform.gameObject.GetComponent<Door>().ActionDoor();
+                hit.transform.gameObject.GetComponent<DoorBool>().ActionDoor();
 
 
                 }
