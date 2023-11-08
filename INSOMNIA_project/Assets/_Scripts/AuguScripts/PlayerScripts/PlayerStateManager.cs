@@ -45,10 +45,13 @@ public class PlayerStateManager : MonoBehaviour
     public bool isCrouching;
     public bool isCrawling;
 
+    public Rigidbody rb;
+
     private void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();
         playerCam = GetComponentInChildren<PlayerCam>();
+   
     }
 
     // Start is called before the first frame update

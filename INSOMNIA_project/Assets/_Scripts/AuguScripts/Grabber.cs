@@ -97,18 +97,24 @@ public class Grabber : MonoBehaviour
     {
         if (door.tag == "Door")
         {
-            if (!door.GetComponent<Animator>().enabled)
+            if(door.GetComponent<Door>() != null)
             {
-                door.GetComponent<Animator>().enabled = true;
+                door.GetComponent<Door>().ChangeDoorState();
             }
-            if (!door.GetComponent<Door>().doorOpen)
-            {
-                door.GetComponent<Door>().doorOpen = true;
-            }
-            else
-            {
-                door.GetComponent<Door>().doorOpen = false;
-            }
+            #region
+            //if (door.GetComponent<Animator>())
+            //{
+            //    door.GetComponent<Animator>().speed = 1f;
+            //}
+            //if (!door.GetComponent<AnimDoor>().doorOpen)
+            //{
+            //    door.GetComponent<AnimDoor>().doorOpen = true;
+            //}
+            //else
+            //{
+            //    door.GetComponent<AnimDoor>().doorOpen = false;
+            //}
+            #endregion
         }
     }
 

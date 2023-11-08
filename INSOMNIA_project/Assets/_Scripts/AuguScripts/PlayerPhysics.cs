@@ -7,10 +7,17 @@ public class PlayerPhysics : MonoBehaviour
 {
     [SerializeField] float detectionRadius = 2f;
     [SerializeField] LayerMask doorMask;
+
+    [SerializeField]
+    Collider[] colliders;
+
+    [SerializeField] bool collideWithDoor;
+
+    Grabber grabber;
     // Start is called before the first frame update
     void Start()
     {
-
+        grabber = GetComponent<Grabber>();
     }
 
     // Update is called once per frame
@@ -21,16 +28,12 @@ public class PlayerPhysics : MonoBehaviour
 
     private void DetectDoors()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
-        
+        colliders = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
+
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject.GetComponent<Animator>().enabled)
-            {
-                collider.gameObject.GetComponent<Animator>().enabled = false;
-            }
+          
         }
-      
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
