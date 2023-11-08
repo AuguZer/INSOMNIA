@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +98,7 @@ public class Grabber : MonoBehaviour
     {
         if (door.tag == "Door")
         {
-            if(door.GetComponent<Door>() != null)
+            if (door.GetComponent<Door>() != null)
             {
                 door.GetComponent<Door>().ChangeDoorState();
             }
@@ -154,7 +155,6 @@ public class Grabber : MonoBehaviour
             Vector3 moveDirection = (grabArea.position - heldObj.transform.position);
             heldObjRB.AddForce(moveDirection * grabForce);
         }
-
     }
 
 }
