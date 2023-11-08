@@ -906,6 +906,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2201040212095817804, guid: 05c107f79ba01b941b118059c09a1fa6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334571173435225761, guid: 05c107f79ba01b941b118059c09a1fa6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094075923887516688, guid: 05c107f79ba01b941b118059c09a1fa6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6340741763144382116, guid: 05c107f79ba01b941b118059c09a1fa6,
         type: 3}
       propertyPath: m_RootOrder
@@ -965,6 +980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AnimatedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287944042997814672, guid: 05c107f79ba01b941b118059c09a1fa6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1180,6 +1200,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 782639836160466952, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: detectionRadius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 782639836160466952, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: doorMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 3699773195466166027, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_Name

@@ -19,4 +19,5 @@ public class Door : MonoBehaviour
         animator.SetBool("Open", doorOpen);
     }
 
+
 }

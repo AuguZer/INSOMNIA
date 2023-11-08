@@ -59,7 +59,7 @@ public class Grabber : MonoBehaviour
                 {
                     //Grab Object
                     GrabObject(hit.transform.gameObject);
-                  
+
                 }
             }
             if (heldObj != null)
@@ -85,7 +85,7 @@ public class Grabber : MonoBehaviour
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
-               InteractWithDoor(hit.transform.gameObject);
+                InteractWithDoor(hit.transform.gameObject);
             }
 
         }
@@ -95,8 +95,12 @@ public class Grabber : MonoBehaviour
 
     private void InteractWithDoor(GameObject door)
     {
-        if (door.gameObject.tag == "Door")
+        if (door.tag == "Door")
         {
+            if (!door.GetComponent<Animator>().enabled)
+            {
+                door.GetComponent<Animator>().enabled = true;
+            }
             if (!door.GetComponent<Door>().doorOpen)
             {
                 door.GetComponent<Door>().doorOpen = true;
