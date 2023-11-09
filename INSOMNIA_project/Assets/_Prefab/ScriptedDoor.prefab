@@ -319,6 +319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  canRotate: 1
+  openRot: 0
+  closeRot: 0
   openAngle: 92
   closeAngle: 0
   smooth: 2
+  detectionRadius: 0.5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  doorGraphics: {fileID: 3275928327131397894}

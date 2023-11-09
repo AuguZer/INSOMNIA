@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2884636947720711100}
   - component: {fileID: 7369395289537308053}
   - component: {fileID: 8105578533681797315}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1975958765272266576}
   - component: {fileID: 3373168887280241369}
   - component: {fileID: 782639836160466952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PLAYER
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 2114708226977600247}
   - component: {fileID: 3487263153835096248}
   - component: {fileID: 7510722811675036224}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 7063951600167280955}
   - component: {fileID: 1215741512302896744}
   - component: {fileID: 1909557698861846554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5680671379141856385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 0.451}
+  m_LocalPosition: {x: -0.014, y: 0.61, z: 0.231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 8600993751151992138}
   - component: {fileID: 4602707669811848999}
   - component: {fileID: 5249979055070384417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8732694326133758212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrabArea
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 5329633657906759402}
   - component: {fileID: 3709972655420720479}
   - component: {fileID: 2409894678521253272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EYES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
