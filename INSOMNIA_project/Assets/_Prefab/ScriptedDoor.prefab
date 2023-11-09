@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8342406007711172022}
   - component: {fileID: 4609183857498274030}
   - component: {fileID: 8673350684379450103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1310037985324280291}
   - component: {fileID: 2828310152950716360}
   - component: {fileID: 708447253279403193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GRAPHICS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7759342210687925411}
   - component: {fileID: 899198305440010333}
   - component: {fileID: 3558331480254444661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 2508281751418632301}
   - component: {fileID: 3597386857500498778}
   - component: {fileID: 4585455930124404976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScriptedDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
