@@ -34,8 +34,7 @@ public class Door : MonoBehaviour
         //CollisionWithPlayer();
         Debug.Log(CollisionWithPlayer());
         canRotate = CollisionWithPlayer() ? false : true;
-        canRotate = closeRot ? true: false;
-        canRotate = openRot ? true: false;
+
 
         if (open && canRotate)
         {
@@ -62,15 +61,18 @@ public class Door : MonoBehaviour
         }
 
     }
-    
+
     private bool CollisionWithPlayer()
     {
         Collider[] colliders = Physics.OverlapSphere(doorGraphics.transform.position, detectionRadius, playerMask);
 
-        if (colliders.Length > 0) 
+        if (colliders.Length > 0)
         {
-            initialRotation = transform.localRotation;
-            return true;
+            if (!openRot && !closeRot)
+            {
+                initialRotation = transform.localRotation;
+                return true;
+            }
         }
         return false;
     }
