@@ -6,9 +6,6 @@ using static PlayerStateManager;
 public class Door : MonoBehaviour
 {
     [SerializeField] bool open = false;
-    [SerializeField] bool canRotate = true;
-    [SerializeField] public bool openRot;
-    [SerializeField] public bool closeRot;
     [SerializeField] float openAngle = -90f;
     [SerializeField] float closeAngle = 0f;
     [SerializeField] float smooth = 2f;
@@ -60,18 +57,15 @@ public class Door : MonoBehaviour
     {
         OnStateUpdate();
         //Debug.Log(CollisionWithPlayer());
-        canRotate = CollisionWithPlayer() ? false : true;
 
 
         if (open && doorState != DoorState.STOPPED/* && canRotate*/)
         {
-            closeRot = false;
             Quaternion targetRotation = Quaternion.Euler(0, openAngle, 0);
             transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
         }
         else if (!open && doorState != DoorState.STOPPED/*&& canRotate*/)
         {
-            openRot = false;
             Quaternion targetRotation1 = Quaternion.Euler(0, closeAngle, 0);
             transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation1, smooth * Time.deltaTime);
         }
