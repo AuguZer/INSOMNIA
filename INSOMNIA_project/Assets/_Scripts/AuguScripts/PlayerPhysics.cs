@@ -30,18 +30,33 @@ public class PlayerPhysics : MonoBehaviour
     {
         colliders = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
 
-        foreach (Collider collider in colliders)
+        if (colliders.Length > 0 )
         {
-          
+            foreach (Collider collider in colliders)
+            {
+                Animator animator = collider.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                    if (stateInfo.IsName("OpenDoor") || stateInfo.IsName("CloseDoor"))
+                    {
+                        animator.speed = 0f;
+                    }
+                }
+            }
         }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.rigidbody != null)
+        //if (hit.rigidbody != null)
+        //{
+        //    hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+        //    hit.rigidbody.AddForce(Vector3.forward);
+        //}
+        if (hit.gameObject.tag == "Door")
         {
-            hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-            hit.rigidbody.AddForce(Vector3.forward);
+            Debug.Log("Player hit door");
         }
     }
 
