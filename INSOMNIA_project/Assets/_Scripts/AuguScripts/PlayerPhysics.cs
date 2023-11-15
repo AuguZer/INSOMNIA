@@ -54,10 +54,6 @@ public class PlayerPhysics : MonoBehaviour
         //    hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         //    hit.rigidbody.AddForce(Vector3.forward);
         //}
-        if (hit.gameObject.tag == "Door")
-        {
-            Debug.Log("Player hit door");
-        }
     }
 
     private void OnDrawGizmosSelected()
