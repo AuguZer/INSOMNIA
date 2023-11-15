@@ -18,7 +18,7 @@ public class PlayerCam : MonoBehaviour
     public Vector3 targetPositionR;
     public Vector3 targetPositionL;
 
-    float xRotation;
+    float xRotation = 0f;
 
     public float xRot;
 
@@ -32,8 +32,8 @@ public class PlayerCam : MonoBehaviour
 
     private void Awake()
     {
-     playerStateManager = GetComponentInParent<PlayerStateManager>();
-     playerInputManager = GetComponentInParent<PlayerInputManager>();
+        playerStateManager = GetComponentInParent<PlayerStateManager>();
+        playerInputManager = GetComponentInParent<PlayerInputManager>();
     }
 
     private void OnEnable()
@@ -91,6 +91,22 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Return si LookBack
+        if (isLooking) return;
+        //get mouse input
+        lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
+        //Add mouse sensitivity
+        float mouseX = lookInput.x * sensX * Time.deltaTime;
+        float mouseY = lookInput.y * sensY * Time.deltaTime;
+
+        //Limit view on Y axis
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        //Apply
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        playerBody.Rotate(Vector3.up * mouseX);
+
         if (playerInputManager.dirInput == Vector3.zero)
         {
             //Rot & Pos to the RIGHT
@@ -99,7 +115,7 @@ public class PlayerCam : MonoBehaviour
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, 0f, 15f);
-            targetPositionL = new Vector3(-.6f, playerInputManager.camYposNormal,.451f);
+            targetPositionL = new Vector3(-.6f, playerInputManager.camYposNormal, .451f);
         }
         //Look back
         else
@@ -145,7 +161,7 @@ public class PlayerCam : MonoBehaviour
             targetRotationL = new Vector3(0f, 0f, 15f);
             targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrawl, .451f);
         }
-        
+
         if (playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
         {
             //Rot & Pos to the RIGHT
@@ -156,29 +172,6 @@ public class PlayerCam : MonoBehaviour
             targetRotationL = new Vector3(0f, -130f, 5f);
             targetPositionL = new Vector3(0f, playerInputManager.camYposCrawl, .451f);
         }
-
-
-
-
-
-            //Return si LookBack
-        if (isLooking) return;
-        //get mouse input
-        lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
-        //Add mouse sensitivity
-        float mouseX = lookInput.x * sensX * Time.deltaTime;
-        float mouseY = lookInput.y * sensY * Time.deltaTime;
-
-        playerBody.Rotate(Vector3.up * mouseX);
-        //Limit view on Y axis
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-
-        //Apply
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
- 
-
     }
 
 
