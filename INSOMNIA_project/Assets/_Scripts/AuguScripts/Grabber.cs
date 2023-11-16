@@ -146,6 +146,11 @@ public class Grabber : MonoBehaviour
                 heldObj = grabObj;
             }
         }
+
+        if(grabObj.tag == "Key")
+        {
+            grabObj.transform.parent = this.transform;
+        }
     }
 
     private void DropObject()
