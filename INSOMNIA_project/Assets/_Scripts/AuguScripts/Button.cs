@@ -23,7 +23,6 @@ public class Button : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<PickUpObject>().isHeld == false)
             {
-                Debug.Log("Descendre button");
                 Vector3 targetPosition = new Vector3(transform.position.x, .85f, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, targetPosition, smooth * Time.deltaTime);
             }
