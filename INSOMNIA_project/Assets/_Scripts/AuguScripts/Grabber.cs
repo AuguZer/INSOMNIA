@@ -102,18 +102,25 @@ public class Grabber : MonoBehaviour
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
             if (doorAnimator != null)
             {
-                if (!animDoor.doorOpen)
+                if (animDoor.keyNumber == 0)
                 {
-                    if (doorAnimator.speed != 0f)
+                    doorAnimator.SetTrigger("Locked");
+                }
+                if (animDoor.keyNumber == 1)
+                {
+                    if (!animDoor.doorOpen)
                     {
-                        animDoor.doorOpen = true;
+                        if (doorAnimator.speed != 0f)
+                        {
+                            animDoor.doorOpen = true;
+                        }
                     }
+                    else if (doorAnimator.speed != 0f)
+                    {
+                        animDoor.doorOpen = false;
+                    }
+                    doorAnimator.speed = 1f;
                 }
-                else if (doorAnimator.speed != 0f)
-                {
-                    animDoor.doorOpen = false;
-                }
-                doorAnimator.speed = 1f;
             }
             #region
             if (door.GetComponent<Door>() != null)
