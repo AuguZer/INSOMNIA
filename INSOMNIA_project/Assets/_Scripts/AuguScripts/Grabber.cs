@@ -19,6 +19,13 @@ public class Grabber : MonoBehaviour
     [SerializeField] float grabDrag = 10f;
 
     [SerializeField] bool leftButtonDown;
+
+    PlayerInventory playerInventory;
+
+    private void Awake()
+    {
+        playerInventory = GetComponentInParent<PlayerInventory>();
+    }
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -102,6 +109,11 @@ public class Grabber : MonoBehaviour
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
             if (doorAnimator != null)
             {
+                if(playerInventory.keyOwned > 0)
+                {
+                    animDoor.keyNumber = 1;
+                    playerInventory.keyOwned = 0;
+                }
                 if (animDoor.keyNumber == 0)
                 {
                     doorAnimator.SetTrigger("Locked");
@@ -149,7 +161,8 @@ public class Grabber : MonoBehaviour
 
         if(grabObj.tag == "Key")
         {
-            grabObj.transform.parent = this.transform;
+            Destroy(grabObj);
+            playerInventory.keyOwned++;
         }
     }
 

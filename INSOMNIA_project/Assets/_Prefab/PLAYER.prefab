@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 1975958765272266576}
   - component: {fileID: 3373168887280241369}
   - component: {fileID: 782639836160466952}
+  - component: {fileID: 7578985183779428605}
   m_Layer: 8
   m_Name: PLAYER
   m_TagString: Player
@@ -229,6 +230,19 @@ MonoBehaviour:
     m_Bits: 128
   colliders: []
   collideWithDoor: 0
+--- !u!114 &7578985183779428605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699773195466166027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95592bbc0671d64e975fbe5da1d79fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyOwned: 0
 --- !u!1 &4704630948996583480
 GameObject:
   m_ObjectHideFlags: 0
