@@ -479,14 +479,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  sensX: 300
-  sensY: 300
+  sensX: 500
+  sensY: 500
   rotationSpeed: 0.2
   playerBody: {fileID: 7207316340061104541}
   targetRotationR: {x: 0, y: 0, z: -15}
   targetRotationL: {x: 0, y: 0, z: 15}
   targetPositionR: {x: 0.6, y: 0.61, z: 0.451}
   targetPositionL: {x: -0.6, y: 0.61, z: 0.451}
+  gamePadOn: 0
   xRot: 0
   lookInput: {x: 0, y: 0}
   isLooking: 0
