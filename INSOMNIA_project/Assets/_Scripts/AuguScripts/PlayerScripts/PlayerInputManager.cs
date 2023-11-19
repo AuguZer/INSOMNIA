@@ -70,6 +70,8 @@ public class PlayerInputManager : MonoBehaviour
 
         Vector3 move = transform.right * dirInput.x + transform.forward * dirInput.z;
 
+        Debug.Log(dirInput);    
+
         characterController.Move(move.normalized * speed * Time.deltaTime);
     }
 
