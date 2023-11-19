@@ -5,12 +5,14 @@ using UnityEngine;
 public class AnimatorManager : MonoBehaviour
 {
     PlayerInputManager playerInputManager;
+    PlayerStateManager playerStateManager;
     Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         playerInputManager = GetComponentInParent<PlayerInputManager>();
+        playerStateManager = GetComponentInParent<PlayerStateManager>();
         animator = GetComponentInParent<Animator>();
     }
 
@@ -31,6 +33,15 @@ public class AnimatorManager : MonoBehaviour
         {
             animator.SetBool("WalkFoward", false);
             animator.SetBool("WalkBackward", true);
+        }
+
+        if (playerStateManager.state == PlayerStateManager.PlayerState.Run)
+        {
+            animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
         }
 
 

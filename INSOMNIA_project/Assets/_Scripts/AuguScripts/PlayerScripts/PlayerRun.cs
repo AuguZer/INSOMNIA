@@ -14,7 +14,7 @@ public class PlayerRun : PlayerBaseState
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
         //TO IDLE
-        if (!playerState.isRunning && playerState.inputManager.dirInput == Vector3.zero)
+        if (/*!playerState.isRunning &&*/ playerState.inputManager.dirInput == Vector3.zero)
         {
             playerState.TransitionToState(playerState.Idle);
         }
