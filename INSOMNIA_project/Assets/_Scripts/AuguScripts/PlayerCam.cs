@@ -11,6 +11,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float sensX = 200f;
     [SerializeField] float sensY = 200f;
     [SerializeField] float rotationSpeed = 5f;
+    [SerializeField] float maxLookDown = 72f;
+    [SerializeField] float maxLookUp =-80f;
 
     public Transform playerBody;
     public Vector3 targetRotationR;
@@ -144,7 +146,7 @@ public class PlayerCam : MonoBehaviour
 
         //Limit view on Y axis
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 72f);
+        xRotation = Mathf.Clamp(xRotation, maxLookUp, maxLookDown);
         //Apply
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
