@@ -18,6 +18,7 @@ public class PlayerCam : MonoBehaviour
     public Vector3 targetPositionR;
     public Vector3 targetPositionL;
 
+    [SerializeField] bool gamePadOn;
     float xRotation = 0f;
 
     public float xRot;
@@ -43,6 +44,8 @@ public class PlayerCam : MonoBehaviour
         inputActions.FindAction("LookBackR").canceled += OnStopLookBackR;
         inputActions.FindAction("LookBackL").started += OnStartLookBackL;
         inputActions.FindAction("LookBackL").canceled += OnStopLookBackL;
+
+        InputSystem.onDeviceChange += OnDeviceChange;
     }
 
     private void OnDisable()
@@ -52,6 +55,8 @@ public class PlayerCam : MonoBehaviour
         inputActions.FindAction("LookBackR").canceled -= OnStopLookBackR;
         inputActions.FindAction("LookBackL").started -= OnStartLookBackL;
         inputActions.FindAction("LookBackL").canceled -= OnStopLookBackL;
+
+        InputSystem.onDeviceChange -= OnDeviceChange;
     }
 
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
@@ -84,8 +89,40 @@ public class PlayerCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var devices = InputSystem.devices;
+
+        foreach (var device in devices)
+        {
+            if (device is Gamepad)
+            {
+                Debug.Log("Manette déjà branchée");
+                gamePadOn = true;
+            }
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void OnDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+        if (change == InputDeviceChange.Added)
+        {
+            if (device is Gamepad)
+            {
+                Debug.Log("Manette branchée : " + device.displayName);
+                gamePadOn = true;
+            }
+        }
+        else if (change == InputDeviceChange.Removed)
+        {
+            if (device is Gamepad)
+            {
+                Debug.Log("Manette débranchée : " + device.displayName);
+                gamePadOn = false;
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -94,10 +131,16 @@ public class PlayerCam : MonoBehaviour
         //Return si LookBack
         if (isLooking) return;
         //get mouse input
-        //lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
         //Add mouse sensitivity
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
+
+        if (gamePadOn)
+        {
+            lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
+            mouseX = lookInput.x * sensX * Time.deltaTime;
+            mouseY = lookInput.y * sensY * Time.deltaTime;
+        }
 
         //Limit view on Y axis
         xRotation -= mouseY;
