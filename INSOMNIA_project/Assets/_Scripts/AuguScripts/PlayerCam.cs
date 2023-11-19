@@ -144,7 +144,7 @@ public class PlayerCam : MonoBehaviour
 
         //Limit view on Y axis
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        xRotation = Mathf.Clamp(xRotation, -80f, 72f);
         //Apply
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
