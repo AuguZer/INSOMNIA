@@ -8,8 +8,9 @@ public class PlayerRun : PlayerBaseState
     {
         playerState.state = PlayerStateManager.PlayerState.Run;
         playerState.inputManager.speed = playerState.runSpeed;
-        playerState.inputManager.characterController.height = 2;
-        playerState.inputManager.characterController.center = Vector3.zero;
+        playerState.inputManager.characterController.height = 1.7f;
+        Vector3 charcterControllerCenter = new Vector3(0f, -.15f, 0f);
+        playerState.inputManager.characterController.center = charcterControllerCenter;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
