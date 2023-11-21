@@ -19,6 +19,11 @@ public class AnimatorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("IsCrouching", playerStateManager.isCrouching);
+        animator.SetBool("IsCrawling", playerStateManager.isCrawling);
+
+
+
         #region "Foward/Backward"
         if (playerInputManager.dirInput.z == 0) 
         {
