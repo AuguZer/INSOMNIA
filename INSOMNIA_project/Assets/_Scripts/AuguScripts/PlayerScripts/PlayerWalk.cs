@@ -16,7 +16,11 @@ public class PlayerWalk : PlayerBaseState
     {
         if (playerState.inputManager.dirInput.z <= 0f)
         {
-            playerState.inputManager.speed = playerState.walkSpeed/playerState.backwardDivider;
+            playerState.inputManager.speed = playerState.walkSpeed / playerState.backwardDivider;
+        }
+        else
+        {
+            playerState.inputManager.speed = playerState.walkSpeed;
         }
         //TO IDLE
         if (playerState.inputManager.dirInput == Vector3.zero)

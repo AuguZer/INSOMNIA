@@ -17,6 +17,10 @@ public class PlayerCrawl : PlayerBaseState
         {
             playerState.inputManager.speed = playerState.crawlSpeed / playerState.backwardDivider;
         }
+        else
+        {
+            playerState.inputManager.speed = playerState.crawlSpeed;
+        }
         //TO CRAWL IDLE
         if (playerState.isCrawling && playerState.inputManager.dirInput == Vector3.zero)
         {

@@ -186,6 +186,7 @@ MonoBehaviour:
   runSpeed: 8
   crouchSpeed: 1.5
   crawlSpeed: 0.6
+  backwardDivider: 1.5
   isRunning: 0
   isCrouching: 0
   isCrawling: 0

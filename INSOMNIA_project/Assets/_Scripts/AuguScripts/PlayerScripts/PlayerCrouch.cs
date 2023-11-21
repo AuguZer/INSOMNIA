@@ -18,6 +18,10 @@ public class PlayerCrouch : PlayerBaseState
         {
             playerState.inputManager.speed = playerState.crouchSpeed / playerState.backwardDivider;
         }
+        else
+        {
+            playerState.inputManager.speed = playerState.crouchSpeed;
+        }
         //TO CROUCHIDLE
         if (playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero)
         {
