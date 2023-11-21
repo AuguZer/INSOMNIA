@@ -183,7 +183,7 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   state: 0
   walkSpeed: 2
-  runSpeed: 8
+  runSpeed: 6
   crouchSpeed: 1.5
   crawlSpeed: 0.6
   backwardDivider: 1.5
