@@ -13,6 +13,10 @@ public class PlayerCrawl : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        if (playerState.inputManager.dirInput.z <= 0f)
+        {
+            playerState.inputManager.speed = playerState.crawlSpeed / playerState.backwardDivider;
+        }
         //TO CRAWL IDLE
         if (playerState.isCrawling && playerState.inputManager.dirInput == Vector3.zero)
         {

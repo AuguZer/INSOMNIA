@@ -14,6 +14,14 @@ public class PlayerRun : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        if (playerState.inputManager.dirInput.z <= 0f)
+        {
+            playerState.inputManager.speed = playerState.runSpeed / playerState.backwardDivider;
+        }
+        else
+        {
+            playerState.inputManager.speed = playerState.runSpeed;
+        }
         //TO IDLE
         if (/*!playerState.isRunning &&*/ playerState.inputManager.dirInput == Vector3.zero)
         {

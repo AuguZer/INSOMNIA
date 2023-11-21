@@ -39,6 +39,7 @@ public class PlayerStateManager : MonoBehaviour
     public float runSpeed;
     public float crouchSpeed;
     public float crawlSpeed;
+    public float backwardDivider;
 
     [Header("BOOLS")]
     public bool isRunning;

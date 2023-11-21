@@ -19,8 +19,8 @@ public class AnimatorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        if(playerInputManager.dirInput.z == 0) 
+        #region "Foward/Backward"
+        if (playerInputManager.dirInput.z == 0) 
         {
             animator.SetBool("WalkFoward", false);
             animator.SetBool("WalkBackward", false);
@@ -35,7 +35,9 @@ public class AnimatorManager : MonoBehaviour
             animator.SetBool("WalkFoward", false);
             animator.SetBool("WalkBackward", true);
         }
+        #endregion
 
+        #region "Strafe Right/Left"
         if (playerInputManager.dirInput.x == 0)
         {
             animator.speed = 1f;
@@ -54,11 +56,7 @@ public class AnimatorManager : MonoBehaviour
             animator.SetBool("StrafeRight", false);
             animator.SetBool("StrafeLeft", true);
         }
-
-
-
-
-
+        #endregion
 
         //RUN
         if (playerStateManager.state == PlayerStateManager.PlayerState.Run)
@@ -66,6 +64,7 @@ public class AnimatorManager : MonoBehaviour
             animator.speed = 1f;
             animator.SetBool("IsRunning", true);
 
+            if (playerInputManager.dirInput.z < 0) return;
 
             if (playerInputManager.dirInput.x == 0)
             {

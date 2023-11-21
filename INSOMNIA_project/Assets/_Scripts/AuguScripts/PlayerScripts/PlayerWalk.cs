@@ -14,6 +14,10 @@ public class PlayerWalk : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        if (playerState.inputManager.dirInput.z <= 0f)
+        {
+            playerState.inputManager.speed = playerState.walkSpeed/playerState.backwardDivider;
+        }
         //TO IDLE
         if (playerState.inputManager.dirInput == Vector3.zero)
         {

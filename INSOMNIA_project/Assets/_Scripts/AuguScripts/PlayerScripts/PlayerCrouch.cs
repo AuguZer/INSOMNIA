@@ -14,6 +14,10 @@ public class PlayerCrouch : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
+        if (playerState.inputManager.dirInput.z <= 0f)
+        {
+            playerState.inputManager.speed = playerState.crouchSpeed / playerState.backwardDivider;
+        }
         //TO CROUCHIDLE
         if (playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero)
         {
