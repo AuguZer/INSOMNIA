@@ -63,11 +63,33 @@ public class AnimatorManager : MonoBehaviour
         //RUN
         if (playerStateManager.state == PlayerStateManager.PlayerState.Run)
         {
+            animator.speed = 1f;
             animator.SetBool("IsRunning", true);
+
+
+            if (playerInputManager.dirInput.x == 0)
+            {
+                animator.SetBool("RunStrafeRight", false);
+                animator.SetBool("RunStrafeLeft", false);
+            }
+            if (playerInputManager.dirInput.x > 0)
+            {
+            
+                animator.SetBool("RunStrafeRight", true);
+                animator.SetBool("RunStrafeLeft", false);
+            }
+            if (playerInputManager.dirInput.x < 0)
+            {
+               
+                animator.SetBool("RunStrafeRight", false);
+                animator.SetBool("RunStrafeLeft", true);
+            }
         }
         else
         {
             animator.SetBool("IsRunning", false);
+            animator.SetBool("RunStrafeRight", false);
+            animator.SetBool("RunStrafeLeft", false);
         }
 
 
