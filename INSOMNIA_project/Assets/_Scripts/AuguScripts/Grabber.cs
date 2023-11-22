@@ -90,6 +90,7 @@ public class Grabber : MonoBehaviour
         if (inputActions.FindAction("Interact").WasPerformedThisFrame())
         {
             RaycastHit hit;
+           
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
