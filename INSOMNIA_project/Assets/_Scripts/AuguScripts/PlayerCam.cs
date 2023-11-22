@@ -167,13 +167,14 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(0f, playerInputManager.camYposNormal, .2f);
+            targetPositionR = new Vector3(.3f, playerInputManager.camYposNormal, .2f);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(0f, playerInputManager.camYposNormal, .2f);
+            targetPositionL = new Vector3(-.3f, playerInputManager.camYposNormal, .2f);
         }
 
+        //CROUCH IDLE
         if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle)
         {
             //Rot & Pos to the RIGHT
@@ -185,6 +186,7 @@ public class PlayerCam : MonoBehaviour
             targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrouch, .2f);
         }
 
+        //CROUCH
         if (playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
         {
             //Rot & Pos to the RIGHT
@@ -196,6 +198,7 @@ public class PlayerCam : MonoBehaviour
             targetPositionL = new Vector3(0f, playerInputManager.camYposCrouch, .2f);
         }
 
+        //CRAWL IDLE
         if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
         {
             //Rot & Pos to the RIGHT
@@ -207,6 +210,7 @@ public class PlayerCam : MonoBehaviour
             targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrawl, .2f);
         }
 
+        //CRAWL
         if (playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
         {
             //Rot & Pos to the RIGHT
