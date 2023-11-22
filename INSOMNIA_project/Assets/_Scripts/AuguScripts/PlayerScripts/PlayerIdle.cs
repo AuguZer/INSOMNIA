@@ -7,10 +7,10 @@ public class PlayerIdle : PlayerBaseState
     public override void OnStateEnter(PlayerStateManager playerState)
     {
         playerState.state = PlayerStateManager.PlayerState.Idle;
-        playerState.inputManager.characterController.height = 1.7f;
+        playerState.inputManager.characterController.height = 1.6f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.15f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
-    
+
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {

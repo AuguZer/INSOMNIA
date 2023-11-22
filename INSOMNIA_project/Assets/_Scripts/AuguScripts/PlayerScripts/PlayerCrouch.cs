@@ -9,8 +9,9 @@ public class PlayerCrouch : PlayerBaseState
     {
         playerState.state = PlayerStateManager.PlayerState.Crouch;
         playerState.inputManager.speed = playerState.crouchSpeed;
-        playerState.inputManager.characterController.height = 1.5f;
-        playerState.inputManager.characterController.center = new Vector3(0f, -.25f, 0f);
+        playerState.inputManager.characterController.height = .8f;
+        Vector3 charcterControllerCenter = new Vector3(0f, -.15f, 0f);
+        playerState.inputManager.characterController.center = charcterControllerCenter;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {

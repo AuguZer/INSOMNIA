@@ -8,7 +8,7 @@ public class PlayerRun : PlayerBaseState
     {
         playerState.state = PlayerStateManager.PlayerState.Run;
         playerState.inputManager.speed = playerState.runSpeed;
-        playerState.inputManager.characterController.height = 1.7f;
+        playerState.inputManager.characterController.height = 1.6f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.15f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
     }

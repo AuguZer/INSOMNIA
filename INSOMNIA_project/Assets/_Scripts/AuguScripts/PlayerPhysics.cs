@@ -71,11 +71,7 @@ public class PlayerPhysics : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        //if (hit.rigidbody != null)
-        //{
-        //    hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-        //    hit.rigidbody.AddForce(Vector3.forward);
-        //}
+        Debug.Log(hit.gameObject.name);
     }
 
     private void OnDrawGizmosSelected()
