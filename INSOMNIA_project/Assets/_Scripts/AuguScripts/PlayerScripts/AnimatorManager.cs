@@ -51,7 +51,7 @@ public class AnimatorManager : MonoBehaviour
         }
         if (playerInputManager.dirInput.x > 0)
         {
-            if (playerInputManager.dirInput.z >= 0)
+            if (playerInputManager.dirInput.z >= 0 && !playerStateManager.isCrouching)
             {
             animator.speed = 2f;
             }
@@ -60,7 +60,7 @@ public class AnimatorManager : MonoBehaviour
         }
         if (playerInputManager.dirInput.x < 0)
         {
-            if (playerInputManager.dirInput.z >= 0)
+            if (playerInputManager.dirInput.z >= 0 && !playerStateManager.isCrouching)
             {
                 animator.speed = 2f;
             }
