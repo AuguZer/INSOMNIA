@@ -160,7 +160,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.7
+  m_Height: 1.6
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -210,7 +210,7 @@ MonoBehaviour:
   speed: 3
   dirInput: {x: 0, y: 0, z: 0}
   camYposNormal: 0.5
-  camYposCrouch: 0.12
+  camYposCrouch: 0.1
   camYposCrawl: -0.7
   camSpeed: 0.2
 --- !u!114 &782639836160466952
@@ -354,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5680671379141856385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.014, y: 0.5, z: 0.25}
+  m_LocalPosition: {x: -0.014, y: 0.5, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -394,7 +394,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
+  near clip plane: 0.22
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
@@ -485,11 +485,12 @@ MonoBehaviour:
   rotationSpeed: 0.2
   maxLookDown: 72
   maxLookUp: -80
+  camZpos: 0.3
   playerBody: {fileID: 7207316340061104541}
   targetRotationR: {x: 0, y: 0, z: -15}
   targetRotationL: {x: 0, y: 0, z: 15}
-  targetPositionR: {x: 0.6, y: 0.61, z: 0.451}
-  targetPositionL: {x: -0.6, y: 0.61, z: 0.451}
+  targetPositionR: {x: 0.6, y: 0.5, z: 0.2}
+  targetPositionL: {x: -0.6, y: 0.5, z: 0.2}
   gamePadOn: 0
   xRot: 0
   lookInput: {x: 0, y: 0}
@@ -565,7 +566,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6a97cb3b4baf1184b9a2cd478932f32e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.085
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a97cb3b4baf1184b9a2cd478932f32e,
         type: 3}

@@ -14,6 +14,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float maxLookDown = 72f;
     [SerializeField] float maxLookUp =-80f;
 
+    [SerializeField] float camZpos;
+
     public Transform playerBody;
     public Vector3 targetRotationR;
     public Vector3 targetRotationL;
@@ -156,22 +158,22 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 0f, -15f);
-            targetPositionR = new Vector3(.6f, playerInputManager.camYposNormal, .2f);
+            targetPositionR = new Vector3(.6f, playerInputManager.camYposNormal, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, 0f, 15f);
-            targetPositionL = new Vector3(-.6f, playerInputManager.camYposNormal, .2f);
+            targetPositionL = new Vector3(-.6f, playerInputManager.camYposNormal, camZpos);
         }
         //Look back
         else
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(.3f, playerInputManager.camYposNormal, .2f);
+            targetPositionR = new Vector3(.3f, playerInputManager.camYposNormal, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(-.3f, playerInputManager.camYposNormal, .2f);
+            targetPositionL = new Vector3(-.3f, playerInputManager.camYposNormal, camZpos);
         }
 
         //CROUCH IDLE
@@ -179,11 +181,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 0f, -15f);
-            targetPositionR = new Vector3(.6f, playerInputManager.camYposCrouch, .2f);
+            targetPositionR = new Vector3(.6f, playerInputManager.camYposCrouch, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, 0f, 15f);
-            targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrouch, .2f);
+            targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrouch, camZpos);
         }
 
         //CROUCH
@@ -191,11 +193,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(0f, playerInputManager.camYposCrouch, .2f);
+            targetPositionR = new Vector3(0f, playerInputManager.camYposCrouch, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(0f, playerInputManager.camYposCrouch, .2f);
+            targetPositionL = new Vector3(0f, playerInputManager.camYposCrouch, camZpos);
         }
 
         //CRAWL IDLE
@@ -203,11 +205,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 0f, -15f);
-            targetPositionR = new Vector3(.6f, playerInputManager.camYposCrawl, .2f);
+            targetPositionR = new Vector3(.6f, playerInputManager.camYposCrawl, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, 0f, 15f);
-            targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrawl, .2f);
+            targetPositionL = new Vector3(-.6f, playerInputManager.camYposCrawl, camZpos);
         }
 
         //CRAWL
@@ -215,11 +217,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(0f, playerInputManager.camYposCrawl, .2f);
+            targetPositionR = new Vector3(0f, playerInputManager.camYposCrawl, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(0f, playerInputManager.camYposCrawl, .2f);
+            targetPositionL = new Vector3(0f, playerInputManager.camYposCrawl, camZpos);
         }
     }
 
