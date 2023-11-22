@@ -51,13 +51,19 @@ public class AnimatorManager : MonoBehaviour
         }
         if (playerInputManager.dirInput.x > 0)
         {
+            if (playerInputManager.dirInput.z >= 0)
+            {
             animator.speed = 2f;
+            }
             animator.SetBool("StrafeRight", true);
             animator.SetBool("StrafeLeft", false);
         }
         if (playerInputManager.dirInput.x < 0)
         {
-            animator.speed = 2f;
+            if (playerInputManager.dirInput.z >= 0)
+            {
+                animator.speed = 2f;
+            }
             animator.SetBool("StrafeRight", false);
             animator.SetBool("StrafeLeft", true);
         }
