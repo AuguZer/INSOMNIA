@@ -22,6 +22,11 @@ public class AnimatorManager : MonoBehaviour
         animator.SetBool("IsCrouching", playerStateManager.isCrouching);
         animator.SetBool("IsCrawling", playerStateManager.isCrawling);
 
+        if(playerStateManager.isCrouching || playerStateManager.isCrawling )
+        {
+            animator.speed = 1f;
+        }
+
 
 
         #region "Foward/Backward"
