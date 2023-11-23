@@ -14,7 +14,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float maxLookDown = 72f;
     [SerializeField] float maxLookUp =-80f;
 
-    [SerializeField] float camZpos;
+    [SerializeField] public float camZpos;
+    [SerializeField] public float camZposCrawl;
 
     public Transform playerBody;
     public Vector3 targetRotationR;
@@ -193,11 +194,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(0f, playerInputManager.camYposCrouch, camZpos);
+            targetPositionR = new Vector3(.3f, playerInputManager.camYposCrouch, camZpos);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(0f, playerInputManager.camYposCrouch, camZpos);
+            targetPositionL = new Vector3(-.3f, playerInputManager.camYposCrouch, camZpos);
         }
 
         //CRAWL IDLE
@@ -217,11 +218,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(0f, playerInputManager.camYposCrawl, camZpos);
+            targetPositionR = new Vector3(.3f, playerInputManager.camYposCrawl, camZposCrawl);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(0f, playerInputManager.camYposCrawl, camZpos);
+            targetPositionL = new Vector3(-.3f, playerInputManager.camYposCrawl, camZposCrawl);
         }
     }
 
