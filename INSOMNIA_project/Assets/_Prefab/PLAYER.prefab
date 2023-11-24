@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: b09a7121f547b5848a9ae3b429688380,
     type: 3}
-  characterController: {fileID: 0}
+  characterController: {fileID: 4424088952924468627}
   cam: {fileID: 5680671379141856385}
   speed: 3
   dirInput: {x: 0, y: 0, z: 0}
@@ -234,8 +234,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
-  gravity: -4
+  gravity: -1000
   collideWithDoor: 0
+  characterController: {fileID: 4424088952924468627}
 --- !u!114 &7578985183779428605
 MonoBehaviour:
   m_ObjectHideFlags: 0
