@@ -21,10 +21,10 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] bool collideWithDoor;
 
     Grabber grabber;
-    CharacterController characterController;
+    [SerializeField] CharacterController characterController;
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
         grabber = GetComponent<Grabber>();
     }
     // Start is called before the first frame update
@@ -45,7 +45,8 @@ public class PlayerPhysics : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        Vector3 ccBoundsMin = characterController.bounds.min;
+        Vector3 newPos = new Vector3(transform.position.x, ccBoundsMin.y, transform.position.z);
         return Physics.OverlapSphere(newPos, groundDetectionRadius, groundMask).Length > 0;
     }
     private void DetectDoors()
@@ -76,11 +77,12 @@ public class PlayerPhysics : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Vector3 ccBoundsMin = characterController.bounds.min;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
         Gizmos.color = Color.green;
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        Vector3 newPos = new Vector3(transform.position.x, ccBoundsMin.y, transform.position.z);
         Gizmos.DrawWireSphere(newPos, groundDetectionRadius);
     }
 }

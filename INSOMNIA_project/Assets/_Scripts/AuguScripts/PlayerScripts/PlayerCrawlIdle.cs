@@ -7,8 +7,9 @@ public class PlayerCrawlIdle : PlayerBaseState
     public override void OnStateEnter(PlayerStateManager playerState)
     {
         playerState.state = PlayerStateManager.PlayerState.CrawlIdle;
-        playerState.inputManager.characterController.height = .5f;
-        playerState.inputManager.characterController.center = new Vector3(0f, -.5f, 0f);
+        playerState.inputManager.characterController.height = 0.477304f;
+        Vector3 charcterControllerCenter = new Vector3(0f, -.68f, 0f);
+        playerState.inputManager.characterController.center = charcterControllerCenter;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
