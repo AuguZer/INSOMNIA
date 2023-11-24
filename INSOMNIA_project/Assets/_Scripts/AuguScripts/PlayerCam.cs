@@ -218,11 +218,11 @@ public class PlayerCam : MonoBehaviour
         {
             //Rot & Pos to the RIGHT
             targetRotationR = new Vector3(0f, 130f, -5f);
-            targetPositionR = new Vector3(.3f, playerInputManager.camYposCrawl, camZposCrawl);
+            targetPositionR = new Vector3(.4f, playerInputManager.camYposCrawl, camZposCrawl);
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, -130f, 5f);
-            targetPositionL = new Vector3(-.3f, playerInputManager.camYposCrawl, camZposCrawl);
+            targetPositionL = new Vector3(-.4f, playerInputManager.camYposCrawl, camZposCrawl);
         }
     }
 
