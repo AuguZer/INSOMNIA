@@ -72,7 +72,7 @@ public class PlayerPhysics : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(hit.gameObject.name);
+        //Debug.Log(hit.gameObject.name);
     }
 
     private void OnDrawGizmosSelected()
