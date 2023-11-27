@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HideCloset : MonoBehaviour
 {
+    [SerializeField] Transform hidPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,26 +21,26 @@ public class HideCloset : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.SetParent(transform);
-            StartCoroutine(HidePosition(other.transform.localRotation, Quaternion.identity, 2f, other.transform.position, transform.position));
+            CharacterController characterController = other.gameObject.GetComponent<CharacterController>();
+            characterController.enabled = false;
+            //other.transform.localRotation = Quaternion.identity;
+            StartCoroutine(LerpPosition(other.gameObject, other.transform.position, new Vector3(hidPos.position.x, other.transform.position.y, hidPos.position.z), 2f));
+           
         }
     }
 
-
-    IEnumerator HidePosition(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)
+    public IEnumerator LerpPosition(GameObject player, Vector3 startPos, Vector3 endPos, float duration)
     {
         float t = 0f;
-        //Quaternion startValue = transform.localRotation;
 
         while (t < duration)
         {
-            transform.localRotation = Quaternion.Lerp(startValue, endValue, t / duration);
-            transform.localPosition = Vector3.Lerp(startPos, endPos, t / duration);
+            player.transform.position = Vector3.Lerp(startPos, endPos, t / duration);
             t += Time.deltaTime;
 
             yield return null;
         }
-        transform.localRotation = endValue;
-        transform.localPosition = endPos;
+
+        player.transform.position = endPos;
     }
 }
