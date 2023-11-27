@@ -19,46 +19,7 @@ public class HideCloset : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            playerInRange = true;
-            //CharacterController characterController = other.gameObject.GetComponent<CharacterController>();
-            //characterController.enabled = false;
-            //other.transform.localRotation = Quaternion.identity;
-            //StartCoroutine(LerpPosition(other.gameObject, other.transform.position, new Vector3(hidPos.position.x, other.transform.position.y, hidPos.position.z), 2f));
-           
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            playerInRange = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            playerInRange = false;
-        }
 
-    }
 
-    public IEnumerator LerpPosition(GameObject player, Vector3 startPos, Vector3 endPos, float duration)
-    {
-        float t = 0f;
-
-        while (t < duration)
-        {
-            player.transform.position = Vector3.Lerp(startPos, endPos, t / duration);
-            t += Time.deltaTime;
-
-            yield return null;
-        }
-
-        player.transform.position = endPos;
-    }
+ 
 }
