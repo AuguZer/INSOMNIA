@@ -95,6 +95,11 @@ public class Grabber : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
                 InteractWithDoor(hit.transform.gameObject);
+
+                if (hit.transform.gameObject.tag == "Closet")
+                {
+                    Debug.Log("can interact with Closet");
+                }
             }
         }
 
