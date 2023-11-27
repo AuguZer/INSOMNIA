@@ -8,6 +8,7 @@ TagManager:
   - PickUpObj
   - Door
   - Key
+  - Closet
   layers:
   - Default
   - TransparentFX

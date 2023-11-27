@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HideCloset : MonoBehaviour
 {
-    [SerializeField] Transform hidPos;
+    [SerializeField] public Transform hidPos;
+
+    public bool playerInRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,28 @@ public class HideCloset : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            CharacterController characterController = other.gameObject.GetComponent<CharacterController>();
-            characterController.enabled = false;
+            playerInRange = true;
+            //CharacterController characterController = other.gameObject.GetComponent<CharacterController>();
+            //characterController.enabled = false;
             //other.transform.localRotation = Quaternion.identity;
-            StartCoroutine(LerpPosition(other.gameObject, other.transform.position, new Vector3(hidPos.position.x, other.transform.position.y, hidPos.position.z), 2f));
+            //StartCoroutine(LerpPosition(other.gameObject, other.transform.position, new Vector3(hidPos.position.x, other.transform.position.y, hidPos.position.z), 2f));
            
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerInRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerInRange = false;
+        }
+
     }
 
     public IEnumerator LerpPosition(GameObject player, Vector3 startPos, Vector3 endPos, float duration)

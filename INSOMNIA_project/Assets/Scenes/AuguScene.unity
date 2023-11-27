@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 123623795}
   m_Layer: 0
   m_Name: HideCloset
-  m_TagString: Untagged
+  m_TagString: Closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,8 +485,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3246254, y: 2.2126763, z: 1.843121}
-  m_Center: {x: 0.08279067, y: 1.1323229, z: 0.46904016}
+  m_Size: {x: 1.7269818, y: 2.2126763, z: 1.843121}
+  m_Center: {x: 0.06196016, y: 1.1323229, z: 0.46904016}
 --- !u!114 &123623795
 MonoBehaviour:
   m_ObjectHideFlags: 0

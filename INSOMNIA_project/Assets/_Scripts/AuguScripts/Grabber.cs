@@ -97,11 +97,31 @@ public class Grabber : MonoBehaviour
                 InteractWithDoor(hit.transform.gameObject);
             }
 
+            if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange-1))
+            {
+                Hide(hit.transform.gameObject);
+            }
+
         }
 
 
     }
 
+    private void Hide(GameObject hiddingPlace)
+    {
+        if (hiddingPlace.tag == "Closet")
+        {
+            HideCloset hideCloset = hiddingPlace.gameObject.GetComponent<HideCloset>();
+            bool playerIn = hiddingPlace.gameObject.GetComponent<HideCloset>().playerInRange;
+            if (playerIn)
+            {
+                Vector3 hidePos = hideCloset.hidPos.transform.position;
+                IEnumerator hideCoroutine = hideCloset.gameObject.GetComponent<HideCloset>().LerpPosition(
+                    transform.parent.gameObject, transform.parent.position, new Vector3(hidePos.x, transform.parent.position.y, hidePos.z), 2f);
+                StartCoroutine(hideCoroutine);
+            }
+        }
+    }
     private void InteractWithDoor(GameObject door)
     {
         if (door.tag == "Door")
