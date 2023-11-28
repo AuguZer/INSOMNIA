@@ -12,7 +12,7 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float sensY = 200f;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float maxLookDown = 72f;
-    [SerializeField] float maxLookUp =-80f;
+    [SerializeField] float maxLookUp = -80f;
 
     [SerializeField] public float camZpos;
     [SerializeField] public float camZposCrawl;
@@ -66,6 +66,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
     {
+        if (playerStateManager.isHiding) return;
         StopAllCoroutines();
         isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed, transform.localPosition, targetPositionR));
@@ -73,6 +74,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStopLookBackR(InputAction.CallbackContext ctx)
     {
+        if (playerStateManager.isHiding) return;
         StopAllCoroutines();
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
         StartCoroutine(EndLookBack());
@@ -80,12 +82,14 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBackL(InputAction.CallbackContext ctx)
     {
+        if (playerStateManager.isHiding) return;
         StopAllCoroutines();
         isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed, transform.localPosition, targetPositionL));
     }
     private void OnStopLookBackL(InputAction.CallbackContext ctx)
     {
+        if (playerStateManager.isHiding) return;
         StopAllCoroutines();
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
         StartCoroutine(EndLookBack());
@@ -133,29 +137,12 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Return si LookBack
-        if (isLooking) return;
-        //get mouse input
-        //Add mouse sensitivity
-        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
+        CameraRotation();
+        SetCameraPositionAndRotation();
+    }
 
-        if (gamePadOn)
-        {
-            lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
-            mouseX = lookInput.x * sensX * Time.deltaTime;
-            mouseY = lookInput.y * sensY * Time.deltaTime;
-        }
-
-        //Limit view on Y axis
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, maxLookUp, maxLookDown);
-
-        //Apply
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        playerBody.Rotate(Vector3.up * mouseX);
-
+    private void SetCameraPositionAndRotation()
+    {
         if (playerInputManager.dirInput == Vector3.zero)
         {
             //Rot & Pos to the RIGHT
@@ -229,7 +216,28 @@ public class PlayerCam : MonoBehaviour
 
     private void CameraRotation()
     {
+        //Return si LookBack
+        if (isLooking) return;
+        //get mouse input
+        //Add mouse sensitivity
+        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
 
+        if (gamePadOn)
+        {
+            lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
+            mouseX = lookInput.x * sensX * Time.deltaTime;
+            mouseY = lookInput.y * sensY * Time.deltaTime;
+        }
+
+        //Limit view on Y axis
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, maxLookUp, maxLookDown);
+
+        //Apply
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 
     IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)

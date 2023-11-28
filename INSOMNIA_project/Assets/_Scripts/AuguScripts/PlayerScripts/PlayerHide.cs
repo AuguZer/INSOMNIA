@@ -16,6 +16,11 @@ public class PlayerHide : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Idle);
         }
+        //TO WALK
+        if (playerState.inputManager.dirInput != Vector3.zero && !playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Walk);
+        }
 
     }
 
