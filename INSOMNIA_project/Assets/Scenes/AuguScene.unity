@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 22626804}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 60127060}
   m_Layer: 0
   m_Name: HidePos
-  m_TagString: Untagged
+  m_TagString: Closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60127059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.276}
+  m_LocalPosition: {x: 0, y: 0, z: -0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -485,8 +485,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7269818, y: 2.2126763, z: 1.843121}
-  m_Center: {x: 0.06196016, y: 1.1323229, z: 0.46904016}
+  m_Size: {x: 1.9431939, y: 2.2126763, z: 0.94683313}
+  m_Center: {x: 0.1343962, y: 1.1323229, z: 0.020896196}
 --- !u!114 &123623795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidPos: {fileID: 60127060}
+  playerInRange: 0
 --- !u!1 &176113518
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ GameObject:
   - component: {fileID: 176113520}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1507,7 +1508,7 @@ GameObject:
   - component: {fileID: 1349202836}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Closet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

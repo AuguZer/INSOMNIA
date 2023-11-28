@@ -21,10 +21,12 @@ public class Grabber : MonoBehaviour
     [SerializeField] bool leftButtonDown;
 
     PlayerInventory playerInventory;
+    CharacterController characterController;
 
     private void Awake()
     {
         playerInventory = GetComponentInParent<PlayerInventory>();
+        characterController = GetComponentInParent<CharacterController>();
     }
     // Start is called before the first frame update
     private void OnEnable()
@@ -110,8 +112,8 @@ public class Grabber : MonoBehaviour
             if (closet.GetComponent<HideCloset>()!= null)
             {
                 Transform hidePos = closet.GetComponent<HideCloset>().hidPos;
-                StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 2f));
-
+                StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1.5f));
+                StartCoroutine(LerpToHideRotation());
             }
         }
     }
@@ -211,10 +213,24 @@ public class Grabber : MonoBehaviour
         {
             transform.parent.position = Vector3.Lerp(startPos, endPos, t / duration);
             t += Time.deltaTime;
+            characterController.enabled = false;
+            yield return null;
+        }
+        transform.parent.position = endPos;
+    }
 
+    private IEnumerator LerpToHideRotation()
+    {
+        float t = 0f;
+        float duration = 1f;
+
+        while (t < duration)
+        {
+            transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation, Quaternion.identity, t / duration);
+            t += Time.deltaTime;
             yield return null;
         }
 
-        transform.parent.position = endPos;
+        transform.parent.localRotation = Quaternion.identity;
     }
 }
