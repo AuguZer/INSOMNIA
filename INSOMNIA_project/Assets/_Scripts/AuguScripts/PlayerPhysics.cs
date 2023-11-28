@@ -40,7 +40,10 @@ public class PlayerPhysics : MonoBehaviour
         {
             velocity.y += gravity * Time.deltaTime;
         }
-        characterController.Move(velocity * Time.deltaTime);
+        if (characterController.enabled)
+        {
+            characterController.Move(velocity * Time.deltaTime);
+        }
     }
 
     private bool IsGrounded()

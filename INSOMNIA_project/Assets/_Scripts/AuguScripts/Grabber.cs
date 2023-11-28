@@ -21,12 +21,12 @@ public class Grabber : MonoBehaviour
     [SerializeField] bool leftButtonDown;
 
     PlayerInventory playerInventory;
-    CharacterController characterController;
+    PlayerStateManager playerStateManager;
 
     private void Awake()
     {
         playerInventory = GetComponentInParent<PlayerInventory>();
-        characterController = GetComponentInParent<CharacterController>();
+        playerStateManager = GetComponentInParent<PlayerStateManager>();
     }
     // Start is called before the first frame update
     private void OnEnable()
@@ -92,13 +92,18 @@ public class Grabber : MonoBehaviour
         if (inputActions.FindAction("Interact").WasPerformedThisFrame())
         {
             RaycastHit hit;
-           
+
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
                 InteractWithDoor(hit.transform.gameObject);
 
                 InteractWithCloset(hit.transform.gameObject);
+            }
+
+            if (playerStateManager.state == PlayerStateManager.PlayerState.Hide && playerStateManager.canInteract)
+            {
+                playerStateManager.isHiding = false;
             }
         }
 
@@ -107,13 +112,18 @@ public class Grabber : MonoBehaviour
 
     private void InteractWithCloset(GameObject closet)
     {
-        if(closet.tag == "Closet")
+        if (closet.tag == "Closet")
         {
-            if (closet.GetComponent<HideCloset>()!= null)
+            if (closet.GetComponent<HideCloset>() != null)
             {
-                Transform hidePos = closet.GetComponent<HideCloset>().hidPos;
-                StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1.5f));
-                StartCoroutine(LerpToHideRotation());
+                if (playerStateManager.canInteract)
+                {
+                    Transform hidePos = closet.GetComponent<HideCloset>().hidePos;
+                    playerStateManager.canInteract = false;
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
+                    StartCoroutine(LerpToHideRotation());
+                    playerStateManager.isHiding = true;
+                }
             }
         }
     }
@@ -126,7 +136,7 @@ public class Grabber : MonoBehaviour
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
             if (doorAnimator != null)
             {
-                if(playerInventory.keyOwned > 0)
+                if (playerInventory.keyOwned > 0)
                 {
                     animDoor.keyNumber = 1;
                     playerInventory.keyOwned = 0;
@@ -176,7 +186,7 @@ public class Grabber : MonoBehaviour
             }
         }
 
-        if(grabObj.tag == "Key")
+        if (grabObj.tag == "Key")
         {
             Destroy(grabObj);
             playerInventory.keyOwned++;
@@ -213,10 +223,10 @@ public class Grabber : MonoBehaviour
         {
             transform.parent.position = Vector3.Lerp(startPos, endPos, t / duration);
             t += Time.deltaTime;
-            characterController.enabled = false;
             yield return null;
         }
         transform.parent.position = endPos;
+        playerStateManager.canInteract = true;
     }
 
     private IEnumerator LerpToHideRotation()
@@ -228,9 +238,11 @@ public class Grabber : MonoBehaviour
         {
             transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation, Quaternion.identity, t / duration);
             t += Time.deltaTime;
+            playerStateManager.playerCam.enabled = false;
             yield return null;
         }
 
         transform.parent.localRotation = Quaternion.identity;
+        playerStateManager.playerCam.enabled = true;
     }
 }

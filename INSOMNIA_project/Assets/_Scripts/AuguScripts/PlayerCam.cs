@@ -150,6 +150,7 @@ public class PlayerCam : MonoBehaviour
         //Limit view on Y axis
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, maxLookUp, maxLookDown);
+
         //Apply
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
@@ -226,6 +227,10 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
+    private void CameraRotation()
+    {
+
+    }
 
     IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)
     {

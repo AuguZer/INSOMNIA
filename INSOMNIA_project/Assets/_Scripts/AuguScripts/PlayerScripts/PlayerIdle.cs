@@ -34,6 +34,13 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrawlIdle);
         }
+
+        //TO HIDE
+        if(playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Hide);
+        }
+
         ////TO LOOK
         //if (playerState.playerCam.isLooking)
         //{

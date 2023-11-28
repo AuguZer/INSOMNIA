@@ -42,6 +42,11 @@ public class PlayerRun : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Crawl);
         }
+        //TO HIDE
+        if (playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Hide);
+        }
         ////TO LOOK
         //if (playerState.playerCam.isLooking)
         //{

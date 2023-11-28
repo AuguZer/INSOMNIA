@@ -68,9 +68,11 @@ public class PlayerInputManager : MonoBehaviour
         moveInput = inputActions.FindAction("Move").ReadValue<Vector2>();
         dirInput = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        Vector3 move = transform.right * dirInput.x + transform.forward * dirInput.z;  
-
-        characterController.Move(move.normalized * speed * Time.deltaTime);
+        Vector3 move = transform.right * dirInput.x + transform.forward * dirInput.z;
+        if (characterController.enabled)
+        {
+            characterController.Move(move.normalized * speed * Time.deltaTime);
+        }
 
     }
 

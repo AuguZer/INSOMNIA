@@ -13,6 +13,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerCrouch Crouch = new PlayerCrouch();
     public PlayerCrawlIdle CrawlIdle = new PlayerCrawlIdle();
     public PlayerCrawl Crawl = new PlayerCrawl();
+    public PlayerHide Hide = new PlayerHide();
 
 
     public PlayerInputManager inputManager;
@@ -27,7 +28,8 @@ public class PlayerStateManager : MonoBehaviour
         Crouch,
         CrawlIdle,
         Crawl,
-        Look
+        Look,
+        Hide
     }
 
     [Header("STATES")]
@@ -45,6 +47,8 @@ public class PlayerStateManager : MonoBehaviour
     public bool isRunning;
     public bool isCrouching;
     public bool isCrawling;
+    public bool isHiding;
+    public bool canInteract;
 
     public Rigidbody rb;
 
@@ -60,6 +64,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         currentState = Idle;
         currentState.OnStateEnter(this);
+        canInteract = true;
         
     }
 
