@@ -54,7 +54,7 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
-    private bool CantGetUp()
+    public bool CantGetUp()
     {
         Vector3 ccBoundsMax = characterController.bounds.max;
         Vector3 newPos = new Vector3(transform.position.x, ccBoundsMax.y, transform.position.z);

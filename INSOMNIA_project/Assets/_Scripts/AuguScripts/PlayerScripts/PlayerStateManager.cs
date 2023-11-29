@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public PlayerInputManager inputManager;
     public PlayerCam playerCam;
+    public PlayerPhysics playerPhysics;
 
     public enum PlayerState
     {
@@ -56,6 +57,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         inputManager = GetComponent<PlayerInputManager>();
         playerCam = GetComponentInChildren<PlayerCam>();
+        playerPhysics = GetComponent<PlayerPhysics>();
    
     }
 
