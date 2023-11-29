@@ -10,6 +10,7 @@ TagManager:
   - Key
   - HideCloset
   - HideBox
+  - HideBelow
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Grabber : MonoBehaviour
 {
@@ -101,6 +102,7 @@ public class Grabber : MonoBehaviour
                 InteractWithDoor(hit.transform.gameObject);
                 InteractWithHideCloset(hit.transform.gameObject);
                 InteractWithHideBox(hit.transform.gameObject);
+                InteractWithHideBelow(hit.transform.gameObject);
             }
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.Hide && playerStateManager.canInteract)
@@ -112,6 +114,26 @@ public class Grabber : MonoBehaviour
 
     }
 
+    private void InteractWithHideBelow(GameObject belowObject)
+    {
+        if (belowObject.tag == "HideBelow")
+        {
+            if (belowObject.GetComponent<HideCloset>() != null)
+            {
+                if (playerStateManager.canInteract)
+                {
+                    playerStateManager.isCrawling = true;
+                    Transform hidePos = belowObject.GetComponent<HideCloset>().hidePos;
+                    playerStateManager.canInteract = false;
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
+                    StartCoroutine(LerpToHideRotation());
+                    StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrawl, .6f), playerInputManager.camSpeed));
+                    playerStateManager.isHiding = true;
+                }
+            }
+        }
+    }
+    
     private void InteractWithHideBox(GameObject box)
     {
         if (box.tag == "HideBox")

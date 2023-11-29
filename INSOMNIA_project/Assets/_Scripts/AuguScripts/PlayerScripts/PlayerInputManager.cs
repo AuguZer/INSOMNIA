@@ -67,6 +67,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void MoveInput()
     {
+        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide) return;
         moveInput = inputActions.FindAction("Move").ReadValue<Vector2>();
         dirInput = new Vector3(moveInput.x, 0f, moveInput.y);
 
@@ -80,7 +81,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void CrouchInput()
     {
-        if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
+        if (inputActions.FindAction("Crouch").WasPerformedThisFrame() && playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
             if(playerStateManager.state == PlayerStateManager.PlayerState.Crawl || playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
             {
@@ -105,7 +106,7 @@ public class PlayerInputManager : MonoBehaviour
     }
     private void CrawlInput()
     {
-        if (inputActions.FindAction("Crawl").WasPerformedThisFrame())
+        if (inputActions.FindAction("Crawl").WasPerformedThisFrame() && playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
             playerStateManager.isCrawling = true;
             playerStateManager.isCrouching = false;
