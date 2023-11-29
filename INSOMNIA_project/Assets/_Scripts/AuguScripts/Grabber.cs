@@ -123,6 +123,7 @@ public class Grabber : MonoBehaviour
                 if (playerStateManager.canInteract)
                 {
                     playerStateManager.isCrawling = true;
+                    playerStateManager.isCrouching = false;
                     Transform hidePos = belowObject.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
@@ -143,6 +144,7 @@ public class Grabber : MonoBehaviour
                 if (playerStateManager.canInteract)
                 {
                     playerStateManager.isCrouching = true;
+                    playerStateManager.isCrawling = false;
                     Transform hidePos = box.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
