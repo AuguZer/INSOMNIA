@@ -10,6 +10,7 @@ public class PlayerInputManager : MonoBehaviour
     public CharacterController characterController;
     PlayerStateManager playerStateManager;
     PlayerCam playerCam;
+    PlayerPhysics playerPhysics;
 
 
     public GameObject cam;
@@ -29,6 +30,7 @@ public class PlayerInputManager : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerStateManager = GetComponent<PlayerStateManager>();
         playerCam = cam.GetComponent<PlayerCam>();
+        playerPhysics = GetComponent<PlayerPhysics>();
 
     }
 
@@ -80,14 +82,24 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (inputActions.FindAction("Crouch").WasPerformedThisFrame())
         {
+            if(playerStateManager.state == PlayerStateManager.PlayerState.Crawl || playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
+            {
+                if (playerPhysics.CantGetUp())
+                {
+                    return;
+                }
+            }
             playerStateManager.isCrouching = true;
             playerStateManager.isCrawling = false;
             StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposCrouch, playerCam.camZpos), camSpeed));
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.CrouchIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
             {
+                if (!playerPhysics.CantGetUp())
+                {
                 playerStateManager.isCrouching = false;
                 StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
+                }
             }
         }
     }
@@ -101,8 +113,11 @@ public class PlayerInputManager : MonoBehaviour
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle || playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
             {
-                playerStateManager.isCrawling = false;
-                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
+                if (!playerPhysics.CantGetUp() && !playerPhysics.HeadDetection())
+                {
+                    playerStateManager.isCrawling = false;
+                    StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
+                }
             }
         }
     }

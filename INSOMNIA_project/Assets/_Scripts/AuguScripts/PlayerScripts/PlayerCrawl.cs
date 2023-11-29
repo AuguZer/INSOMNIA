@@ -29,7 +29,7 @@ public class PlayerCrawl : PlayerBaseState
         }
 
         //TO IDLE
-        if (!playerState.isCrawling && playerState.inputManager.dirInput == Vector3.zero)
+        if (!playerState.isCrawling && playerState.inputManager.dirInput == Vector3.zero && !playerState.playerPhysics.CantGetUp())
         {
             playerState.TransitionToState(playerState.Idle);
         }

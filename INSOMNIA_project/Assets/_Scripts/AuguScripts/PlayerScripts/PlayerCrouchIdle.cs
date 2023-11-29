@@ -20,7 +20,7 @@ public class PlayerCrouchIdle : PlayerBaseState
         }
 
         //TO IDLE
-        if (!playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero)
+        if (!playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero && !playerState.playerPhysics.CantGetUp())
         {
             playerState.TransitionToState(playerState.Idle);
         }

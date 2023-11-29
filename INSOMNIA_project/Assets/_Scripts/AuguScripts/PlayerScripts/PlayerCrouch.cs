@@ -29,7 +29,7 @@ public class PlayerCrouch : PlayerBaseState
             playerState.TransitionToState(playerState.CrouchIdle);
         }
         //TO WALK
-        if (!playerState.isCrouching && playerState.inputManager.dirInput != Vector3.zero)
+        if (!playerState.isCrouching && playerState.inputManager.dirInput != Vector3.zero && !playerState.playerPhysics.CantGetUp())
         {
             playerState.TransitionToState(playerState.Walk);
         }

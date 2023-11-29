@@ -226,8 +226,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6445045, y: 1, z: 1.1700763}
+  m_Center: {x: 0.018694878, y: 0, z: 0.004014923}
 --- !u!23 &120678896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1116,11 +1116,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 782639836160466952, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: upDetectionRadius
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 3699773195466166027, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_Name

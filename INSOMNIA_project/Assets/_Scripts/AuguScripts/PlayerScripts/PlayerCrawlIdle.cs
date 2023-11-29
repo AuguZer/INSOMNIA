@@ -14,13 +14,13 @@ public class PlayerCrawlIdle : PlayerBaseState
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
         //TO IDLE
-        if (!playerState.isCrawling  && !playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero)
+        if (!playerState.isCrawling  && !playerState.isCrouching && playerState.inputManager.dirInput == Vector3.zero && !playerState.playerPhysics.CantGetUp())
         {
             playerState.TransitionToState(playerState.Idle);
         }
 
         //TO CROUCH IDLE
-        if (playerState.isCrouching)
+        if (playerState.isCrouching && !playerState.playerPhysics.CantGetUp())
         {
             playerState.TransitionToState(playerState.CrouchIdle);
         }

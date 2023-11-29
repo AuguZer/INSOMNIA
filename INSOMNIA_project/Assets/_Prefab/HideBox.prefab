@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8976267657582036208}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1119558216996658386}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 360245624879330446}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 584024904434986806}
   m_Layer: 0
   m_Name: HidePos
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 5206271344240129879}
   m_Layer: 0
   m_Name: HideBox
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 5499794129157821329}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 7060473738712433624}
   m_Layer: 0
   m_Name: Cube (9)
-  m_TagString: Closet
+  m_TagString: HideBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -20,15 +20,13 @@ public class PlayerPhysics : MonoBehaviour
     [Header("UP DETECTION")]
     [SerializeField] float upDetectionRadius = 1f;
     [SerializeField] LayerMask upMask;
+    [SerializeField] float headDetecitionRadius = 1f;
+    [SerializeField] Transform headTransform;
 
-    [SerializeField] bool collideWithDoor;
-
-    Grabber grabber;
     [SerializeField] CharacterController characterController;
     private void Awake()
     {
-        //characterController = GetComponent<CharacterController>();
-        grabber = GetComponent<Grabber>();
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -47,13 +45,12 @@ public class PlayerPhysics : MonoBehaviour
         {
             characterController.Move(velocity * Time.deltaTime);
         }
-
-        if (CantGetUp())
-        {
-            Debug.Log("Player can't get up");
-        }
     }
 
+    public bool HeadDetection()
+    {
+        return Physics.OverlapSphere(headTransform.position, upDetectionRadius, upMask).Length > 0;
+    }
     public bool CantGetUp()
     {
         Vector3 ccBoundsMax = characterController.bounds.max;
@@ -106,5 +103,8 @@ public class PlayerPhysics : MonoBehaviour
         Gizmos.color = Color.yellow;
         Vector3 upPos = new Vector3(transform.position.x, ccBoundsMax.y, transform.position.z);
         Gizmos.DrawWireSphere(upPos, upDetectionRadius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(headTransform.position, headDetecitionRadius);
     }
 }
