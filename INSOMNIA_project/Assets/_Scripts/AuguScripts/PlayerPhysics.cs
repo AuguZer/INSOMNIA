@@ -17,6 +17,9 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] float gravity = -9.81f;
     Vector3 velocity;
 
+    [Header("UP DETECTION")]
+    [SerializeField] float upDetectionRadius = 1f;
+    [SerializeField] LayerMask upMask;
 
     [SerializeField] bool collideWithDoor;
 
@@ -44,8 +47,19 @@ public class PlayerPhysics : MonoBehaviour
         {
             characterController.Move(velocity * Time.deltaTime);
         }
+
+        if (CantGetUp())
+        {
+            Debug.Log("Player can't get up");
+        }
     }
 
+    private bool CantGetUp()
+    {
+        Vector3 ccBoundsMax = characterController.bounds.max;
+        Vector3 newPos = new Vector3(transform.position.x, ccBoundsMax.y, transform.position.z);
+        return Physics.OverlapSphere(newPos, upDetectionRadius, upMask).Length > 0;
+    }
     private bool IsGrounded()
     {
         Vector3 ccBoundsMin = characterController.bounds.min;
@@ -81,11 +95,16 @@ public class PlayerPhysics : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Vector3 ccBoundsMin = characterController.bounds.min;
+        Vector3 ccBoundsMax = characterController.bounds.max;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
         Gizmos.color = Color.green;
         Vector3 newPos = new Vector3(transform.position.x, ccBoundsMin.y, transform.position.z);
         Gizmos.DrawWireSphere(newPos, groundDetectionRadius);
+
+        Gizmos.color = Color.yellow;
+        Vector3 upPos = new Vector3(transform.position.x, ccBoundsMax.y, transform.position.z);
+        Gizmos.DrawWireSphere(upPos, upDetectionRadius);
     }
 }
