@@ -61,7 +61,7 @@ public class EnemyStateManager : MonoBehaviour
     void Update()
     {
         currentState.OnStateUpdate(this);
-
+        EnemyMove();
         hasPath = agent.hasPath;
 
     }
