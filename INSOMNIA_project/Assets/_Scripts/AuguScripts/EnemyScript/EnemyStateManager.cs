@@ -10,11 +10,13 @@ public class EnemyStateManager : MonoBehaviour
     EnemyBaseState currentState;
     public EnemyIdle enemyIdle = new EnemyIdle();
     public EnemyPatrol enemyPatrol = new EnemyPatrol();
+    public EnemyChase enemyChase = new EnemyChase();
 
     public enum EnemyState
     {
         IDLE,
-        PATROL
+        PATROL,
+        CHASE
     }
 
     [Header("STATES")]
@@ -23,6 +25,7 @@ public class EnemyStateManager : MonoBehaviour
     [Header("BOOLS")]
     public bool isInIdle;
     public bool isInPatrol;
+    public bool isInChase;
 
     [Header("STATS")]
     [SerializeField] public float walkSpeed;
@@ -39,9 +42,12 @@ public class EnemyStateManager : MonoBehaviour
 
     [SerializeField] int idleTime;
 
+    EnemyDetection enemyDetection;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyDetection = GetComponentInChildren<EnemyDetection>();
         foreach (Transform destPoint in destContainer)
         {
             destinations.Add(destPoint);
@@ -64,6 +70,7 @@ public class EnemyStateManager : MonoBehaviour
         EnemyMove();
         hasPath = agent.hasPath;
         currentState.OnStateUpdate(this);
+
 
     }
 
@@ -88,6 +95,12 @@ public class EnemyStateManager : MonoBehaviour
                 destIndex++;
             }
             agent.SetDestination(destinations[destIndex].position);
+        }
+
+        isInChase = enemyDetection.playerDetected;
+        if(isInChase)
+        {
+            agent.SetDestination(enemyDetection.playerPos.position);
         }
     }
 

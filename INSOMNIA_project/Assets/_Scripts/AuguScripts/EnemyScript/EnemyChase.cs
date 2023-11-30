@@ -2,28 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : EnemyBaseState
+public class EnemyChase : EnemyBaseState
 {
     public override void OnStateEnter(EnemyStateManager enemyState)
     {
-        enemyState.enemyState = EnemyStateManager.EnemyState.PATROL;
-
+        enemyState.enemyState = EnemyStateManager.EnemyState.CHASE;
+  
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
         //TO IDLE
-        if(enemyState.isInIdle)
+        if (enemyState.isInIdle && !enemyState.isInChase)
         {
             enemyState.TransitionToState(enemyState.enemyIdle);
         }
-        //TO CHASE
-        if(enemyState.isInChase)
+        //TO PATROL
+        if (!enemyState.isInIdle && !enemyState.isInChase)
         {
-            enemyState.TransitionToState(enemyState.enemyChase);
+            enemyState.TransitionToState(enemyState.enemyPatrol);
         }
+
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
-     
+
     }
 }

@@ -17,6 +17,11 @@ public class EnemyIdle : EnemyBaseState
         {
             enemyState.TransitionToState(enemyState.enemyPatrol);
         }
+        //TO CHASE
+        if (enemyState.isInChase)
+        {
+            enemyState.TransitionToState(enemyState.enemyChase);
+        }
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
