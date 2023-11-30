@@ -30,7 +30,6 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] public float walkSpeed;
 
     public NavMeshAgent agent;
-    [SerializeField] Transform pathContainer;
     [SerializeField] List<Transform> destinations = new List<Transform>();
     public int destIndex;
     public bool hasPath;
@@ -44,17 +43,17 @@ public class EnemyStateManager : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        foreach (Transform destPoint in destinations)
-        {
-            destinations.Add(destPoint);
-        }
-        agent.SetDestination(destinations[0].position);
+        //foreach (Transform destPoint in destContainer)
+        //{
+        //    destinations.Add(destPoint);
+        //}
+        //agent.SetDestination(destinations[0].position);
     }
     // Start is called before the first frame update
     void Start()
     {
         
-        currentState = enemyIdle;
+        currentState = enemyPatrol;
         currentState.OnStateEnter(this);
 
     }
@@ -64,8 +63,20 @@ public class EnemyStateManager : MonoBehaviour
     {
         currentState.OnStateUpdate(this);
 
+        hasPath = agent.hasPath;
+
     }
 
+    private void EnemyMove()
+    {
+        if (!agent.hasPath)
+        {
+            if (destIndex == des)
+            {
+
+            }
+        }
+    }
 
     //public void SetEnemyPatrolPoint()
     //{
