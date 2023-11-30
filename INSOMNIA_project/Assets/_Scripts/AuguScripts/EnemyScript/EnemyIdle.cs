@@ -7,9 +7,16 @@ public class EnemyIdle : EnemyBaseState
     public override void OnStateEnter(EnemyStateManager enemyState)
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.IDLE;
+        enemyState.agent.speed = 0;
+        enemyState.StartCoroutine(enemyState.IdleCoroutine());
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
+        //TO PATROL
+        if(!enemyState.isInIdle)
+        {
+            enemyState.TransitionToState(enemyState.enemyPatrol);
+        }
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {

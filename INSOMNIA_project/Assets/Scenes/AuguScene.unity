@@ -1790,7 +1790,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1813,14 +1813,14 @@ MonoBehaviour:
   enemyState: 0
   isInIdle: 0
   isInPatrol: 0
-  walkSpeed: 0
+  walkSpeed: 3.5
   agent: {fileID: 0}
   destContainer: {fileID: 1099795760}
   destinations: []
   destIndex: 0
   hasPath: 0
   currentDest: {fileID: 0}
-  idleTime: 0
+  idleTime: 2
 --- !u!1 &1947219665
 GameObject:
   m_ObjectHideFlags: 0

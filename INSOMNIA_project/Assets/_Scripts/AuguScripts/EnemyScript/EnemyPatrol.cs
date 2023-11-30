@@ -11,6 +11,10 @@ public class EnemyPatrol : EnemyBaseState
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
+        if(enemyState.isInIdle)
+        {
+            enemyState.TransitionToState(enemyState.enemyIdle);
+        }
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {

@@ -51,8 +51,8 @@ public class EnemyStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        currentState = enemyPatrol;
+        isInIdle = true;
+        currentState = enemyIdle;
         currentState.OnStateEnter(this);
 
     }
@@ -60,10 +60,19 @@ public class EnemyStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentState.OnStateUpdate(this);
+        EnemyIdle();
         EnemyMove();
         hasPath = agent.hasPath;
+        currentState.OnStateUpdate(this);
 
+    }
+
+    private void EnemyIdle()
+    {
+        if(agent.remainingDistance <= agent.stoppingDistance)
+        {
+            isInIdle = true;
+        }
     }
 
     private void EnemyMove()
@@ -100,5 +109,6 @@ public class EnemyStateManager : MonoBehaviour
     {
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
+        agent.speed = walkSpeed;
     }
 }
