@@ -35,6 +35,7 @@ public class PlayerCam : MonoBehaviour
 
     PlayerStateManager playerStateManager;
     PlayerInputManager playerInputManager;
+    Grabber grabber;
 
     Camera cam;
 
@@ -43,6 +44,7 @@ public class PlayerCam : MonoBehaviour
         playerStateManager = GetComponentInParent<PlayerStateManager>();
         playerInputManager = GetComponentInParent<PlayerInputManager>();
         cam = GetComponent<Camera>();
+        grabber = GetComponent<Grabber>();
     }
 
     private void OnEnable()
@@ -220,7 +222,7 @@ public class PlayerCam : MonoBehaviour
     private void CameraRotation()
     {
         //Return si LookBack
-        if (isLooking) return;
+        if (isLooking || grabber.isHiding) return;
         //get mouse input
         //Add mouse sensitivity
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;

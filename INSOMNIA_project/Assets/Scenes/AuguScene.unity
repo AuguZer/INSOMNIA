@@ -1116,10 +1116,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
+    - target: {fileID: 782639836160466952, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
-      propertyPath: grabRange
-      value: 1.5
+      propertyPath: upDetectionRadius
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3699773195466166027, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}

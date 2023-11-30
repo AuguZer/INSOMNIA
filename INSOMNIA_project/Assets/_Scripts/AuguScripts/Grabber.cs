@@ -20,6 +20,7 @@ public class Grabber : MonoBehaviour
     [SerializeField] float grabDrag = 10f;
 
     [SerializeField] bool leftButtonDown;
+    [SerializeField] public bool isHiding;
 
     PlayerInventory playerInventory;
     PlayerStateManager playerStateManager;
@@ -126,7 +127,7 @@ public class Grabber : MonoBehaviour
                     playerStateManager.isCrouching = false;
                     Transform hidePos = belowObject.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
-                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
                     StartCoroutine(LerpToHideRotation());
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrawl, .6f), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
@@ -147,7 +148,7 @@ public class Grabber : MonoBehaviour
                     playerStateManager.isCrawling = false;
                     Transform hidePos = box.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
-                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
                     StartCoroutine(LerpToHideRotation());
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch, .4f), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
@@ -167,7 +168,7 @@ public class Grabber : MonoBehaviour
                     playerStateManager.isCrawling = false;
                     Transform hidePos = closet.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
-                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), 1f));
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
                     StartCoroutine(LerpToHideRotation());
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposNormal, .4f), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
@@ -284,13 +285,15 @@ public class Grabber : MonoBehaviour
 
         while (t < duration)
         {
+            isHiding = true;
             transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation, Quaternion.identity, t / duration);
             t += Time.deltaTime;
-            playerStateManager.playerCam.enabled = false;
+            //playerStateManager.playerCam.enabled = false;
             yield return null;
         }
 
+        isHiding = false;
         transform.parent.localRotation = Quaternion.identity;
-        playerStateManager.playerCam.enabled = true;
+        //playerStateManager.playerCam.enabled = true;
     }
 }
