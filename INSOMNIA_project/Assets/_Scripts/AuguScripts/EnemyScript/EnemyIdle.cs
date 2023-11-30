@@ -9,7 +9,6 @@ public class EnemyIdle : EnemyBaseState
         enemyState.enemyState = EnemyStateManager.EnemyState.IDLE;
         enemyState.isInIdle = true;
         enemyState.StartCoroutine(enemyState.IdleCoroutine());
-        enemyState.SetEnemyPatrolPoint();
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
