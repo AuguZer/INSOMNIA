@@ -7,6 +7,7 @@ public class EnemyPatrol : EnemyBaseState
     public override void OnStateEnter(EnemyStateManager enemyState)
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.PATROL;
+        enemyState.isInPatrol = true;
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
@@ -24,6 +25,6 @@ public class EnemyPatrol : EnemyBaseState
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
-     
+     enemyState.isInPatrol = false;
     }
 }
