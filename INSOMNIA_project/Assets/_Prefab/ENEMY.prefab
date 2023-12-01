@@ -257,7 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetected: 0
   playerPos: {fileID: 0}
-  timeBeforeEndChase: 2
+  playerLastPosition: {x: 0, y: 0, z: 0}
+  timeBeforeEndChase: 5
 --- !u!1 &5872054481283041069
 GameObject:
   m_ObjectHideFlags: 0
