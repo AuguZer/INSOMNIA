@@ -1858,11 +1858,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 871117798725257685, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
-      propertyPath: chaseSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 871117798725257685, guid: 09f2fc08c61970b4683e9d91081e11be,
-        type: 3}
       propertyPath: destContainer
       value: 
       objectReference: {fileID: 1099795760}
@@ -1923,23 +1918,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3747446478793834844, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
-      propertyPath: m_Size.z
-      value: 27.086063
+      propertyPath: m_Size.x
+      value: 15.875885
       objectReference: {fileID: 0}
     - target: {fileID: 3747446478793834844, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
-      propertyPath: m_Center.z
-      value: 13.502579
+      propertyPath: m_Center.x
+      value: -0.15192795
       objectReference: {fileID: 0}
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_Name
       value: ENEMY
-      objectReference: {fileID: 0}
-    - target: {fileID: 7056109828547835074, guid: 09f2fc08c61970b4683e9d91081e11be,
-        type: 3}
-      propertyPath: m_Height
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
