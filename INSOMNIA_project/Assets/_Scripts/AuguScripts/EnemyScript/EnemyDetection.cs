@@ -10,6 +10,9 @@ public class EnemyDetection : MonoBehaviour
     public Vector3 playerLastPosition;
 
     [SerializeField] float timeBeforeEndChase;
+    [SerializeField] Transform headPoint;
+
+    [SerializeField] LayerMask wallMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,31 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerDetected)
+        {
+            RaycastHit hit;
+
+            //if (Physics.Raycast(headPoint.position, playerPos.position, out hit, 4f))
+            //{
+
+            //}
+
+            Ray ray = new Ray();
+
+            ray.origin = headPoint.position;
+            ray.direction = playerPos.position - headPoint.position;
+
+            if (Physics.Raycast(ray.origin, ray.direction,out hit, 10f, wallMask))
+            {
+                    Debug.DrawLine(headPoint.position, hit.point, Color.red);
+            }
+            else
+            {
+                Debug.DrawLine(headPoint.position, playerPos.position, Color.green);
+            }
+
+
+        }
 
     }
 
@@ -47,5 +75,19 @@ public class EnemyDetection : MonoBehaviour
         playerLastPosition = lastPos;
         Debug.Log(playerLastPosition);
         playerDetected = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (playerDetected)
+        {
+            Gizmos.color = Color.red;
+            Ray r = new Ray();
+
+            r.origin = headPoint.position;
+            r.direction = playerPos.position - headPoint.position;
+
+            Gizmos.DrawRay(r.origin, r.direction);
+        }
     }
 }

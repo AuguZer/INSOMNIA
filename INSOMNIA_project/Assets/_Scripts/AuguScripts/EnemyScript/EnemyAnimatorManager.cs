@@ -25,14 +25,14 @@ public class EnemyAnimatorManager : MonoBehaviour
         {
             //FADE IN
             float weight = animator.GetLayerWeight(1);
-            weight = Mathf.Lerp(weight, 1f, .1f);
+            weight = Mathf.Lerp(weight, 1f, .05f);
             animator.SetLayerWeight(1, weight);
         }
         else
         {
             //FADE OUT
             float weight = animator.GetLayerWeight(1);
-            weight = Mathf.Lerp(weight, 0f, .1f);
+            weight = Mathf.Lerp(weight, 0f, .05f);
             animator.SetLayerWeight(1, weight);
         }
     }
