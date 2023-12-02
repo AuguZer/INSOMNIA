@@ -13,6 +13,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float maxLookDown = 72f;
     [SerializeField] float maxLookUp = -80f;
+    [SerializeField] float maxLookBackRight = 130f;
+    [SerializeField] float maxLookBackLeft = -130f;
 
     [SerializeField] public float camZpos;
     [SerializeField] public float camZposCrawl;
@@ -146,14 +148,13 @@ public class PlayerCam : MonoBehaviour
     {
         if (playerStateManager.isDead)
         {
-            sensX = 0f;
-            sensY = 0f;
-            cam.nearClipPlane = 0.01f;
             transform.SetParent(deadPoint);
+            cam.nearClipPlane = 0.01f;
         }
 
         CameraRotation();
         SetCameraPositionAndRotation();
+
     }
 
     private void SetCameraPositionAndRotation()
@@ -172,11 +173,11 @@ public class PlayerCam : MonoBehaviour
         else
         {
             //Rot & Pos to the RIGHT
-            targetRotationR = new Vector3(0f, 130f, -5f);
+            targetRotationR = new Vector3(0f, maxLookBackRight, -5f);
             targetPositionR = new Vector3(.3f, playerInputManager.camYposNormal, camZpos);
 
             //Rot & Pos to the LEFT
-            targetRotationL = new Vector3(0f, -130f, 5f);
+            targetRotationL = new Vector3(0f, maxLookBackLeft, 5f);
             targetPositionL = new Vector3(-.3f, playerInputManager.camYposNormal, camZpos);
         }
 
@@ -196,11 +197,11 @@ public class PlayerCam : MonoBehaviour
         if (playerStateManager.state == PlayerStateManager.PlayerState.Crouch)
         {
             //Rot & Pos to the RIGHT
-            targetRotationR = new Vector3(0f, 130f, -5f);
+            targetRotationR = new Vector3(0f, maxLookBackRight, -5f);
             targetPositionR = new Vector3(.3f, playerInputManager.camYposCrouch, camZpos);
 
             //Rot & Pos to the LEFT
-            targetRotationL = new Vector3(0f, -130f, 5f);
+            targetRotationL = new Vector3(0f, maxLookBackLeft, 5f);
             targetPositionL = new Vector3(-.3f, playerInputManager.camYposCrouch, camZpos);
         }
 
@@ -220,11 +221,11 @@ public class PlayerCam : MonoBehaviour
         if (playerStateManager.state == PlayerStateManager.PlayerState.Crawl)
         {
             //Rot & Pos to the RIGHT
-            targetRotationR = new Vector3(0f, 130f, -5f);
+            targetRotationR = new Vector3(0f, maxLookBackRight, -5f);
             targetPositionR = new Vector3(.4f, playerInputManager.camYposCrawl, camZposCrawl);
 
             //Rot & Pos to the LEFT
-            targetRotationL = new Vector3(0f, -130f, 5f);
+            targetRotationL = new Vector3(0f, maxLookBackLeft, 5f);
             targetPositionL = new Vector3(-.4f, playerInputManager.camYposCrawl, camZposCrawl);
         }
     }

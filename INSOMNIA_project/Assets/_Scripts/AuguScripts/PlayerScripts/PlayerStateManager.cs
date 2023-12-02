@@ -86,4 +86,10 @@ public class PlayerStateManager : MonoBehaviour
         currentState = nextState;
         currentState.OnStateEnter(this);
     }
+
+   public IEnumerator DeathCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        playerCam.enabled = false;
+    }
 }

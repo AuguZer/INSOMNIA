@@ -7,7 +7,7 @@ public class EnemyAttack : EnemyBaseState
     public override void OnStateEnter(EnemyStateManager enemyState)
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.ATTACK;
-        enemyState.agent.speed = 0f;
+        enemyState.agent.speed = 3f;
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)

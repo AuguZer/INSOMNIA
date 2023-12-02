@@ -496,6 +496,8 @@ MonoBehaviour:
   rotationSpeed: 0.2
   maxLookDown: 80
   maxLookUp: -80
+  maxLookBackRight: 140
+  maxLookBackLeft: -140
   camZpos: 0.4
   camZposCrawl: 0.6
   playerBody: {fileID: 7207316340061104541}
