@@ -7,6 +7,7 @@ public class EnemyChase : EnemyBaseState
     public override void OnStateEnter(EnemyStateManager enemyState)
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.CHASE;
+        enemyState.agent.speed = enemyState.chaseSpeed;
   
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)

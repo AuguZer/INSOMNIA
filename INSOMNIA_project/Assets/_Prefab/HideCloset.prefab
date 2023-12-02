@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5316744152019881871}
   - component: {fileID: 7144502102258839557}
   - component: {fileID: 6982374241468774248}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HideCloset
   m_TagString: HideCloset
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 1530925469763656552}
   - {fileID: 3502039877987865545}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7144502102258839557
 BoxCollider:
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3502039877987865545}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HidePos
   m_TagString: HideCloset
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6507584567836245435}
   - component: {fileID: 187022335817806413}
   - component: {fileID: 1166381671519627405}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (7)
   m_TagString: HideCloset
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 415454518617748448}
   - component: {fileID: 3648887350782898352}
   - component: {fileID: 6496746830319634305}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (6)
   m_TagString: HideCloset
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 8659419498776182329}
   - component: {fileID: 7452911559747455981}
   - component: {fileID: 7366522278381579634}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (5)
   m_TagString: HideCloset
   m_Icon: {fileID: 0}

@@ -29,6 +29,7 @@ public class EnemyStateManager : MonoBehaviour
 
     [Header("STATS")]
     [SerializeField] public float walkSpeed;
+    [SerializeField] public float chaseSpeed;
 
     public NavMeshAgent agent;
     [SerializeField] Transform destContainer;
