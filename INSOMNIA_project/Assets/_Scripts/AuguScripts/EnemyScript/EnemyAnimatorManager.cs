@@ -20,6 +20,7 @@ public class EnemyAnimatorManager : MonoBehaviour
     {
         animator.SetBool("IsInIdle", enemyStateManager.isInIdle);
         animator.SetBool("IsInPatrol", enemyStateManager.isInPatrol);
+        animator.SetBool("IsInChase", enemyStateManager.isInChase);
 
         if (enemyStateManager.isInPatrol)
         {
