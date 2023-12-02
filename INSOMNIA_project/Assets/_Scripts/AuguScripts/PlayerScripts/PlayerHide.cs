@@ -21,6 +21,21 @@ public class PlayerHide : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Walk);
         }
+        //TO CROUCH
+        if (playerState.isCrouching && !playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Crouch);
+        }
+        //TO CRAWL
+        if (playerState.isCrawling && !playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Crawl);
+        }
+        //TO DEATH
+        if (playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
 
     }
 

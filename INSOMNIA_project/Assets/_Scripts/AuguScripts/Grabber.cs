@@ -281,7 +281,7 @@ public class Grabber : MonoBehaviour
     private IEnumerator LerpToHideRotation()
     {
         float t = 0f;
-        float duration = 1f;
+        float duration = .5f;
 
         while (t < duration)
         {

@@ -29,7 +29,6 @@ public class AnimatorManager : MonoBehaviour
         }
 
 
-
         #region "Foward/Backward"
         if (playerInputManager.dirInput.z == 0) 
         {
@@ -109,5 +108,12 @@ public class AnimatorManager : MonoBehaviour
         }
 
 
+        if (playerStateManager.isHiding)
+        {
+            animator.SetBool("WalkFoward", false);
+            animator.SetBool("WalkBackward", false);
+            animator.SetBool("StrafeRight", false);
+            animator.SetBool("StrafeLeft", false);
+        }
     }
 }
