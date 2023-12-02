@@ -39,6 +39,8 @@ public class PlayerCam : MonoBehaviour
 
     Camera cam;
 
+    [SerializeField] Transform deadPoint;
+
     private void Awake()
     {
         playerStateManager = GetComponentInParent<PlayerStateManager>();
@@ -142,6 +144,13 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerStateManager.isDead)
+        {
+            sensX = 0f;
+            sensY = 0f;
+            transform.SetParent(deadPoint);
+        }
+
         CameraRotation();
         SetCameraPositionAndRotation();
     }

@@ -41,6 +41,12 @@ public class PlayerIdle : PlayerBaseState
             playerState.TransitionToState(playerState.Hide);
         }
 
+        //TO DEATH
+        if(playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
+
         ////TO LOOK
         //if (playerState.playerCam.isLooking)
         //{

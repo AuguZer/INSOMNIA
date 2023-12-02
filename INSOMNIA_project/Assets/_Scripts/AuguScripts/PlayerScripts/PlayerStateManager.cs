@@ -14,6 +14,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerCrawlIdle CrawlIdle = new PlayerCrawlIdle();
     public PlayerCrawl Crawl = new PlayerCrawl();
     public PlayerHide Hide = new PlayerHide();
+    public PlayerDeath Death = new PlayerDeath();
 
 
     public PlayerInputManager inputManager;
@@ -30,7 +31,8 @@ public class PlayerStateManager : MonoBehaviour
         CrawlIdle,
         Crawl,
         Look,
-        Hide
+        Hide,
+        Death,
     }
 
     [Header("STATES")]
@@ -50,6 +52,7 @@ public class PlayerStateManager : MonoBehaviour
     public bool isCrawling;
     public bool isHiding;
     public bool canInteract;
+    public bool isDead;
 
     public Rigidbody rb;
 

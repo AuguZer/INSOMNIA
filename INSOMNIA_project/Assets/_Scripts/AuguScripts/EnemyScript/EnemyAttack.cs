@@ -14,10 +14,14 @@ public class EnemyAttack : EnemyBaseState
     {
         if (enemyState.enemyDetection.DetectPlayer())
         {
-            Debug.Log("Touche Player");
+            enemyState.isInIdle = true;
+            enemyState.isInAttack = false;
+            enemyState.isInChase = false;
         }
-      //TO CHASE
-      if(!enemyState.isInAttack)
+      
+
+        //TO CHASE
+        if (!enemyState.isInAttack)
         {
             enemyState.TransitionToState(enemyState.enemyChase);
         }

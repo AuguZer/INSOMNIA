@@ -18,10 +18,13 @@ public class EnemyDetection : MonoBehaviour
 
     [SerializeField] LayerMask wallMask;
     [SerializeField] LayerMask playerMask;
+
+    EnemyStateManager enemyStateManager;
     // Start is called before the first frame update
     void Start()
     {
         attackRadius = 0f;
+        enemyStateManager = GetComponentInParent<EnemyStateManager>();
     }
 
     // Update is called once per frame
@@ -67,7 +70,14 @@ public class EnemyDetection : MonoBehaviour
     }
     public bool DetectPlayer()
     {
-        return Physics.OverlapSphere(attackPoint.position, attackRadius, playerMask).Length > 0;
+        Collider[] player = Physics.OverlapSphere(attackPoint.position, attackRadius, playerMask);
+
+        foreach (Collider col in player)
+        {
+            col.gameObject.GetComponent<PlayerStateManager>().isDead = true;
+            return true;
+        }
+        return false;
     }
 
     IEnumerator StopChaseCoroutine()

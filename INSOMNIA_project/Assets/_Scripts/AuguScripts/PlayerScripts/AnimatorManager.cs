@@ -21,6 +21,7 @@ public class AnimatorManager : MonoBehaviour
     {
         animator.SetBool("IsCrouching", playerStateManager.isCrouching);
         animator.SetBool("IsCrawling", playerStateManager.isCrawling);
+        if (playerStateManager.isDead) animator.SetTrigger("IsDead"); 
 
         if(playerStateManager.isCrouching || playerStateManager.isCrawling )
         {
