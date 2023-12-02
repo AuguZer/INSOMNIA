@@ -144,10 +144,11 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerStateManager.isDead)
+        if (playerStateManager.isDead)
         {
             sensX = 0f;
             sensY = 0f;
+            cam.nearClipPlane = 0.01f;
             transform.SetParent(deadPoint);
         }
 
@@ -253,11 +254,11 @@ public class PlayerCam : MonoBehaviour
 
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if(playerStateManager.isHiding)
+        if (playerStateManager.isHiding)
         {
             cam.nearClipPlane = 0.01f;
         }
-        else
+        else if (!playerStateManager.isDead)
         {
             cam.nearClipPlane = 0.32f;
         }

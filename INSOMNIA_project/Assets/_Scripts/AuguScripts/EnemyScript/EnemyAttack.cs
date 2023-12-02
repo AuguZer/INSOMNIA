@@ -12,18 +12,18 @@ public class EnemyAttack : EnemyBaseState
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
-        if (enemyState.enemyDetection.DetectPlayer())
-        {
-            enemyState.isInIdle = true;
-            enemyState.isInAttack = false;
-            enemyState.isInChase = false;
-        }
-      
+        enemyState.enemyDetection.DetectPlayer();
 
         //TO CHASE
         if (!enemyState.isInAttack)
         {
             enemyState.TransitionToState(enemyState.enemyChase);
+        }
+
+        //TO IDLE
+        if(enemyState.isInIdle && !enemyState.isInChase)
+        {
+            enemyState.TransitionToState(enemyState.enemyIdle);
         }
 
     }

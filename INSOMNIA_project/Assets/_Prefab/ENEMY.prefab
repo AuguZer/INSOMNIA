@@ -73,14 +73,14 @@ MonoBehaviour:
   timeBeforeEndChase: 5
   detectionRayLenght: 50
   headPoint: {fileID: 3642153846787592889}
-  attackPoint: {fileID: 0}
-  attackRadius: 1
+  attackPoint: {fileID: 7213426444023495821}
+  attackRadius: 0.8
   wallMask:
     serializedVersion: 2
     m_Bits: 3072
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1 &4018890981069381043
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4018890981069381043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,6 +229,7 @@ MonoBehaviour:
   hasPath: 0
   currentDest: {fileID: 0}
   idleTime: 5
+  enemyDetection: {fileID: 0}
 --- !u!1001 &2827503792583327327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,3 +520,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b13531f9bf6a742b1127fd72a7b9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDetection: {fileID: 4522830891242824651}

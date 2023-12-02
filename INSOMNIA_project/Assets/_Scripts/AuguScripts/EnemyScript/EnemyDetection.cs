@@ -75,6 +75,11 @@ public class EnemyDetection : MonoBehaviour
         foreach (Collider col in player)
         {
             col.gameObject.GetComponent<PlayerStateManager>().isDead = true;
+            if(col.gameObject.GetComponent<PlayerStateManager>().isDead )
+            {
+                playerDetected = false;
+                playerInZone = false;
+            }
             return true;
         }
         return false;
