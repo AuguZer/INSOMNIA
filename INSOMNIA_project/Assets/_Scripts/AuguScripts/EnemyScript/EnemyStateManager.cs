@@ -11,12 +11,14 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyIdle enemyIdle = new EnemyIdle();
     public EnemyPatrol enemyPatrol = new EnemyPatrol();
     public EnemyChase enemyChase = new EnemyChase();
+    public EnemyAttack enemyAttack = new EnemyAttack();
 
     public enum EnemyState
     {
         IDLE,
         PATROL,
-        CHASE
+        CHASE,
+        ATTACK
     }
 
     [Header("STATES")]
@@ -26,6 +28,7 @@ public class EnemyStateManager : MonoBehaviour
     public bool isInIdle;
     public bool isInPatrol;
     public bool isInChase;
+    public bool isInAttack;
 
     [Header("STATS")]
     [SerializeField] public float walkSpeed;
@@ -77,6 +80,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void EnemyIdle()
     {
+
         if(agent.remainingDistance <= agent.stoppingDistance)
         {
             isInIdle = true;
@@ -102,6 +106,19 @@ public class EnemyStateManager : MonoBehaviour
         if(isInChase)
         {
             agent.SetDestination(enemyDetection.playerPos.position);
+
+            if (agent.remainingDistance <= 2f)
+            {
+                isInAttack = true;
+            }
+        }
+    }
+
+    private void EnemyAttack()
+    {
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            isInAttack = true;
         }
     }
 

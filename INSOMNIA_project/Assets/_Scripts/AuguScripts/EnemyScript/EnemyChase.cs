@@ -22,6 +22,11 @@ public class EnemyChase : EnemyBaseState
         {
             enemyState.TransitionToState(enemyState.enemyPatrol);
         }
+        //TO ATTACK
+        if (enemyState.isInAttack)
+        {
+            enemyState.TransitionToState(enemyState.enemyAttack);
+        }
 
     }
     public override void OnStateExit(EnemyStateManager enemyState)

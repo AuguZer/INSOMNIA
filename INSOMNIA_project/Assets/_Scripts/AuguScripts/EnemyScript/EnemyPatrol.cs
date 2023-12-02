@@ -8,6 +8,7 @@ public class EnemyPatrol : EnemyBaseState
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.PATROL;
         enemyState.isInPatrol = true;
+        enemyState.agent.stoppingDistance = .1f;
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
