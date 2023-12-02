@@ -1776,6 +1776,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 871117798725257685, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
+      propertyPath: chaseSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 871117798725257685, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
       propertyPath: destContainer
       value: 
       objectReference: {fileID: 1099795760}
@@ -1834,10 +1839,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: attackRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_Name
       value: ENEMY
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056109828547835074, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
