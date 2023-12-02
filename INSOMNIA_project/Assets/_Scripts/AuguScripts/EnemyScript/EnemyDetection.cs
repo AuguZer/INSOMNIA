@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
+    public bool playerInZone;
     public bool playerDetected;
     public Transform playerPos;
 
@@ -22,27 +23,23 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDetected)
+        if (playerInZone)
         {
             RaycastHit hit;
-
-            //if (Physics.Raycast(headPoint.position, playerPos.position, out hit, 4f))
-            //{
-
-            //}
-
             Ray ray = new Ray();
-
             ray.origin = headPoint.position;
             ray.direction = playerPos.position - headPoint.position;
 
-            if (Physics.Raycast(ray.origin, ray.direction,out hit, 10f, wallMask))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, 10f, wallMask))
             {
-                    Debug.DrawLine(headPoint.position, hit.point, Color.red);
+                Debug.DrawLine(headPoint.position, hit.point, Color.red);
+                playerDetected = false;
             }
             else
             {
                 Debug.DrawLine(headPoint.position, playerPos.position, Color.green);
+                playerDetected = true;
+
             }
 
 
@@ -56,7 +53,7 @@ public class EnemyDetection : MonoBehaviour
         {
             playerPos = other.gameObject.transform;
             StopAllCoroutines();
-            playerDetected = true;
+            playerInZone = true;
         }
     }
 
@@ -74,20 +71,6 @@ public class EnemyDetection : MonoBehaviour
         Vector3 lastPos = playerPos.position;
         playerLastPosition = lastPos;
         Debug.Log(playerLastPosition);
-        playerDetected = false;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (playerDetected)
-        {
-            Gizmos.color = Color.red;
-            Ray r = new Ray();
-
-            r.origin = headPoint.position;
-            r.direction = playerPos.position - headPoint.position;
-
-            Gizmos.DrawRay(r.origin, r.direction);
-        }
+        playerInZone = false;
     }
 }
