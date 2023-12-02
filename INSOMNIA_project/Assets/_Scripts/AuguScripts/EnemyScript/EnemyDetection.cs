@@ -11,6 +11,7 @@ public class EnemyDetection : MonoBehaviour
     public Vector3 playerLastPosition;
 
     [SerializeField] float timeBeforeEndChase;
+    [SerializeField] float detectionRayLenght = 50f;
     [SerializeField] Transform headPoint;
 
     [SerializeField] LayerMask wallMask;
@@ -30,7 +31,7 @@ public class EnemyDetection : MonoBehaviour
             ray.origin = headPoint.position;
             ray.direction = playerPos.position - headPoint.position;
 
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, 10f, wallMask))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, detectionRayLenght, wallMask))
             {
                 Debug.DrawLine(headPoint.position, hit.point, Color.red);
                 playerDetected = false;
@@ -41,8 +42,6 @@ public class EnemyDetection : MonoBehaviour
                 playerDetected = true;
 
             }
-
-
         }
 
     }
@@ -68,9 +67,10 @@ public class EnemyDetection : MonoBehaviour
     IEnumerator StopChaseCoroutine()
     {
         yield return new WaitForSeconds(timeBeforeEndChase);
-        Vector3 lastPos = playerPos.position;
-        playerLastPosition = lastPos;
-        Debug.Log(playerLastPosition);
+        //Vector3 lastPos = playerPos.position;
+        //playerLastPosition = lastPos;
+        //Debug.Log(playerLastPosition);
+        playerDetected = false;
         playerInZone = false;
     }
 }

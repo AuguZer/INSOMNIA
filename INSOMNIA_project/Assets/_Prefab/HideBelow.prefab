@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5546718751114070148}
   - component: {fileID: 653367580330861862}
   - component: {fileID: 6768203774108796722}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (6)
   m_TagString: HideBelow
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7255558400718359710}
   - component: {fileID: 5402492962480041855}
   - component: {fileID: 6998603704209889386}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (7)
   m_TagString: HideBelow
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6019682422069004830}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HidePos
   m_TagString: HideBelow
   m_Icon: {fileID: 0}
@@ -252,7 +252,8 @@ GameObject:
   - component: {fileID: 6019310553630777471}
   - component: {fileID: 4236784368456498825}
   - component: {fileID: 167498228325787256}
-  m_Layer: 0
+  - component: {fileID: 1827562963551498721}
+  m_Layer: 11
   m_Name: HideBelow
   m_TagString: HideBelow
   m_Icon: {fileID: 0}
@@ -277,7 +278,7 @@ Transform:
   - {fileID: 6019682422069004830}
   - {fileID: 2897757377885139632}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4236784368456498825
 BoxCollider:
@@ -314,6 +315,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hidePos: {fileID: 6019682422069004830}
   playerInRange: 0
+--- !u!114 &1827562963551498721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389416388743060833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8739479522513170718
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +346,7 @@ GameObject:
   - component: {fileID: 1772659316941232180}
   - component: {fileID: 6016574421229058384}
   - component: {fileID: 3842145577525342836}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (5)
   m_TagString: HideBelow
   m_Icon: {fileID: 0}
@@ -431,7 +451,7 @@ GameObject:
   - component: {fileID: 7148235753812057103}
   - component: {fileID: 8696342117158323092}
   - component: {fileID: 4050874078483796855}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (8)
   m_TagString: HideBelow
   m_Icon: {fileID: 0}

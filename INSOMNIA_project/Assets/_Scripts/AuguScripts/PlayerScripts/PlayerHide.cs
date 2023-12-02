@@ -7,7 +7,7 @@ public class PlayerHide : PlayerBaseState
     public override void OnStateEnter(PlayerStateManager playerState)
     {
         playerState.state = PlayerStateManager.PlayerState.Hide;
-        playerState.inputManager.characterController.enabled = false;
+        //playerState.inputManager.characterController.enabled = false;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
@@ -26,6 +26,6 @@ public class PlayerHide : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-        playerState.inputManager.characterController.enabled = true;
+        //playerState.inputManager.characterController.enabled = true;
     }
 }
