@@ -33,6 +33,7 @@ public class EnemyStateManager : MonoBehaviour
     [Header("STATS")]
     [SerializeField] public float walkSpeed;
     [SerializeField] public float chaseSpeed;
+    [SerializeField] public float attackDistance = 2.2f;
 
     public NavMeshAgent agent;
     [SerializeField] Transform destContainer;
@@ -46,7 +47,7 @@ public class EnemyStateManager : MonoBehaviour
 
     [SerializeField] int idleTime;
 
-    EnemyDetection enemyDetection;
+    public EnemyDetection enemyDetection;
 
     private void Awake()
     {
@@ -107,18 +108,10 @@ public class EnemyStateManager : MonoBehaviour
         {
             agent.SetDestination(enemyDetection.playerPos.position);
 
-            if (agent.remainingDistance <= 2f)
+            if (agent.remainingDistance <= attackDistance)
             {
                 isInAttack = true;
             }
-        }
-    }
-
-    private void EnemyAttack()
-    {
-        if (agent.remainingDistance <= agent.stoppingDistance)
-        {
-            isInAttack = true;
         }
     }
 

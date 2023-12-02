@@ -12,7 +12,15 @@ public class EnemyAttack : EnemyBaseState
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
-      
+        if (enemyState.enemyDetection.DetectPlayer())
+        {
+            Debug.Log("Touche Player");
+        }
+      //TO CHASE
+      if(!enemyState.isInAttack)
+        {
+            enemyState.TransitionToState(enemyState.enemyChase);
+        }
 
     }
     public override void OnStateExit(EnemyStateManager enemyState)

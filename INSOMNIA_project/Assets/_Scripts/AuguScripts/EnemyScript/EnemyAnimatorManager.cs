@@ -6,6 +6,7 @@ public class EnemyAnimatorManager : MonoBehaviour
 {
     Animator animator;
     EnemyStateManager enemyStateManager;
+    [SerializeField] EnemyDetection enemyDetection;
 
 
     // Start is called before the first frame update
@@ -21,11 +22,8 @@ public class EnemyAnimatorManager : MonoBehaviour
         animator.SetBool("IsInIdle", enemyStateManager.isInIdle);
         animator.SetBool("IsInPatrol", enemyStateManager.isInPatrol);
         animator.SetBool("IsInChase", enemyStateManager.isInChase);
+        animator.SetBool("Attack", enemyStateManager.isInAttack);
 
-        if (enemyStateManager.isInAttack)
-        {
-            animator.SetTrigger("Attack");
-        }
 
         if (enemyStateManager.isInPatrol)
         {
@@ -41,5 +39,16 @@ public class EnemyAnimatorManager : MonoBehaviour
             weight = Mathf.Lerp(weight, 0f, .05f);
             animator.SetLayerWeight(1, weight);
         }
+    }
+
+    private void ResetAttack()
+    {
+        enemyStateManager.isInAttack = false;
+        enemyDetection.attackRadius = 0f;
+    }
+
+    private void StartDetection()
+    {
+        enemyDetection.attackRadius = 1f;
     }
 }

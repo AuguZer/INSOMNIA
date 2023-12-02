@@ -73,9 +73,45 @@ MonoBehaviour:
   timeBeforeEndChase: 5
   detectionRayLenght: 50
   headPoint: {fileID: 3642153846787592889}
+  attackPoint: {fileID: 0}
+  attackRadius: 1
   wallMask:
     serializedVersion: 2
     m_Bits: 3072
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!1 &4018890981069381043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7213426444023495821}
+  m_Layer: 12
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7213426444023495821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018890981069381043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1568065603939237539}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5367113406856245941
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +176,7 @@ Transform:
   - {fileID: 2357624279731984820}
   - {fileID: 5501335842728199710}
   - {fileID: 3642153846787592889}
+  - {fileID: 7213426444023495821}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,7 +191,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
-  m_Acceleration: 8
+  m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0.1
@@ -181,8 +218,10 @@ MonoBehaviour:
   isInIdle: 0
   isInPatrol: 0
   isInChase: 0
+  isInAttack: 0
   walkSpeed: 2
   chaseSpeed: 5
+  attackDistance: 2.1
   agent: {fileID: 0}
   destContainer: {fileID: 0}
   destinations: []

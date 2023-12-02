@@ -13,12 +13,15 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] float timeBeforeEndChase;
     [SerializeField] float detectionRayLenght = 50f;
     [SerializeField] Transform headPoint;
+    [SerializeField] public Transform attackPoint;
+    [SerializeField] public float attackRadius = 1f;
 
     [SerializeField] LayerMask wallMask;
+    [SerializeField] LayerMask playerMask;
     // Start is called before the first frame update
     void Start()
     {
-
+        attackRadius = 0f;
     }
 
     // Update is called once per frame
@@ -43,7 +46,6 @@ public class EnemyDetection : MonoBehaviour
 
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +65,10 @@ public class EnemyDetection : MonoBehaviour
             StartCoroutine(StopChaseCoroutine());
         }
     }
+    public bool DetectPlayer()
+    {
+        return Physics.OverlapSphere(attackPoint.position, attackRadius, playerMask).Length > 0;
+    }
 
     IEnumerator StopChaseCoroutine()
     {
@@ -72,5 +78,11 @@ public class EnemyDetection : MonoBehaviour
         //Debug.Log(playerLastPosition);
         playerDetected = false;
         playerInZone = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }

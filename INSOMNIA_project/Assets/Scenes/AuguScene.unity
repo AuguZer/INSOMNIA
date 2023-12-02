@@ -1032,6 +1032,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &943334609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7213426444023495821, guid: 09f2fc08c61970b4683e9d91081e11be,
+    type: 3}
+  m_PrefabInstance: {fileID: 5256120638269773061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1099795760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8257036250129419627, guid: 7ce6661ac0a4c0f42a7b527da8917c1e,
@@ -1464,6 +1470,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05c107f79ba01b941b118059c09a1fa6, type: 3}
+--- !u!114 &1895417458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+    type: 3}
+  m_PrefabInstance: {fileID: 5256120638269773061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49aedf223e3b9543a6e539f3901c98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947219665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,15 +1857,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 943334609}
+    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: attackRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661289152807453959, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
+      propertyPath: enemyDetection
+      value: 
+      objectReference: {fileID: 1895417458}
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_Name
       value: ENEMY
       objectReference: {fileID: 0}
-    - target: {fileID: 7056109828547835074, guid: 09f2fc08c61970b4683e9d91081e11be,
+    - target: {fileID: 7213426444023495821, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
-      propertyPath: m_Acceleration
-      value: 16
+      propertyPath: m_LocalPosition.z
+      value: 1.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
