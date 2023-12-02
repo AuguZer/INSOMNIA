@@ -38,6 +38,12 @@ public class PlayerCrouch : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Crawl);
         }
+        //TO DEATH
+        if (playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
+
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

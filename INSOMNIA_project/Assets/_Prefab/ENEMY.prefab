@@ -74,7 +74,7 @@ MonoBehaviour:
   detectionRayLenght: 50
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
-  attackRadius: 0.8
+  attackRadius: 1
   wallMask:
     serializedVersion: 2
     m_Bits: 3072
@@ -191,7 +191,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
-  m_Acceleration: 50
+  m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0.1
@@ -220,7 +220,7 @@ MonoBehaviour:
   isInChase: 0
   isInAttack: 0
   walkSpeed: 2
-  chaseSpeed: 5
+  chaseSpeed: 10
   attackDistance: 2.1
   agent: {fileID: 0}
   destContainer: {fileID: 0}

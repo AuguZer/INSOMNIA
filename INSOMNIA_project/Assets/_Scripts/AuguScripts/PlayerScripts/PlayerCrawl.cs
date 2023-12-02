@@ -39,6 +39,12 @@ public class PlayerCrawl : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Walk);
         }
+        //TO DEATH
+        if (playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
+
 
     }
 

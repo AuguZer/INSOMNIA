@@ -30,6 +30,12 @@ public class PlayerCrouchIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrawlIdle);
         }
+        //TO DEATH
+        if (playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
+
     }
 
     public override void OnStateExit(PlayerStateManager playerState)
