@@ -25,12 +25,16 @@ public class Grabber : MonoBehaviour
     PlayerInventory playerInventory;
     PlayerStateManager playerStateManager;
     PlayerInputManager playerInputManager;
+    PlayerEventsManager playerEventsManager;
+
+    [SerializeField] LayerMask interactMask;
 
     private void Awake()
     {
         playerInventory = GetComponentInParent<PlayerInventory>();
         playerStateManager = GetComponentInParent<PlayerStateManager>();
         playerInputManager = GetComponentInParent<PlayerInputManager>();
+        playerEventsManager = GetComponentInParent<PlayerEventsManager>();
     }
     // Start is called before the first frame update
     private void OnEnable()
@@ -93,6 +97,8 @@ public class Grabber : MonoBehaviour
             DropObject();
         }
 
+        DisplayInteractUI();
+
         if (inputActions.FindAction("Interact").WasPerformedThisFrame())
         {
             RaycastHit hit;
@@ -135,7 +141,6 @@ public class Grabber : MonoBehaviour
             }
         }
     }
-    
     private void InteractWithHideBox(GameObject box)
     {
         if (box.tag == "HideBox")
@@ -176,7 +181,6 @@ public class Grabber : MonoBehaviour
             }
         }
     }
-
     private void InteractWithDoor(GameObject door)
     {
         if (door.tag == "Door")
@@ -260,6 +264,24 @@ public class Grabber : MonoBehaviour
         {
             Vector3 moveDirection = (grabArea.position - heldObj.transform.position);
             heldObjRB.AddForce(moveDirection * grabForce);
+        }
+    }
+
+    private void DisplayInteractUI()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.green);
+            Debug.Log("Afficher l'UI");
+            playerEventsManager.EnableInteractUI?.Invoke();
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.red);
+            Debug.Log("Ne pas Afficher l'UI");
+            playerEventsManager.DisableInteractUI?.Invoke();
         }
     }
 

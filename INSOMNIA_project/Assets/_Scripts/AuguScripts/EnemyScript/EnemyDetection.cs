@@ -18,6 +18,7 @@ public class EnemyDetection : MonoBehaviour
 
     [SerializeField] LayerMask wallMask;
     [SerializeField] LayerMask playerMask;
+  
 
     EnemyStateManager enemyStateManager;
     // Start is called before the first frame update
