@@ -38,6 +38,11 @@ public class PlayerCrouch : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Crawl);
         }
+        //TO HIDE
+        if (playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Hide);
+        }
         //TO DEATH
         if (playerState.isDead)
         {

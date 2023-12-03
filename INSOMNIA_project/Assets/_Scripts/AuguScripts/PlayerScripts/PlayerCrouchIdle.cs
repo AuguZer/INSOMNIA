@@ -24,7 +24,11 @@ public class PlayerCrouchIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Idle);
         }
-
+        //TO HIDE
+        if (playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Hide);
+        }
         //TO CRAWLIDLE
         if (playerState.isCrawling)
         {

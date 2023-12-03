@@ -24,7 +24,11 @@ public class PlayerCrawlIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrouchIdle);
         }
-
+        //TO HIDE
+        if (playerState.isHiding)
+        {
+            playerState.TransitionToState(playerState.Hide);
+        }
         //TO CRAWL
         if (playerState.isCrawling && playerState.inputManager.dirInput != Vector3.zero)
         {
