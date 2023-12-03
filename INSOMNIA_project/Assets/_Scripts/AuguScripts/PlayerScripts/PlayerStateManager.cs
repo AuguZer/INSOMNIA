@@ -55,6 +55,8 @@ public class PlayerStateManager : MonoBehaviour
     public bool isDead;
 
     public Rigidbody rb;
+    [SerializeField] public Transform deadPoint;
+    [SerializeField] public GameObject mainCamera;
 
     private void Awake()
     {

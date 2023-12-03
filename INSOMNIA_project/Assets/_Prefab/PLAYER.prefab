@@ -196,6 +196,8 @@ MonoBehaviour:
   canInteract: 0
   isDead: 0
   rb: {fileID: 0}
+  deadPoint: {fileID: 5087596646116441379}
+  mainCamera: {fileID: 5680671379141856385}
 --- !u!114 &3373168887280241369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +511,8 @@ MonoBehaviour:
   xRot: 0
   lookInput: {x: 0, y: 0}
   isLooking: 0
-  deadPoint: {fileID: 5087596646116441379}
+  deadPoint: {fileID: 4221722452258166469}
+  mainCam: {fileID: 5680671379141856385}
 --- !u!114 &1909557698861846554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1051,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 345738223384652097}
   m_SourcePrefab: {fileID: 100100000, guid: 6a97cb3b4baf1184b9a2cd478932f32e, type: 3}
+--- !u!4 &4221722452258166469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7827193014665614702, guid: 6a97cb3b4baf1184b9a2cd478932f32e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6199579410248729515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5087596646116441379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1194459480814698120, guid: 6a97cb3b4baf1184b9a2cd478932f32e,

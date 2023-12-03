@@ -42,6 +42,7 @@ public class PlayerCam : MonoBehaviour
     Camera cam;
 
     [SerializeField] Transform deadPoint;
+    [SerializeField] GameObject mainCam;
 
     private void Awake()
     {
@@ -146,15 +147,18 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerStateManager.isDead)
-        {
-            transform.SetParent(deadPoint);
-            cam.nearClipPlane = 0.01f;
-        }
-
         CameraRotation();
         SetCameraPositionAndRotation();
+    }
 
+    private void LateUpdate()
+    {
+        if (playerStateManager.isDead)
+        {
+            transform.localRotation = Quaternion.identity;
+            cam.nearClipPlane = 0.01f;
+            transform.parent = deadPoint;
+        }
     }
 
     private void SetCameraPositionAndRotation()

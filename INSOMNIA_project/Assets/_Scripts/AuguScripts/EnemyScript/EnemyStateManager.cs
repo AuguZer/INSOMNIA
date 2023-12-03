@@ -133,6 +133,5 @@ public class EnemyStateManager : MonoBehaviour
     {
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
-        agent.speed = walkSpeed;
     }
 }
