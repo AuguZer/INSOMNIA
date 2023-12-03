@@ -110,6 +110,7 @@ public class Grabber : MonoBehaviour
                 InteractWithHideCloset(hit.transform.gameObject);
                 InteractWithHideBox(hit.transform.gameObject);
                 InteractWithHideBelow(hit.transform.gameObject);
+                FocusOnObject(hit.transform.gameObject);
             }
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.Hide && playerStateManager.canInteract)
@@ -221,6 +222,24 @@ public class Grabber : MonoBehaviour
                 door.GetComponent<Door>().ChangeDoorState();
             }
             #endregion
+        }
+    }
+    private void FocusOnObject(GameObject focusObject)
+    {
+        if(focusObject.tag == "Object")
+        {
+            if(focusObject.GetComponent<FocusObject>() != null)
+            {
+                if (playerStateManager.canInteract)
+                {
+                    playerStateManager.isCrouching = false;
+                    playerStateManager.isCrawling = false;
+                    Transform focusPos = focusObject.GetComponent<FocusObject>().focusPos;
+                    playerStateManager.canInteract = false;
+                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
+                    StartCoroutine(LerpToHideRotation());
+                }
+            }
         }
     }
 

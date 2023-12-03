@@ -323,7 +323,7 @@ MonoBehaviour:
   upDetectionRadius: 0.2
   upMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   headDetecitionRadius: 0.1
   headTransform: {fileID: 5710260850825823437}
   characterController: {fileID: 4424088952924468627}

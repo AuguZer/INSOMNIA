@@ -74,7 +74,7 @@ MonoBehaviour:
   detectionRayLenght: 50
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
-  attackRadius: 1
+  attackRadius: 1.5
   wallMask:
     serializedVersion: 2
     m_Bits: 3072
@@ -221,7 +221,7 @@ MonoBehaviour:
   isInAttack: 0
   walkSpeed: 2
   chaseSpeed: 10
-  attackDistance: 2.1
+  attackDistance: 2
   agent: {fileID: 0}
   destContainer: {fileID: 0}
   destinations: []

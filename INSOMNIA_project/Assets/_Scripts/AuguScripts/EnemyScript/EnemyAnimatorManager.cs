@@ -49,6 +49,6 @@ public class EnemyAnimatorManager : MonoBehaviour
 
     private void StartDetection()
     {
-        enemyDetection.attackRadius = 1f;
+        enemyDetection.attackRadius = 1.5f;
     }
 }
