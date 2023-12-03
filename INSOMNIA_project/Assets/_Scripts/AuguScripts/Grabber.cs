@@ -29,6 +29,8 @@ public class Grabber : MonoBehaviour
 
     [SerializeField] LayerMask interactMask;
 
+    [SerializeField] GameObject mainCam;
+
     private void Awake()
     {
         playerInventory = GetComponentInParent<PlayerInventory>();

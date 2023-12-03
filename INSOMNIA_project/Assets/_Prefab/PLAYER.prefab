@@ -671,6 +671,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 10368
+  mainCam: {fileID: 5680671379141856385}
 --- !u!1 &7382673149430571392
 GameObject:
   m_ObjectHideFlags: 0
