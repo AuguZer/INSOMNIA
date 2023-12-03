@@ -28,5 +28,14 @@ public class PlayerEventsManager : MonoBehaviour
         {
             PlayerDeath?.Invoke();
         }
+
+        if (playerStateManager.canInteract)
+        {
+            EnableInteractUI?.Invoke();
+        }
+        else
+        {
+            DisableInteractUI?.Invoke();
+        }
     }
 }

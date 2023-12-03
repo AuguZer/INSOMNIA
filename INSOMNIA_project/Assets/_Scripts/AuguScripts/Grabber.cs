@@ -115,6 +115,7 @@ public class Grabber : MonoBehaviour
             if (playerStateManager.state == PlayerStateManager.PlayerState.Hide && playerStateManager.canInteract)
             {
                 playerStateManager.isHiding = false;
+                playerEventsManager.EnableInteractUI?.Invoke();
             }
         }
 
@@ -274,14 +275,12 @@ public class Grabber : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
-            Debug.Log("Afficher l'UI");
-            playerEventsManager.EnableInteractUI?.Invoke();
+            playerStateManager.canInteract = true;
         }
-        else
+        else if(playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
-            Debug.Log("Ne pas Afficher l'UI");
-            playerEventsManager.DisableInteractUI?.Invoke();
+            playerStateManager.canInteract = false;
         }
     }
 

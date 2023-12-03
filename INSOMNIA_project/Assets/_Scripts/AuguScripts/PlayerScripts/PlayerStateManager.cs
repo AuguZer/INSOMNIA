@@ -71,7 +71,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         currentState = Idle;
         currentState.OnStateEnter(this);
-        canInteract = true;
+        
         
     }
 
