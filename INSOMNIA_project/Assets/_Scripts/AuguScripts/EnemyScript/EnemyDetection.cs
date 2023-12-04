@@ -18,7 +18,10 @@ public class EnemyDetection : MonoBehaviour
 
     [SerializeField] LayerMask wallMask;
     [SerializeField] LayerMask playerMask;
-  
+
+    [SerializeField] bool wallDetected;
+
+    [SerializeField] public List<GameObject> gameObjects;
 
     EnemyStateManager enemyStateManager;
     // Start is called before the first frame update
@@ -42,11 +45,18 @@ public class EnemyDetection : MonoBehaviour
             {
                 Debug.DrawLine(headPoint.position, hit.point, Color.red);
                 playerDetected = false;
+                wallDetected = true;
+                gameObjects.Add(hit.transform.gameObject);
+                
             }
-            else
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, detectionRayLenght, playerMask))
             {
-                Debug.DrawLine(headPoint.position, playerPos.position, Color.green);
-                playerDetected = true;
+                Debug.DrawLine(headPoint.position, hit.point, Color.green);
+                gameObjects.Add(hit.transform.gameObject);
+                if (!wallDetected)
+                {
+                    playerDetected = true;
+                }
 
             }
         }
@@ -76,7 +86,7 @@ public class EnemyDetection : MonoBehaviour
         foreach (Collider col in player)
         {
             col.gameObject.GetComponent<PlayerStateManager>().isDead = true;
-            if(col.gameObject.GetComponent<PlayerStateManager>().isDead )
+            if (col.gameObject.GetComponent<PlayerStateManager>().isDead)
             {
                 playerDetected = false;
                 playerInZone = false;

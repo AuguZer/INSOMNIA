@@ -71,7 +71,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   playerLastPosition: {x: 0, y: 0, z: 0}
   timeBeforeEndChase: 5
-  detectionRayLenght: 50
+  detectionRayLenght: 5
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
   attackRadius: 1.5
@@ -81,6 +81,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+  wallDetected: 0
+  gameObjects: []
 --- !u!1 &4018890981069381043
 GameObject:
   m_ObjectHideFlags: 0
