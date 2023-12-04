@@ -71,7 +71,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   playerLastPosition: {x: 0, y: 0, z: 0}
   timeBeforeEndChase: 5
-  detectionRayLenght: 5
+  detectionRayLenght: 10
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
   attackRadius: 1.5
