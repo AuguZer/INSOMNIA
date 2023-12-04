@@ -9,9 +9,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] float detectionRadius = 2f;
     [SerializeField] LayerMask doorMask;
     [SerializeField] LayerMask hideOutMask;
-    [SerializeField]
     Collider[] doorColliders;
-    [SerializeField]
     public Collider[] hideColliders;
 
     [Header("GROUND DETECTION")]

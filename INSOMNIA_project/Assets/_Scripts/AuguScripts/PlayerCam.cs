@@ -263,7 +263,7 @@ public class PlayerCam : MonoBehaviour
     private void CameraRotation()
     {
         //Return si LookBack
-        if (isLooking || grabber.isHiding) return;
+        if (isLooking) return;
         //get mouse input
         //Add mouse sensitivity
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;

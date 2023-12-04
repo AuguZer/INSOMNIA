@@ -218,7 +218,7 @@ Transform:
   - {fileID: 275927046200293898}
   - {fileID: 5710260850825823437}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &4424088952924468627
 CharacterController:
@@ -317,7 +317,6 @@ MonoBehaviour:
   hideOutMask:
     serializedVersion: 2
     m_Bits: 2048
-  doorColliders: []
   hideColliders: []
   groundDetectionRadius: 0.15
   groundMask:
@@ -679,6 +678,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 10368
   mainCam: {fileID: 5680671379141856385}
+  animator: {fileID: 826763469451987424}
 --- !u!1 &7382673149430571392
 GameObject:
   m_ObjectHideFlags: 0
