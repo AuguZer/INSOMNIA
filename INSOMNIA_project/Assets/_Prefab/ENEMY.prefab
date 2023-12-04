@@ -75,13 +75,18 @@ MonoBehaviour:
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
   attackRadius: 1.5
+  detectionRadius: 3
   wallMask:
     serializedVersion: 2
     m_Bits: 3200
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+  doorMask:
+    serializedVersion: 2
+    m_Bits: 128
   wallDetected: 0
+  canGo: 0
   gameObjects: []
 --- !u!1 &4018890981069381043
 GameObject:

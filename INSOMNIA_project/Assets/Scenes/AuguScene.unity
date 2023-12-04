@@ -1298,11 +1298,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnimatedDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 8287944042997814672, guid: 05c107f79ba01b941b118059c09a1fa6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2581,21 +2576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
-        type: 3}
-      propertyPath: detectionRadius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
-        type: 3}
-      propertyPath: doorMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
-        type: 3}
-      propertyPath: wallMask.m_Bits
-      value: 3200
       objectReference: {fileID: 0}
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
