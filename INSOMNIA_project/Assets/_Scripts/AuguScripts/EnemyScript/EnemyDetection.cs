@@ -46,18 +46,26 @@ public class EnemyDetection : MonoBehaviour
                 Debug.DrawLine(headPoint.position, hit.point, Color.red);
                 playerDetected = false;
                 wallDetected = true;
-                gameObjects.Add(hit.transform.gameObject);
-                
+                if (!gameObjects.Contains(hit.transform.gameObject))
+                {
+                    gameObjects.Add(hit.transform.gameObject);
+                }
             }
             if (Physics.Raycast(ray.origin, ray.direction, out hit, detectionRayLenght, playerMask))
             {
                 Debug.DrawLine(headPoint.position, hit.point, Color.green);
-                gameObjects.Add(hit.transform.gameObject);
-                if (!wallDetected)
+                if (!gameObjects.Contains(hit.transform.gameObject))
+                {
+                    gameObjects.Add(hit.transform.gameObject);
+                }
+            }
+
+            if(gameObjects.Count > 0)
+            {
+                if (gameObjects[0].tag == "Player")
                 {
                     playerDetected = true;
                 }
-
             }
         }
     }
