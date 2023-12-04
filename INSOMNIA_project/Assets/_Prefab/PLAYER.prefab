@@ -314,7 +314,11 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 128
-  colliders: []
+  hideOutMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  doorColliders: []
+  hideColliders: []
   groundDetectionRadius: 0.15
   groundMask:
     serializedVersion: 2

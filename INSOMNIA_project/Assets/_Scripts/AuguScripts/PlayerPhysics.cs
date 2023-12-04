@@ -8,8 +8,11 @@ public class PlayerPhysics : MonoBehaviour
     [Header("BODY PHYSIC DETECTION")]
     [SerializeField] float detectionRadius = 2f;
     [SerializeField] LayerMask doorMask;
+    [SerializeField] LayerMask hideOutMask;
     [SerializeField]
-    Collider[] colliders;
+    Collider[] doorColliders;
+    [SerializeField]
+    public Collider[] hideColliders;
 
     [Header("GROUND DETECTION")]
     [SerializeField] float groundDetectionRadius = 1f;
@@ -24,6 +27,9 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] Transform headTransform;
 
     [SerializeField] CharacterController characterController;
+
+    PlayerStateManager playerStateManager;
+    Grabber grabber;
     private void Awake()
     {
         
@@ -31,12 +37,16 @@ public class PlayerPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStateManager = GetComponent<PlayerStateManager>();
+        grabber = GetComponentInChildren<Grabber>();
     }
 
     // Update is called once per frame
     void Update()
     {
         DetectDoors();
+        DetectHideOut();
+  
         if (!IsGrounded())
         {
             velocity.y += gravity * Time.deltaTime;
@@ -65,11 +75,11 @@ public class PlayerPhysics : MonoBehaviour
     }
     private void DetectDoors()
     {
-        colliders = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
+        doorColliders = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
 
-        if (colliders.Length > 0)
+        if (doorColliders.Length > 0)
         {
-            foreach (Collider collider in colliders)
+            foreach (Collider collider in doorColliders)
             {
                 Animator animator = collider.GetComponent<Animator>();
                 if (animator != null)
@@ -82,6 +92,18 @@ public class PlayerPhysics : MonoBehaviour
                 }
             }
         }
+    }
+    public bool DetectHideOut() 
+    {
+        if (playerStateManager.isHiding)
+        {
+            hideColliders = Physics.OverlapSphere(transform.position, detectionRadius, hideOutMask);
+            if (hideColliders.Length >0)
+            {
+               return true;
+            }
+        }
+        return false;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

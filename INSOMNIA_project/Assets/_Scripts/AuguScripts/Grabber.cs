@@ -26,6 +26,7 @@ public class Grabber : MonoBehaviour
     PlayerStateManager playerStateManager;
     PlayerInputManager playerInputManager;
     PlayerEventsManager playerEventsManager;
+    PlayerPhysics playerPhysics;
 
     [SerializeField] LayerMask interactMask;
 
@@ -37,6 +38,7 @@ public class Grabber : MonoBehaviour
         playerStateManager = GetComponentInParent<PlayerStateManager>();
         playerInputManager = GetComponentInParent<PlayerInputManager>();
         playerEventsManager = GetComponentInParent<PlayerEventsManager>();
+        playerPhysics = GetComponentInParent<PlayerPhysics>();
     }
     // Start is called before the first frame update
     private void OnEnable()
@@ -117,8 +119,8 @@ public class Grabber : MonoBehaviour
 
             if (playerStateManager.state == PlayerStateManager.PlayerState.Hide && playerStateManager.canInteract)
             {
-                playerStateManager.isHiding = false;
                 playerEventsManager.EnableInteractUI?.Invoke();
+                GetOutOfHide();
             }
         }
 
@@ -228,9 +230,9 @@ public class Grabber : MonoBehaviour
     }
     private void FocusOnObject(GameObject focusObject)
     {
-        if(focusObject.tag == "Object")
+        if (focusObject.tag == "Object")
         {
-            if(focusObject.GetComponent<FocusObject>() != null)
+            if (focusObject.GetComponent<FocusObject>() != null)
             {
                 if (playerStateManager.canInteract)
                 {
@@ -244,17 +246,14 @@ public class Grabber : MonoBehaviour
             }
         }
     }
-
-    private void GetOutOfHide(GameObject hideOut)
+    private void GetOutOfHide()
     {
-        if(hideOut.GetComponent<HideCloset>() != null)
+        if (playerPhysics.DetectHideOut())
         {
-            if (playerStateManager.canInteract)
-            {
-                Transform outPos = hideOut.GetComponent<HideCloset>().outPos;
-                playerStateManager.canInteract = false;
-                StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(outPos.position.x, transform.parent.position.y, outPos.position.z), .5f));
-            }
+            Transform outPos = playerPhysics.hideColliders[0].GetComponent<HideCloset>().outPos;
+            StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(outPos.position.x, transform.parent.position.y, outPos.position.z), .5f));
+            playerStateManager.isHiding = false;
+            playerStateManager.canInteract = false;
         }
     }
     private void GrabObject(GameObject grabObj)
@@ -310,7 +309,7 @@ public class Grabber : MonoBehaviour
             Debug.DrawLine(transform.position, hit.point, Color.green);
             playerStateManager.canInteract = true;
         }
-        else if(playerStateManager.state != PlayerStateManager.PlayerState.Hide)
+        else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
             playerStateManager.canInteract = false;
@@ -318,7 +317,7 @@ public class Grabber : MonoBehaviour
     }
 
 
-    private IEnumerator LerpToHidePosition(Vector3 startPos, Vector3 endPos, float duration)
+    public IEnumerator LerpToHidePosition(Vector3 startPos, Vector3 endPos, float duration)
     {
         float t = 0f;
 
