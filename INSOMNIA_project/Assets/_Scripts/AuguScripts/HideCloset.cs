@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideCloset : MonoBehaviour
 {
     [SerializeField] public Transform hidePos;
+    [SerializeField] public Transform outPos;
 
     public bool playerInRange;
     // Start is called before the first frame update

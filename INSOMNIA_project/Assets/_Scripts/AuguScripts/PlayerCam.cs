@@ -8,17 +8,27 @@ public class PlayerCam : MonoBehaviour
 {
     [SerializeField] InputActionAsset inputActions;
 
+    [Header("CAMERA SPEED")]
     [SerializeField] float sensX = 200f;
     [SerializeField] float sensY = 200f;
+
+    [Header("CAMERA ROTATIONS")]
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float maxLookDown = 72f;
     [SerializeField] float maxLookUp = -80f;
     [SerializeField] float maxLookBackRight = 130f;
     [SerializeField] float maxLookBackLeft = -130f;
+    [SerializeField] float focusMaxRight = 20f;
+    [SerializeField] float focusMaxLeft = -20f;
+    [SerializeField] float focusMaxUp = 20f;
+    [SerializeField] float focusMaxDown = -20f;
 
+    [Header("CAMERA POSITIONS")]
     [SerializeField] public float camZpos;
     [SerializeField] public float camZposCrawl;
 
+    float rotationX;
+    float rotationY;
     public Transform playerBody;
     public Vector3 targetRotationR;
     public Vector3 targetRotationL;
@@ -27,9 +37,6 @@ public class PlayerCam : MonoBehaviour
 
     [SerializeField] bool gamePadOn;
     float xRotation = 0f;
-
-    public float xRot;
-
 
     public Vector2 lookInput;
 
@@ -119,6 +126,7 @@ public class PlayerCam : MonoBehaviour
             }
         }
 
+        transform.localRotation = Quaternion.identity;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -147,8 +155,13 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraRotation();
+        if (!playerStateManager.isHiding)
+        {
+            CameraRotation();
+        }
         SetCameraPositionAndRotation();
+
+        //CameraOnFocus();
     }
 
     private void LateUpdate()
@@ -234,6 +247,18 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
+    public void CameraOnFocus()
+    {
+        rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
+        rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
+
+        rotationX = Mathf.Clamp(rotationX, focusMaxLeft, focusMaxRight);
+        rotationY = Mathf.Clamp(rotationY, focusMaxDown, focusMaxUp);
+
+        transform.eulerAngles = new Vector3(rotationX, rotationY, 0f);
+
+    }
+
     private void CameraRotation()
     {
         //Return si LookBack
@@ -259,13 +284,9 @@ public class PlayerCam : MonoBehaviour
 
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if (playerStateManager.isHiding)
+        if (playerStateManager.isDead)
         {
             cam.nearClipPlane = 0.01f;
-        }
-        else if (!playerStateManager.isDead)
-        {
-            cam.nearClipPlane = 0.32f;
         }
     }
 

@@ -245,6 +245,18 @@ public class Grabber : MonoBehaviour
         }
     }
 
+    private void GetOutOfHide(GameObject hideOut)
+    {
+        if(hideOut.GetComponent<HideCloset>() != null)
+        {
+            if (playerStateManager.canInteract)
+            {
+                Transform outPos = hideOut.GetComponent<HideCloset>().outPos;
+                playerStateManager.canInteract = false;
+                StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(outPos.position.x, transform.parent.position.y, outPos.position.z), .5f));
+            }
+        }
+    }
     private void GrabObject(GameObject grabObj)
     {
         if (grabObj.tag == "PickUpObj")
@@ -323,7 +335,7 @@ public class Grabber : MonoBehaviour
     private IEnumerator LerpToHideRotation()
     {
         float t = 0f;
-        float duration = .5f;
+        float duration = .2f;
 
         while (t < duration)
         {

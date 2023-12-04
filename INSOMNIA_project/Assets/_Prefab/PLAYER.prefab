@@ -635,6 +635,10 @@ MonoBehaviour:
   maxLookUp: -80
   maxLookBackRight: 140
   maxLookBackLeft: -140
+  focusMaxRight: 45
+  focusMaxLeft: -45
+  focusMaxUp: 45
+  focusMaxDown: -45
   camZpos: 0.4
   camZposCrawl: 0.6
   playerBody: {fileID: 7207316340061104541}
@@ -643,7 +647,6 @@ MonoBehaviour:
   targetPositionR: {x: 0.6, y: 0.5, z: 0.2}
   targetPositionL: {x: -0.6, y: 0.5, z: 0.2}
   gamePadOn: 0
-  xRot: 0
   lookInput: {x: 0, y: 0}
   isLooking: 0
   deadPoint: {fileID: 4221722452258166469}
