@@ -15,11 +15,14 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] Transform headPoint;
     [SerializeField] public Transform attackPoint;
     [SerializeField] public float attackRadius = 1f;
+    [SerializeField] public float detectionRadius = 1f;
 
     [SerializeField] LayerMask wallMask;
     [SerializeField] LayerMask playerMask;
+    [SerializeField] LayerMask doorMask;
 
     [SerializeField] bool wallDetected;
+    [SerializeField] public bool canGo;
 
     [SerializeField] public List<GameObject> gameObjects;
 
@@ -34,6 +37,10 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyStateManager.isInChase)
+        {
+            DetectDoors();
+        }
         if (playerInZone)
         {
             RaycastHit hit;
@@ -63,13 +70,28 @@ public class EnemyDetection : MonoBehaviour
                 }
             }
 
-            if(gameObjects.Count > 0)
+            if (gameObjects.Count > 0)
             {
                 if (gameObjects[0].tag == "Player")
                 {
                     playerDetected = true;
                 }
             }
+
+            //if (Physics.Raycast(ray.origin, ray.direction, out hit, 4f, doorMask))
+            //{
+            //    Debug.DrawLine(headPoint.position, hit.point, Color.yellow);
+            //    if (hit.transform.GetComponent<Animator>() != null)
+            //    {
+            //        Debug.Log("Animator");
+            //        Animator doorAnimator = hit.transform.GetComponent<Animator>();
+            //        AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            //        if (stateInfo.IsName("WAIT") || stateInfo.IsName("WAIT OPEN") || stateInfo.IsName("OpenDoor"))
+            //        {
+            //            doorAnimator.SetBool("Open", true);
+            //        }
+            //    }
+            //}
         }
     }
 
@@ -107,6 +129,27 @@ public class EnemyDetection : MonoBehaviour
         return false;
     }
 
+    public bool DetectDoors()
+    {
+        Collider[] doors = Physics.OverlapSphere(transform.position, detectionRadius, doorMask);
+
+        foreach (Collider door in doors)
+        {
+            Animator doorAnimator = door.GetComponent<Animator>();
+            if (doorAnimator != null)
+            {
+                doorAnimator.SetBool("Open", true);
+            }
+            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            if(stateInfo.IsName("WAIT OPEN"))
+            {
+                canGo = true;
+            }
+            return true;
+        }
+        return false;
+    }
+
     IEnumerator StopChaseCoroutine()
     {
         yield return new WaitForSeconds(timeBeforeEndChase);
@@ -121,5 +164,8 @@ public class EnemyDetection : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
