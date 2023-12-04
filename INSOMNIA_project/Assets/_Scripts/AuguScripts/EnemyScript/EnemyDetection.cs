@@ -41,7 +41,9 @@ public class EnemyDetection : MonoBehaviour
             ray.origin = headPoint.position;
             ray.direction = playerPos.position - headPoint.position;
 
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, detectionRayLenght, wallMask))
+            float distance = Vector3.Distance(transform.position, playerPos.position);
+
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, wallMask))
             {
                 Debug.DrawLine(headPoint.position, hit.point, Color.red);
                 playerDetected = false;
@@ -50,8 +52,9 @@ public class EnemyDetection : MonoBehaviour
                 {
                     gameObjects.Add(hit.transform.gameObject);
                 }
+
             }
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, detectionRayLenght, playerMask))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, playerMask))
             {
                 Debug.DrawLine(headPoint.position, hit.point, Color.green);
                 if (!gameObjects.Contains(hit.transform.gameObject))
