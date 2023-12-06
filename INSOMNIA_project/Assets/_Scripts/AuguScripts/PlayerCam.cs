@@ -256,7 +256,7 @@ public class PlayerCam : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, focusMaxDown, focusMaxUp);
 
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0f);
-        cam.nearClipPlane = .2f;
+        //cam.nearClipPlane = .2f;
 
     }
 
@@ -284,7 +284,7 @@ public class PlayerCam : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
-        cam.nearClipPlane = .32f;
+        //cam.nearClipPlane = .32f;
         if (playerStateManager.isDead)
         {
             cam.nearClipPlane = 0.01f;

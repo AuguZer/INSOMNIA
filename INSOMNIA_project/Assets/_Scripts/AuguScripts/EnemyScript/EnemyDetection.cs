@@ -135,12 +135,13 @@ public class EnemyDetection : MonoBehaviour
 
         foreach (Collider door in doors)
         {
-            Animator doorAnimator = door.GetComponent<Animator>();
-            if (doorAnimator != null)
+            AnimDoor animDoor = door.GetComponent<AnimDoor>();
+            if (animDoor != null)
             {
-                doorAnimator.SetBool("Open", true);
+                animDoor.doorOpen = true;
             }
-            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            Animator anim = door.GetComponent<Animator>();
+            AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
             if(stateInfo.IsName("WAIT OPEN"))
             {
                 canGo = true;

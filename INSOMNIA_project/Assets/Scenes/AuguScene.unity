@@ -1558,10 +1558,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 275927046200293898, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: camZpos
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: camZposCrawl
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3699773195466166027, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_Name
       value: PLAYER
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320251931412817174, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4470848016191136030, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -2590,7 +2610,7 @@ PrefabInstance:
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
