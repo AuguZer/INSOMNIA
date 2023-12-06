@@ -155,10 +155,10 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerStateManager.isHiding)
-        {
-            CameraRotation();
-        }
+        //if (!playerStateManager.isHiding)
+        //{
+        //}
+        CameraRotation();
         SetCameraPositionAndRotation();
 
         //CameraOnFocus();
@@ -168,9 +168,8 @@ public class PlayerCam : MonoBehaviour
     {
         if (playerStateManager.isDead)
         {
-            transform.localRotation = Quaternion.identity;
-            cam.nearClipPlane = 0.01f;
             transform.parent = deadPoint;
+            transform.localRotation = deadPoint.localRotation;
         }
     }
 
@@ -249,6 +248,7 @@ public class PlayerCam : MonoBehaviour
 
     public void CameraOnFocus()
     {
+
         rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
         rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
 
@@ -291,7 +291,7 @@ public class PlayerCam : MonoBehaviour
         }
     }
 
-    IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)
+    public IEnumerator LerpRotationCam(Quaternion startValue, Quaternion endValue, float duration, Vector3 startPos, Vector3 endPos)
     {
         float t = 0f;
         //Quaternion startValue = transform.localRotation;

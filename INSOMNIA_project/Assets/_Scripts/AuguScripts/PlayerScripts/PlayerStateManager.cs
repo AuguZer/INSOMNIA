@@ -21,6 +21,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerCam playerCam;
     public PlayerPhysics playerPhysics;
 
+    [SerializeField] public GameObject graphics;
+
     public enum PlayerState
     {
         Idle,

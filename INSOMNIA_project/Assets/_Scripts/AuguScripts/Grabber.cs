@@ -142,7 +142,7 @@ public class Grabber : MonoBehaviour
                     Transform hidePos = belowObject.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
-                    StartCoroutine(LerpToHideRotation());
+                    StartCoroutine(LerpToHideRotation(belowObject.transform.localRotation));
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrawl, playerCam.camZposCrawl), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
                 }
@@ -162,7 +162,7 @@ public class Grabber : MonoBehaviour
                     Transform hidePos = box.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
-                    StartCoroutine(LerpToHideRotation());
+                    StartCoroutine(LerpToHideRotation(box.transform.localRotation));
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch, playerCam.camZpos), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
                 }
@@ -179,10 +179,11 @@ public class Grabber : MonoBehaviour
                 {
                     playerStateManager.isCrouching = false;
                     playerStateManager.isCrawling = false;
+                    playerCam.enabled = false;
                     Transform hidePos = closet.GetComponent<HideCloset>().hidePos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
-                    StartCoroutine(LerpToHideRotation());
+                    StartCoroutine(LerpToHideRotation(closet.transform.localRotation));
                     StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposNormal, playerCam.camZpos), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
                 }
@@ -243,7 +244,7 @@ public class Grabber : MonoBehaviour
                     Transform focusPos = focusObject.GetComponent<FocusObject>().focusPos;
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
-                    StartCoroutine(LerpToHideRotation());
+                    StartCoroutine(LerpToHideRotation(focusObject.transform.localRotation));
                 }
             }
         }
@@ -309,6 +310,7 @@ public class Grabber : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
+            if(!isHiding)
             playerStateManager.canInteract = true;
         }
         else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide)
@@ -331,9 +333,10 @@ public class Grabber : MonoBehaviour
         }
         transform.parent.position = endPos;
         playerStateManager.canInteract = true;
+        playerCam.enabled = true;
     }
 
-    private IEnumerator LerpToHideRotation()
+    private IEnumerator LerpToHideRotation(Quaternion endRot)
     {
         float t = 0f;
         float duration = .2f;
@@ -341,14 +344,14 @@ public class Grabber : MonoBehaviour
         while (t < duration)
         {
             isHiding = true;
-            transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation, Quaternion.identity, t / duration);
+            transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation,endRot, t / duration);
             t += Time.deltaTime;
             //playerStateManager.playerCam.enabled = false;
             yield return null;
         }
 
         isHiding = false;
-        transform.parent.localRotation = Quaternion.identity;
+        transform.parent.localRotation = endRot;
         //playerStateManager.playerCam.enabled = true;
     }
 }

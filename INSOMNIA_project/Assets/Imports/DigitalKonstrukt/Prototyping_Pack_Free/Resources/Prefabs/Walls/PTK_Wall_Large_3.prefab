@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4030265401529158}
   - component: {fileID: 33813096605313122}
   - component: {fileID: 23398375663452384}
-  - component: {fileID: 64309702510622596}
+  - component: {fileID: 4192974179392672008}
   m_Layer: 0
   m_Name: PTK_Wall_Large_3
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33813096605313122
 MeshFilter:
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64309702510622596
-MeshCollider:
+--- !u!65 &4192974179392672008
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +102,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b16e8e17b62c03544ae1e1146d07e728, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.52623254, y: 2.9999998, z: 2.9999995}
+  m_Center: {x: 0.21311626, y: 1.4999996, z: 0}
