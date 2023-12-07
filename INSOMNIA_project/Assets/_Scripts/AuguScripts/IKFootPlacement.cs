@@ -10,16 +10,33 @@ public class IKFootPlacement : MonoBehaviour
     [SerializeField] float distanceToGround;
 
     Animator animator;
+    PlayerStateManager playerStateManager;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerStateManager = GetComponentInParent<PlayerStateManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+            RaycastHit hit;
+            Ray ray = new Ray();
+
+            ray.origin = transform.localPosition;
+            ray.direction = Vector3.down;
+
+
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, 2f, detectionMask))
+            {
+                Debug.DrawRay(ray.origin, ray.direction,Color.blue);
+                StartCoroutine(LerpPosToGround(transform.localPosition, new Vector3(transform.localPosition.x, hit.transform.localPosition.y, transform.localPosition.z), 1f));
+
+            }
         
+
     }
 
     private void OnAnimatorIK(int layerIndex)
@@ -34,9 +51,10 @@ public class IKFootPlacement : MonoBehaviour
             //Left Foot
             RaycastHit hit;
             Ray ray = new Ray(animator.GetIKPosition(AvatarIKGoal.LeftFoot) + Vector3.up, Vector3.down);
-            if (Physics.Raycast(ray, out hit, distanceToGround + 1f, detectionMask)) {
+            if (Physics.Raycast(ray, out hit, distanceToGround + 2f, detectionMask))
+            {
 
-                if(hit.collider.gameObject.layer == 15)
+                if (hit.collider.gameObject.layer == 15)
                 {
                     Vector3 footPosition = hit.point;
                     footPosition.y += distanceToGround;
@@ -48,7 +66,7 @@ public class IKFootPlacement : MonoBehaviour
 
             //Right Foot
             ray = new Ray(animator.GetIKPosition(AvatarIKGoal.RightFoot) + Vector3.up, Vector3.down);
-            if (Physics.Raycast(ray, out hit, distanceToGround + 1f, detectionMask))
+            if (Physics.Raycast(ray, out hit, distanceToGround + 2f, detectionMask))
             {
 
                 if (hit.collider.gameObject.layer == 15)
@@ -61,5 +79,18 @@ public class IKFootPlacement : MonoBehaviour
 
             }
         }
+    }
+
+    public IEnumerator LerpPosToGround(Vector3 startPos, Vector3 endPos, float duration)
+    {
+        float t = 0f;
+
+        while (t < duration)
+        {
+            transform.localPosition = Vector3.Lerp(startPos, endPos, t / duration);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        transform.localPosition = endPos;
     }
 }
