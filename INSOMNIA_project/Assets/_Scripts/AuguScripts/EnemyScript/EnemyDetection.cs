@@ -42,8 +42,6 @@ public class EnemyDetection : MonoBehaviour
         }
         if (playerInZone)
         {
-            Debug.Log(RayDetectWall());
-            Debug.Log(RayDetectPlayer());
 
             if(RayDetectPlayer() && !RayDetectWall())
             {
