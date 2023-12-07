@@ -10,7 +10,6 @@ public class EnemyPatrol : EnemyBaseState
         enemyState.isInPatrol = true;
         enemyState.agent.speed = enemyState.walkSpeed;
         enemyState.agent.stoppingDistance = .1f;
-        enemyState.enemyDetection.gameObjects.Clear();
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)

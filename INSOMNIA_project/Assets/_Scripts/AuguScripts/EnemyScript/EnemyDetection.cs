@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
@@ -24,8 +25,6 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] bool wallDetected;
     [SerializeField] public bool canGo;
 
-    [SerializeField] public List<GameObject> gameObjects;
-
     EnemyStateManager enemyStateManager;
     // Start is called before the first frame update
     void Start()
@@ -43,64 +42,58 @@ public class EnemyDetection : MonoBehaviour
         }
         if (playerInZone)
         {
-            RaycastHit hit;
-            Ray ray = new Ray();
-            ray.origin = headPoint.position;
-            ray.direction = playerPos.position - headPoint.position;
+            Debug.Log(RayDetectWall());
+            Debug.Log(RayDetectPlayer());
 
-            float distance = Vector3.Distance(transform.position, playerPos.position);
-
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, wallMask))
+            if(RayDetectPlayer() && !RayDetectWall())
             {
-                Debug.DrawLine(headPoint.position, hit.point, Color.red);
-                playerDetected = false;
-                wallDetected = true;
-                if (!gameObjects.Contains(hit.transform.gameObject))
-                {
-                    gameObjects.Add(hit.transform.gameObject);
-                }
-
+                playerDetected = true;
             }
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, playerMask))
-            {
-                Debug.DrawLine(headPoint.position, hit.point, Color.green);
-                if (!gameObjects.Contains(hit.transform.gameObject))
-                {
-                    gameObjects.Add(hit.transform.gameObject);
-                }
-            }
-
-            if (gameObjects.Count > 0)
-            {
-                if (gameObjects[0].tag == "Player")
-                {
-                    playerDetected = true;
-                }
-            }
-
-            //if (Physics.Raycast(ray.origin, ray.direction, out hit, 4f, doorMask))
-            //{
-            //    Debug.DrawLine(headPoint.position, hit.point, Color.yellow);
-            //    if (hit.transform.GetComponent<Animator>() != null)
-            //    {
-            //        Debug.Log("Animator");
-            //        Animator doorAnimator = hit.transform.GetComponent<Animator>();
-            //        AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
-            //        if (stateInfo.IsName("WAIT") || stateInfo.IsName("WAIT OPEN") || stateInfo.IsName("OpenDoor"))
-            //        {
-            //            doorAnimator.SetBool("Open", true);
-            //        }
-            //    }
-            //}
         }
+    }
+
+    public bool RayDetectWall()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray();
+        ray.origin = headPoint.position;
+        ray.direction = playerPos.position - headPoint.position;
+
+        float distance = Vector3.Distance(transform.position, playerPos.position);
+
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, wallMask))
+        {
+            Debug.DrawLine(headPoint.position, hit.point, Color.red);
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool RayDetectPlayer()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray();
+        ray.origin = headPoint.position;
+        ray.direction = playerPos.position - headPoint.position;
+
+        float distance = Vector3.Distance(transform.position, playerPos.position);
+
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, playerMask))
+        {
+            Debug.DrawLine(headPoint.position, hit.point, Color.green);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            playerPos = other.gameObject.transform;
             StopAllCoroutines();
+            playerPos = other.gameObject.transform;
             playerInZone = true;
         }
     }
@@ -142,7 +135,7 @@ public class EnemyDetection : MonoBehaviour
             }
             Animator anim = door.GetComponent<Animator>();
             AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            if(stateInfo.IsName("WAIT OPEN"))
+            if (stateInfo.IsName("WAIT OPEN"))
             {
                 canGo = true;
             }
