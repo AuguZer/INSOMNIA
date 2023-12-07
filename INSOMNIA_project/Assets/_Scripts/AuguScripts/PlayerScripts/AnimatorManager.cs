@@ -6,6 +6,7 @@ public class AnimatorManager : MonoBehaviour
 {
     PlayerInputManager playerInputManager;
     PlayerStateManager playerStateManager;
+    [SerializeField] PlayerCam playerCam;
     Animator animator;
 
     // Start is called before the first frame update
@@ -115,5 +116,10 @@ public class AnimatorManager : MonoBehaviour
             animator.SetBool("StrafeRight", false);
             animator.SetBool("StrafeLeft", false);
         }
+    }
+
+    private void Death()
+    {
+        playerCam.enabled = false;
     }
 }
