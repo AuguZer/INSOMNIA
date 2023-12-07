@@ -36,7 +36,7 @@ public class IKFootPlacement : MonoBehaviour
             Ray ray = new Ray(animator.GetIKPosition(AvatarIKGoal.LeftFoot) + Vector3.up, Vector3.down);
             if (Physics.Raycast(ray, out hit, distanceToGround + 1f, detectionMask)) {
 
-                if(hit.collider.gameObject.layer == 9)
+                if(hit.collider.gameObject.layer == 15)
                 {
                     Vector3 footPosition = hit.point;
                     footPosition.y += distanceToGround;
@@ -51,7 +51,7 @@ public class IKFootPlacement : MonoBehaviour
             if (Physics.Raycast(ray, out hit, distanceToGround + 1f, detectionMask))
             {
 
-                if (hit.collider.gameObject.layer == 9)
+                if (hit.collider.gameObject.layer == 15)
                 {
                     Vector3 footPosition = hit.point;
                     footPosition.y += distanceToGround;
