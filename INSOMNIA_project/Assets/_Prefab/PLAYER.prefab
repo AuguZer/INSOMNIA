@@ -322,7 +322,7 @@ MonoBehaviour:
   groundDetectionRadius: 0.15
   groundMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 33280
   gravity: -6
   upDetectionRadius: 0.25
   upMask:
@@ -2986,7 +2986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 759
+    m_Bits: 33280
   distanceToGround: 0.1
 --- !u!95 &826763469451987424
 Animator:
