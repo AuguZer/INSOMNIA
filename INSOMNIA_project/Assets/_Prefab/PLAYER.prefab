@@ -2986,7 +2986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 33280
+    m_Bits: 32768
   distanceToGround: 0.1
 --- !u!95 &826763469451987424
 Animator:
