@@ -158,10 +158,16 @@ public class PlayerCam : MonoBehaviour
         //if (!playerStateManager.isHiding)
         //{
         //}
-        CameraRotation();
         SetCameraPositionAndRotation();
 
-        //CameraOnFocus();
+        if (grabber.isInInterationState)
+        {
+            CameraOnFocus();
+        }
+        else
+        {
+            CameraRotation();
+        }
     }
 
     private void LateUpdate()
@@ -248,14 +254,14 @@ public class PlayerCam : MonoBehaviour
 
     public void CameraOnFocus()
     {
-
         rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
         rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
 
         rotationX = Mathf.Clamp(rotationX, focusMaxLeft, focusMaxRight);
         rotationY = Mathf.Clamp(rotationY, focusMaxDown, focusMaxUp);
 
-        transform.eulerAngles = new Vector3(rotationX, rotationY, 0f);
+        //transform.localEulerAngles = new Vector3(rotationX, rotationY, 0f);
+        transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
         //cam.nearClipPlane = .2f;
 
     }

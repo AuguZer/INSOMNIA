@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 451480973090985619}
   - component: {fileID: 1002808073172318566}
   m_Layer: 7
-  m_Name: AnimatedDoor
+  m_Name: AnimatedDoorZ
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

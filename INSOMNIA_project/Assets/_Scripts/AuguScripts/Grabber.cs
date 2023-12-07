@@ -21,6 +21,7 @@ public class Grabber : MonoBehaviour
 
     [SerializeField] bool leftButtonDown;
     [SerializeField] public bool isHiding;
+    [SerializeField] public bool isInInterationState;
 
     PlayerInventory playerInventory;
     PlayerStateManager playerStateManager;
@@ -239,12 +240,21 @@ public class Grabber : MonoBehaviour
             {
                 if (playerStateManager.canInteract)
                 {
-                    playerStateManager.isCrouching = false;
-                    playerStateManager.isCrawling = false;
-                    Transform focusPos = focusObject.GetComponent<FocusObject>().focusPos;
-                    playerStateManager.canInteract = false;
-                    StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
-                    StartCoroutine(LerpToHideRotation(focusObject.transform.localRotation));
+                    if (!isInInterationState)
+                    {
+                        isInInterationState = true;
+                        playerStateManager.isCrouching = false;
+                        playerStateManager.isCrawling = false;
+                        Transform focusPos = focusObject.GetComponent<FocusObject>().focusPos;
+                        playerStateManager.canInteract = false;
+                        StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
+                        StartCoroutine(LerpToHideRotation(focusObject.transform.localRotation));
+                    }
+                    else
+                    {
+                        isInInterationState = false;
+                    }
+
                 }
             }
         }
@@ -310,8 +320,8 @@ public class Grabber : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
-            if(!isHiding)
-            playerStateManager.canInteract = true;
+            if (!isHiding)
+                playerStateManager.canInteract = true;
         }
         else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
@@ -344,7 +354,7 @@ public class Grabber : MonoBehaviour
         while (t < duration)
         {
             isHiding = true;
-            transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation,endRot, t / duration);
+            transform.parent.localRotation = Quaternion.Lerp(transform.parent.localRotation, endRot, t / duration);
             t += Time.deltaTime;
             //playerStateManager.playerCam.enabled = false;
             yield return null;

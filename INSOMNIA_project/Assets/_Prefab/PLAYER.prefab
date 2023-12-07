@@ -240,7 +240,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.6
-  m_Radius: 0.2
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f754979884ac54e8e62820afbf30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 0.25
+  detectionRadius: 0.35
   doorMask:
     serializedVersion: 2
     m_Bits: 128
@@ -324,11 +324,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   gravity: -6
-  upDetectionRadius: 0.2
+  upDetectionRadius: 0.3
   upMask:
     serializedVersion: 2
     m_Bits: 2049
-  headDetecitionRadius: 0.1
+  headDetecitionRadius: 0.15
   headTransform: {fileID: 5710260850825823437}
   characterController: {fileID: 4424088952924468627}
 --- !u!114 &7578985183779428605
@@ -639,10 +639,10 @@ MonoBehaviour:
   maxLookUp: -80
   maxLookBackRight: 140
   maxLookBackLeft: -140
-  focusMaxRight: 45
-  focusMaxLeft: -45
-  focusMaxUp: 45
-  focusMaxDown: -45
+  focusMaxRight: 25
+  focusMaxLeft: 15
+  focusMaxUp: 15
+  focusMaxDown: -15
   camZpos: 0.25
   camZposCrawl: 0.55
   playerBody: {fileID: 7207316340061104541}
@@ -675,6 +675,7 @@ MonoBehaviour:
   grabDrag: 20
   leftButtonDown: 0
   isHiding: 0
+  isInInterationState: 0
   interactMask:
     serializedVersion: 2
     m_Bits: 26816
@@ -3020,3 +3021,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa627b324ff82b41a623ee21643bd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCam: {fileID: 1215741512302896744}
