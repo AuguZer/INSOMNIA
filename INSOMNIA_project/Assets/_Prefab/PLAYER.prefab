@@ -240,7 +240,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.6
-  m_Radius: 0.3
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f754979884ac54e8e62820afbf30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 0.35
+  detectionRadius: 0.3
   doorMask:
     serializedVersion: 2
     m_Bits: 128
@@ -324,7 +324,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   gravity: -6
-  upDetectionRadius: 0.3
+  upDetectionRadius: 0.25
   upMask:
     serializedVersion: 2
     m_Bits: 2049

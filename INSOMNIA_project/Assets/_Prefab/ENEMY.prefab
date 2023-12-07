@@ -87,7 +87,6 @@ MonoBehaviour:
     m_Bits: 128
   wallDetected: 0
   canGo: 0
-  gameObjects: []
 --- !u!1 &4018890981069381043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,12 +1016,12 @@ PrefabInstance:
     - target: {fileID: 5465940246521907071, guid: dda86d9706cca64419efafba76f8a1dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20368892
+      value: -0.2036921
       objectReference: {fileID: 0}
     - target: {fileID: 5465940246521907071, guid: dda86d9706cca64419efafba76f8a1dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9362331
+      value: -0.93622833
       objectReference: {fileID: 0}
     - target: {fileID: 5465940246521907071, guid: dda86d9706cca64419efafba76f8a1dd,
         type: 3}
