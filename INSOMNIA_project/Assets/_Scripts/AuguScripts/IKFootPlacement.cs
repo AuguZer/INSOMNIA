@@ -21,21 +21,21 @@ public class IKFootPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-            RaycastHit hit;
-            Ray ray = new Ray();
 
-            ray.origin = transform.localPosition;
-            ray.direction = Vector3.down;
+        RaycastHit hit;
+        Ray ray = new Ray();
+
+        ray.origin = transform.position;
+        ray.direction = Vector3.forward;
+        Debug.DrawLine( ray.origin, ray.direction );
 
 
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, 2f, detectionMask))
-            {
-                Debug.DrawRay(ray.origin, ray.direction,Color.blue);
-                StartCoroutine(LerpPosToGround(transform.localPosition, new Vector3(transform.localPosition.x, hit.transform.localPosition.y, transform.localPosition.z), 1f));
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, 2f, detectionMask))
+        {
+       
+            //StartCoroutine(LerpPosToGround(transform.localPosition, new Vector3(transform.localPosition.x, hit.transform.localPosition.y, transform.localPosition.z), 1f));
+        }
 
-            }
-        
 
     }
 
@@ -79,6 +79,15 @@ public class IKFootPlacement : MonoBehaviour
 
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Ray ray = new Ray();
+
+        ray.origin = transform.position;
+        ray.direction = Vector3.forward;
+        Gizmos.DrawLine(ray.origin, ray.direction);
     }
 
     public IEnumerator LerpPosToGround(Vector3 startPos, Vector3 endPos, float duration)
