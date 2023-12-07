@@ -131,6 +131,8 @@ public class EnemyStateManager : MonoBehaviour
 
      public IEnumerator IdleCoroutine()
     {
+        int randomTime = Random.Range(1, 5);
+        idleTime = randomTime;
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
     }
