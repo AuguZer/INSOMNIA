@@ -15,6 +15,17 @@ public class PlayerJump : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Idle);
         }
+        //TO WALK
+        if (!playerState.isJumping && playerState.inputManager.dirInput != Vector3.zero)
+        {
+            playerState.TransitionToState(playerState.Walk);
+        }
+        //TO RUN
+        if (!playerState.isJumping && playerState.isRunning)
+        {
+            playerState.TransitionToState(playerState.Run);
+        }
+
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

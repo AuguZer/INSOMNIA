@@ -42,6 +42,11 @@ public class PlayerWalk : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Crawl);
         }
+        //TO JUMP
+        if (playerState.isJumping)
+        {
+            playerState.TransitionToState(playerState.Jump);
+        }
         //TO HIDE
         if (playerState.isHiding)
         {
