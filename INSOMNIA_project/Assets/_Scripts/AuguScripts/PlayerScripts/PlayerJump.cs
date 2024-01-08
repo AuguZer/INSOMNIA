@@ -10,7 +10,11 @@ public class PlayerJump : PlayerBaseState
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
-       
+        //TO IDLE
+        if (!playerState.isJumping && playerState.inputManager.dirInput == Vector3.zero)
+        {
+            playerState.TransitionToState(playerState.Idle);
+        }
     }
 
     public override void OnStateExit(PlayerStateManager playerState)

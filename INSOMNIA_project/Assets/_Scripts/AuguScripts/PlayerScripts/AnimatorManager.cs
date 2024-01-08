@@ -22,6 +22,7 @@ public class AnimatorManager : MonoBehaviour
     {
         animator.SetBool("IsCrouching", playerStateManager.isCrouching);
         animator.SetBool("IsCrawling", playerStateManager.isCrawling);
+        animator.SetBool("IsJumping", playerStateManager.isJumping);
         if (playerStateManager.isDead) animator.SetTrigger("IsDead"); 
 
         if(playerStateManager.isCrouching || playerStateManager.isCrawling )
@@ -121,5 +122,10 @@ public class AnimatorManager : MonoBehaviour
     private void Death()
     {
         playerCam.enabled = false;
+    }
+
+    private void StopJump()
+    {
+        playerStateManager.isJumping = false;
     }
 }
