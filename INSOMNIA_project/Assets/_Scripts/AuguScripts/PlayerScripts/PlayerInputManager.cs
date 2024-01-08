@@ -123,6 +123,14 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
+    //private void JumpInput()
+    //{
+    //    if(inputActions.FindAction("Jump").WasPerformedThisFrame() && playerPhysics.IsGrounded())
+    //    {
+
+    //    }
+    //}
+
     public IEnumerator LerpCameraPosition(Vector3 startPos, Vector3 endPos, float duration)
     {
         float t = 0f;

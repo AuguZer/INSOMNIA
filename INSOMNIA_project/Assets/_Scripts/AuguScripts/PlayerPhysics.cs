@@ -16,7 +16,9 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] float groundDetectionRadius = 1f;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float gravity = -9.81f;
+    [SerializeField] float jumpHeight = 10f;
     Vector3 velocity;
+
 
     [Header("UP DETECTION")]
     [SerializeField] float upDetectionRadius = 1f;
@@ -27,6 +29,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] CharacterController characterController;
 
     PlayerStateManager playerStateManager;
+    PlayerInputManager playerInputManager;
     Grabber grabber;
     private void Awake()
     {
@@ -36,6 +39,7 @@ public class PlayerPhysics : MonoBehaviour
     void Start()
     {
         playerStateManager = GetComponent<PlayerStateManager>();
+        playerInputManager = GetComponent<PlayerInputManager>();
         grabber = GetComponentInChildren<Grabber>();
     }
 
@@ -44,7 +48,12 @@ public class PlayerPhysics : MonoBehaviour
     {
         DetectDoors();
         DetectHideOut();
-  
+        
+        if(playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
+        {
+            Debug.Log("Jump");
+            velocity.y = jumpHeight;
+        }
         if (!IsGrounded())
         {
             velocity.y += gravity * Time.deltaTime;
@@ -65,7 +74,7 @@ public class PlayerPhysics : MonoBehaviour
         Vector3 newPos = new Vector3(transform.position.x, ccBoundsMax.y, transform.position.z);
         return Physics.OverlapSphere(newPos, upDetectionRadius, upMask).Length > 0;
     }
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         Vector3 ccBoundsMin = characterController.bounds.min;
         Vector3 newPos = new Vector3(transform.position.x, ccBoundsMin.y, transform.position.z);
