@@ -13,6 +13,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerCrouch Crouch = new PlayerCrouch();
     public PlayerCrawlIdle CrawlIdle = new PlayerCrawlIdle();
     public PlayerCrawl Crawl = new PlayerCrawl();
+    //public PlayerJump Jump = new PlayerJump();
     public PlayerHide Hide = new PlayerHide();
     public PlayerDeath Death = new PlayerDeath();
 
@@ -32,6 +33,7 @@ public class PlayerStateManager : MonoBehaviour
         Crouch,
         CrawlIdle,
         Crawl,
+        Jump,
         Look,
         Hide,
         Death,
