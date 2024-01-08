@@ -323,7 +323,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 33280
-  gravity: -6
+  gravity: -15
+  jumpHeight: 5
   upDetectionRadius: 0.25
   upMask:
     serializedVersion: 2
