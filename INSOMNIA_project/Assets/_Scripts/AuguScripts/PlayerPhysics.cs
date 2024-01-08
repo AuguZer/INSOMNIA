@@ -53,6 +53,7 @@ public class PlayerPhysics : MonoBehaviour
         {
             Debug.Log("Jump");
             velocity.y = jumpHeight;
+            playerStateManager.isJumping = true;
         }
         if (!IsGrounded())
         {

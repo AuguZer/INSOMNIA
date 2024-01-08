@@ -34,7 +34,11 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.CrawlIdle);
         }
-
+        //TO JUMP
+        if(playerState.isJumping)
+        {
+            playerState.TransitionToState(playerState.Jump);
+        }
         //TO HIDE
         if(playerState.isHiding)
         {
