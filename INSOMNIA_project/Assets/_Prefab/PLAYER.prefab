@@ -274,6 +274,8 @@ MonoBehaviour:
   isHiding: 0
   canInteract: 0
   isDead: 0
+  isJumping: 0
+  isFalling: 0
   rb: {fileID: 0}
   deadPoint: {fileID: 5087596646116441379}
   mainCamera: {fileID: 5680671379141856385}
@@ -319,7 +321,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   hideColliders: []
-  groundDetectionRadius: 0.15
+  groundDetectionRadius: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 33280
