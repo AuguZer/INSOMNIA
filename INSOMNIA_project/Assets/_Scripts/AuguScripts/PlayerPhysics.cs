@@ -63,6 +63,15 @@ public class PlayerPhysics : MonoBehaviour
         {
             characterController.Move(velocity * Time.deltaTime);
         }
+
+        if (!IsGrounded() && !playerStateManager.isJumping)
+        {
+            playerStateManager.isFalling = true;
+        }
+        else
+        {
+            playerStateManager.isFalling = false;
+        }
     }
 
     public bool HeadDetection()

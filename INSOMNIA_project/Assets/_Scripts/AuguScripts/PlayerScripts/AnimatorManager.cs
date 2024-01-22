@@ -20,9 +20,12 @@ public class AnimatorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
         animator.SetBool("IsCrouching", playerStateManager.isCrouching);
         animator.SetBool("IsCrawling", playerStateManager.isCrawling);
         animator.SetBool("IsJumping", playerStateManager.isJumping);
+        animator.SetBool("IsFalling", playerStateManager.isFalling);
+
         if (playerStateManager.isDead) animator.SetTrigger("IsDead"); 
 
         if(playerStateManager.isCrouching || playerStateManager.isCrawling )
@@ -73,6 +76,11 @@ public class AnimatorManager : MonoBehaviour
             }
             animator.SetBool("StrafeRight", false);
             animator.SetBool("StrafeLeft", true);
+        }
+
+        if (playerStateManager.state == PlayerStateManager.PlayerState.Jump)
+        {
+            animator.speed = 1f;
         }
         #endregion
 
