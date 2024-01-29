@@ -172,11 +172,7 @@ public class PlayerCam : MonoBehaviour
 
     private void LateUpdate()
     {
-        //if (playerStateManager.isDead)
-        //{
-        //    transform.parent = deadPoint;
-        //    transform.localRotation = deadPoint.localRotation;
-        //}
+        
     }
 
     private void SetCameraPositionAndRotation()

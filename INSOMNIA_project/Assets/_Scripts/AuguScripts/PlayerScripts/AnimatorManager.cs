@@ -9,6 +9,8 @@ public class AnimatorManager : MonoBehaviour
     [SerializeField] PlayerCam playerCam;
     Animator animator;
 
+    [SerializeField] Vector3 endPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -136,4 +138,5 @@ public class AnimatorManager : MonoBehaviour
     {
         playerStateManager.isJumping = false;
     }
+
 }

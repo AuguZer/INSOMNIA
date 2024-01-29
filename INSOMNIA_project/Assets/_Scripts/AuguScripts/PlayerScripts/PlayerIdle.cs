@@ -39,6 +39,8 @@ public class PlayerIdle : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Jump);
         }
+        //TO LAND
+
         //TO HIDE
         if(playerState.isHiding)
         {

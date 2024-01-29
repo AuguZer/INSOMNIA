@@ -19,6 +19,8 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] float jumpHeight = 10f;
     Vector3 velocity;
 
+    [SerializeField] Vector3 endPosition;
+
 
     [Header("UP DETECTION")]
     [SerializeField] float upDetectionRadius = 1f;
@@ -30,6 +32,7 @@ public class PlayerPhysics : MonoBehaviour
 
     PlayerStateManager playerStateManager;
     PlayerInputManager playerInputManager;
+    PlayerCam playerCam;
     Grabber grabber;
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         playerStateManager = GetComponent<PlayerStateManager>();
         playerInputManager = GetComponent<PlayerInputManager>();
+        playerCam = GetComponentInChildren<PlayerCam>();
         grabber = GetComponentInChildren<Grabber>();
     }
 
@@ -123,6 +127,14 @@ public class PlayerPhysics : MonoBehaviour
         return false;
     }
 
+    public void Land()
+    {
+        if(!playerStateManager.isFalling)
+        {
+            playerStateManager.isLanding = true;
+            playerCam.StartCoroutine(playerCam.LerpRotationCam(Quaternion.identity, Quaternion.identity, .1f, playerCam.transform.localPosition, endPosition));
+        }
+    }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log(hit.gameObject.name);
