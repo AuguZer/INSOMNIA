@@ -129,11 +129,11 @@ public class PlayerPhysics : MonoBehaviour
 
     public void Land()
     {
-        if(!playerStateManager.isFalling)
-        {
-            playerStateManager.isLanding = true;
-            playerCam.StartCoroutine(playerCam.LerpRotationCam(Quaternion.identity, Quaternion.identity, .1f, playerCam.transform.localPosition, endPosition));
-        }
+        //if(!playerStateManager.isFalling)
+        //{
+        //    playerStateManager.isLanding = true;
+        //    playerCam.StartCoroutine(playerCam.LerpRotationCam(Quaternion.identity, Quaternion.identity, .1f, playerCam.transform.localPosition, endPosition));
+        //}
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

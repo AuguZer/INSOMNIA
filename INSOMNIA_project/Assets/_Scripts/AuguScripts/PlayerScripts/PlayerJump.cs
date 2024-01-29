@@ -25,6 +25,16 @@ public class PlayerJump : PlayerBaseState
         {
             playerState.TransitionToState(playerState.Run);
         }
+        //TO FALL
+        if (playerState.isFalling)
+        {
+            playerState.TransitionToState(playerState.Fall);
+        }
+        //TO DEATH
+        if (playerState.isDead)
+        {
+            playerState.TransitionToState(playerState.Death);
+        }
 
     }
 

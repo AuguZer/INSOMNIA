@@ -14,6 +14,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerCrawlIdle CrawlIdle = new PlayerCrawlIdle();
     public PlayerCrawl Crawl = new PlayerCrawl();
     public PlayerJump Jump = new PlayerJump();
+    public PlayerFall Fall = new PlayerFall();
     public PlayerLand Land = new PlayerLand();
     public PlayerHide Hide = new PlayerHide();
     public PlayerDeath Death = new PlayerDeath();
@@ -35,6 +36,7 @@ public class PlayerStateManager : MonoBehaviour
         CrawlIdle,
         Crawl,
         Jump,
+        Fall,
         Land,
         Look,
         Hide,
@@ -62,10 +64,13 @@ public class PlayerStateManager : MonoBehaviour
     public bool isJumping;
     public bool isFalling;
     public bool isLanding;
+    public bool getUpFromLanding;
 
     public Rigidbody rb;
     [SerializeField] public Transform deadPoint;
     [SerializeField] public GameObject mainCamera;
+
+    [SerializeField] public Vector3 landCamPos;
 
     private void Awake()
     {
@@ -98,6 +103,19 @@ public class PlayerStateManager : MonoBehaviour
         currentState.OnStateEnter(this);
     }
 
+    public IEnumerator GetupFromLand()
+    {
+        yield return new WaitForSeconds(.5f);
+        getUpFromLanding = true;
+
+    }
+    public IEnumerator LandCoroutine()
+    {
+        isLanding = true;
+        yield return new WaitForSeconds(2f);
+        isLanding = false;
+
+    }
    public IEnumerator DeathCoroutine()
     {
         yield return new WaitForSeconds(3f);
