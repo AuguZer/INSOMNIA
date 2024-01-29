@@ -9,11 +9,15 @@ public class PlayerLand : PlayerBaseState
         playerState.state = PlayerStateManager.PlayerState.Land;
         playerState.StartCoroutine(playerState.LandCoroutine());
         playerState.StartCoroutine(playerState.GetupFromLand());
+        playerState.playerCam.maxLookUp = 60f; 
+     
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
         if (playerState.getUpFromLanding)
         {
+            playerState.playerCam.sensX = 0;
+            playerState.playerCam.sensY = 0;
             playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, playerState.playerCam.transform.localRotation, .6f, playerState.playerCam.transform.localPosition, new Vector3(0f, .6f, .25f)));
         }
         //TO IDLE
@@ -37,6 +41,9 @@ public class PlayerLand : PlayerBaseState
     public override void OnStateExit(PlayerStateManager playerState)
     {
        playerState.getUpFromLanding = false;
+        playerState.playerCam.maxLookUp = -80f;
+        playerState.playerCam.sensX = 500;
+        playerState.playerCam.sensY = 500;
     }
 }
 

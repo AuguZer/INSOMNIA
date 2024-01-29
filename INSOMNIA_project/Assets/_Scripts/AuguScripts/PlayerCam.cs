@@ -9,13 +9,13 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] InputActionAsset inputActions;
 
     [Header("CAMERA SPEED")]
-    [SerializeField] float sensX = 200f;
-    [SerializeField] float sensY = 200f;
+    [SerializeField]public float sensX = 200f;
+    [SerializeField]public float sensY = 200f;
 
     [Header("CAMERA ROTATIONS")]
     [SerializeField] float rotationSpeed = 5f;
-    [SerializeField] float maxLookDown = 72f;
-    [SerializeField] float maxLookUp = -80f;
+    [SerializeField]public float maxLookDown = 72f;
+    [SerializeField]public float maxLookUp = -80f;
     [SerializeField] float maxLookBackRight = 130f;
     [SerializeField] float maxLookBackLeft = -130f;
     [SerializeField] float focusMaxRight = 20f;

@@ -19,6 +19,6 @@ public class PlayerFall : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-        playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, playerState.playerCam.transform.localRotation, .2f, playerState.playerCam.transform.localPosition, new Vector3(-.3f,-.5f,.3f)));
+        playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, Quaternion.Euler(60f,0f,0f), .2f, playerState.playerCam.transform.localPosition, new Vector3(-.3f,-.5f,.3f)));
     }
 }
