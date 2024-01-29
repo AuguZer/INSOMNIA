@@ -14,7 +14,7 @@ public class PlayerLand : PlayerBaseState
     {
         if (playerState.getUpFromLanding)
         {
-            playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, playerState.playerCam.transform.localRotation, .2f, playerState.playerCam.transform.localPosition, new Vector3(0f, .6f, .25f)));
+            playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, playerState.playerCam.transform.localRotation, .6f, playerState.playerCam.transform.localPosition, new Vector3(0f, .6f, .25f)));
         }
         //TO IDLE
         if (!playerState.isLanding && playerState.inputManager.dirInput == Vector3.zero)

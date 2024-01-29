@@ -105,7 +105,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public IEnumerator GetupFromLand()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         getUpFromLanding = true;
 
     }
