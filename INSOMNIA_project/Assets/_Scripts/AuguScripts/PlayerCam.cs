@@ -265,7 +265,7 @@ public class PlayerCam : MonoBehaviour
     private void CameraRotation()
     {
         //Return si LookBack
-        if (isLooking) return;
+        if (isLooking || playerStateManager.isLanding) return;
         //get mouse input
         //Add mouse sensitivity
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;

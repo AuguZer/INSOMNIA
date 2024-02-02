@@ -112,7 +112,7 @@ public class PlayerStateManager : MonoBehaviour
     public IEnumerator LandCoroutine()
     {
         isLanding = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         isLanding = false;
 
     }
