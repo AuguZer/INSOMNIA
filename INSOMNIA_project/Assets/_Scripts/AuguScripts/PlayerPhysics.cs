@@ -17,6 +17,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpHeight = 10f;
+    [SerializeField] float timeOnAir;
     Vector3 velocity;
 
     [SerializeField] Vector3 endPosition;
@@ -36,7 +37,7 @@ public class PlayerPhysics : MonoBehaviour
     Grabber grabber;
     private void Awake()
     {
-        
+
     }
     // Start is called before the first frame update
     void Start()
@@ -52,8 +53,8 @@ public class PlayerPhysics : MonoBehaviour
     {
         DetectDoors();
         DetectHideOut();
-        
-        if(playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
+
+        if (playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
         {
             Debug.Log("Jump");
             velocity.y = jumpHeight;
@@ -62,7 +63,9 @@ public class PlayerPhysics : MonoBehaviour
         if (!IsGrounded())
         {
             velocity.y += gravity * Time.deltaTime;
+            timeOnAir += Time.deltaTime;
         }
+   
         if (characterController.enabled)
         {
             characterController.Move(velocity * Time.deltaTime);
@@ -78,6 +81,8 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
+   
+
     public bool HeadDetection()
     {
         return Physics.OverlapSphere(headTransform.position, upDetectionRadius, upMask).Length > 0;
@@ -90,6 +95,7 @@ public class PlayerPhysics : MonoBehaviour
     }
     public bool IsGrounded()
     {
+        timeOnAir = 0f;
         Vector3 ccBoundsMin = characterController.bounds.min;
         Vector3 newPos = new Vector3(transform.position.x, ccBoundsMin.y, transform.position.z);
         return Physics.OverlapSphere(newPos, groundDetectionRadius, groundMask).Length > 0;
@@ -114,14 +120,14 @@ public class PlayerPhysics : MonoBehaviour
             }
         }
     }
-    public bool DetectHideOut() 
+    public bool DetectHideOut()
     {
         if (playerStateManager.isHiding)
         {
             hideColliders = Physics.OverlapSphere(transform.position, detectionRadius, hideOutMask);
-            if (hideColliders.Length >0)
+            if (hideColliders.Length > 0)
             {
-               return true;
+                return true;
             }
         }
         return false;
@@ -158,4 +164,5 @@ public class PlayerPhysics : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(headTransform.position, headDetecitionRadius);
     }
+
 }
