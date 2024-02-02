@@ -17,7 +17,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpHeight = 10f;
-    [SerializeField] float timeOnAir;
+    [SerializeField] public float timeOnAir;
     Vector3 velocity;
 
     [SerializeField] Vector3 endPosition;
