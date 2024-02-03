@@ -36,7 +36,7 @@ public class PlayerCam : MonoBehaviour
     public Vector3 targetPositionL;
 
     [SerializeField] bool gamePadOn;
-    float xRotation = 0f;
+    public float xRotation = 0f;
 
     public Vector2 lookInput;
 
@@ -286,6 +286,7 @@ public class PlayerCam : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+
         //cam.nearClipPlane = .32f;
         if (playerStateManager.isDead)
         {

@@ -97,13 +97,13 @@ public class IKFootPlacement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
-        Ray ray = new Ray();
+        //Gizmos.color = Color.white;
+        //Ray ray = new Ray();
 
-        ray.origin = transform.position;
-        ray.direction = Vector3.down;
+        //ray.origin = transform.position;
+        //ray.direction = Vector3.down;
 
-        Gizmos.DrawRay(ray);
+        //Gizmos.DrawRay(ray);
     }
 
     public IEnumerator LerpPosToGround(Vector3 startPos, Vector3 endPos, float duration)
