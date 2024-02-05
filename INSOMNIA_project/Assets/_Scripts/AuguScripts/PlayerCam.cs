@@ -85,7 +85,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBackR(InputAction.CallbackContext ctx)
     {
-        if (playerStateManager.isHiding || playerStateManager.isDead) return;
+        if (playerStateManager.isHiding || playerStateManager.isDead || grabber.isInInterationState) return;
         StopAllCoroutines();
         isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationR), rotationSpeed, transform.localPosition, targetPositionR));
@@ -93,7 +93,7 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStopLookBackR(InputAction.CallbackContext ctx)
     {
-        if (playerStateManager.isHiding || playerStateManager.isDead) return;
+        if (playerStateManager.isHiding || playerStateManager.isDead || grabber.isInInterationState) return;
         StopAllCoroutines();
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
         StartCoroutine(EndLookBack());
@@ -101,14 +101,14 @@ public class PlayerCam : MonoBehaviour
 
     private void OnStartLookBackL(InputAction.CallbackContext ctx)
     {
-        if (playerStateManager.isHiding || playerStateManager.isDead) return;
+        if (playerStateManager.isHiding || playerStateManager.isDead || grabber.isInInterationState) return;
         StopAllCoroutines();
         isLooking = true;
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(targetRotationL), rotationSpeed, transform.localPosition, targetPositionL));
     }
     private void OnStopLookBackL(InputAction.CallbackContext ctx)
     {
-        if (playerStateManager.isHiding || playerStateManager.isDead) return;
+        if (playerStateManager.isHiding || playerStateManager.isDead || grabber.isInInterationState) return;
         StopAllCoroutines();
         StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
         StartCoroutine(EndLookBack());
@@ -164,6 +164,7 @@ public class PlayerCam : MonoBehaviour
 
         if (grabber.isInInterationState)
         {
+            playerInputManager.speed = 0f;
             CameraOnFocus();
         }
         else
