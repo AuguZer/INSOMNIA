@@ -54,6 +54,7 @@ public class PlayerPhysics : MonoBehaviour
         DetectDoors();
         DetectHideOut();
 
+
         if (playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
         {
             Debug.Log("Jump");
