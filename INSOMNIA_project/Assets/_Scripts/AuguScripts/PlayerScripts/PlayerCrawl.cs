@@ -9,7 +9,7 @@ public class PlayerCrawl : PlayerBaseState
         playerState.state = PlayerStateManager.PlayerState.Crawl;
         playerState.inputManager.speed = playerState.crawlSpeed;
         playerState.inputManager.characterController.height = 0.477304f;
-        Vector3 charcterControllerCenter = new Vector3(0f, -.68f, 0f);
+        Vector3 charcterControllerCenter = new Vector3(0f, -.68f, .5f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
