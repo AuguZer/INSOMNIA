@@ -276,9 +276,12 @@ MonoBehaviour:
   isDead: 0
   isJumping: 0
   isFalling: 0
+  isLanding: 0
+  getUpFromLanding: 0
   rb: {fileID: 0}
   deadPoint: {fileID: 5087596646116441379}
   mainCamera: {fileID: 5680671379141856385}
+  landCamPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3373168887280241369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +330,8 @@ MonoBehaviour:
     m_Bits: 33280
   gravity: -15
   jumpHeight: 5
+  timeOnAir: 0
+  endPosition: {x: 0, y: 0, z: 0}
   upDetectionRadius: 0.25
   upMask:
     serializedVersion: 2
@@ -648,12 +653,15 @@ MonoBehaviour:
   focusMaxDown: -15
   camZpos: 0.25
   camZposCrawl: 0.55
+  camXposRight: 0.3
+  camXposLeft: -0.3
   playerBody: {fileID: 7207316340061104541}
   targetRotationR: {x: 0, y: 0, z: -15}
   targetRotationL: {x: 0, y: 0, z: 15}
   targetPositionR: {x: 0.6, y: 0.5, z: 0.2}
   targetPositionL: {x: -0.6, y: 0.5, z: 0.2}
   gamePadOn: 0
+  xRotation: 0
   lookInput: {x: 0, y: 0}
   isLooking: 0
   deadPoint: {fileID: 4221722452258166469}
