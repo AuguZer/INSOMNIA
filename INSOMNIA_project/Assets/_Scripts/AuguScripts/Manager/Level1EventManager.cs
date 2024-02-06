@@ -6,11 +6,21 @@ using UnityEngine.Events;
 
 public class Level1EventManager : MonoBehaviour
 {
+    public static Level1EventManager instance;
+
     [SerializeField] GameObject phone;
     [SerializeField] GameObject TV;
     [SerializeField] float timeBeforePhone;
     [SerializeField] float timeBeforeTV;
 
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +37,12 @@ public class Level1EventManager : MonoBehaviour
     IEnumerator PhoneRingCoroutine()
     {
         yield return new WaitForSeconds(timeBeforePhone);
-        phone.GetComponent<FocusObject>().TurnOn();
+        phone.GetComponent<PhoneEventObject>().TurnOn();
     }
 
-    IEnumerator TVTurnOnCoroutine()
+    public IEnumerator TVTurnOnCoroutine()
     {
         yield return new WaitForSeconds(timeBeforeTV);
-        TV.GetComponent<FocusObject>().TurnOn();
+        TV.GetComponent<TVEventObject>().TurnOn();
     }
 }

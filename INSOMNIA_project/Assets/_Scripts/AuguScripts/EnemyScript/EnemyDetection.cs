@@ -12,7 +12,7 @@ public class EnemyDetection : MonoBehaviour
     public Vector3 playerLastPosition;
 
     [SerializeField] float timeBeforeEndChase;
-    [SerializeField] float detectionRayLenght = 50f;
+    //[SerializeField] float detectionRayLenght = 50f;
     [SerializeField] Transform headPoint;
     [SerializeField] public Transform attackPoint;
     [SerializeField] public float attackRadius = 1f;

@@ -232,32 +232,50 @@ public class Grabber : MonoBehaviour
             #endregion
         }
     }
-    private void FocusOnObject(GameObject focusObject)
+    private void FocusOnObject(GameObject eventObject)
     {
-        if (focusObject.tag == "Object")
+        if (eventObject.tag == "Event Object")
         {
-            if (focusObject.GetComponent<FocusObject>() != null)
+            //if (eventObject.GetComponent<PhoneEventObject>() != null)
+            //{
+            if (playerStateManager.canInteract)
             {
-                if (playerStateManager.canInteract)
+                if (!isInInterationState)
                 {
-                    if (!isInInterationState)
+                    isInInterationState = true;
+                    playerStateManager.isCrouching = false;
+                    playerStateManager.isCrawling = false;
+                    if (eventObject.GetComponent<PhoneEventObject>() != null)
                     {
-                        isInInterationState = true;
-                        playerStateManager.isCrouching = false;
-                        playerStateManager.isCrawling = false;
-                        Transform focusPos = focusObject.GetComponent<FocusObject>().focusPos;
+                        Transform focusPos = eventObject.GetComponent<PhoneEventObject>().focusPos;
                         playerStateManager.canInteract = false;
                         StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
-                        StartCoroutine(LerpToHideRotation(focusObject.transform.localRotation));
+                        StartCoroutine(LerpToHideRotation(eventObject.transform.localRotation));
                     }
-                    else
+                    if (eventObject.GetComponent<TVEventObject>() != null)
                     {
-                        isInInterationState = false;
-                        focusObject.GetComponent<FocusObject>().TurnOff();
+                        Transform focusPos = eventObject.GetComponent<TVEventObject>().focusPos;
+                        playerStateManager.canInteract = false;
+                        StartCoroutine(LerpToHidePosition(transform.parent.position, new Vector3(focusPos.position.x, transform.parent.position.y, focusPos.position.z), .5f));
+                        StartCoroutine(LerpToHideRotation(eventObject.transform.localRotation));
+                    }
+                }
+                else
+                {
+                    isInInterationState = false;
+                    if (eventObject.GetComponent<PhoneEventObject>() != null)
+                    {
+                        eventObject.GetComponent<PhoneEventObject>().TurnOff();
                     }
 
+                    if (eventObject.GetComponent<TVEventObject>() != null)
+                    {
+                        eventObject.GetComponent<TVEventObject>().TurnOff();
+                    }
                 }
+
             }
+            //}
         }
     }
     private void GetOutOfHide()

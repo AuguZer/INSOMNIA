@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FocusObject : MonoBehaviour
+public class PhoneEventObject : MonoBehaviour
 {
     [SerializeField] public Transform focusPos;
-    [SerializeField] public bool objectIsOff;
+    [SerializeField] public bool phoneIsOff;
     // Start is called before the first frame update
     void Start()
     {
-        objectIsOff = false;
+        phoneIsOff = false;
     }
 
     // Update is called once per frame
@@ -27,7 +27,8 @@ public class FocusObject : MonoBehaviour
     public void TurnOff()
     {
         //Stop AudioClip
-        objectIsOff = true;
+        phoneIsOff = true;
         Debug.Log("Phone stop ringing");
+        Level1EventManager.instance.StartCoroutine(Level1EventManager.instance.TVTurnOnCoroutine());
     }
 }
