@@ -18,10 +18,10 @@ public class PlayerCam : MonoBehaviour
     [SerializeField]public float maxLookUp = -80f;
     [SerializeField] float maxLookBackRight = 130f;
     [SerializeField] float maxLookBackLeft = -130f;
+    [SerializeField] float focusMaxDown = 20f;
+    [SerializeField] float focusMaxUp = 0f;
     [SerializeField] float focusMaxRight = 20f;
     [SerializeField] float focusMaxLeft = -20f;
-    [SerializeField] float focusMaxUp = 20f;
-    [SerializeField] float focusMaxDown = -20f;
 
     [Header("CAMERA POSITIONS")]
     [SerializeField] public float camZpos;
@@ -256,8 +256,8 @@ public class PlayerCam : MonoBehaviour
         rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
         rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, focusMaxLeft, focusMaxRight);
-        rotationY = Mathf.Clamp(rotationY, focusMaxDown, focusMaxUp);
+        rotationX = Mathf.Clamp(rotationX, focusMaxUp, focusMaxDown);
+        rotationY = Mathf.Clamp(rotationY, focusMaxLeft, focusMaxRight);
 
         //transform.localEulerAngles = new Vector3(rotationX, rotationY, 0f);
         transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);

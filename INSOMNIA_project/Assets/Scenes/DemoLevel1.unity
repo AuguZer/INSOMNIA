@@ -4416,17 +4416,17 @@ PrefabInstance:
     - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: focusMaxUp
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: focusMaxDown
-      value: -20
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: focusMaxLeft
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
