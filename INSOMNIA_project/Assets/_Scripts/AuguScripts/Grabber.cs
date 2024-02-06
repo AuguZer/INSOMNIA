@@ -253,6 +253,7 @@ public class Grabber : MonoBehaviour
                     else
                     {
                         isInInterationState = false;
+                        focusObject.GetComponent<FocusObject>().TurnOff();
                     }
 
                 }

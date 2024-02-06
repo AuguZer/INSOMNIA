@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GameEventManager : MonoBehaviour
+public class Level1EventManager : MonoBehaviour
 {
-    [SerializeField] bool startPhone;
+    [SerializeField] GameObject phone;
+    [SerializeField] GameObject TV;
     [SerializeField] float timeBeforePhone;
+    [SerializeField] float timeBeforeTV;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +20,19 @@ public class GameEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
-
+    //Phase 1
     IEnumerator PhoneRingCoroutine()
     {
         yield return new WaitForSeconds(timeBeforePhone);
-        Debug.Log("Phone is ringing");
+        phone.GetComponent<FocusObject>().TurnOn();
+    }
+
+    IEnumerator TVTurnOnCoroutine()
+    {
+        yield return new WaitForSeconds(timeBeforeTV);
+        TV.GetComponent<FocusObject>().TurnOn();
     }
 }
