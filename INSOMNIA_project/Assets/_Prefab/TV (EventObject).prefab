@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eef10479b3f71f41a3348719e7eb6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusPos: {fileID: 0}
+  focusPos: {fileID: 694313708599800801}
   tvIsOff: 0
 --- !u!1 &5869730538067559404
 GameObject:

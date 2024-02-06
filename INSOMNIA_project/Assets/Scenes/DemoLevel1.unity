@@ -4413,6 +4413,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: focusMaxUp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: focusMaxDown
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: focusMaxLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215741512302896744, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: focusMaxRight
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3699773195466166027, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_Name
@@ -6275,12 +6295,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2085479658}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2070215056979213874 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 694313708599800801, guid: 5e0bba447626284459fff8e160240efb,
-    type: 3}
-  m_PrefabInstance: {fileID: 5489644097361031795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3115327034455967864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6429,11 +6443,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5580571379516330906, guid: 5e0bba447626284459fff8e160240efb,
-        type: 3}
-      propertyPath: focusPos
-      value: 
-      objectReference: {fileID: 2070215056979213874}
     - target: {fileID: 5740019532873513206, guid: 5e0bba447626284459fff8e160240efb,
         type: 3}
       propertyPath: m_Name
