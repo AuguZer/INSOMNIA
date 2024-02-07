@@ -10,8 +10,12 @@ public class Level1EventManager : MonoBehaviour
 
     [SerializeField] GameObject phone;
     [SerializeField] GameObject TV;
+    [SerializeField] public GameObject doorMeetingRoom;
+    [SerializeField] public GameObject doorLockerRoom;
     [SerializeField] float timeBeforePhone;
     [SerializeField] float timeBeforeTV;
+
+  
 
 
     private void Awake()
@@ -24,6 +28,7 @@ public class Level1EventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+     
         StartCoroutine(PhoneRingCoroutine());
     }
 
@@ -40,6 +45,7 @@ public class Level1EventManager : MonoBehaviour
         phone.GetComponent<PhoneEventObject>().TurnOn();
     }
 
+    //Phase 2
     public IEnumerator TVTurnOnCoroutine()
     {
         yield return new WaitForSeconds(timeBeforeTV);

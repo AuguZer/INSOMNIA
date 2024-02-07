@@ -6,6 +6,7 @@ public class PhoneEventObject : MonoBehaviour
 {
     [SerializeField] public Transform focusPos;
     [SerializeField] public bool phoneIsOff;
+    [SerializeField] public bool finish;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class PhoneEventObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TurnOn()
@@ -26,9 +27,13 @@ public class PhoneEventObject : MonoBehaviour
 
     public void TurnOff()
     {
-        //Stop AudioClip
-        phoneIsOff = true;
-        Debug.Log("Phone stop ringing");
-        Level1EventManager.instance.StartCoroutine(Level1EventManager.instance.TVTurnOnCoroutine());
+        if (!finish)
+        {
+            //Stop AudioClip
+            phoneIsOff = true;
+            Debug.Log("Phone stop ringing");
+            Level1EventManager.instance.StartCoroutine(Level1EventManager.instance.TVTurnOnCoroutine());
+            finish = true;
+        }
     }
 }

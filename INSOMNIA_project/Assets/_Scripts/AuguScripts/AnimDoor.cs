@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimDoor : MonoBehaviour
 {
     public bool doorOpen;
+    public bool eventDoor;
     Animator animator;
 
     public int keyNumber = 0;

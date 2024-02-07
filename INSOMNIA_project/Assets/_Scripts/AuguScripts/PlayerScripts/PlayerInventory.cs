@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] public int keyOwned = 0;
+    [SerializeField] public int eventKeyOwned = 0;
     // Start is called before the first frame update
     void Start()
     {

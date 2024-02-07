@@ -117,6 +117,7 @@ public class Grabber : MonoBehaviour
                 InteractWithHideCloset(hit.transform.gameObject);
                 InteractWithHideBox(hit.transform.gameObject);
                 InteractWithHideBelow(hit.transform.gameObject);
+                TakeKey(hit.transform.gameObject);
                 FocusOnObject(hit.transform.gameObject);
             }
 
@@ -199,6 +200,10 @@ public class Grabber : MonoBehaviour
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
             if (doorAnimator != null)
             {
+                if (animDoor.eventDoor)
+                {
+                    playerInventory.keyOwned = playerInventory.eventKeyOwned;
+                }
                 if (playerInventory.keyOwned > 0)
                 {
                     animDoor.keyNumber = 1;
@@ -230,6 +235,15 @@ public class Grabber : MonoBehaviour
                 door.GetComponent<Door>().ChangeDoorState();
             }
             #endregion
+        }
+    }
+
+    private void TakeKey(GameObject key)
+    {
+        if (key.tag == "Key")
+        {
+            key.GetComponent<Key>().KeyCollected();
+            playerInventory.eventKeyOwned++;
         }
     }
     private void FocusOnObject(GameObject eventObject)
