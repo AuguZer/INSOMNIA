@@ -13,6 +13,8 @@ TagManager:
   - HideBelow
   - Object
   - Event Object
+  - ScrewDriver
+  - Vent
   layers:
   - Default
   - TransparentFX

@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class ScrewDriver : MonoBehaviour
 {
-    [SerializeField] public int keyOwned = 0;
-    [SerializeField] public int eventKeyOwned = 0;
-    [SerializeField] public int screwDriver;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +14,11 @@ public class PlayerInventory : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ScrewDriverCollected()
+    {
+        gameObject.SetActive(false);
+        Destroy(gameObject,3f);
     }
 }

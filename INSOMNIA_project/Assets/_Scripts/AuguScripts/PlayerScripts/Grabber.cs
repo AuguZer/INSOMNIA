@@ -117,7 +117,9 @@ public class Grabber : MonoBehaviour
                 InteractWithHideCloset(hit.transform.gameObject);
                 InteractWithHideBox(hit.transform.gameObject);
                 InteractWithHideBelow(hit.transform.gameObject);
+                InteractWithVent(hit.transform.gameObject);
                 TakeKey(hit.transform.gameObject);
+                TakeScrewDriver(hit.transform.gameObject);
                 FocusOnObject(hit.transform.gameObject);
             }
 
@@ -238,12 +240,41 @@ public class Grabber : MonoBehaviour
         }
     }
 
+    private void InteractWithVent(GameObject vent)
+    {
+        if(vent.tag == "Vent")
+        {
+            Vent _vent = vent.GetComponent<Vent>();
+
+            if(_vent.screwDriverNumber == 0)
+            {
+                Debug.Log("Vent is close");
+            }
+            if(playerInventory.screwDriver > 0)
+            {
+                _vent.screwDriverNumber = playerInventory.screwDriver;
+            }
+            if(_vent.screwDriverNumber > 0)
+            {
+                _vent.ventOpen = true;
+            }
+        }
+    }
+
     private void TakeKey(GameObject key)
     {
         if (key.tag == "Key")
         {
             key.GetComponent<Key>().KeyCollected();
             playerInventory.eventKeyOwned++;
+        }
+    }
+    private void TakeScrewDriver(GameObject screwDriver)
+    {
+        if (screwDriver.tag == "ScrewDriver")
+        {
+            screwDriver.GetComponent<ScrewDriver>().ScrewDriverCollected();
+            playerInventory.screwDriver++;
         }
     }
     private void FocusOnObject(GameObject eventObject)
