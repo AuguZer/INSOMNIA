@@ -352,6 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyOwned: 0
+  eventKeyOwned: 0
+  screwDriver: 0
 --- !u!114 &8852826786703216107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,10 +649,10 @@ MonoBehaviour:
   maxLookUp: -80
   maxLookBackRight: 140
   maxLookBackLeft: -140
-  focusMaxRight: 25
-  focusMaxLeft: 15
-  focusMaxUp: 15
-  focusMaxDown: -15
+  focusMaxDown: 20
+  focusMaxUp: 0
+  focusMaxRight: 20
+  focusMaxLeft: -20
   camZpos: 0.25
   camZposCrawl: 0.55
   camXposRight: 0.3
