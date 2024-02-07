@@ -43,11 +43,13 @@ public class EnemyDetection : MonoBehaviour
         if (playerInZone)
         {
 
-            if(RayDetectPlayer() && !RayDetectWall())
+            if (RayDetectPlayer() && !RayDetectWall())
             {
                 playerDetected = true;
             }
+            Debug.Log(RayDetectWall());
         }
+
     }
 
     public bool RayDetectWall()
@@ -64,8 +66,11 @@ public class EnemyDetection : MonoBehaviour
             Debug.DrawLine(headPoint.position, hit.point, Color.red);
             return true;
         }
+        else
+        {
+            return false;
+        }
 
-        return false;
     }
 
     public bool RayDetectPlayer()
