@@ -47,7 +47,6 @@ public class EnemyDetection : MonoBehaviour
             {
                 playerDetected = true;
             }
-            Debug.Log(RayDetectWall());
         }
 
     }

@@ -58,6 +58,7 @@ public class TVEventObject : MonoBehaviour
     {
         Level1EventManager.instance.doorLockerRoom.GetComponent<AnimDoor>().keyNumber = 1;
         Level1EventManager.instance.doorLockerRoom.GetComponent<AnimDoor>().doorOpen = true;
+        Level1EventManager.instance.eventBoxEnemySpawn.SetActive(true);
         Debug.Log("Lockeroom Door open, lights switch off + only light in locker Room");
 
         //SwitchOff Every Lights Except in Locker Room
