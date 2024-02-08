@@ -17,6 +17,7 @@ public class TVEventObject : MonoBehaviour
         OnTVTurnOff += CloseMeetingRoomDoor;
         OnTVTurnOff += LockerRoomAccess;
         tvIsOff = false;
+        finish = true;
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class TVEventObject : MonoBehaviour
 
     public void TurnOn()
     {
+        finish = false;
         //Play AudioClip Ringing Phone
         Debug.Log("TV is making noise");
     }

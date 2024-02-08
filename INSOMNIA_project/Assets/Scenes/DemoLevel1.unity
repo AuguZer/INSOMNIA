@@ -2663,7 +2663,7 @@ MonoBehaviour:
   doorMeetingRoom: {fileID: 457837120}
   doorLockerRoom: {fileID: 571882425}
   eventBoxEnemySpawn: {fileID: 2115576771}
-  timeBeforePhone: 2
+  timeBeforePhone: 10
   timeBeforeTV: 3
 --- !u!1001 &790478626
 PrefabInstance:
@@ -4839,7 +4839,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.8
+      value: -14.94
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -4849,7 +4849,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.57
+      value: 6.18
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}

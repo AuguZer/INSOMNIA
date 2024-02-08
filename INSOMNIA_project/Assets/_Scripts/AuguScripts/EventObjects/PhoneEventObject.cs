@@ -11,6 +11,7 @@ public class PhoneEventObject : MonoBehaviour
     void Start()
     {
         phoneIsOff = false;
+        finish = true;
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class PhoneEventObject : MonoBehaviour
 
     public void TurnOn()
     {
+        finish = false;
         //Play AudioClip Ringing Phone
         Debug.Log("Phone is ringing");
     }
