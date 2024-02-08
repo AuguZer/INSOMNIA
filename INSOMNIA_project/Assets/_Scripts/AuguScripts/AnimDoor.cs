@@ -6,7 +6,7 @@ public class AnimDoor : MonoBehaviour
 {
     public bool doorOpen;
     public bool eventDoor;
-    Animator animator;
+    public Animator animator;
 
     public int keyNumber = 0;
     // Start is called before the first frame update
