@@ -5,27 +5,32 @@ using UnityEngine;
 public class EyeBlink : MonoBehaviour
 {
     Animator animator;
-    int blinkNum;
+    [SerializeField] int blinkNum;
+    [SerializeField] bool isBlinking;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         blinkNum = 0;
+        StartCoroutine(BlinkCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-      if (blinkNum == 0) StartCoroutine(BlinkCoroutine());
+        //if (blinkNum > 0) isBlinking = true;
     }
 
     IEnumerator BlinkCoroutine()
     {
-        float randomTime = Random.Range(3f, 10f);
-        yield return new WaitForSeconds(randomTime);
-        blinkNum = (int)Random.Range(0f, 2f);
-        animator.SetFloat("BlinkNum", blinkNum);
-        yield return new WaitForSeconds(.1f);
-        blinkNum = 0;
+
+        while (blinkNum >= 0)
+        {
+            blinkNum = (int)Random.Range(0f, 2f);
+            animator.SetInteger("BlinkNum", blinkNum);
+            float randomTime = Random.Range(3f, 10f);
+            yield return new WaitForSeconds(randomTime);
+        }
+
     }
 }
