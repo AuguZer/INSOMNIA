@@ -12,25 +12,32 @@ public class EyeBlink : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         blinkNum = 0;
-        StartCoroutine(BlinkCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
         //if (blinkNum > 0) isBlinking = true;
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (stateInfo.IsName("WAIT"))
+        {
+            StartCoroutine(BlinkCoroutine());
+        }
+        else
+        {
+            animator.SetInteger("BlinkNum", 0);
+            StopAllCoroutines();
+        }
+
     }
 
     IEnumerator BlinkCoroutine()
     {
-
-        while (blinkNum >= 0)
-        {
-            blinkNum = (int)Random.Range(0f, 2f);
-            animator.SetInteger("BlinkNum", blinkNum);
-            float randomTime = Random.Range(3f, 10f);
-            yield return new WaitForSeconds(randomTime);
-        }
+        float randomTime = Random.Range(10f, 30f);
+        yield return new WaitForSeconds(randomTime);
+        blinkNum = (int)Random.Range(1f, 4f);
+        animator.SetInteger("BlinkNum", blinkNum);
 
     }
 }
