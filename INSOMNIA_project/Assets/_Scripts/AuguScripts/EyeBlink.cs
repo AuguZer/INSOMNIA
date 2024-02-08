@@ -36,7 +36,7 @@ public class EyeBlink : MonoBehaviour
     {
         float randomTime = Random.Range(10f, 30f);
         yield return new WaitForSeconds(randomTime);
-        blinkNum = (int)Random.Range(1f, 4f);
+        blinkNum = Random.Range(1, 4);
         animator.SetInteger("BlinkNum", blinkNum);
 
     }

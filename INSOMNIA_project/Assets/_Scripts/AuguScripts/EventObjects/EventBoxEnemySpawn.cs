@@ -6,6 +6,7 @@ public class EventBoxEnemySpawn : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject destContainer;
+    [SerializeField] GameObject doorMeetingRoom;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +17,13 @@ public class EventBoxEnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && doorMeetingRoom.GetComponent<AnimDoor>().doorOpen)
         {
             enemy.SetActive(true);
             destContainer.SetActive(true);
