@@ -3,7 +3,22 @@ guid: 9881522472171dc46abde72c6b3d4f0b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder
+    second: {fileID: 2100000, guid: c0ce4b3665b0ed64fb591a98f847c27e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Machine \xE0 Caf\xE9"
+    second: {fileID: 2100000, guid: 97b35d19bcc09dc46bb519cf9827d568, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Porte Machine
+    second: {fileID: 2100000, guid: 35d492f25f9e5374d9195baf0851d444, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
