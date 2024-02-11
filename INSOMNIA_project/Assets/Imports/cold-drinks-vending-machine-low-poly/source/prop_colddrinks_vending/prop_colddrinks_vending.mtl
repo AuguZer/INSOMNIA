@@ -1,0 +1,8 @@
+newmtl material1
+Ka 0.300000 0.300000 0.300000
+Kd 0.700000 0.700000 0.700000
+Ks 1.000000 1.000000 1.000000
+Ns 50.000000
+Tr 0.000000
+illum 2
+map_Kd E:\Users\Augustus\Desktop\IdleMaster\swbf\MeshViewer_v1_2_0\Props\VendingMachines\prop_colddrinks_vending.tga
