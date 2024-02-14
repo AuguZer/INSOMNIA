@@ -347,122 +347,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6427702225867902221, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6540395078109961683, guid: 150add7b8eda7134a9ff1241defa4aaf,
         type: 3}
       propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540395078109961683, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540395078109961683, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540395078109961683, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_TagString
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      propertyPath: m_TagString
-      value: Door
+      value: DoorX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 8420804112160614501}
-    - targetCorrespondingSourceObject: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 4469713855964202279}
-    - targetCorrespondingSourceObject: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5664652194756025320}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150add7b8eda7134a9ff1241defa4aaf, type: 3}
---- !u!1 &1835188804306423747 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6893409667352764598, guid: 150add7b8eda7134a9ff1241defa4aaf,
-    type: 3}
-  m_PrefabInstance: {fileID: 5106424397975744373}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8420804112160614501
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835188804306423747}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c81fbd54ae8e1c34b84e6a4fa7e8c077, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4469713855964202279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835188804306423747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7431e992da4089d42a6e945f72108062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorOpen: 0
-  eventDoor: 0
-  animator: {fileID: 8420804112160614501}
-  keyNumber: 1
---- !u!65 &5664652194756025320
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835188804306423747}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.006414235, y: 0.020744285, z: 0.049939852}
-  m_Center: {x: -0.0015479884, y: 0.010117409, z: -0.028029969}
 --- !u!4 &7802564323981504800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3068621534159887957, guid: 150add7b8eda7134a9ff1241defa4aaf,

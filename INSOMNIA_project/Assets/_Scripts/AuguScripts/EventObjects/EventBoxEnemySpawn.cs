@@ -23,7 +23,7 @@ public class EventBoxEnemySpawn : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && doorMeetingRoom.GetComponent<AnimDoor>().doorOpen)
+        if (other.gameObject.tag == "Player" && doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen)
         {
             enemy.SetActive(true);
             destContainer.SetActive(true);
