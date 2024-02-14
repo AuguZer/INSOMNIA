@@ -3,7 +3,22 @@ guid: 5a2da0d1a497ccf458f83a7b7b9cf5df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blind
+    second: {fileID: 2100000, guid: fc1422ae55c21c94d86ad551e537c8e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: silver
+    second: {fileID: 2100000, guid: d936a52ded4bd874abae481c044a9a0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: switch_white
+    second: {fileID: 2100000, guid: 082aa9530a88af14abb5b35b22e33ea8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
