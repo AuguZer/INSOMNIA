@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorOpen: 0
+  eventDoor: 0
+  animator: {fileID: 0}
   keyNumber: 0
 --- !u!54 &4077978501077458932
 Rigidbody:
