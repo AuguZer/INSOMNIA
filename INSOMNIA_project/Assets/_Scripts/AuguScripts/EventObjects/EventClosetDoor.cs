@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EventClosetDoor : MonoBehaviour
 {
-    Animator animator;
+    [SerializeField] Animator animator;
 
     [SerializeField] bool playerInZone;
     [SerializeField] bool eventPlayed;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
         playerInZone = false;
     }
 
