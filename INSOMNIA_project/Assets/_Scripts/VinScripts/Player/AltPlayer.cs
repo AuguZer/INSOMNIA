@@ -11,123 +11,45 @@ public class AltPlayer
 
     float _speed;
 
-    public float Speed 
-    {
-        get
-        {
-            return _speed;
-        }
-        set
-        {
-            _speed = value * 10f;
-        }
-    }
-
-
-
-    public enum AltPlayerState
-    {
-        IDLE,
-        WALK,
-        SPRINT,
-        CROUCHIDLE,
-        CROUCH,
-        FALL
-    }
-
-    AltPlayerState _currentState;
-
-    public AltPlayerState CurrentState 
-    { 
-        get 
-        { 
-            return _currentState; 
-        } 
-        set 
-        {
-            _currentState = value; 
-        } 
-    }
-
-
     public AltPlayer()
     {
-        Speed = 0f;
-        CurrentState = AltPlayerState.IDLE;
+        _currentSpeed = PlayerSpeed.NOSPEED;
     }
 
-
-    public void AltPlayerOnStateEnter()
+    public enum PlayerSpeed
     {
-        switch (_currentState)
+        NOSPEED,
+        WALKSPEED,
+        SPRINTSPEED,
+        CROUCHSPEED
+    }
+
+    PlayerSpeed _currentSpeed;
+
+    public void SetSpeed(PlayerSpeed playerSpeed)
+    {
+        _currentSpeed = playerSpeed;
+
+        switch (_currentSpeed)
         {
-            case AltPlayerState.IDLE:
-                Speed = 0f;
+            case PlayerSpeed.NOSPEED:
+                _speed = 0f;
                 break;
-            case AltPlayerState.WALK:
-                Speed = _walkSpeed;
+            case PlayerSpeed.WALKSPEED:
+                _speed = _walkSpeed;
                 break;
-            case AltPlayerState.SPRINT:
-                Speed = _sprintSpeed;
+            case PlayerSpeed.SPRINTSPEED:
+                _speed = _sprintSpeed;
                 break;
-            case AltPlayerState.CROUCHIDLE:
-                Speed = 0f;
-                break;
-            case AltPlayerState.CROUCH:
-                Speed = _crouchSpeed;
-                break;
-            case AltPlayerState.FALL:
+            case PlayerSpeed.CROUCHSPEED:
+                _speed = _crouchSpeed;
                 break;
         }
     }
 
-    public void AltPlayerOnStateUpdate()
+    public void Move(CharacterController cc, Vector3 move)
     {
-        switch (_currentState)
-        {
-            case AltPlayerState.IDLE:
-                break;
-            case AltPlayerState.WALK:
-                break;
-            case AltPlayerState.SPRINT:
-                break;
-            case AltPlayerState.CROUCHIDLE:
-                break;
-            case AltPlayerState.CROUCH:
-                break;
-            case AltPlayerState.FALL:
-                break;
-        }
-    }
-
-    public void AltPlayerOnStateExit()
-    {
-        switch (_currentState)
-        {
-            case AltPlayerState.IDLE:
-                break;
-            case AltPlayerState.WALK:
-                break;
-            case AltPlayerState.SPRINT:
-                break;
-            case AltPlayerState.CROUCHIDLE:
-                break;
-            case AltPlayerState.CROUCH:
-                break;
-            case AltPlayerState.FALL:
-                break;
-        }
-    }
-
-    public void AltPlayerTransitionToState(AltPlayerState nextState)
-    {
-        AltPlayerOnStateExit();
-        CurrentState = nextState;
-        AltPlayerOnStateEnter();
-    }
-
-    public void Move(Rigidbody rb, Vector3 motion)
-    {
-        rb.velocity += motion.normalized * Speed * Time.deltaTime;
+        Vector3 motion = move.normalized * _speed * Time.deltaTime;
+        cc.Move(motion);
     }
 }
