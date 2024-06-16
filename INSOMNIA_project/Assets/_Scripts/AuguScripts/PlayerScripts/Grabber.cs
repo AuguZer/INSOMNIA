@@ -177,7 +177,7 @@ public class Grabber : MonoBehaviour
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToWantedPosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
                     StartCoroutine(LerpToWantedRotation(box.transform.localRotation));
-                    StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch, playerCam.camZpos), playerInputManager.camSpeed));
+                    StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch -.2f, playerCam.camZpos), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
                 }
             }
