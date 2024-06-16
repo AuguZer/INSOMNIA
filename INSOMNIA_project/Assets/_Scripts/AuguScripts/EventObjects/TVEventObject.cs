@@ -10,6 +10,13 @@ public class TVEventObject : MonoBehaviour
     [SerializeField] public bool tvIsOff;
     [SerializeField] public bool finish;
 
+
+    [SerializeField] GameObject snowTVScreen;
+    MeshRenderer TVRenderer;
+
+    [SerializeField] Material snowMaterial;
+    [SerializeField] Material offMaterial;
+
     public event Action OnTVTurnOff;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +25,9 @@ public class TVEventObject : MonoBehaviour
         OnTVTurnOff += LockerRoomAccess;
         tvIsOff = false;
         finish = true;
+
+        TVRenderer = snowTVScreen.GetComponent<MeshRenderer>();
+        TVRenderer.material = offMaterial;
     }
 
     // Update is called once per frame
@@ -29,6 +39,7 @@ public class TVEventObject : MonoBehaviour
     public void TurnOn()
     {
         finish = false;
+        TVRenderer.material = snowMaterial;
         //Play AudioClip Ringing Phone
         Debug.Log("TV is making noise");
     }
@@ -40,6 +51,7 @@ public class TVEventObject : MonoBehaviour
             //Stop AudioClip
             tvIsOff = true;
             Debug.Log("TV is turnOff");
+            TVRenderer.material = offMaterial;
             OnTVTurnOff?.Invoke();
             finish = true;
         }
