@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerLand : PlayerBaseState
 {
-
-    Vector3 cameralook;
     public override void OnStateEnter(PlayerStateManager playerState)
     {
         playerState.state = PlayerStateManager.PlayerState.Land;
@@ -21,7 +19,7 @@ public class PlayerLand : PlayerBaseState
         {
             //playerState.playerCam.sensX = 0;
             //playerState.playerCam.sensY = 0;
-            playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, Quaternion.Euler(playerState.playerCam.xRotation, 0f, 0f), .9f, playerState.playerCam.transform.localPosition, new Vector3(0f, .6f, .25f)));
+            playerState.playerCam.StartCoroutine(playerState.playerCam.LerpRotationCam(playerState.playerCam.transform.localRotation, Quaternion.Euler(playerState.playerCam.xRotation, 0f, 0f), 1f, playerState.playerCam.transform.localPosition, new Vector3(0f, .6f, .25f)));
         }
         //TO IDLE
         if (!playerState.isLanding && playerState.inputManager.dirInput == Vector3.zero)
