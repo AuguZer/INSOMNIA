@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
+    public static PlayerCam instance;
+
     [SerializeField] InputActionAsset inputActions;
 
     [Header("CAMERA SPEED")]
@@ -18,10 +20,10 @@ public class PlayerCam : MonoBehaviour
     [SerializeField]public float maxLookUp = -80f;
     [SerializeField] float maxLookBackRight = 130f;
     [SerializeField] float maxLookBackLeft = -130f;
-    [SerializeField] float focusMaxDown = 20f;
-    [SerializeField] float focusMaxUp = 0f;
-    [SerializeField] float focusMaxRight = 20f;
-    [SerializeField] float focusMaxLeft = -20f;
+    [SerializeField]public float focusMaxDown = 20f;
+    [SerializeField]public float focusMaxUp = 0f;
+    [SerializeField]public float focusMaxRight = 20f;
+    [SerializeField]public float focusMaxLeft = -20f;
 
     [Header("CAMERA POSITIONS")]
     [SerializeField] public float camZpos;
@@ -55,6 +57,12 @@ public class PlayerCam : MonoBehaviour
 
     private void Awake()
     {
+
+        if(instance == null)
+        {
+            instance = this;
+        }
+
         playerStateManager = GetComponentInParent<PlayerStateManager>();
         playerInputManager = GetComponentInParent<PlayerInputManager>();
         cam = GetComponent<Camera>();

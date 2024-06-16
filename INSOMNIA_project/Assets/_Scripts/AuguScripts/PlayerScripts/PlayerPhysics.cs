@@ -54,6 +54,14 @@ public class PlayerPhysics : MonoBehaviour
         DetectDoors();
         DetectHideOut();
 
+        Jump();
+
+    }
+
+   private void Jump()
+    {
+        if (playerStateManager.cantJump)
+            return;
 
         if (playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
         {
@@ -66,7 +74,7 @@ public class PlayerPhysics : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             timeOnAir += Time.deltaTime;
         }
-   
+
         if (characterController.enabled)
         {
             characterController.Move(velocity * Time.deltaTime);
@@ -81,8 +89,6 @@ public class PlayerPhysics : MonoBehaviour
             playerStateManager.isFalling = false;
         }
     }
-
-   
 
     public bool HeadDetection()
     {
