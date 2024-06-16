@@ -65,6 +65,7 @@ public class PlayerStateManager : MonoBehaviour
     public bool isFalling;
     public bool isLanding;
     public bool getUpFromLanding;
+    public bool cantJump;
 
     public Rigidbody rb;
     [SerializeField] public Transform deadPoint;

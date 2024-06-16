@@ -11,6 +11,8 @@ public class PlayerWalk : PlayerBaseState
         playerState.inputManager.characterController.height = 1.6f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.15f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
+
+        playerState.cantJump = false;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {

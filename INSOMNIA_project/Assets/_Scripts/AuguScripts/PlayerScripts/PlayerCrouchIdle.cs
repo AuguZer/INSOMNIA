@@ -10,6 +10,8 @@ public class PlayerCrouchIdle : PlayerBaseState
         playerState.inputManager.characterController.height = 1.169342f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.33f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
+
+        playerState.cantJump = true;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
     {
