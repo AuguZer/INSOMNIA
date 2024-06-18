@@ -23,6 +23,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerInputManager inputManager;
     public PlayerCam playerCam;
     public PlayerPhysics playerPhysics;
+    public Grabber grabber;
 
     [SerializeField] public GameObject graphics;
 
@@ -69,7 +70,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public Rigidbody rb;
     [SerializeField] public Transform deadPoint;
-    [SerializeField] public GameObject mainCamera;
+    Vector3 deadPointPosition;
+    Camera mainCamera;
 
     [SerializeField] public Vector3 landCamPos;
 
@@ -78,16 +80,19 @@ public class PlayerStateManager : MonoBehaviour
         inputManager = GetComponent<PlayerInputManager>();
         playerCam = GetComponentInChildren<PlayerCam>();
         playerPhysics = GetComponent<PlayerPhysics>();
+        grabber = GetComponentInChildren<Grabber>();
    
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentState = Idle;
+        currentState = Idle; 
         currentState.OnStateEnter(this);
         
-        
+        mainCamera = Camera.main;
+
+        deadPointPosition = deadPoint.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -95,6 +100,19 @@ public class PlayerStateManager : MonoBehaviour
     {
         currentState.OnStateUpdate(this);
 
+      
+
+    }
+
+    private void LateUpdate()
+    {
+        if (isDead)
+        {
+            mainCamera.transform.SetParent(deadPoint);
+            mainCamera.transform.localPosition = Vector3.zero;
+            playerCam.enabled = false;
+            grabber.enabled = false;
+        }
     }
 
     public void TransitionToState(PlayerBaseState nextState)
@@ -117,9 +135,9 @@ public class PlayerStateManager : MonoBehaviour
         isLanding = false;
 
     }
-   public IEnumerator DeathCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-        playerCam.enabled = false;
-    }
+   //public IEnumerator DeathCoroutine()
+   // {
+   //     yield return new WaitForSeconds(3f);
+   //     playerCam.enabled = false;
+   // }
 }

@@ -36,10 +36,9 @@ public class EnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyStateManager.isInChase)
-        {
-            DetectDoors();
-        }
+
+        DetectDoors();
+
         if (playerInZone)
         {
 

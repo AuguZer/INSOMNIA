@@ -131,7 +131,7 @@ public class AnimatorManager : MonoBehaviour
 
     private void Death()
     {
-        playerCam.enabled = false;
+        //playerCam.enabled = false;
     }
 
     private void StopJump()
