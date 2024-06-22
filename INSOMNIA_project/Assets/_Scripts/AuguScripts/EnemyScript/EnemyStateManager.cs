@@ -113,6 +113,11 @@ public class EnemyStateManager : MonoBehaviour
                 isInAttack = true;
             }
         }
+
+        if (isInAttack)
+        {
+            agent.SetDestination(transform.position);
+        }
     }
 
     //public void SetEnemyPatrolPoint()
