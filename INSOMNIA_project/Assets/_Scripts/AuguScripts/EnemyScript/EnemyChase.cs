@@ -13,10 +13,10 @@ public class EnemyChase : EnemyBaseState
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
-        if (enemyState.enemyDetection.DetectDoors())
-        {
-            enemyState.agent.speed = 0f;
-        }
+        //if (enemyState.enemyDetection.DetectDoors())
+        //{
+        //    enemyState.agent.speed = 0f;
+        //}
         if (enemyState.enemyDetection.canGo)
         {
             enemyState.agent.speed = enemyState.chaseSpeed;

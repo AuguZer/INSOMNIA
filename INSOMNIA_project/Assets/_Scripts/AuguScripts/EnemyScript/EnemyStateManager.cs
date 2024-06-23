@@ -49,6 +49,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public EnemyDetection enemyDetection;
 
+    bool isGoingForward;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -65,6 +67,7 @@ public class EnemyStateManager : MonoBehaviour
         isInIdle = true;
         currentState = enemyIdle;
         currentState.OnStateEnter(this);
+        isGoingForward = true;
 
     }
 
@@ -92,13 +95,29 @@ public class EnemyStateManager : MonoBehaviour
     {
         if (!agent.hasPath)
         {
-            if (destIndex == destinations.Count - 1)
+            if (isGoingForward)
             {
-                destIndex = 0;  
+                if (destIndex == destinations.Count - 1)
+                {
+                    isGoingForward = false;
+                    destIndex--;
+                }
+                else
+                {
+                    destIndex++;
+                }
             }
             else
             {
-                destIndex++;
+                if (destIndex == 0)
+                {
+                    isGoingForward = true;
+                    destIndex++;
+                }
+                else
+                {
+                    destIndex--;
+                }
             }
             agent.SetDestination(destinations[destIndex].position);
         }
@@ -107,8 +126,9 @@ public class EnemyStateManager : MonoBehaviour
         if(isInChase)
         {
             agent.SetDestination(enemyDetection.playerPos.position);
+            float distance = Vector3.Distance(transform.position, enemyDetection.playerPos.position);
 
-            if (agent.remainingDistance <= attackDistance)
+            if (distance <= attackDistance)
             {
                isInAttack = true;
             }
