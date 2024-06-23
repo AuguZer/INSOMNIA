@@ -8,6 +8,7 @@ public class EnemyChase : EnemyBaseState
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.CHASE;
         enemyState.agent.speed = enemyState.chaseSpeed;
+        enemyState.enemyDetection.boxCollider.enabled = false;
   
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
@@ -40,6 +41,6 @@ public class EnemyChase : EnemyBaseState
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
-
+        enemyState.enemyDetection.boxCollider.enabled = true;
     }
 }

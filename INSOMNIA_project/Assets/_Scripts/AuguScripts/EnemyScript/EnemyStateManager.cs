@@ -110,14 +110,10 @@ public class EnemyStateManager : MonoBehaviour
 
             if (agent.remainingDistance <= attackDistance)
             {
-                isInAttack = true;
+               isInAttack = true;
             }
         }
 
-        if (isInAttack)
-        {
-            agent.SetDestination(transform.position);
-        }
     }
 
     //public void SetEnemyPatrolPoint()
@@ -140,5 +136,14 @@ public class EnemyStateManager : MonoBehaviour
         idleTime = randomTime;
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
+    }
+
+    public IEnumerator AttackCorutine()
+    {
+        isInAttack = true;
+        agent.SetDestination(transform.position);
+        yield return new WaitForSeconds(3f);
+        agent.SetDestination(enemyDetection.playerPos.position);
+        isInAttack = false;
     }
 }

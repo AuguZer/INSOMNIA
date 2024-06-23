@@ -74,7 +74,7 @@ MonoBehaviour:
   headPoint: {fileID: 3642153846787592889}
   attackPoint: {fileID: 7213426444023495821}
   attackRadius: 1.5
-  detectionRadius: 3
+  detectionRadius: 1.5
   wallMask:
     serializedVersion: 2
     m_Bits: 3200
@@ -183,7 +183,7 @@ Transform:
   - {fileID: 7213426444023495821}
   - {fileID: 5501335842728199710}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7056109828547835074
 NavMeshAgent:

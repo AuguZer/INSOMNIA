@@ -26,11 +26,15 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] public bool canGo;
 
     EnemyStateManager enemyStateManager;
+    public BoxCollider boxCollider;
+
+
     // Start is called before the first frame update
     void Start()
     {
         attackRadius = 0f;
         enemyStateManager = GetComponentInParent<EnemyStateManager>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
