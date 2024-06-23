@@ -137,13 +137,4 @@ public class EnemyStateManager : MonoBehaviour
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
     }
-
-    public IEnumerator AttackCorutine()
-    {
-        isInAttack = true;
-        agent.SetDestination(transform.position);
-        yield return new WaitForSeconds(3f);
-        agent.SetDestination(enemyDetection.playerPos.position);
-        isInAttack = false;
-    }
 }
