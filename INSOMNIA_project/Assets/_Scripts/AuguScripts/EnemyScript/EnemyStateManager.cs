@@ -90,6 +90,7 @@ public class EnemyStateManager : MonoBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             isInIdle = true;
+            Debug.Log("do remain");
         }
     }
 
@@ -161,10 +162,10 @@ public class EnemyStateManager : MonoBehaviour
 
     public IEnumerator IdleCoroutine()
     {
-        Debug.Log("coco");
         int randomTime = Random.Range(1, 5);
         idleTime = randomTime;
         yield return new WaitForSeconds(idleTime);
         isInIdle = false;
+        Debug.Log("coco");
     }
 }
