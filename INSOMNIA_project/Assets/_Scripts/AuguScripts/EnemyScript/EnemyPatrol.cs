@@ -9,7 +9,7 @@ public class EnemyPatrol : EnemyBaseState
         enemyState.enemyState = EnemyStateManager.EnemyState.PATROL;
         enemyState.isInPatrol = true;
         enemyState.agent.speed = enemyState.walkSpeed;
-        enemyState.agent.stoppingDistance = .2f;
+        enemyState.agent.stoppingDistance = 0.1f;
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)

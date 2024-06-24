@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
 using static PlayerStateManager;
@@ -50,7 +49,8 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyDetection enemyDetection;
     public EnemyAnimatorManager enemyAnimatorManager;
 
-    bool isGoingForward;
+    public bool isGoingForward;
+    public bool isIdleCoroutineRunning;
 
     private void Awake()
     {
@@ -61,8 +61,12 @@ public class EnemyStateManager : MonoBehaviour
         {
             destinations.Add(destPoint);
         }
-        agent.SetDestination(destinations[0].position);
+        if (destinations.Count > 0)
+        {
+            agent.SetDestination(destinations[0].position);
+        }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,60 +74,48 @@ public class EnemyStateManager : MonoBehaviour
         currentState = enemyIdle;
         currentState.OnStateEnter(this);
         isGoingForward = true;
-
+        destIndex = 0; // Start with the first destination
+        hasPath = agent.hasPath;
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemyIdle();
+        if (!isInIdle)
+        {
+            EnemyIdle();
+        }
         EnemyMove();
         hasPath = agent.hasPath;
         currentState.OnStateUpdate(this);
 
-
+        //// Debugging
+        //Debug.Log($"hasPath: {hasPath}, destIndex: {destIndex}, isInIdle: {isInIdle}, isIdleCoroutineRunning: {isIdleCoroutineRunning}");
     }
 
     private void EnemyIdle()
     {
 
-        if (agent.remainingDistance <= agent.stoppingDistance)
+
+        float distance = Vector3.Distance(agent.transform.position, destinations[destIndex].position);
+        if (distance <= 0.45f && !isIdleCoroutineRunning)
         {
-            isInIdle = true;
-            Debug.Log("do remain");
+
+            StartCoroutine(IdleCoroutine());
         }
     }
 
     private void EnemyMove()
     {
-        if (!agent.hasPath)
-        {
-            if (isGoingForward)
-            {
-                if (destIndex == destinations.Count - 1)
-                {
-                    isGoingForward = false;
-                    destIndex--;
-                }
-                else
-                {
-                    destIndex++;
-                }
-            }
-            else
-            {
-                if (destIndex == 0)
-                {
-                    isGoingForward = true;
-                    destIndex++;
-                }
-                else
-                {
-                    destIndex--;
-                }
-            }
-            agent.SetDestination(destinations[destIndex].position);
-        }
+        //// Check if agent has reached the destination
+        //if (!isInIdle && !isIdleCoroutineRunning && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        //{
+        //    // Ensure agent has actually stopped
+        //    if (agent.isStopped)
+        //    {
+        //        GotoNextPoint();
+        //    }
+        //}
 
         isInChase = enemyDetection.playerDetected;
         if (isInChase)
@@ -143,29 +135,60 @@ public class EnemyStateManager : MonoBehaviour
             isInChase = false;
             isInIdle = true;
         }
-
     }
 
-    //public void SetEnemyPatrolPoint()
-    //{
-    //    randomNum = Random.Range(0, destinations.Count);
-    //    currentDest = destinations[randomNum];
-    //    dest = currentDest.position;
-    //    agent.SetDestination(dest);
-    //}
+    private void GotoNextPoint()
+    {
+        if (destinations.Count == 0)
+            return;
+
+        if (isGoingForward)
+        {
+            if (destIndex >= destinations.Count - 1)
+            {
+                isGoingForward = false;
+                destIndex--;
+            }
+            else
+            {
+                destIndex++;
+            }
+        }
+        else
+        {
+            if (destIndex <= 0)
+            {
+                isGoingForward = true;
+                destIndex++;
+            }
+            else
+            {
+                destIndex--;
+            }
+        }
+
+        if (destIndex >= 0 && destIndex < destinations.Count)
+        {
+            agent.SetDestination(destinations[destIndex].position);
+        }
+    }
+
+    public IEnumerator IdleCoroutine()
+    {
+        Debug.Log("In coroutine");
+        isInIdle = true;
+        isIdleCoroutineRunning = true;
+        float waitTime = Random.Range(1f, 5f);
+        yield return new WaitForSeconds(waitTime);
+        isInIdle = false;
+        isIdleCoroutineRunning = false;
+        GotoNextPoint();
+    }
+
     public void TransitionToState(EnemyBaseState nextState)
     {
         currentState.OnStateExit(this);
         currentState = nextState;
         currentState.OnStateEnter(this);
-    }
-
-    public IEnumerator IdleCoroutine()
-    {
-        int randomTime = Random.Range(1, 5);
-        idleTime = randomTime;
-        yield return new WaitForSeconds(idleTime);
-        isInIdle = false;
-        Debug.Log("coco");
     }
 }
