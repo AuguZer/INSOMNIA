@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAnimatorManager : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     EnemyStateManager enemyStateManager;
     [SerializeField] EnemyDetection enemyDetection;
 
@@ -44,11 +44,19 @@ public class EnemyAnimatorManager : MonoBehaviour
     private void ResetAttack()
     {
         enemyStateManager.isInAttack = false;
+   
+        Debug.Log("youyou");
+    }
+
+    private void ResetAttackRadius()
+    {
         enemyDetection.attackRadius = 0f;
+        enemyDetection.canKill = false;
     }
 
     private void StartDetection()
     {
         enemyDetection.attackRadius = 1.5f;
+        enemyDetection.canKill = true;
     }
 }

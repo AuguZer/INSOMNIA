@@ -10,6 +10,7 @@ public class EnemyAttack : EnemyBaseState
         enemyState.agent.speed = 0f;
         //enemyState.StartCoroutine(enemyState.AttackCorutine());
         enemyState.agent.SetDestination(enemyState.transform.position);
+        enemyState.enemyAnimatorManager.animator.speed = 2.5f;
 
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
@@ -31,6 +32,7 @@ public class EnemyAttack : EnemyBaseState
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
+        enemyState.enemyAnimatorManager.animator.speed = 1f;
         enemyState.agent.SetDestination(enemyState.enemyDetection.playerPos.position);
     }
 }

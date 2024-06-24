@@ -48,6 +48,7 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] int idleTime;
 
     public EnemyDetection enemyDetection;
+    public EnemyAnimatorManager enemyAnimatorManager;
 
     bool isGoingForward;
 
@@ -55,6 +56,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyDetection = GetComponentInChildren<EnemyDetection>();
+        enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
         foreach (Transform destPoint in destContainer)
         {
             destinations.Add(destPoint);
@@ -85,7 +87,7 @@ public class EnemyStateManager : MonoBehaviour
     private void EnemyIdle()
     {
 
-        if(agent.remainingDistance <= agent.stoppingDistance)
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
             isInIdle = true;
         }
@@ -123,15 +125,22 @@ public class EnemyStateManager : MonoBehaviour
         }
 
         isInChase = enemyDetection.playerDetected;
-        if(isInChase)
+        if (isInChase)
         {
             agent.SetDestination(enemyDetection.playerPos.position);
             float distance = Vector3.Distance(transform.position, enemyDetection.playerPos.position);
 
-            if (distance <= attackDistance)
+            if (distance <= attackDistance && !enemyDetection.playerKilled)
             {
-               isInAttack = true;
+                isInAttack = true;
             }
+        }
+
+        if (enemyDetection.playerKilled && !isInAttack)
+        {
+            enemyDetection.playerDetected = false;
+            isInChase = false;
+            isInIdle = true;
         }
 
     }
@@ -150,8 +159,9 @@ public class EnemyStateManager : MonoBehaviour
         currentState.OnStateEnter(this);
     }
 
-     public IEnumerator IdleCoroutine()
+    public IEnumerator IdleCoroutine()
     {
+        Debug.Log("coco");
         int randomTime = Random.Range(1, 5);
         idleTime = randomTime;
         yield return new WaitForSeconds(idleTime);

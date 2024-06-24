@@ -28,11 +28,16 @@ public class EnemyDetection : MonoBehaviour
     EnemyStateManager enemyStateManager;
     public BoxCollider boxCollider;
 
+    public bool canKill;
+    public bool playerKilled;
+
 
     // Start is called before the first frame update
     void Start()
     {
         attackRadius = 0f;
+        canKill = false;
+        playerKilled = false;
         enemyStateManager = GetComponentInParent<EnemyStateManager>();
         boxCollider = GetComponent<BoxCollider>();
     }
@@ -116,13 +121,17 @@ public class EnemyDetection : MonoBehaviour
 
         foreach (Collider col in player)
         {
-            col.gameObject.GetComponent<PlayerStateManager>().isDead = true;
+            if (canKill)
+            {
+                col.gameObject.GetComponent<PlayerStateManager>().isDead = true;
+                playerKilled = true;
+                return true;
+            }
             if (col.gameObject.GetComponent<PlayerStateManager>().isDead)
             {
                 playerDetected = false;
                 playerInZone = false;
             }
-            return true;
         }
         return false;
     }
