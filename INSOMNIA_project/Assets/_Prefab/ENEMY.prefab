@@ -187,7 +187,7 @@ Transform:
   - {fileID: 5501335842728199710}
   - {fileID: 9011358294605327930}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7056109828547835074
 NavMeshAgent:
@@ -240,6 +240,8 @@ MonoBehaviour:
   idleTime: 5
   enemyDetection: {fileID: 0}
   enemyAnimatorManager: {fileID: 0}
+  isGoingForward: 0
+  isIdleCoroutineRunning: 0
 --- !u!1001 &2827503792583327327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1279,6 +1281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 03be13e09da121946947f2e2096cf1a6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03be13e09da121946947f2e2096cf1a6,
         type: 3}
