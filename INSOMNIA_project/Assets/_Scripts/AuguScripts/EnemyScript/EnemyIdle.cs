@@ -8,7 +8,7 @@ public class EnemyIdle : EnemyBaseState
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.IDLE;
         enemyState.agent.speed = 0;
-        enemyState.StartCoroutine(enemyState.IdleCoroutine());
+        //enemyState.StartCoroutine(enemyState.IdleCoroutine());
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {

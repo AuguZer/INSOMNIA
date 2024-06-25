@@ -42,8 +42,6 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] Transform currentDest;
     Vector3 dest;
 
-    int randomNum;
-
     [SerializeField] int idleTime;
 
     public EnemyDetection enemyDetection;
@@ -61,62 +59,44 @@ public class EnemyStateManager : MonoBehaviour
         {
             destinations.Add(destPoint);
         }
-        if (destinations.Count > 0)
-        {
-            agent.SetDestination(destinations[0].position);
-        }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        isInIdle = true;
-        currentState = enemyIdle;
+        isInIdle = false; // Start in patrol mode
+        currentState = enemyPatrol; // Start with patrol state
         currentState.OnStateEnter(this);
         isGoingForward = true;
         destIndex = 0; // Start with the first destination
+        if (destinations.Count > 0)
+        {
+            agent.SetDestination(destinations[0].position); // Set the initial destination
+        }
         hasPath = agent.hasPath;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!isInIdle)
+        if (!isInIdle && !isIdleCoroutineRunning)
         {
             EnemyIdle();
         }
         EnemyMove();
         hasPath = agent.hasPath;
         currentState.OnStateUpdate(this);
-
-        //// Debugging
-        //Debug.Log($"hasPath: {hasPath}, destIndex: {destIndex}, isInIdle: {isInIdle}, isIdleCoroutineRunning: {isIdleCoroutineRunning}");
     }
 
     private void EnemyIdle()
     {
-
-
         float distance = Vector3.Distance(agent.transform.position, destinations[destIndex].position);
         if (distance <= 0.45f && !isIdleCoroutineRunning)
         {
-
             StartCoroutine(IdleCoroutine());
         }
     }
 
     private void EnemyMove()
     {
-        //// Check if agent has reached the destination
-        //if (!isInIdle && !isIdleCoroutineRunning && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-        //{
-        //    // Ensure agent has actually stopped
-        //    if (agent.isStopped)
-        //    {
-        //        GotoNextPoint();
-        //    }
-        //}
-
         isInChase = enemyDetection.playerDetected;
         if (isInChase)
         {
@@ -144,26 +124,20 @@ public class EnemyStateManager : MonoBehaviour
 
         if (isGoingForward)
         {
-            if (destIndex >= destinations.Count - 1)
+            destIndex++;
+            if (destIndex >= destinations.Count)
             {
                 isGoingForward = false;
-                destIndex--;
-            }
-            else
-            {
-                destIndex++;
+                destIndex = destinations.Count - 2;
             }
         }
         else
         {
-            if (destIndex <= 0)
+            destIndex--;
+            if (destIndex < 0)
             {
                 isGoingForward = true;
-                destIndex++;
-            }
-            else
-            {
-                destIndex--;
+                destIndex = 1;
             }
         }
 
