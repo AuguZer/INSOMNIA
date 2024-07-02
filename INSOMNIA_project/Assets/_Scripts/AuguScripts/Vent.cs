@@ -8,16 +8,42 @@ public class Vent : MonoBehaviour
     Animator animator;
 
     public int screwDriverNumber = 0;
+
+    [SerializeField] float timer;
+    [SerializeField] float Ypos;
+    Vector3 targetPosition;
     // Start is called before the first frame update
     void Start()
     {
         ventOpen = false;
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
+        targetPosition = new Vector3(transform.localPosition.x, Ypos, transform.localPosition.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isOpen", ventOpen);
+        //animator.SetBool("isOpen", ventOpen);
+
+        if(ventOpen)
+        {
+            StartCoroutine(OpenCoroutine(targetPosition));
+        }
+    }
+
+    IEnumerator OpenCoroutine(Vector3 targetPosition)
+    {
+        float duration = 0f;
+      
+        while(duration < timer)
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, duration/timer * Time.deltaTime);
+            duration += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+      
     }
 }
