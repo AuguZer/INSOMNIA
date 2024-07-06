@@ -132611,6 +132611,11 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 6790132509262855674}
+    - target: {fileID: 6453805946461871496, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
