@@ -30,6 +30,7 @@ public class TwinsAnimatorManager : MonoBehaviour
     {
         if (isRunning)
         {
+            Voices();
             animator.speed = animatorSpeed;
             agentSpeed = agentSpeedOnRun;
         }
@@ -37,7 +38,6 @@ public class TwinsAnimatorManager : MonoBehaviour
 
     private void Steps()
     {
-        Debug.Log("step");
         AudioClip clip = RandomStepsClip(footSteps);
         footStepsAudioSource.PlayOneShot(clip);
     }
@@ -45,7 +45,10 @@ public class TwinsAnimatorManager : MonoBehaviour
     private void Voices()
     {
         AudioClip clip = RandomStepsClip(voices);
-        voicesAudioSource.PlayOneShot(clip);
+        if (!voicesAudioSource.isPlaying)
+        {
+            voicesAudioSource.PlayOneShot(clip);
+        }
     }
 
     private AudioClip RandomStepsClip(AudioClip[] clips)

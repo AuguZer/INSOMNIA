@@ -10,7 +10,7 @@ public class DestroyBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class DestroyBox : MonoBehaviour
         if (DetectTwins())
         {
             this.enabled = false;
-            Debug.Log("End of : "+ "EventTwins" + gameObject.name);
+            Debug.Log("End of : " + "EventTwins" + gameObject.name);
         }
     }
 
@@ -29,7 +29,7 @@ public class DestroyBox : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            collider.gameObject.SetActive(false);
+            StartCoroutine(DisableTwins(collider));
             return true;
         }
 
@@ -40,5 +40,14 @@ public class DestroyBox : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    IEnumerator DisableTwins(Collider collider)
+    {
+        collider.transform.GetChild(0).gameObject.SetActive(false);
+        collider.gameObject.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(7f);
+        collider.gameObject.SetActive(false);
+
     }
 }

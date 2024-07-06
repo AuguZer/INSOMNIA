@@ -21,7 +21,7 @@ public class EventTwins : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,8 +29,11 @@ public class EventTwins : MonoBehaviour
         Debug.Log("EventTwins " + gameObject.name);
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(Level1EventManager.instance.PhoneRingCoroutine());
-            phone.TurnOn();
+            if (phone != null)
+            {
+                StartCoroutine(Level1EventManager.instance.PhoneRingCoroutine());
+            }
+
             twinsPrefab.SetActive(true);
             destContainer.SetActive(true);
         }
@@ -39,7 +42,7 @@ public class EventTwins : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-          this.enabled = false;
+            this.enabled = false;
         }
     }
 }

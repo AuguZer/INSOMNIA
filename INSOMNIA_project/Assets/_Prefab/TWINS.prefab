@@ -146,8 +146,8 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -155,7 +155,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1.01
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -743,6 +743,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f07bf1c9ffea9194ba57fb45377f2c81, type: 3}
   - {fileID: 8300000, guid: 20fe80338c8e917439a0084a79f23dc6, type: 3}
   - {fileID: 8300000, guid: c161ade56e94ae743983dd3e5c48f59d, type: 3}
-  voices: []
+  voices:
+  - {fileID: 8300000, guid: 323d2b2be9d792945b00b3a074bb0a25, type: 3}
+  - {fileID: 8300000, guid: ea6912914adc8f94ea23c0b6f2cc4b93, type: 3}
   footStepsAudioSource: {fileID: 6453805946461871496}
   voicesAudioSource: {fileID: 7365843593370707809}
