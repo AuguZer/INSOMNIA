@@ -16,7 +16,7 @@ public class Level1EventManager : MonoBehaviour
     [SerializeField] float timeBeforePhone;
     [SerializeField] float timeBeforeTV;
 
-  
+
 
 
     private void Awake()
@@ -30,17 +30,17 @@ public class Level1EventManager : MonoBehaviour
     void Start()
     {
         eventBoxEnemySpawn.SetActive(false);
-        StartCoroutine(PhoneRingCoroutine());
+        //StartCoroutine(PhoneRingCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     //Phase 1
-    IEnumerator PhoneRingCoroutine()
+    public IEnumerator PhoneRingCoroutine()
     {
         yield return new WaitForSeconds(timeBeforePhone);
         phone.GetComponent<PhoneEventObject>().TurnOn();

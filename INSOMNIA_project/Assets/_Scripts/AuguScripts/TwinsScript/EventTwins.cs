@@ -7,6 +7,7 @@ public class EventTwins : MonoBehaviour
     [SerializeField] GameObject twinsPrefab;
     [SerializeField] GameObject destContainer;
 
+    [SerializeField] PhoneEventObject phone;
     TwinsBehavior twinsBehavior;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class EventTwins : MonoBehaviour
         Debug.Log("EventTwins " + gameObject.name);
         if (other.gameObject.tag == "Player")
         {
+            StartCoroutine(Level1EventManager.instance.PhoneRingCoroutine());
+            phone.TurnOn();
             twinsPrefab.SetActive(true);
             destContainer.SetActive(true);
         }

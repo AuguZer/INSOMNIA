@@ -12,6 +12,12 @@ public class TwinsAnimatorManager : MonoBehaviour
     [SerializeField] float animatorSpeed;
 
     [SerializeField] public bool isRunning;
+
+    [SerializeField] AudioClip[] footSteps;
+    [SerializeField] AudioClip[] voices;
+
+    [SerializeField] AudioSource footStepsAudioSource;
+    [SerializeField] AudioSource voicesAudioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +34,25 @@ public class TwinsAnimatorManager : MonoBehaviour
             agentSpeed = agentSpeedOnRun;
         }
     }
+
+    private void Steps()
+    {
+        Debug.Log("step");
+        AudioClip clip = RandomStepsClip(footSteps);
+        footStepsAudioSource.PlayOneShot(clip);
+    }
+
+    private void Voices()
+    {
+        AudioClip clip = RandomStepsClip(voices);
+        voicesAudioSource.PlayOneShot(clip);
+    }
+
+    private AudioClip RandomStepsClip(AudioClip[] clips)
+    {
+        return clips[Random.Range(0, clips.Length)];
+    }
+
 
     public void Stop()
     {

@@ -59,7 +59,6 @@ public class PlayerSounds : MonoBehaviour
 
     private void Steps()
     {
-        Debug.Log("step");
         AudioClip clip = RandomStepsClip(footSteps);
         footStepsAudioSource.PlayOneShot(clip);
     }
