@@ -25,6 +25,7 @@ public class EventTwins : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("EventTwins " + gameObject.name);
         if (other.gameObject.tag == "Player")
         {
             twinsPrefab.SetActive(true);

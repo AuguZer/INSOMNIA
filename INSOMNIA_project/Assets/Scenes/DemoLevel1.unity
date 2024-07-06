@@ -19838,7 +19838,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274669690
 GameObject:
@@ -25427,7 +25427,7 @@ MonoBehaviour:
   radius: 0.3
   twinsMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65536
 --- !u!1001 &399075853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26896,7 +26896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &423701212
 MonoBehaviour:
@@ -27074,7 +27074,7 @@ Transform:
   - {fileID: 664537403}
   - {fileID: 90459801}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &424922808
 PrefabInstance:
@@ -34459,7 +34459,7 @@ Transform:
   - {fileID: 794242773}
   - {fileID: 1490548407}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &498928779
 PrefabInstance:
@@ -41991,7 +41991,7 @@ Transform:
   - {fileID: 1789810654}
   - {fileID: 1435835886}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643731928
 GameObject:
@@ -58791,26 +58791,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3717567961594120128, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 120
-      objectReference: {fileID: 0}
     - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
         type: 3}
       propertyPath: eventTwins
       value: 
       objectReference: {fileID: 1650613340}
-    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: detectionRadius
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: destinations.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
         type: 3}
       propertyPath: destinations.Array.data[0]
@@ -58821,26 +58806,6 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 1859404548}
-    - target: {fileID: 5272317957173141661, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.31458342
-      objectReference: {fileID: 0}
-    - target: {fileID: 5272317957173141661, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.018859684
-      objectReference: {fileID: 0}
-    - target: {fileID: 5272317957173141661, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.17323163
-      objectReference: {fileID: 0}
-    - target: {fileID: 5272317957173141661, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -4.8454955e-11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61944,7 +61909,7 @@ Transform:
   - {fileID: 206688899}
   - {fileID: 84863291}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987659570
 GameObject:
@@ -74490,7 +74455,7 @@ MonoBehaviour:
   radius: 0.5
   twinsMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65536
 --- !u!1 &1222322770
 GameObject:
   m_ObjectHideFlags: 0
@@ -91950,7 +91915,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.07
+      value: -5.13
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -91960,7 +91925,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.99
+      value: 24.35
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -99134,7 +99099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1601187126
 Transform:
   m_ObjectHideFlags: 0
@@ -99740,7 +99705,7 @@ Transform:
   - {fileID: 412702655}
   - {fileID: 1149039988}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1613337825
 PrefabInstance:
@@ -101216,7 +101181,7 @@ GameObject:
   - component: {fileID: 1650613341}
   - component: {fileID: 1650613340}
   m_Layer: 0
-  m_Name: EventTwinsOpenSpace (1)
+  m_Name: EventTwinsVent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101273,7 +101238,7 @@ Transform:
   - {fileID: 563061480}
   - {fileID: 1810767927}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1650939240
 PrefabInstance:
@@ -106220,7 +106185,7 @@ Transform:
   - {fileID: 185239896}
   - {fileID: 1974241945}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1754056354
 PrefabInstance:
@@ -119247,7 +119212,7 @@ Transform:
   - {fileID: 833954171}
   - {fileID: 1930733559}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951143055
 GameObject:
@@ -125641,7 +125606,7 @@ Transform:
   - {fileID: 2125790551}
   - {fileID: 684908581}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067221838
 PrefabInstance:
@@ -129450,7 +129415,7 @@ MonoBehaviour:
   radius: 0.3
   twinsMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65536
 --- !u!1001 &2135826608
 PrefabInstance:
   m_ObjectHideFlags: 0

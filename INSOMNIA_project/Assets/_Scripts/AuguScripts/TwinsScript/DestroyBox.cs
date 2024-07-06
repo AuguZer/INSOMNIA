@@ -19,6 +19,7 @@ public class DestroyBox : MonoBehaviour
         if (DetectTwins())
         {
             this.enabled = false;
+            Debug.Log("End of : "+ "EventTwins" + gameObject.name);
         }
     }
 
