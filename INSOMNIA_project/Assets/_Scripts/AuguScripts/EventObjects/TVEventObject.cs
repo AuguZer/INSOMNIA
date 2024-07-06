@@ -17,10 +17,28 @@ public class TVEventObject : MonoBehaviour
     [SerializeField] Material snowMaterial;
     [SerializeField] Material offMaterial;
 
+    [Header("TV NOISE")]
+    [SerializeField] AudioClip whiteNoiseAudio;
+    [SerializeField] AudioClip turnOffAudio;
+
+    [Header("OTHER NOISE")]
+    [SerializeField] AudioClip doorSlamAudio;
+    [SerializeField] AudioClip moodNoise;
+
+
+    AudioSource audioSource;
+    [SerializeField] AudioSource doorSlamAudioSource;
+
+
     public event Action OnTVTurnOff;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = whiteNoiseAudio;
+
+        doorSlamAudioSource.clip = doorSlamAudio;
+
         OnTVTurnOff += CloseMeetingRoomDoor;
         OnTVTurnOff += LockerRoomAccess;
         tvIsOff = false;
@@ -41,6 +59,7 @@ public class TVEventObject : MonoBehaviour
         finish = false;
         TVRenderer.material = snowMaterial;
         //Play AudioClip Ringing Phone
+        audioSource.Play();
         Debug.Log("TV is making noise");
     }
 
@@ -49,6 +68,9 @@ public class TVEventObject : MonoBehaviour
         if (!finish)
         {
             //Stop AudioClip
+            audioSource.clip = turnOffAudio;
+            audioSource.PlayOneShot(turnOffAudio);
+            doorSlamAudioSource.PlayOneShot(doorSlamAudio);
             tvIsOff = true;
             Debug.Log("TV is turnOff");
             TVRenderer.material = offMaterial;

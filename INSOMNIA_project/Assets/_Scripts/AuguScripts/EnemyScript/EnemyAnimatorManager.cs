@@ -59,9 +59,4 @@ public class EnemyAnimatorManager : MonoBehaviour
         enemyDetection.attackRadius = 1.5f;
         enemyDetection.canKill = true;
     }
-
-    private void Steps()
-    {
-        Debug.Log("step");
-    }
 }
