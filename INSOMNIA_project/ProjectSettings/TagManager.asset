@@ -15,6 +15,7 @@ TagManager:
   - Event Object
   - ScrewDriver
   - Vent
+  - Twins
   layers:
   - Default
   - TransparentFX
