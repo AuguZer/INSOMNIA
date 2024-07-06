@@ -25,20 +25,20 @@ public class EnemyAnimatorManager : MonoBehaviour
         animator.SetBool("Attack", enemyStateManager.isInAttack);
 
 
-        if (enemyStateManager.isInPatrol)
-        {
-            //FADE IN
-            float weight = animator.GetLayerWeight(1);
-            weight = Mathf.Lerp(weight, 1f, .05f);
-            animator.SetLayerWeight(1, weight);
-        }
-        else
-        {
-            //FADE OUT
-            float weight = animator.GetLayerWeight(1);
-            weight = Mathf.Lerp(weight, 0f, .05f);
-            animator.SetLayerWeight(1, weight);
-        }
+        //if (enemyStateManager.isInPatrol)
+        //{
+        //    //FADE IN
+        //    float weight = animator.GetLayerWeight(1);
+        //    weight = Mathf.Lerp(weight, 1f, .05f);
+        //    animator.SetLayerWeight(1, weight);
+        //}
+        //else
+        //{
+        //    //FADE OUT
+        //    float weight = animator.GetLayerWeight(1);
+        //    weight = Mathf.Lerp(weight, 0f, .05f);
+        //    animator.SetLayerWeight(1, weight);
+        //}
     }
 
     private void ResetAttack()
@@ -58,5 +58,10 @@ public class EnemyAnimatorManager : MonoBehaviour
     {
         enemyDetection.attackRadius = 1.5f;
         enemyDetection.canKill = true;
+    }
+
+    private void Steps()
+    {
+        Debug.Log("step");
     }
 }
