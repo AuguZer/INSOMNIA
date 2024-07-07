@@ -77,6 +77,7 @@ MonoBehaviour:
   clipList:
   - {fileID: 8300000, guid: 72b1a4f0290eed548b690d42f0b75d54, type: 3}
   - {fileID: 8300000, guid: 49e00c9058f16c44bad55408c9c057d9, type: 3}
+  - {fileID: 8300000, guid: b9fefe0859ae72d4a99462940c7422e5, type: 3}
   doorAudioSource: {fileID: 0}
 --- !u!33 &1234691760731453609
 MeshFilter:
@@ -163,7 +164,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 2
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

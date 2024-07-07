@@ -68,9 +68,7 @@ public class TVEventObject : MonoBehaviour
         if (!finish)
         {
             //Stop AudioClip
-            audioSource.clip = turnOffAudio;
-            audioSource.PlayOneShot(turnOffAudio);
-            doorSlamAudioSource.PlayOneShot(doorSlamAudio);
+            StartCoroutine(AudioCoruoutine());
             tvIsOff = true;
             Debug.Log("TV is turnOff");
             TVRenderer.material = offMaterial;
@@ -98,5 +96,13 @@ public class TVEventObject : MonoBehaviour
         Debug.Log("Lockeroom Door open, lights switch off + only light in locker Room");
 
         //SwitchOff Every Lights Except in Locker Room
+    }
+
+    IEnumerator AudioCoruoutine()
+    {
+        audioSource.clip = turnOffAudio;
+        audioSource.PlayOneShot(turnOffAudio);
+        yield return new WaitForSeconds(.5f);
+        doorSlamAudioSource.PlayOneShot(doorSlamAudio);
     }
 }

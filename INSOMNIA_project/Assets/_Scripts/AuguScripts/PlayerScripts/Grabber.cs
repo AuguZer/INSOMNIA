@@ -224,6 +224,9 @@ public class Grabber : MonoBehaviour
                 }
                 if (animDoor.keyNumber == 0)
                 {
+                    animDoor.doorAudioSource.pitch = .8f;
+                    animDoor.doorAudioSource.volume = .3f;
+                    animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[2]);
                     doorAnimator.SetTrigger("Locked");
                 }
                 if (animDoor.keyNumber == 1)
@@ -234,6 +237,7 @@ public class Grabber : MonoBehaviour
                         {
                             animDoor.doorOpen = true;
                             animDoor.doorAudioSource.pitch = 2f;
+                            animDoor.doorAudioSource.volume = .7f;
                             animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[0]);
                         }
                     }
@@ -241,6 +245,7 @@ public class Grabber : MonoBehaviour
                     {
                         animDoor.doorOpen = false;
                         animDoor.doorAudioSource.pitch = 1.5f;
+                        animDoor.doorAudioSource.volume = .7f;
                         animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[1]);
                     }
                     doorAnimator.speed = 1f;
