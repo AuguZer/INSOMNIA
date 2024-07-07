@@ -8,9 +8,14 @@ public class EventClosetDoor : MonoBehaviour
 
     [SerializeField] bool playerInZone;
     [SerializeField] bool eventPlayed;
+
+    [SerializeField] AudioClip doorKnock;
+
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         playerInZone = false;
     }
 
@@ -31,7 +36,11 @@ public class EventClosetDoor : MonoBehaviour
         if (other.tag == "Player")
         {
             playerInZone = true;
-            //PlayAudioClip
+            if (!eventPlayed)
+            {
+                audioSource.clip = doorKnock;
+                audioSource.Play();
+            }
         }
     }
 
@@ -40,6 +49,12 @@ public class EventClosetDoor : MonoBehaviour
         if (other.tag == "Player")
         {
             playerInZone = false;
+
+            if (!eventPlayed)
+            {
+                audioSource.loop = false;
+            }
+
             eventPlayed = true;
             //StopAudioClip
         }
