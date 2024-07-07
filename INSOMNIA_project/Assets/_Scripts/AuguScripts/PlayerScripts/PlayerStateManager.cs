@@ -99,9 +99,6 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         currentState.OnStateUpdate(this);
-
-      
-
     }
 
     private void LateUpdate()

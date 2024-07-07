@@ -65,9 +65,9 @@ public class PlayerPhysics : MonoBehaviour
 
         if (playerInputManager.inputActions.FindAction("Jump").WasPerformedThisFrame() && IsGrounded())
         {
-            Debug.Log("Jump");
-            velocity.y = jumpHeight;
-            playerStateManager.isJumping = true;
+            //Debug.Log("Jump");
+            //velocity.y = jumpHeight;
+            //playerStateManager.isJumping = true;
         }
         if (!IsGrounded())
         {
