@@ -43,6 +43,7 @@ public class Grabber : MonoBehaviour
     PlayerEventsManager playerEventsManager;
     PlayerPhysics playerPhysics;
     PlayerCam playerCam;
+    [SerializeField] PlayerSounds playerSounds;
 
     private void Awake()
     {
@@ -285,6 +286,7 @@ public class Grabber : MonoBehaviour
     {
         if (key.tag == "Key")
         {
+            playerSounds.pickUpAudioSource.Play();  
             key.GetComponent<Key>().KeyCollected();
             playerInventory.eventKeyOwned++;
         }
@@ -293,6 +295,7 @@ public class Grabber : MonoBehaviour
     {
         if (screwDriver.tag == "ScrewDriver")
         {
+            playerSounds.pickUpAudioSource.Play();
             screwDriver.GetComponent<ScrewDriver>().ScrewDriverCollected();
             playerInventory.screwDriver++;
         }

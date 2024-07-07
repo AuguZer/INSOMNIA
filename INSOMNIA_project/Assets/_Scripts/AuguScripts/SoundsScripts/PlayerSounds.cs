@@ -9,6 +9,7 @@ public class PlayerSounds : MonoBehaviour
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
+    [SerializeField]public AudioSource pickUpAudioSource;
 
     [SerializeField] float heartBeatIntervale;
     [SerializeField] float breathingIntervale;

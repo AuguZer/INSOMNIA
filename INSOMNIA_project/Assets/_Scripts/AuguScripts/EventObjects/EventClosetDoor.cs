@@ -12,6 +12,8 @@ public class EventClosetDoor : MonoBehaviour
     [SerializeField] AudioClip doorKnock;
 
     AudioSource audioSource;
+
+    bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,14 @@ public class EventClosetDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isOpen = animator.GetBool("Open");
+
+        if (isOpen )
+        {
+            audioSource.Stop();
+            eventPlayed = true;
+        }
+
         if (!eventPlayed)
         {
             if (playerInZone)
@@ -56,7 +66,7 @@ public class EventClosetDoor : MonoBehaviour
             }
 
             eventPlayed = true;
-            //StopAudioClip
+           
         }
     }
 }
