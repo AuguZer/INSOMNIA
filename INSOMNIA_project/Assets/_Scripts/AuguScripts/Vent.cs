@@ -12,9 +12,13 @@ public class Vent : MonoBehaviour
     [SerializeField] float timer;
     [SerializeField] float Ypos;
     Vector3 targetPosition;
+
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         ventOpen = false;
         //animator = GetComponent<Animator>();
         targetPosition = new Vector3(transform.localPosition.x, Ypos, transform.localPosition.z);
@@ -28,22 +32,26 @@ public class Vent : MonoBehaviour
         if(ventOpen)
         {
             StartCoroutine(OpenCoroutine(targetPosition));
+            ventOpen = false;
         }
     }
 
     IEnumerator OpenCoroutine(Vector3 targetPosition)
     {
+        Debug.Log("Vent coco");
+        audioSource.Play();
         float duration = 0f;
       
         while(duration < timer)
         {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, duration/timer * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, duration/timer);
             duration += Time.deltaTime;
 
             yield return null;
         }
 
         transform.position = targetPosition;
+        
       
     }
 }
