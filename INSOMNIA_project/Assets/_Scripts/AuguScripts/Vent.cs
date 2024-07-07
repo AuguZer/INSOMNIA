@@ -38,7 +38,6 @@ public class Vent : MonoBehaviour
 
     IEnumerator OpenCoroutine(Vector3 targetPosition)
     {
-        Debug.Log("Vent coco");
         audioSource.Play();
         float duration = 0f;
       
