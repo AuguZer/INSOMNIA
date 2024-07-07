@@ -13,13 +13,13 @@ public class HideCloset : MonoBehaviour
     float targetAngle = -120f; // Angle cible défini dans l'inspector
     float speed = 20f;        // Vitesse de lerp définie dans l'inspector
 
-
+    AudioSource audioSource;
 
     public bool playerInRange;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,10 @@ public class HideCloset : MonoBehaviour
     {
         if (door != null)
         {
+            float randomPitch = Random.Range(.6f, .8f);
+            audioSource.pitch = randomPitch;
+            audioSource.Play();
+
             float currentAngle = 0f; // Angle actuel de l'objet
             bool isReturning = false; // Indicateur si on retourne à 0
 
