@@ -152,6 +152,7 @@ public class Grabber : MonoBehaviour
             {
                 if (playerStateManager.canInteract)
                 {
+                    playerSounds.hideAudioSource.PlayOneShot(playerSounds.hides[0]);
                     playerStateManager.isCrawling = true;
                     playerStateManager.isCrouching = false;
                     Transform hidePos = belowObject.GetComponent<HideCloset>().hidePos;
@@ -172,6 +173,7 @@ public class Grabber : MonoBehaviour
             {
                 if (playerStateManager.canInteract)
                 {
+                    playerSounds.hideAudioSource.PlayOneShot(playerSounds.hides[1]);
                     playerStateManager.isCrouching = true;
                     playerStateManager.isCrawling = false;
                     Transform hidePos = box.GetComponent<HideCloset>().hidePos;
@@ -354,6 +356,7 @@ public class Grabber : MonoBehaviour
     {
         if (playerPhysics.DetectHideOut())
         {
+            playerSounds.hideAudioSource.PlayOneShot(playerSounds.hides[1]);
             Transform outPos = playerPhysics.hideColliders[0].GetComponent<HideCloset>().outPos;
             StartCoroutine(LerpToWantedPosition(transform.parent.position, new Vector3(outPos.position.x, transform.parent.position.y, outPos.position.z), .5f));
             playerStateManager.isHiding = false;
