@@ -8,10 +8,12 @@ public class EnemySounds : MonoBehaviour
     [SerializeField] AudioClip[] footSteps;
     [SerializeField] AudioClip[] voices;
     [SerializeField] AudioClip scream;
+    [SerializeField] AudioClip[] attacks;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
     [SerializeField] AudioSource screamAudioSource;
+    [SerializeField] AudioSource attackAudioSource;
 
     [SerializeField] float interval;
 
@@ -43,6 +45,8 @@ public class EnemySounds : MonoBehaviour
 
         if(!screamAudioSource.isPlaying && enemyStateManager.isInChase)
         {
+            Debug.Log("play audio scream");
+            screamAudioSource.clip = scream;
             screamAudioSource.PlayOneShot(scream);
         }
     }
@@ -58,6 +62,12 @@ public class EnemySounds : MonoBehaviour
     {
         AudioClip clip = RandomStepsClip(voices);
         voicesAudioSource.PlayOneShot(clip);
+    }
+    
+    private void Attacks()
+    {
+        AudioClip clip = RandomStepsClip(attacks);
+        attackAudioSource.PlayOneShot(clip);
     }
 
     private AudioClip RandomStepsClip(AudioClip[] clips)

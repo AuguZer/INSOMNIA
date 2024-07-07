@@ -9,7 +9,7 @@ public class PlayerSounds : MonoBehaviour
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
-    [SerializeField]public AudioSource pickUpAudioSource;
+    [SerializeField] public AudioSource pickUpAudioSource;
 
     [SerializeField] float heartBeatIntervale;
     [SerializeField] float breathingIntervale;
@@ -26,7 +26,7 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerStateManager.isRunning)
+        if (playerStateManager.isRunning)
         {
             voicesAudioSource.volume = .2f;
         }
@@ -51,7 +51,7 @@ public class PlayerSounds : MonoBehaviour
         //if (timer >= breathingIntervale)
         //{
         //    // Exécutez la fonction
-         
+
 
         //    // Réinitialisez le compteur de temps
         //    timer = 0f;
@@ -60,6 +60,15 @@ public class PlayerSounds : MonoBehaviour
 
     private void Steps()
     {
+        if (playerStateManager.isRunning)
+        {
+            footStepsAudioSource.volume = .2f;
+        }
+        else
+        {
+            footStepsAudioSource.volume = .1f;
+        }
+
         AudioClip clip = RandomStepsClip(footSteps);
         footStepsAudioSource.PlayOneShot(clip);
     }
