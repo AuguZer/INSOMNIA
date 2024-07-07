@@ -71,6 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hidePos: {fileID: 3502039877987865545}
   outPos: {fileID: 7556255859525080635}
+  door: {fileID: 8356106366103754961}
+  targetAngle: 110
+  speed: 2
   playerInRange: 0
 --- !u!1 &814381331707752418
 GameObject:
@@ -226,6 +229,12 @@ PrefabInstance:
 --- !u!4 &8356106366103389427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b7b9112f4651c5341af4f4f45a166e03,
+    type: 3}
+  m_PrefabInstance: {fileID: 8356106366103789169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8356106366103754961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b7b9112f4651c5341af4f4f45a166e03,
     type: 3}
   m_PrefabInstance: {fileID: 8356106366103789169}
   m_PrefabAsset: {fileID: 0}
