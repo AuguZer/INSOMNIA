@@ -7,16 +7,22 @@ public class EnemySounds : MonoBehaviour
 
     [SerializeField] AudioClip[] footSteps;
     [SerializeField] AudioClip[] voices;
+    [SerializeField] AudioClip scream;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
+    [SerializeField] AudioSource screamAudioSource;
 
     [SerializeField] float interval;
 
     float timer;
+
+    EnemyStateManager enemyStateManager;
     // Start is called before the first frame update
     void Start()
     {
+        enemyStateManager = GetComponentInParent<EnemyStateManager>();  
+
         Voices();
     }
 
@@ -33,6 +39,11 @@ public class EnemySounds : MonoBehaviour
 
             // Réinitialisez le compteur de temps
             timer = 0f;
+        }
+
+        if(!screamAudioSource.isPlaying && enemyStateManager.isInChase)
+        {
+            screamAudioSource.PlayOneShot(scream);
         }
     }
 

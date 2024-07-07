@@ -210,6 +210,7 @@ public class Grabber : MonoBehaviour
         {
             Animator doorAnimator = door.GetComponent<Animator>();
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
+            
             if (doorAnimator != null)
             {
                 if (animDoor.eventDoor)
@@ -232,11 +233,15 @@ public class Grabber : MonoBehaviour
                         if (doorAnimator.speed != 0f)
                         {
                             animDoor.doorOpen = true;
+                            animDoor.doorAudioSource.pitch = 2f;
+                            animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[0]);
                         }
                     }
                     else if (doorAnimator.speed != 0f)
                     {
                         animDoor.doorOpen = false;
+                        animDoor.doorAudioSource.pitch = 1.5f;
+                        animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[1]);
                     }
                     doorAnimator.speed = 1f;
                 }

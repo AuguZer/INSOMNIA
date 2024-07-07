@@ -9,9 +9,15 @@ public class AnimDoor : MonoBehaviour
     public Animator animator;
 
     public int keyNumber = 0;
+
+    public List<AudioClip> clipList = new List<AudioClip>();
+    public AudioSource doorAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        doorAudioSource = GetComponent<AudioSource>();
+
         doorOpen = false;
         animator = GetComponent<Animator>();
     }
