@@ -8,6 +8,7 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip heartBeat;
     [SerializeField] public AudioClip[] hides;
     [SerializeField] public AudioClip openVentMusic;
+    [SerializeField] AudioClip deadMusic;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
@@ -21,6 +22,8 @@ public class PlayerSounds : MonoBehaviour
     float timer;
 
     PlayerStateManager playerStateManager;
+
+    bool deadAudioHasPlayed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,12 @@ public class PlayerSounds : MonoBehaviour
             voicesAudioSource.volume = .1f;
         }
 
+        if (!deadAudioHasPlayed && playerStateManager.isDead)
+        {
+            moodMuicAudioSource.Stop();
+            moodMuicAudioSource.PlayOneShot(deadMusic);
+            deadAudioHasPlayed= true;
+        }
 
         //timer += Time.deltaTime;
 
