@@ -15,9 +15,11 @@ public class TwinsAnimatorManager : MonoBehaviour
 
     [SerializeField] AudioClip[] footSteps;
     [SerializeField] AudioClip[] voices;
+    [SerializeField] AudioClip musicOnRun;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
+    [SerializeField] AudioSource moodMusicAudioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class TwinsAnimatorManager : MonoBehaviour
             Voices();
             animator.speed = animatorSpeed;
             agentSpeed = agentSpeedOnRun;
+
         }
     }
 
@@ -48,6 +51,12 @@ public class TwinsAnimatorManager : MonoBehaviour
         if (!voicesAudioSource.isPlaying)
         {
             voicesAudioSource.PlayOneShot(clip);
+        }
+
+        if (!moodMusicAudioSource.isPlaying)
+        {
+            moodMusicAudioSource.clip = musicOnRun;
+            moodMusicAudioSource.PlayOneShot(musicOnRun);
         }
     }
 

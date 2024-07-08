@@ -282,6 +282,7 @@ public class Grabber : MonoBehaviour
             if(_vent.screwDriverNumber > 0)
             {
                 _vent.ventOpen = true;
+                playerSounds.moodMuicAudioSource.PlayOneShot(playerSounds.openVentMusic);
             }
         }
     }
@@ -302,6 +303,7 @@ public class Grabber : MonoBehaviour
             playerSounds.pickUpAudioSource.Play();
             screwDriver.GetComponent<ScrewDriver>().ScrewDriverCollected();
             playerInventory.screwDriver++;
+          
         }
     }
     private void FocusOnObject(GameObject eventObject)

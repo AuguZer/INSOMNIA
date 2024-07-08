@@ -748,5 +748,7 @@ MonoBehaviour:
   voices:
   - {fileID: 8300000, guid: 323d2b2be9d792945b00b3a074bb0a25, type: 3}
   - {fileID: 8300000, guid: ea6912914adc8f94ea23c0b6f2cc4b93, type: 3}
+  musicOnRun: {fileID: 8300000, guid: c643e236ace28b640beeb0fbba91d34f, type: 3}
   footStepsAudioSource: {fileID: 6453805946461871496}
   voicesAudioSource: {fileID: 7365843593370707809}
+  moodMusicAudioSource: {fileID: 0}

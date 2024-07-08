@@ -59362,6 +59362,16 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 1859404548}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: voices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: moodMusicAudioSource
+      value: 
+      objectReference: {fileID: 1171972167}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60287,9 +60297,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
         type: 3}
+      propertyPath: musicOnRun
+      value: 
+      objectReference: {fileID: 8300000, guid: ecd77102da085b64a846b9367365c9a7, type: 3}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
       propertyPath: voices.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: moodMusicAudioSource
+      value: 
+      objectReference: {fileID: 1171972167}
     - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
         type: 3}
       propertyPath: voices.Array.data[0]
@@ -93114,6 +93134,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: openVentMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: bc4ec1650d657ea42bb58a84fb3b619a, type: 3}
+    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: moodMuicAudioSource
+      value: 
+      objectReference: {fileID: 1171972167}
     - target: {fileID: 4570758442063781718, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -133163,6 +133193,21 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 6790132509262855674}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: musicOnRun
+      value: 
+      objectReference: {fileID: 8300000, guid: ecd77102da085b64a846b9367365c9a7, type: 3}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: voices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: moodMusicAudioSource
+      value: 
+      objectReference: {fileID: 1171972167}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

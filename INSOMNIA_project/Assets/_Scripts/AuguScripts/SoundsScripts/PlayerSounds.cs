@@ -7,11 +7,13 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] footSteps;  
     [SerializeField] AudioClip heartBeat;
     [SerializeField] public AudioClip[] hides;
+    [SerializeField] public AudioClip openVentMusic;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
     [SerializeField] public AudioSource pickUpAudioSource;
     [SerializeField] public AudioSource hideAudioSource;
+    [SerializeField] public AudioSource moodMuicAudioSource;
 
     [SerializeField] float heartBeatIntervale;
     [SerializeField] float breathingIntervale;
