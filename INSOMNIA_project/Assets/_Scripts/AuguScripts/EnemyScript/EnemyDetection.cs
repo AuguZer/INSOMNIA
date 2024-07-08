@@ -146,6 +146,7 @@ public class EnemyDetection : MonoBehaviour
             if (animDoor != null)
             {
                 animDoor.doorOpen = true;
+                animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[0]);
             }
             Animator anim = door.GetComponent<Animator>();
             AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);

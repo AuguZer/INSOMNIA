@@ -10,8 +10,10 @@ public class EventClosetDoor : MonoBehaviour
     [SerializeField] bool eventPlayed;
 
     [SerializeField] AudioClip doorKnock;
+    [SerializeField] AudioClip moodMusic;
 
     AudioSource audioSource;
+    [SerializeField] AudioSource moodMusicAudioSource;
 
     bool isOpen;
     // Start is called before the first frame update
@@ -50,6 +52,7 @@ public class EventClosetDoor : MonoBehaviour
             {
                 audioSource.clip = doorKnock;
                 audioSource.Play();
+                moodMusicAudioSource.PlayOneShot(moodMusic);
             }
         }
     }
