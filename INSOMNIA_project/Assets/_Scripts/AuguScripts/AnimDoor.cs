@@ -13,6 +13,8 @@ public class AnimDoor : MonoBehaviour
     public List<AudioClip> clipList = new List<AudioClip>();
     public AudioSource doorAudioSource;
 
+    public bool audioHasPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
