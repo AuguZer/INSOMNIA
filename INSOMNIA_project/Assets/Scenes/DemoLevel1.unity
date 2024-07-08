@@ -90250,6 +90250,9 @@ MonoBehaviour:
   attackAudioSource: {fileID: 242195777}
   moodMusicAudioSource: {fileID: 1171972167}
   interval: 25
+  startAudioHasPlayed: 0
+  loopAudioHasPlayed: 0
+  endAudioHasPlayed: 0
 --- !u!1 &1410449730
 GameObject:
   m_ObjectHideFlags: 0
@@ -93268,6 +93271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: deadMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: a7d2e111f4432d64ba2f8183889175ec, type: 3}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: openVentMusic
