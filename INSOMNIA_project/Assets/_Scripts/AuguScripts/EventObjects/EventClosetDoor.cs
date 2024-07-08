@@ -6,8 +6,10 @@ public class EventClosetDoor : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
-    [SerializeField] bool playerInZone;
+    [SerializeField] public bool playerInZone;
+    [SerializeField] public bool eventStarted;
     [SerializeField] bool eventPlayed;
+    [SerializeField] public Transform enemyPosition;
 
     [SerializeField] AudioClip doorKnock;
     [SerializeField] AudioClip moodMusic;
@@ -48,6 +50,7 @@ public class EventClosetDoor : MonoBehaviour
         if (other.tag == "Player")
         {
             playerInZone = true;
+            eventStarted = true;
             if (!eventPlayed)
             {
                 audioSource.clip = doorKnock;

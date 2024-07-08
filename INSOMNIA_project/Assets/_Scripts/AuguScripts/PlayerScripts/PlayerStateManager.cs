@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class PlayerStateManager : MonoBehaviour
     public Grabber grabber;
 
     [SerializeField] public GameObject graphics;
+
+    CharacterController characterController;
 
     public enum PlayerState
     {
@@ -77,6 +80,8 @@ public class PlayerStateManager : MonoBehaviour
 
     private void Awake()
     {
+        characterController = GetComponent<CharacterController>();
+
         inputManager = GetComponent<PlayerInputManager>();
         playerCam = GetComponentInChildren<PlayerCam>();
         playerPhysics = GetComponent<PlayerPhysics>();
@@ -99,6 +104,15 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         currentState.OnStateUpdate(this);
+
+        if(isCrouching || isCrawling)
+        {
+            characterController.stepOffset = 0;
+        }
+        else
+        {
+            characterController.stepOffset = .3f;
+        }
     }
 
     private void LateUpdate()

@@ -13,6 +13,8 @@ public class Level1EventManager : MonoBehaviour
     [SerializeField] public GameObject doorMeetingRoom;
     [SerializeField] public GameObject doorLockerRoom;
     [SerializeField] public GameObject eventBoxEnemySpawn;
+    [SerializeField] public GameObject doorClosetEvent;
+    public EventClosetDoor eventClosetDoor;
     [SerializeField] float timeBeforePhone;
     [SerializeField] float timeBeforeTV;
 
@@ -29,6 +31,7 @@ public class Level1EventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eventClosetDoor = doorClosetEvent.GetComponent<EventClosetDoor>();
         eventBoxEnemySpawn.SetActive(false);
         //StartCoroutine(PhoneRingCoroutine());
     }

@@ -9,9 +9,12 @@ public class EventTwins : MonoBehaviour
 
     [SerializeField] PhoneEventObject phone;
     TwinsBehavior twinsBehavior;
+
+    BoxCollider boxCollider;
     // Start is called before the first frame update
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider>();
         twinsBehavior = twinsPrefab.GetComponent<TwinsBehavior>();
 
         twinsPrefab.SetActive(false);
@@ -42,7 +45,7 @@ public class EventTwins : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            this.enabled = false;
+            boxCollider.enabled = false;
         }
     }
 }

@@ -47671,8 +47671,10 @@ MonoBehaviour:
   doorMeetingRoom: {fileID: 303942879702976594}
   doorLockerRoom: {fileID: 303942879666420008}
   eventBoxEnemySpawn: {fileID: 2115576771}
-  timeBeforePhone: 2
-  timeBeforeTV: 3
+  doorClosetEvent: {fileID: 1577375982}
+  eventClosetDoor: {fileID: 0}
+  timeBeforePhone: 40
+  timeBeforeTV: 30
 --- !u!1001 &738786714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59005,6 +59007,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23398375663452384, guid: a1cac729332a2ab4da9eddbafe267558,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1aa63b3b5e3b50640a53221efe5c8ac7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67772,6 +67779,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 174af9cfc25f9c04c87275ddcb2de439, type: 3}
+--- !u!1 &1130896259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130896260}
+  m_Layer: 0
+  m_Name: enemyPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130896260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130896259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.79, y: 0, z: -0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1577375987}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131036349
 GameObject:
   m_ObjectHideFlags: 0
@@ -87037,7 +87075,7 @@ PrefabInstance:
     - target: {fileID: 3501186320691525551, guid: 7ce6661ac0a4c0f42a7b527da8917c1e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3972207667532785731, guid: 7ce6661ac0a4c0f42a7b527da8917c1e,
         type: 3}
@@ -93278,9 +93316,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a7d2e111f4432d64ba2f8183889175ec, type: 3}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
+      propertyPath: toiletbrush
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
       propertyPath: openVentMusic
       value: 
       objectReference: {fileID: 8300000, guid: bc4ec1650d657ea42bb58a84fb3b619a, type: 3}
+    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: startToiletSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f7fbdfbc82a88454e88e2744d8e2c3cf, type: 3}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: moodMuicAudioSource
@@ -93304,7 +93352,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.24
+      value: -0.831
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -93314,12 +93362,12 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.89
+      value: 32.066
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8132356
+      value: 0.08491196
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -93329,7 +93377,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.58193463
+      value: 0.9963885
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -93344,7 +93392,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 71.173
+      value: 170.258
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -93733,8 +93781,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.2128162, y: 1, z: 3.2607498}
-  m_Center: {x: -14.751283, y: 0, z: -11.265142}
+  m_Size: {x: 17.011509, y: 1, z: 1.2033539}
+  m_Center: {x: -7.8519363, y: 0, z: -10.236444}
 --- !u!4 &1475144111
 Transform:
   m_ObjectHideFlags: 0
@@ -99899,6 +99947,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1577375987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2106688815952785163, guid: 114b0f4159d07184a9720fd75f619497,
+    type: 3}
+  m_PrefabInstance: {fileID: 6038294401696544466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1577884209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4166476414266371543, guid: d80f342270993a44cb416887ff107353,
@@ -116840,8 +116894,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8107758, y: 1, z: 2.694641}
-  m_Center: {x: 0.9053879, y: 0, z: 0.3342228}
+  m_Size: {x: 2.8107758, y: 2.784217, z: 11.584306}
+  m_Center: {x: 0.9053879, y: 0.43549138, z: -4.1106095}
 --- !u!114 &1906551546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124470,7 +124524,7 @@ PrefabInstance:
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6518383243103879134, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
@@ -132904,6 +132958,11 @@ PrefabInstance:
       propertyPath: noSignalAudio
       value: 
       objectReference: {fileID: 8300000, guid: c215bb8077d84c646b403d925ca86615, type: 3}
+    - target: {fileID: 6649324901800034545, guid: 79e37750319cb6448b0bf435d3aa64bc,
+        type: 3}
+      propertyPath: DoorClosetEventBox
+      value: 
+      objectReference: {fileID: 1577375982}
     - target: {fileID: 8485231769863536080, guid: 79e37750319cb6448b0bf435d3aa64bc,
         type: 3}
       propertyPath: m_Size.x
@@ -134069,7 +134128,12 @@ PrefabInstance:
         type: 3}
       propertyPath: moodMusic
       value: 
-      objectReference: {fileID: 8300000, guid: e7981535adaa3144f87d15994929149f, type: 3}
+      objectReference: {fileID: 8300000, guid: 3b29d33271522f44a9ef4a49e7a6ee99, type: 3}
+    - target: {fileID: 1365944432170349915, guid: 114b0f4159d07184a9720fd75f619497,
+        type: 3}
+      propertyPath: enemyPosition
+      value: 
+      objectReference: {fileID: 1130896260}
     - target: {fileID: 1365944432170349915, guid: 114b0f4159d07184a9720fd75f619497,
         type: 3}
       propertyPath: moodMusicAudioSource
@@ -134112,6 +134176,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2039018974}
+    - targetCorrespondingSourceObject: {fileID: 2106688815952785163, guid: 114b0f4159d07184a9720fd75f619497,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130896260}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8577397970640152584, guid: 114b0f4159d07184a9720fd75f619497,
         type: 3}

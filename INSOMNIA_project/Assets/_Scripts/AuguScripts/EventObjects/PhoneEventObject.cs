@@ -12,6 +12,8 @@ public class PhoneEventObject : MonoBehaviour
     [SerializeField] AudioClip tunrOffAudio;
     [SerializeField] AudioClip noSignalAudio;
 
+    [SerializeField] GameObject DoorClosetEventBox;
+
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,8 @@ public class PhoneEventObject : MonoBehaviour
 
         phoneIsOff = false;
         finish = true;
+
+        DoorClosetEventBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +39,8 @@ public class PhoneEventObject : MonoBehaviour
         //Play AudioClip Ringing Phone
         audioSource.Play();
         Debug.Log("Phone is ringing");
+        DoorClosetEventBox.SetActive(true);
+        Debug.Log("Event door closet is Active");
     }
 
     public void TurnOff()

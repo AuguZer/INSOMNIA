@@ -97,9 +97,11 @@ public class EnemyStateManager : MonoBehaviour
 
     private void EnemyMove()
     {
+  
         isInChase = enemyDetection.playerDetected;
         if (isInChase)
         {
+
             agent.SetDestination(enemyDetection.playerPos.position);
             float distance = Vector3.Distance(transform.position, enemyDetection.playerPos.position);
 

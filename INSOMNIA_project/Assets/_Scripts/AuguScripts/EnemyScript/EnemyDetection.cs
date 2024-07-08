@@ -146,7 +146,7 @@ public class EnemyDetection : MonoBehaviour
             if (animDoor != null)
             {
                 animDoor.doorOpen = true;
-                if (!animDoor.audioHasPlayed)
+                if (!animDoor.audioHasPlayed && !animDoor.doorOpen)
                 {
                     animDoor.doorAudioSource.PlayOneShot(animDoor.clipList[0]);
                     animDoor.audioHasPlayed = true;

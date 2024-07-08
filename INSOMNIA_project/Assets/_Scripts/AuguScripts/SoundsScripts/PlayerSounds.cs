@@ -9,6 +9,7 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] public AudioClip[] hides;
     [SerializeField] public AudioClip openVentMusic;
     [SerializeField] AudioClip deadMusic;
+    [SerializeField] AudioClip startToiletSound;
 
     [SerializeField] AudioSource footStepsAudioSource;
     [SerializeField] AudioSource voicesAudioSource;
@@ -24,9 +25,15 @@ public class PlayerSounds : MonoBehaviour
     PlayerStateManager playerStateManager;
 
     bool deadAudioHasPlayed = false;
+
+    [SerializeField] bool toiletbrush;
     // Start is called before the first frame update
     void Start()
     {
+        if(toiletbrush)
+        {
+            moodMuicAudioSource.PlayOneShot(startToiletSound);
+        }
         playerStateManager = GetComponentInParent<PlayerStateManager>();
     }
 
