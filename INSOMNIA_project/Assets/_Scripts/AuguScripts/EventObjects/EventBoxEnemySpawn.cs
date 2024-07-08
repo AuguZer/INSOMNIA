@@ -11,6 +11,9 @@ public class EventBoxEnemySpawn : MonoBehaviour
     [SerializeField] AudioSource moodMusicAudioSource;
     [SerializeField] AudioClip onSeeEnemyMusic;
 
+    public Light[] lightsToSwitchOff;
+    public Light[] lightsToSwitchOn;
+
     bool hasPlayedmusic;
     // Start is called before the first frame update
     void Start()
@@ -40,9 +43,22 @@ public class EventBoxEnemySpawn : MonoBehaviour
         }
     }
 
+    public void LightsOnEvent()
+    {
+        foreach (Light light in lightsToSwitchOff)
+        {
+            light.enabled = false;
+        }
+        foreach (Light light in lightsToSwitchOn)
+        {
+            light.enabled = true;
+        }
+    }
+
     IEnumerator WaitDoorOpen()
     {
         yield return new WaitForSeconds(.5f);
         moodMusicAudioSource.PlayOneShot(onSeeEnemyMusic);
+       
     }
 }
