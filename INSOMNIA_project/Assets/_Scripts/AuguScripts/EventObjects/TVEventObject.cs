@@ -30,6 +30,7 @@ public class TVEventObject : MonoBehaviour
     [SerializeField] AudioSource doorSlamAudioSource;
 
 
+
     public event Action OnTVTurnOff;
     // Start is called before the first frame update
     void Start()
