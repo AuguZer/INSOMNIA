@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3171044236926190721, guid: c492efe3e037d4447923edc38633bd5b,
@@ -12,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 20051cf3f6527f645bea688f325d30dc, type: 2}
+    - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29,6 +35,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -40,16 +51,6 @@ PrefabInstance:
     - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6534420261576204862, guid: c492efe3e037d4447923edc38633bd5b,
@@ -72,5 +73,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drawer 2 Oak Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2293555236255877422, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+    - {fileID: 2293555236255877423, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+    - {fileID: 2293555236255877420, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+    - {fileID: 2293555236255877421, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+    - {fileID: 2293555236255877426, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7851380827036028973, guid: c492efe3e037d4447923edc38633bd5b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2415157873463215973}
   m_SourcePrefab: {fileID: 100100000, guid: c492efe3e037d4447923edc38633bd5b, type: 3}
+--- !u!1 &712043609319385231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7851380827036028973, guid: c492efe3e037d4447923edc38633bd5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7283475773369497762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2415157873463215973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712043609319385231}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.5823488, z: 1.256698}
+  m_Center: {x: 1.1539434e-17, y: 0.29117465, z: 0.012376934}
