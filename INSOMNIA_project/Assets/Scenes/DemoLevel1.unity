@@ -93700,54 +93700,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
-      propertyPath: deadMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: a7d2e111f4432d64ba2f8183889175ec, type: 3}
-    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: toiletbrush
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: openVentMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: bc4ec1650d657ea42bb58a84fb3b619a, type: 3}
-    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: startToiletSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f7fbdfbc82a88454e88e2744d8e2c3cf, type: 3}
-    - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
       propertyPath: moodMuicAudioSource
       value: 
       objectReference: {fileID: 1171972167}
-    - target: {fileID: 4320251931412817174, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4320251931412817174, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4320251931412817174, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570758442063781718, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -850
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835422995702560391, guid: aa9bb74d487f0a443a9de7f773200afe,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 850
-      objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_RootOrder
