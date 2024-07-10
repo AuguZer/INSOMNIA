@@ -55,7 +55,6 @@ public class TwinsAnimatorManager : MonoBehaviour
 
         if (!moodMusicAudioSource.isPlaying)
         {
-            moodMusicAudioSource.clip = musicOnRun;
             moodMusicAudioSource.PlayOneShot(musicOnRun);
         }
     }

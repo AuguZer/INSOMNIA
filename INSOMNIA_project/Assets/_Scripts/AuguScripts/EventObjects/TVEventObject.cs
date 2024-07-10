@@ -85,6 +85,12 @@ public class TVEventObject : MonoBehaviour
         {
             Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen = false;
         }
+        else
+        {
+            Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().animator.speed = 1f;
+            Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen = true;
+            Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen = false;
+        }
         Debug.Log("Door Close with loud noise");
         //Play Noise AudioClip
     }

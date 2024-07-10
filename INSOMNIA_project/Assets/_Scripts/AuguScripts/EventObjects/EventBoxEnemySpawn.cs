@@ -7,6 +7,7 @@ public class EventBoxEnemySpawn : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject destContainer;
     [SerializeField] GameObject doorMeetingRoom;
+    AnimDoor animDoorMeetingRoom;
 
     [SerializeField] AudioSource moodMusicAudioSource;
     [SerializeField] AudioClip onSeeEnemyMusic;
@@ -18,6 +19,8 @@ public class EventBoxEnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moodMusicAudioSource.clip = onSeeEnemyMusic;
+        animDoorMeetingRoom = doorMeetingRoom.GetComponentInChildren<AnimDoor>();
         hasPlayedmusic = false;
         enemy.SetActive(false);
         destContainer.SetActive(false);
@@ -32,10 +35,13 @@ public class EventBoxEnemySpawn : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen && !hasPlayedmusic)
+        if (other.gameObject.tag == "Player" && animDoorMeetingRoom.doorOpen && !hasPlayedmusic)
         {
-            enemy.SetActive(true);
-            destContainer.SetActive(true);
+            if (!enemy.activeInHierarchy)
+            {
+                enemy.SetActive(true);
+                destContainer.SetActive(true);
+            }
 
             StartCoroutine(WaitDoorOpen());
             hasPlayedmusic = true;
@@ -58,7 +64,7 @@ public class EventBoxEnemySpawn : MonoBehaviour
     IEnumerator WaitDoorOpen()
     {
         yield return new WaitForSeconds(.5f);
-        moodMusicAudioSource.PlayOneShot(onSeeEnemyMusic);
-       
+        moodMusicAudioSource.Play();
+
     }
 }
