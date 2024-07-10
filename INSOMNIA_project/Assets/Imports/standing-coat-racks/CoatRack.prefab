@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3384033983189596024}
   - component: {fileID: 1078215455770354735}
   - component: {fileID: 985595024827018723}
+  - component: {fileID: 7748668665777110094}
   m_Layer: 0
   m_Name: CoatRack
   m_TagString: Untagged
@@ -83,3 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &7748668665777110094
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160522302518630324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.64523536
+  m_Height: 5.524943
+  m_Direction: 2
+  m_Center: {x: -0.015716553, y: 0.028984547, z: 1.6638885}
