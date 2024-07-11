@@ -63,7 +63,7 @@ public class EventBoxEnemySpawn : MonoBehaviour
 
     IEnumerator WaitDoorOpen()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.6f);
         moodMusicAudioSource.Play();
 
     }
