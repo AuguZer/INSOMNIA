@@ -69591,8 +69591,8 @@ MonoBehaviour:
   eventBoxEnemySpawn: {fileID: 2115576771}
   doorClosetEvent: {fileID: 1577375982}
   eventClosetDoor: {fileID: 0}
-  timeBeforePhone: 4
-  timeBeforeTV: 3
+  timeBeforePhone: 40
+  timeBeforeTV: 30
 --- !u!1001 &738786714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133759,7 +133759,7 @@ PrefabInstance:
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: toiletbrush
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -133774,7 +133774,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.42
+      value: -0.856
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -133784,7 +133784,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.4
+      value: 31.969
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
