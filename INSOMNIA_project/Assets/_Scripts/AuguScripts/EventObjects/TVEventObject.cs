@@ -83,6 +83,7 @@ public class TVEventObject : MonoBehaviour
     {
         if (Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen)
         {
+            Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().animator.speed = 1f;
             Level1EventManager.instance.doorMeetingRoom.GetComponentInChildren<AnimDoor>().doorOpen = false;
         }
         else
