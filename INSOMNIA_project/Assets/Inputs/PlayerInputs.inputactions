@@ -505,34 +505,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "PlayerCrouch",
-            "id": "0d968fe7-52d5-4481-ad3f-7e57e4d289a8",
-            "actions": [
-                {
-                    "name": "CrouchToIdle",
-                    "type": "Button",
-                    "id": "e1c1520b-9e0e-4389-8ed1-514d30bd456b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "64dc5d91-ef5d-48bd-b9ca-8eccd74b4a7b",
-                    "path": "<Keyboard>/ctrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CrouchToIdle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []
