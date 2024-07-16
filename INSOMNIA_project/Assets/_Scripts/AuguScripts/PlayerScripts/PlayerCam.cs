@@ -261,8 +261,13 @@ public class PlayerCam : MonoBehaviour
 
     public void CameraOnFocus()
     {
-        rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
-        rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
+        lookInput = inputActions.FindAction("Look").ReadValue<Vector2>();
+        rotationY += sensX * lookInput.x * Time.deltaTime;
+        rotationX -= sensY * lookInput.y * Time.deltaTime;
+
+
+        //rotationY += sensX * Input.GetAxis("Mouse X") * Time.deltaTime;
+        //rotationX -= sensY * Input.GetAxis("Mouse Y") * Time.deltaTime;
 
         rotationX = Mathf.Clamp(rotationX, focusMaxUp, focusMaxDown);
         rotationY = Mathf.Clamp(rotationY, focusMaxLeft, focusMaxRight);

@@ -8,7 +8,7 @@ public class EnemyChase : EnemyBaseState
     {
         enemyState.enemyState = EnemyStateManager.EnemyState.CHASE;
         enemyState.agent.speed = enemyState.chaseSpeed;
-        enemyState.enemyDetection.boxCollider.enabled = false;
+        //enemyState.enemyDetection.boxCollider.enabled = false;
   
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
@@ -27,11 +27,11 @@ public class EnemyChase : EnemyBaseState
         {
             enemyState.TransitionToState(enemyState.enemyIdle);
         }
-        //TO PATROL
-        if (!enemyState.isInIdle && !enemyState.isInChase)
-        {
-            enemyState.TransitionToState(enemyState.enemyPatrol);
-        }
+        ////TO PATROL
+        //if (!enemyState.isInIdle && !enemyState.isInChase)
+        //{
+        //    enemyState.TransitionToState(enemyState.enemyPatrol);
+        //}
         //TO ATTACK
         if (enemyState.isInAttack)
         {
@@ -41,6 +41,7 @@ public class EnemyChase : EnemyBaseState
     }
     public override void OnStateExit(EnemyStateManager enemyState)
     {
-        enemyState.enemyDetection.boxCollider.enabled = true;
+        //enemyState.enemyDetection.boxCollider.enabled = true;
+        enemyState.isInIdle = true;
     }
 }

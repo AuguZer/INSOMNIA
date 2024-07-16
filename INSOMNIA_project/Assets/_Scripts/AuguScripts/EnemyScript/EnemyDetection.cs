@@ -171,6 +171,7 @@ public class EnemyDetection : MonoBehaviour
         //Debug.Log(playerLastPosition);
         playerDetected = false;
         playerInZone = false;
+        enemyStateManager.StartCoroutine(enemyStateManager.IdleCoroutine());
     }
 
     private void OnDrawGizmosSelected()
