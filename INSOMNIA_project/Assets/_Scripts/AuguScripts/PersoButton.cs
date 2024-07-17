@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class PersoButton : MonoBehaviour
 {
     [SerializeField] float smooth = 2;
     // Start is called before the first frame update
