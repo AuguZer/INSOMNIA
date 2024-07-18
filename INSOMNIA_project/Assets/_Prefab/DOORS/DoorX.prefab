@@ -149,8 +149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.006414235, y: 0.020744285, z: 0.049939852}
-  m_Center: {x: -0.0015479884, y: 0.010117409, z: -0.028029969}
+  m_Size: {x: 0.0088949865, y: 0.020744285, z: 0.049939852}
+  m_Center: {x: -0.0011069274, y: 0.010117409, z: -0.028029969}
 --- !u!82 &8701417972972257104
 AudioSource:
   m_ObjectHideFlags: 0

@@ -189,6 +189,9 @@ MonoBehaviour:
   eventDoor: 0
   animator: {fileID: 6378912171697201052}
   keyNumber: 1
+  clipList: []
+  doorAudioSource: {fileID: 0}
+  audioHasPlayed: 0
 --- !u!33 &5503296393577957388
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -258,5 +261,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.006414235, y: 0.020744285, z: 0.049939852}
-  m_Center: {x: -0.0015479884, y: 0.010117409, z: -0.028029969}
+  m_Size: {x: 0.01042681, y: 0.020744285, z: 0.049939852}
+  m_Center: {x: -0.0013287894, y: 0.010117409, z: -0.028029969}
