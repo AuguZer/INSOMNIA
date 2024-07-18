@@ -18,13 +18,13 @@ public class PlayerEventsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerStateManager.isDead)
+        if (playerStateManager.isDead)
         {
             PlayerDeath?.Invoke();
         }

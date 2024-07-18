@@ -102038,7 +102038,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -129062,7 +129062,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
@@ -138593,7 +138593,7 @@ PrefabInstance:
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: toiletbrush
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3715337213208902228, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -138648,7 +138648,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.24
+      value: -0.729
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -138658,7 +138658,7 @@ PrefabInstance:
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.91
+      value: 25.08
       objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
@@ -138709,6 +138709,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 1266960355}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: timeBeforeDeathPanel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1266960355}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ActiveDeathPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852826786703216107, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: PlayerDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8959450257896469440, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
