@@ -10,9 +10,9 @@ public class PlayerCrouch : PlayerBaseState
         playerState.state = PlayerStateManager.PlayerState.Crouch;
         playerState.inputManager.speed = playerState.crouchSpeed;
         playerState.inputManager.characterController.height = 1.169342f;
+        playerState.inputManager.characterController.stepOffset = 0f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.33f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
-
         playerState.cantJump = true;
     }
     public override void OnStateUpdate(PlayerStateManager playerState)
@@ -55,6 +55,6 @@ public class PlayerCrouch : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-        
+        playerState.inputManager.characterController.stepOffset = 0.3f;
     }
 }

@@ -10,6 +10,7 @@ public class PlayerCrouchIdle : PlayerBaseState
         playerState.inputManager.characterController.height = 1.169342f;
         Vector3 charcterControllerCenter = new Vector3(0f, -.33f, 0f);
         playerState.inputManager.characterController.center = charcterControllerCenter;
+        playerState.inputManager.characterController.stepOffset = 0f;
 
         playerState.cantJump = true;
     }
@@ -46,6 +47,6 @@ public class PlayerCrouchIdle : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
- 
+        playerState.inputManager.characterController.stepOffset = 0.3f;
     }
 }
