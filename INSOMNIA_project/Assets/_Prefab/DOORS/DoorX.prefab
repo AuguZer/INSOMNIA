@@ -79,6 +79,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 49e00c9058f16c44bad55408c9c057d9, type: 3}
   - {fileID: 8300000, guid: b9fefe0859ae72d4a99462940c7422e5, type: 3}
   doorAudioSource: {fileID: 0}
+  audioHasPlayed: 0
 --- !u!33 &1234691760731453609
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -258,6 +259,9 @@ GameObject:
   - component: {fileID: 1359294487672449696}
   - component: {fileID: 1717949532704702509}
   - component: {fileID: 360797891240390764}
+  - component: {fileID: 8203099153625193931}
+  - component: {fileID: 7103836453384481088}
+  - component: {fileID: 7780064898902726486}
   m_Layer: 0
   m_Name: D2-Frame (1)
   m_TagString: Untagged
@@ -330,6 +334,69 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8203099153625193931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310443168061521320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004353868, y: 0.0029218795, z: 0.052999996}
+  m_Center: {x: -0.000663625, y: 0.011539139, z: 0.026499998}
+--- !u!65 &7103836453384481088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310443168061521320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004353868, y: 0.0031395154, z: 0.052999996}
+  m_Center: {x: -0.00066362415, y: -0.011430351, z: 0.026499998}
+--- !u!65 &7780064898902726486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310443168061521320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004353868, y: 0.026000002, z: 0.0027375333}
+  m_Center: {x: -0.0006636246, y: -0.0000000019281499, z: 0.051631194}
 --- !u!1 &556482484778167670
 GameObject:
   m_ObjectHideFlags: 0

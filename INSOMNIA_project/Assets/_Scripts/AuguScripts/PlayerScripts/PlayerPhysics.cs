@@ -27,7 +27,7 @@ public class PlayerPhysics : MonoBehaviour
     [SerializeField] float upDetectionRadius = 1f;
     [SerializeField] LayerMask upMask;
     [SerializeField] float headDetecitionRadius = 1f;
-    [SerializeField] Transform headTransform;
+    [SerializeField] public Transform headTransform;
 
     [SerializeField] CharacterController characterController;
 

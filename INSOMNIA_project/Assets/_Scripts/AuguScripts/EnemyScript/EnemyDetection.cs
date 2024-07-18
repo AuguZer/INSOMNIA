@@ -153,12 +153,15 @@ public class EnemyDetection : MonoBehaviour
                 }
             }
             Animator anim = door.GetComponent<Animator>();
-            AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName("WAIT OPEN"))
+            if (anim != null)
             {
-                canGo = true;
+                AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+                if (stateInfo.IsName("WAIT OPEN"))
+                {
+                    canGo = true;
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
