@@ -18,6 +18,8 @@ public class PlayerInputManager : MonoBehaviour
 
     Vector3 moveInput;
     public Vector3 dirInput;
+    [SerializeField] UIManager uiManager;
+    [SerializeField] bool gameIsPaused;
 
     [Header("CAMERA POSITION & SPEED")]
     [SerializeField] public float camYposNormal = .61f;
@@ -39,6 +41,7 @@ public class PlayerInputManager : MonoBehaviour
         inputActions.Enable();
         inputActions.FindAction("Run").started += OnStartRun;
         inputActions.FindAction("Run").canceled += OnStopRun;
+        inputActions.FindAction("Pause").performed += PauseGame;
     }
 
     private void OnDisable()
@@ -46,6 +49,7 @@ public class PlayerInputManager : MonoBehaviour
         inputActions.Disable();
         inputActions.FindAction("Run").started -= OnStartRun;
         inputActions.FindAction("Run").canceled -= OnStopRun;
+        inputActions.FindAction("Pause").performed -= PauseGame;
     }
 
     private void OnStartRun(InputAction.CallbackContext ctx)
@@ -55,6 +59,12 @@ public class PlayerInputManager : MonoBehaviour
     private void OnStopRun(InputAction.CallbackContext ctx)
     {
         playerStateManager.isRunning = false;
+    }
+
+    private void PauseGame(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Pause Game");
+        gameIsPaused = true;
     }
 
     // Update is called once per frame
@@ -145,4 +155,5 @@ public class PlayerInputManager : MonoBehaviour
 
         cam.transform.localPosition = endPos;
     }
+
 }
