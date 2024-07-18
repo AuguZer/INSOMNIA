@@ -86065,6 +86065,41 @@ PrefabInstance:
       propertyPath: destinations.Array.data[1]
       value: 
       objectReference: {fileID: 1859404548}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1266960355}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActiveWinPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246506618557655817, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
+        type: 3}
+      propertyPath: PlayerWins.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7413170260208716488, guid: 46455e6bcbd655e47ae3909bd16f6b8e,
         type: 3}
       propertyPath: voices.Array.size

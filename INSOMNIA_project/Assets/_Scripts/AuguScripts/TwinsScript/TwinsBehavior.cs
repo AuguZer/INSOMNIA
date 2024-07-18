@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class TwinsBehavior : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class TwinsBehavior : MonoBehaviour
     TwinsAnimatorManager twinsAnimatorManager;
     
     [SerializeField] EventTwins eventTwins;
+
+    public UnityEvent PlayerWins;
 
     void Start()
     {
@@ -65,6 +68,14 @@ public class TwinsBehavior : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            PlayerWins?.Invoke();
+        }
     }
 }
 
