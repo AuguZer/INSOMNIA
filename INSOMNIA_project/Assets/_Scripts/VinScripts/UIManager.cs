@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] PausePanel _pausePanel;
     [SerializeField] public Button continueBtn;
     PlayerInput playerInputHelper;
+    GameObject currentGOToSelect;
 
     private void OnDisable()
     {
@@ -23,8 +24,52 @@ public class UIManager : MonoBehaviour
     {
         playerInputHelper = GetComponent<PlayerInput>();
         playerInputHelper.onControlsChanged += OnControlsChanged;
-        _deathPanel.FadeInComplete += () => _eventSystem.SetSelectedGameObject(_deathPanel.FirstSelectedGO);
-        _winPanel.FadeInComplete += () => _eventSystem.SetSelectedGameObject(_winPanel.FirstSelectedGO);
+        _deathPanel.FadeInComplete += (() =>
+        {
+            if (playerInputHelper == null) return;
+
+            switch (playerInputHelper.currentControlScheme)
+            {
+                case "Gamepad":
+
+                    if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_winPanel.FirstSelectedGO);
+
+                    break;
+                case "Keyboard&Mouse":
+
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = true;
+                    _eventSystem.SetSelectedGameObject(null);
+
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        _winPanel.FadeInComplete += (() =>
+        {
+            if (playerInputHelper == null) return;
+
+            switch (playerInputHelper.currentControlScheme)
+            {
+                case "Gamepad":
+
+                    if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_deathPanel.FirstSelectedGO);
+
+                    break;
+                case "Keyboard&Mouse":
+
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = true;
+                    _eventSystem.SetSelectedGameObject(null);
+
+                    break;
+                default:
+                    break;
+            }
+        });
+
         _pausePanel.ScaleUpComplete += (() =>
         {
             if (playerInputHelper == null) return;
@@ -51,16 +96,19 @@ public class UIManager : MonoBehaviour
 
     public void ActiveWinPanel()
     {
+        currentGOToSelect = _winPanel.FirstSelectedGO;
         _winPanel.gameObject.SetActive(true);
     }
 
     public void ActiveDeathPanel()
     {
+        currentGOToSelect = _deathPanel.FirstSelectedGO;
         _deathPanel.gameObject.SetActive(true);
     }
 
     public void ActivePausePanel()
     {
+        currentGOToSelect = _pausePanel.FirstSelectedGO;
         _pausePanel.gameObject.SetActive(true);
     }
 
@@ -81,7 +129,7 @@ public class UIManager : MonoBehaviour
 
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_pausePanel.FirstSelectedGO);
+                if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(currentGOToSelect);
 
                 break;
             case "Keyboard&Mouse":
