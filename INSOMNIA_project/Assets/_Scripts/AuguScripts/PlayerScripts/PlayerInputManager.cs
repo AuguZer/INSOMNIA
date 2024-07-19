@@ -19,7 +19,7 @@ public class PlayerInputManager : MonoBehaviour
     Vector3 moveInput;
     public Vector3 dirInput;
     [SerializeField] UIManager uiManager;
-    [SerializeField] bool gameIsPaused;
+    public bool gameIsPaused;
 
     [Header("CAMERA POSITION & SPEED")]
     [SerializeField] public float camYposNormal = .61f;
@@ -33,7 +33,7 @@ public class PlayerInputManager : MonoBehaviour
         playerStateManager = GetComponent<PlayerStateManager>();
         playerCam = cam.GetComponent<PlayerCam>();
         playerPhysics = GetComponent<PlayerPhysics>();
-
+        uiManager.continueBtn.onClick.AddListener(() => gameIsPaused = false);
     }
 
     private void OnEnable()
@@ -63,8 +63,16 @@ public class PlayerInputManager : MonoBehaviour
 
     private void PauseGame(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Pause Game");
-        gameIsPaused = true;
+        if (!gameIsPaused)
+        {
+            uiManager.ActivePausePanel();
+            gameIsPaused = true;
+        }
+        else if(gameIsPaused)
+        {
+            uiManager.DeactivePausePanel();
+            gameIsPaused = false;
+        }
     }
 
     // Update is called once per frame
@@ -91,7 +99,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void CrouchInput()
     {
-        if (inputActions.FindAction("Crouch").WasPerformedThisFrame() && playerStateManager.state != PlayerStateManager.PlayerState.Hide)
+        if (inputActions.FindAction("Crouch").WasPerformedThisFrame() && playerStateManager.state != PlayerStateManager.PlayerState.Hide && !gameIsPaused)
         {
             if(playerStateManager.state == PlayerStateManager.PlayerState.Crawl || playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
             {
@@ -112,6 +120,11 @@ public class PlayerInputManager : MonoBehaviour
                 StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
                 }
             }
+        }
+        else if(inputActions.FindAction("Crouch").WasPerformedThisFrame() && gameIsPaused)
+        {
+            uiManager.DeactivePausePanel();
+            gameIsPaused = false;
         }
     }
     private void CrawlInput()
