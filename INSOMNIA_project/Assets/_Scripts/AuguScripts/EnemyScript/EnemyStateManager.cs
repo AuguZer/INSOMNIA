@@ -49,6 +49,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public bool isGoingForward;
     public bool isIdleCoroutineRunning;
+    [SerializeField] public UIManager uiManager;
 
     private void Awake()
     {

@@ -15,6 +15,12 @@ public class UIManager : MonoBehaviour
     PlayerInput playerInputHelper;
     GameObject currentGOToSelect;
 
+    [SerializeField] PlayerInputManager playerInputManager;
+    [SerializeField] PlayerCam playerCam;
+    [SerializeField] EnemyStateManager enemyStateManager;
+
+    public bool gamePaused;
+
     private void OnDisable()
     {
         playerInputHelper.onControlsChanged -= OnControlsChanged;
@@ -110,6 +116,13 @@ public class UIManager : MonoBehaviour
     {
         currentGOToSelect = _pausePanel.FirstSelectedGO;
         _pausePanel.gameObject.SetActive(true);
+        PauseGame();
+    }
+    private void PauseGame()
+    {
+        gamePaused = true;
+        playerCam.enabled = false;
+        playerInputManager.enabled = false;
     }
 
     public void DeactivePausePanel()
@@ -117,6 +130,14 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _pausePanel.DisablePanel();
+        ResumeGame();
+    }
+
+    private void ResumeGame()
+    {
+        Debug.Log("Resume");
+        playerCam.enabled = true;
+        playerInputManager.enabled = true;
     }
 
     void OnControlsChanged(PlayerInput obj)
