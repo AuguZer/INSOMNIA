@@ -138,6 +138,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Resume");
         playerCam.enabled = true;
         playerInputManager.enabled = true;
+        gamePaused = false;
     }
 
     void OnControlsChanged(PlayerInput obj)

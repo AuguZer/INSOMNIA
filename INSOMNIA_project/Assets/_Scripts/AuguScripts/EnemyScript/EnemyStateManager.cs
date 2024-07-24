@@ -98,7 +98,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void EnemyMove()
     {
-  
+
         isInChase = enemyDetection.playerDetected;
         if (isInChase)
         {

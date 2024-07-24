@@ -17,6 +17,17 @@ public class EnemyAttack : EnemyBaseState
     {
         enemyState.enemyDetection.DetectPlayer();
 
+        if (enemyState.uiManager.gamePaused)
+        {
+            enemyState.agent.speed = 0f;
+            enemyState.enemyAnimatorManager.animator.speed = 0f;
+        }
+        else
+        {
+            enemyState.agent.speed = 0f;
+            enemyState.enemyAnimatorManager.animator.speed = 2.5f;
+        }
+
         //TO CHASE
         if (!enemyState.isInAttack)
         {

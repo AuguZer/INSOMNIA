@@ -12,8 +12,19 @@ public class EnemyIdle : EnemyBaseState
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
     {
+        if (enemyState.uiManager.gamePaused)
+        {
+            enemyState.agent.speed = 0f;
+            enemyState.enemyAnimatorManager.animator.speed = 0f;
+        }
+        else
+        {
+            enemyState.agent.speed = 0f;
+            enemyState.enemyAnimatorManager.animator.speed = 1f;
+        }
+
         //TO PATROL
-        if(!enemyState.isInIdle)
+        if (!enemyState.isInIdle)
         {
             enemyState.TransitionToState(enemyState.enemyPatrol);
         }
