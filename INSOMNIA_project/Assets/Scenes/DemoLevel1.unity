@@ -126189,7 +126189,7 @@ PrefabInstance:
     - target: {fileID: 3501186320691525551, guid: 7ce6661ac0a4c0f42a7b527da8917c1e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3972207667532785731, guid: 7ce6661ac0a4c0f42a7b527da8917c1e,
         type: 3}
@@ -194920,7 +194920,7 @@ PrefabInstance:
     - target: {fileID: 5872054481283041069, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6518383243103879134, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
@@ -210495,6 +210495,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8867027868565901100, guid: dd77c8fcf7012754f97d5b6f0795c0ef,
+        type: 3}
+      propertyPath: doorOpen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -211414,6 +211419,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601187126}
     m_Modifications:
+    - target: {fileID: 222644160886353781, guid: 114b0f4159d07184a9720fd75f619497,
+        type: 3}
+      propertyPath: doorOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 222644160886353781, guid: 114b0f4159d07184a9720fd75f619497,
         type: 3}
       propertyPath: eventDoor

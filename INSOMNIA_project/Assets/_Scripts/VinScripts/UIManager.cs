@@ -110,6 +110,7 @@ public class UIManager : MonoBehaviour
     {
         currentGOToSelect = _deathPanel.FirstSelectedGO;
         _deathPanel.gameObject.SetActive(true);
+        playerInputManager.enabled = false;
     }
 
     public void ActivePausePanel()
