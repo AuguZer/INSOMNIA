@@ -52877,6 +52877,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613374226}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &613374228 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7995538798586707630, guid: 8f93646b63f351b40bcea736ef04e229,
+    type: 3}
+  m_PrefabInstance: {fileID: 613374226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!108 &613590452 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7995538798586707630, guid: 8f93646b63f351b40bcea736ef04e229,
@@ -205221,6 +205227,7 @@ MonoBehaviour:
   - {fileID: 2023699728}
   - {fileID: 1984220465}
   - {fileID: 1676959042}
+  - {fileID: 613374228}
   lightsToSwitchOn:
   - {fileID: 753417637}
   - {fileID: 687247962}
