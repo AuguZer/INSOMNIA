@@ -27,6 +27,11 @@ public class EnemyDetection : MonoBehaviour
 
     EnemyStateManager enemyStateManager;
     public BoxCollider boxCollider;
+    Vector3 startBoxSize;
+    Vector3 startBoxCenter;
+
+    public Vector3 onDetectedBoxSize;
+    public Vector3 onDetectedBoxCenter;
 
     public bool canKill;
     public bool playerKilled;
@@ -40,6 +45,9 @@ public class EnemyDetection : MonoBehaviour
         playerKilled = false;
         enemyStateManager = GetComponentInParent<EnemyStateManager>();
         boxCollider = GetComponent<BoxCollider>();
+
+        startBoxSize = boxCollider.size;
+        startBoxCenter = boxCollider.center;
     }
 
     // Update is called once per frame
