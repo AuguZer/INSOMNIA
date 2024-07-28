@@ -24,6 +24,7 @@ public class Grabber : MonoBehaviour
     [SerializeField] public bool isInInterationState;
 
     [SerializeField] LayerMask interactMask;
+    [SerializeField] LayerMask nonInteractMask;
 
     [SerializeField] GameObject mainCam;
 
@@ -419,7 +420,7 @@ public class Grabber : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask) && !RayDetectOther())
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             if (!isHiding)
@@ -430,6 +431,20 @@ public class Grabber : MonoBehaviour
             Debug.DrawLine(transform.position, hit.point, Color.red);
             playerStateManager.canInteract = false;
         }
+    }
+
+    public bool RayDetectOther()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, nonInteractMask))
+        {
+            Debug.Log("Detect" + hit.collider.gameObject.name);
+            return true;
+        }
+
+        return false;
+
     }
 
 
