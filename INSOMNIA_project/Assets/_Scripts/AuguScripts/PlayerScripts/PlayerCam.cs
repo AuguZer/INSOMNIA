@@ -278,6 +278,11 @@ public class PlayerCam : MonoBehaviour
 
     }
 
+    public void CameraOnDeath()
+    {
+        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
+    }
+
     private void CameraRotation()
     {
         //Return si LookBack
