@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.039215688, g: 0.03529412, b: 0.047058824, a: 1}
+  m_AmbientSkyColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -100394,7 +100394,7 @@ PrefabInstance:
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.023805298
+      value: 0.022170953
       objectReference: {fileID: 0}
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
@@ -100409,7 +100409,7 @@ PrefabInstance:
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.00025659744
+      value: 0.00056058634
       objectReference: {fileID: 0}
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
@@ -139178,6 +139178,16 @@ PrefabInstance:
       propertyPath: moodMuicAudioSource
       value: 
       objectReference: {fileID: 1171972167}
+    - target: {fileID: 4570758442063781718, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -848
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835422995702560391, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 848
+      objectReference: {fileID: 0}
     - target: {fileID: 7207316340061104541, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: m_RootOrder
