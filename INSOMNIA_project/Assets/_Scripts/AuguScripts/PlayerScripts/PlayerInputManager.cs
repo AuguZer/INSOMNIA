@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour
     PlayerStateManager playerStateManager;
     PlayerCam playerCam;
     PlayerPhysics playerPhysics;
+    Grabber grabber;
 
 
     public GameObject cam;
@@ -29,6 +30,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Awake()
     {
+        grabber = GetComponentInChildren<Grabber>();
         characterController = GetComponent<CharacterController>();
         playerStateManager = GetComponent<PlayerStateManager>();
         playerCam = cam.GetComponent<PlayerCam>();
@@ -85,7 +87,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void MoveInput()
     {
-        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide) return;
+        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide || grabber.isInInterationState) return;
         moveInput = inputActions.FindAction("Move").ReadValue<Vector2>();
         dirInput = new Vector3(moveInput.x, 0f, moveInput.y);
 
