@@ -51929,8 +51929,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 50
   DopplerLevel: 1
-  MinDistance: 0.44254422
-  MaxDistance: 30
+  MinDistance: 20
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -129629,8 +129629,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 5
+  MinDistance: 4
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -156624,8 +156624,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 2
+  MinDistance: 5
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -195691,6 +195691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
+      propertyPath: timeBeforeEndChase
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522830891242824651, guid: 09f2fc08c61970b4683e9d91081e11be,
+        type: 3}
       propertyPath: onDetectedBoxSize.x
       value: 9.999998
       objectReference: {fileID: 0}
@@ -195737,7 +195742,7 @@ PrefabInstance:
     - target: {fileID: 7056109828547835074, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7056109828547835074, guid: 09f2fc08c61970b4683e9d91081e11be,
         type: 3}

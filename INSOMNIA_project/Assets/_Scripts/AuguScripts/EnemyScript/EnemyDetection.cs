@@ -27,8 +27,8 @@ public class EnemyDetection : MonoBehaviour
 
     EnemyStateManager enemyStateManager;
     public BoxCollider boxCollider;
-    Vector3 startBoxSize;
-    Vector3 startBoxCenter;
+    public Vector3 startBoxSize;
+    public Vector3 startBoxCenter;
 
     public Vector3 onDetectedBoxSize;
     public Vector3 onDetectedBoxCenter;
@@ -63,8 +63,8 @@ public class EnemyDetection : MonoBehaviour
             {
                 playerDetected = true;
             }
+         
         }
-
     }
 
     public bool RayDetectWall()
@@ -110,6 +110,7 @@ public class EnemyDetection : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Trigger exit");
             StopAllCoroutines();
             playerPos = other.gameObject.transform;
             playerInZone = true;

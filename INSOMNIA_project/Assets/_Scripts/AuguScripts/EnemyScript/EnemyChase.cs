@@ -9,6 +9,8 @@ public class EnemyChase : EnemyBaseState
         enemyState.enemyState = EnemyStateManager.EnemyState.CHASE;
         enemyState.agent.speed = enemyState.chaseSpeed;
         //enemyState.enemyDetection.boxCollider.enabled = false;
+        enemyState.enemyDetection.boxCollider.size = enemyState.enemyDetection.onDetectedBoxSize;
+        enemyState.enemyDetection.boxCollider.center = enemyState.enemyDetection.onDetectedBoxCenter;
   
     }
     public override void OnStateUpdate(EnemyStateManager enemyState)
@@ -53,5 +55,8 @@ public class EnemyChase : EnemyBaseState
     {
         //enemyState.enemyDetection.boxCollider.enabled = true;
         enemyState.isInIdle = true;
+
+        enemyState.enemyDetection.boxCollider.size = enemyState.enemyDetection.startBoxSize;
+        enemyState.enemyDetection.boxCollider.center = enemyState.enemyDetection.startBoxCenter;
     }
 }
