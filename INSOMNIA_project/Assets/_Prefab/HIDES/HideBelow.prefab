@@ -310,7 +310,7 @@ Transform:
   - {fileID: 6019682422069004830}
   - {fileID: 6517449814242192050}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4236784368456498825
 BoxCollider:
@@ -327,7 +327,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hidePos: {fileID: 6019682422069004830}
   outPos: {fileID: 6517449814242192050}
+  door: {fileID: 0}
   playerInRange: 0
 --- !u!1 &8739479522513170718
 GameObject:
