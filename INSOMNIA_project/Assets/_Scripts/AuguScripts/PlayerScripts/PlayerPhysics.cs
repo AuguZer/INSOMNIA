@@ -58,7 +58,7 @@ public class PlayerPhysics : MonoBehaviour
 
     }
 
-   private void Jump()
+    private void Jump()
     {
         if (playerStateManager.cantJump)
             return;
@@ -118,10 +118,13 @@ public class PlayerPhysics : MonoBehaviour
                 Animator animator = collider.GetComponent<Animator>();
                 if (animator != null)
                 {
-                    AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-                    if (stateInfo.IsName("OpenDoor") || stateInfo.IsName("CloseDoor"))
+                    if (playerInputManager.dirInput == Vector3.zero)
                     {
-                        animator.speed = 0f;
+                        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                        if (stateInfo.IsName("OpenDoor") || stateInfo.IsName("CloseDoor"))
+                        {
+                            animator.speed = 0f;
+                        }
                     }
                 }
             }
