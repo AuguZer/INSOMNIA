@@ -14,26 +14,35 @@ public class Vent : MonoBehaviour
     Vector3 targetPosition;
 
     AudioSource audioSource;
+    [SerializeField] AudioClip openClip;
+    [SerializeField] AudioClip lockedClip;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
         ventOpen = false;
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         targetPosition = new Vector3(transform.localPosition.x, Ypos, transform.localPosition.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //animator.SetBool("isOpen", ventOpen);
 
-        if(ventOpen)
-        {
-            StartCoroutine(OpenCoroutine(targetPosition));
-            ventOpen = false;
-        }
+    }
+
+    public void VentOpen()
+    {
+        animator.SetTrigger("Open");
+        audioSource.PlayOneShot(openClip);
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        boxCollider.enabled = false;
+    }
+    public void VentLocked()
+    {
+        animator.SetTrigger("Locked");
+        audioSource.PlayOneShot(lockedClip);
     }
 
     IEnumerator OpenCoroutine(Vector3 targetPosition)

@@ -274,6 +274,7 @@ public class Grabber : MonoBehaviour
             if(_vent.screwDriverNumber == 0)
             {
                 Debug.Log("Vent is close");
+                _vent.VentLocked();
             }
             if(playerInventory.screwDriver > 0)
             {
@@ -281,7 +282,8 @@ public class Grabber : MonoBehaviour
             }
             if(_vent.screwDriverNumber > 0)
             {
-                _vent.ventOpen = true;
+                //_vent.ventOpen = true;
+                _vent.VentOpen();
                 playerSounds.moodMuicAudioSource.PlayOneShot(playerSounds.openVentMusic);
             }
         }
