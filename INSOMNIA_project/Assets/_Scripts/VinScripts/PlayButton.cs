@@ -15,6 +15,7 @@ public class PlayButton : BaseButton
 
     void OnPlayBtnClicked()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 }

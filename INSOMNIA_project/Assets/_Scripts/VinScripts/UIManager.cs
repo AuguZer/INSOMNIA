@@ -115,9 +115,9 @@ public class UIManager : MonoBehaviour
 
     public void ActivePausePanel()
     {
-        //currentGOToSelect = _pausePanel.FirstSelectedGO;
-        //_pausePanel.gameObject.SetActive(true);
-        //PauseGame();
+        currentGOToSelect = _pausePanel.FirstSelectedGO;
+        _pausePanel.gameObject.SetActive(true);
+        PauseGame();
     }
     private void PauseGame()
     {
