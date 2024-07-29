@@ -427,7 +427,7 @@ public class Grabber : MonoBehaviour
             if (!isHiding)
                 playerStateManager.canInteract = true;
         }
-        else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide)
+        else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide && !RayDetectInteraction())
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
             playerStateManager.canInteract = false;
@@ -439,6 +439,20 @@ public class Grabber : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, nonInteractMask))
+        {
+            Debug.Log("Detect" + hit.collider.gameObject.name);
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public bool RayDetectInteraction()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
         {
             Debug.Log("Detect" + hit.collider.gameObject.name);
             return true;

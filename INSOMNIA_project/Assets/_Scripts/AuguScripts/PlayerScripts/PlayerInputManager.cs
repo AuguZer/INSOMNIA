@@ -87,7 +87,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void MoveInput()
     {
-        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide/* || grabber.isInInterationState*/) return;
+        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide || grabber.isInInterationState) return;
         moveInput = inputActions.FindAction("Move").ReadValue<Vector2>();
         dirInput = new Vector3(moveInput.x, 0f, moveInput.y);
 

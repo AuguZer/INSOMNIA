@@ -111,7 +111,7 @@ public class PlayerStateManager : MonoBehaviour
         }
         else
         {
-            characterController.stepOffset = .3f;
+            characterController.stepOffset = .2f;
         }
     }
 

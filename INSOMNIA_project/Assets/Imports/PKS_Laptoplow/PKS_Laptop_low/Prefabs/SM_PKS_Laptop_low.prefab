@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157955353405416223}
-  m_Layer: 0
+  - component: {fileID: 1664650511614289714}
+  - component: {fileID: 3829687005916776031}
+  - component: {fileID: 3235465820159024460}
+  m_Layer: 6
   m_Name: SM_PKS_Laptop_low
-  m_TagString: Untagged
+  m_TagString: PickUpObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +35,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1664650511614289714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673758693359768105}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3981156, y: 0.13461599, z: 0.29127282}
+  m_Center: {x: 0.0017686188, y: 0.058760416, z: -0.008908211}
+--- !u!54 &3829687005916776031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673758693359768105}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3235465820159024460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673758693359768105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b6554c4f7ef384ba686167b8c49388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHeld: 0
 --- !u!1 &3244171826401230257
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +107,7 @@ GameObject:
   - component: {fileID: 4614932596134943159}
   - component: {fileID: 9151076427932958979}
   - component: {fileID: 8242984096123075234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PartsA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +191,7 @@ GameObject:
   - component: {fileID: 3430098879607081774}
   - component: {fileID: 4416597876645197553}
   - component: {fileID: 1825388520870529103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PartsB
   m_TagString: Untagged
   m_Icon: {fileID: 0}

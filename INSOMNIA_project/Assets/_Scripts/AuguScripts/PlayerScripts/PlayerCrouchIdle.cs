@@ -47,6 +47,6 @@ public class PlayerCrouchIdle : PlayerBaseState
 
     public override void OnStateExit(PlayerStateManager playerState)
     {
-        playerState.inputManager.characterController.stepOffset = 0.3f;
+        playerState.inputManager.characterController.stepOffset = 0.2f;
     }
 }
