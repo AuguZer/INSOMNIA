@@ -429,9 +429,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5836255647146774589}
+  - component: {fileID: 6451216198143706621}
+  - component: {fileID: 7934541655771937929}
   m_Layer: 0
   m_Name: WindowIn
-  m_TagString: Untagged
+  m_TagString: Blinds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,6 +461,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6451216198143706621
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170033639282671506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a72e6ee4b86e804fa480ba441165cdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7934541655771937929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170033639282671506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89019bca198e80d4e99867ab60e58078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!1 &9106663700713437129
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteCable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7776240654033759442, guid: c9b633d982ea92b4c8aaa2c926148aeb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -656,6 +697,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5836255647146774589}
     m_Modifications:
+    - target: {fileID: 2165130200278096821, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347742542719927230, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445675163448006651, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580821991761711575, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197602456123204100, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8394223244459654723, guid: be170492638e56442b0aa6e21079b258,
         type: 3}
       propertyPath: m_RootOrder
@@ -721,11 +787,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: blinds
       objectReference: {fileID: 0}
+    - target: {fileID: 9166396703155709177, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9166396703155709177, guid: be170492638e56442b0aa6e21079b258,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4246177337153735419}
   m_SourcePrefab: {fileID: 100100000, guid: be170492638e56442b0aa6e21079b258, type: 3}
+--- !u!1 &6237919617846094425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9166396703155709177, guid: be170492638e56442b0aa6e21079b258,
+    type: 3}
+  m_PrefabInstance: {fileID: 3000558349382078112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4246177337153735419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237919617846094425}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.041411635, y: 0.03320866, z: 0.0010989377}
+  m_Center: {x: 0.0007410229, y: 0.0144594405, z: 0.043249764}
 --- !u!4 &6762817275676881123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8394223244459654723, guid: be170492638e56442b0aa6e21079b258,
@@ -804,6 +906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WhiteCable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776240654033759442, guid: c9b633d982ea92b4c8aaa2c926148aeb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

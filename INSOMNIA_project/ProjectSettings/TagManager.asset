@@ -16,6 +16,7 @@ TagManager:
   - ScrewDriver
   - Vent
   - Twins
+  - Blinds
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Twins
   - PP
   - Glass
-  - 
+  - Blind
   - 
   - 
   - 

@@ -125,6 +125,7 @@ public class Grabber : MonoBehaviour
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange))
             {
+                InteractWithBlinds(hit.transform.gameObject);
                 InteractWithDoor(hit.transform.gameObject);
                 InteractWithHideCloset(hit.transform.gameObject);
                 InteractWithHideBox(hit.transform.gameObject);
@@ -145,6 +146,30 @@ public class Grabber : MonoBehaviour
 
     }
 
+
+    private void InteractWithBlinds(GameObject blindObject)
+    {
+        if (blindObject.tag == "Blinds")
+        {
+            Debug.Log("izi");
+                Blinds blindsCript = blindObject.GetComponentInParent<Blinds>();
+            if (blindObject.GetComponentInParent<Blinds>() != null)
+            {
+
+                if (!blindsCript.isOpen)
+                {
+                    Debug.Log("open it");
+                    blindsCript.isOpen = true;
+                }
+                else
+                {
+                    Debug.Log("close it");
+                    blindsCript.isOpen = false;
+                }
+
+            }
+        }
+    }
     private void InteractWithHideBelow(GameObject belowObject)
     {
         if (belowObject.tag == "HideBelow")
@@ -181,7 +206,7 @@ public class Grabber : MonoBehaviour
                     playerStateManager.canInteract = false;
                     StartCoroutine(LerpToWantedPosition(transform.parent.position, new Vector3(hidePos.position.x, transform.parent.position.y, hidePos.position.z), .5f));
                     StartCoroutine(LerpToWantedRotation(box.transform.localRotation));
-                    StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch -.2f, playerCam.camZpos), playerInputManager.camSpeed));
+                    StartCoroutine(playerInputManager.LerpCameraPosition(playerInputManager.cam.transform.localPosition, new Vector3(playerInputManager.cam.transform.localPosition.x, playerInputManager.camYposCrouch - .2f, playerCam.camZpos), playerInputManager.camSpeed));
                     playerStateManager.isHiding = true;
                 }
             }
@@ -216,7 +241,7 @@ public class Grabber : MonoBehaviour
         {
             Animator doorAnimator = door.GetComponent<Animator>();
             AnimDoor animDoor = door.GetComponent<AnimDoor>();
-            
+
             if (doorAnimator != null)
             {
                 if (animDoor.eventDoor)
@@ -268,20 +293,20 @@ public class Grabber : MonoBehaviour
 
     private void InteractWithVent(GameObject vent)
     {
-        if(vent.tag == "Vent")
+        if (vent.tag == "Vent")
         {
             Vent _vent = vent.GetComponent<Vent>();
 
-            if(_vent.screwDriverNumber == 0)
+            if (_vent.screwDriverNumber == 0)
             {
                 Debug.Log("Vent is close");
                 _vent.VentLocked();
             }
-            if(playerInventory.screwDriver > 0)
+            if (playerInventory.screwDriver > 0)
             {
                 _vent.screwDriverNumber = playerInventory.screwDriver;
             }
-            if(_vent.screwDriverNumber > 0)
+            if (_vent.screwDriverNumber > 0)
             {
                 //_vent.ventOpen = true;
                 _vent.VentOpen();
@@ -294,7 +319,7 @@ public class Grabber : MonoBehaviour
     {
         if (key.tag == "Key")
         {
-            playerSounds.pickUpAudioSource.Play();  
+            playerSounds.pickUpAudioSource.Play();
             key.GetComponent<Key>().KeyCollected();
             playerInventory.eventKeyOwned++;
         }
@@ -306,7 +331,7 @@ public class Grabber : MonoBehaviour
             playerSounds.pickUpAudioSource.Play();
             screwDriver.GetComponent<ScrewDriver>().ScrewDriverCollected();
             playerInventory.screwDriver++;
-          
+
         }
     }
     private void FocusOnObject(GameObject eventObject)
@@ -422,7 +447,7 @@ public class Grabber : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask) && !RayDetectOther())
         {
-            Debug.Log(RayDetectOther());
+            //Debug.Log(RayDetectOther());
             Debug.DrawLine(transform.position, hit.point, Color.green);
             if (!isHiding)
                 playerStateManager.canInteract = true;
@@ -440,7 +465,7 @@ public class Grabber : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, nonInteractMask))
         {
-            Debug.Log("Detect" + hit.collider.gameObject.name);
+            //Debug.Log("Detect" + hit.collider.gameObject.name);
             return true;
         }
 
@@ -454,7 +479,6 @@ public class Grabber : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask))
         {
-            Debug.Log("Detect" + hit.collider.gameObject.name);
             return true;
         }
 
