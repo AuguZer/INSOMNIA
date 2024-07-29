@@ -465,7 +465,6 @@ public class Grabber : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, nonInteractMask))
         {
-            //Debug.Log("Detect" + hit.collider.gameObject.name);
             return true;
         }
 
