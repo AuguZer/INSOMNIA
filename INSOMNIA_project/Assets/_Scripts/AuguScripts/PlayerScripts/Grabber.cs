@@ -422,6 +422,7 @@ public class Grabber : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask) && !RayDetectOther())
         {
+            Debug.Log(RayDetectOther());
             Debug.DrawLine(transform.position, hit.point, Color.green);
             if (!isHiding)
                 playerStateManager.canInteract = true;
