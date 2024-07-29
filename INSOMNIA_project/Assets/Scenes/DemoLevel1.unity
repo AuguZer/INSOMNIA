@@ -100389,7 +100389,7 @@ PrefabInstance:
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.02797625
+      value: 0.026967479
       objectReference: {fileID: 0}
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
@@ -100404,12 +100404,12 @@ PrefabInstance:
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.013931227
+      value: 0.013426844
       objectReference: {fileID: 0}
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.00056058634
+      value: 0.0005605863
       objectReference: {fileID: 0}
     - target: {fileID: 7757344997186186062, guid: 8379dae3f7b2e824bb1b8f1455c69064,
         type: 3}
@@ -174722,8 +174722,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12.737395, y: 3.9255478, z: 2.839323}
-  m_Center: {x: -3.7563326, y: 1.4627736, z: -0.30928954}
+  m_Size: {x: 12.737395, y: 2.6777954, z: 2.839323}
+  m_Center: {x: -3.7563326, y: 0.8388955, z: -0.30928954}
 --- !u!1001 &1800682055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211933,6 +211933,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433202979699006701, guid: f9ac4ce4ce66bcc46959eaa4b5722a31,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 48.69036
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433202979699006701, guid: f9ac4ce4ce66bcc46959eaa4b5722a31,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -1.9397511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433202979699006701, guid: f9ac4ce4ce66bcc46959eaa4b5722a31,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -11.856996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433202979699006701, guid: f9ac4ce4ce66bcc46959eaa4b5722a31,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.6838072
       objectReference: {fileID: 0}
     - target: {fileID: 6543007583017704126, guid: f9ac4ce4ce66bcc46959eaa4b5722a31,
         type: 3}
