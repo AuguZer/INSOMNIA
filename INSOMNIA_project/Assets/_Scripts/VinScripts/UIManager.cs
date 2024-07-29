@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
             {
                 case "Gamepad":
 
-                    if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_winPanel.FirstSelectedGO);
+                    _eventSystem.SetSelectedGameObject(currentGOToSelect);
 
                     break;
                 case "Keyboard&Mouse":
@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
             {
                 case "Gamepad":
 
-                    if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_deathPanel.FirstSelectedGO);
+                    _eventSystem.SetSelectedGameObject(currentGOToSelect);
 
                     break;
                 case "Keyboard&Mouse":
@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
             {
                 case "Gamepad":
 
-                    if (_eventSystem.currentSelectedGameObject == null) _eventSystem.SetSelectedGameObject(_pausePanel.FirstSelectedGO);
+                    _eventSystem.SetSelectedGameObject(currentGOToSelect);
 
                     break;
                 case "Keyboard&Mouse":
