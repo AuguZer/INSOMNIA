@@ -14436,6 +14436,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49691,6 +49696,11 @@ PrefabInstance:
     - target: {fileID: 8170033639282671506, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
@@ -94621,6 +94631,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -104536,6 +104551,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -112201,6 +112221,11 @@ PrefabInstance:
     - target: {fileID: 8170033639282671506, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
@@ -120782,6 +120807,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -143952,6 +143982,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7576404032510074758, guid: fb3e220f766859947b81df91ed527f96,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7889252507155606644, guid: fb3e220f766859947b81df91ed527f96,
         type: 3}
       propertyPath: m_RootOrder
@@ -146732,6 +146767,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -151852,8 +151892,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.024182932, y: 0.02322493, z: 0.019037927}
-  m_Center: {x: -0.0021468617, y: 0.00036354375, z: -0.000086361746}
+  m_Size: {x: 0.024182932, y: 0.02322493, z: 0.018915601}
+  m_Center: {x: -0.0021468615, y: 0.00036354325, z: -0.00014752371}
 --- !u!1001 &1580960901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159795,6 +159835,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -165298,6 +165343,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7576404032510074758, guid: fb3e220f766859947b81df91ed527f96,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7889252507155606644, guid: fb3e220f766859947b81df91ed527f96,
         type: 3}
       propertyPath: m_RootOrder
@@ -170694,6 +170744,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -179616,6 +179671,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -194758,6 +194818,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -196815,8 +196880,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.024431704, y: 0.023016032, z: 0.019037927}
-  m_Center: {x: -0.0022712469, y: -0.00056387275, z: -0.000086361746}
+  m_Size: {x: 0.024431704, y: 0.023016032, z: 0.018834049}
+  m_Center: {x: -0.002271247, y: -0.0005638723, z: -0.00018829707}
 --- !u!1001 &1998778392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201836,6 +201901,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -210146,6 +210216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048045968047450098, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
+        type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -87181487344497177, guid: 1515a7064b87b454fa21b821014aeed7,
@@ -210562,6 +210637,11 @@ PrefabInstance:
     - target: {fileID: 1452641812178678509, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463964248919530866, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1495364336383167738, guid: 6b19dcaabbfbd304aaa16ef7f0bf19bf,
@@ -214451,7 +214531,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2676945457350369620, guid: 1515a7064b87b454fa21b821014aeed7,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1

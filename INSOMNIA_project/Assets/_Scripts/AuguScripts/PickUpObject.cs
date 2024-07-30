@@ -25,6 +25,8 @@ public class PickUpObject : MonoBehaviour
 
         audioSource.spatialBlend = 1;
         audioSource.playOnAwake = false;
+
+        StartCoroutine(SoundCoroutine());
     }
 
     // Update is called once per frame
@@ -42,7 +44,12 @@ public class PickUpObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        audioSource.volume= .5f;
         audioSource.Play();
+    }
+
+    IEnumerator SoundCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        audioSource.volume = .5f;
     }
 }
