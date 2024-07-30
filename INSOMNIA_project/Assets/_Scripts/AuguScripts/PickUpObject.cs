@@ -50,6 +50,6 @@ public class PickUpObject : MonoBehaviour
     IEnumerator SoundCoroutine()
     {
         yield return new WaitForSeconds(3f);
-        audioSource.volume = .5f;
+        audioSource.volume = .2f;
     }
 }

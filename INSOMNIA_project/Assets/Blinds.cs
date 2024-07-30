@@ -18,6 +18,9 @@ public class Blinds : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0f;
+
+        StartCoroutine(SoundCoroutine());
     }
 
     // Update is called once per frame
@@ -34,5 +37,11 @@ public class Blinds : MonoBehaviour
     public void CloseSound()
     {
         audioSource.PlayOneShot(closeBlind);
+    }
+
+    IEnumerator SoundCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        audioSource.volume = 1f;
     }
 }
