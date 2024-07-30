@@ -443,21 +443,32 @@ public class Grabber : MonoBehaviour
 
     private void DisplayInteractUI()
     {
-        RaycastHit hit;
+        RaycastHit hitInteract;
+        RaycastHit hitNonInteract;
+        bool hitInteractable = Physics.Raycast(transform.position, transform.forward, out hitInteract, grabRange, interactMask);
+        bool hitNonInteractable = Physics.Raycast(transform.position, transform.forward, out hitNonInteract, grabRange, nonInteractMask);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, grabRange, interactMask) && !RayDetectOther())
+        if (hitInteractable && (!hitNonInteractable || hitInteract.distance < hitNonInteract.distance))
         {
-            //Debug.Log(RayDetectOther());
-            Debug.DrawLine(transform.position, hit.point, Color.green);
+            // Si un objet interactif est détecté avant un objet non-interactif
+            Debug.DrawLine(transform.position, hitInteract.point, Color.green);
             if (!isHiding)
                 playerStateManager.canInteract = true;
         }
-        else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide && !RayDetectInteraction())
+        //else if (hitNonInteractable && (!hitInteractable || hitInteract.distance > hitNonInteract.distance))
+        //{
+        //    // Si un objet non-interactif est détecté avant un objet interactif
+        //    Debug.DrawLine(transform.position, hitNonInteract.point, Color.red);
+        //        playerStateManager.canInteract = false;
+        //}
+        else if (playerStateManager.state != PlayerStateManager.PlayerState.Hide)
         {
-            Debug.DrawLine(transform.position, hit.point, Color.red);
+            // Aucun objet interactif détecté et l'état du joueur n'est pas "Hide"
+            Debug.DrawLine(transform.position, transform.position + transform.forward * grabRange, Color.red);
             playerStateManager.canInteract = false;
         }
     }
+
 
     public bool RayDetectOther()
     {
