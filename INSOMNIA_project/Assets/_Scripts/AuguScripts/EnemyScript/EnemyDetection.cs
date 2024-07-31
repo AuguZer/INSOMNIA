@@ -37,6 +37,8 @@ public class EnemyDetection : MonoBehaviour
     public bool canKill;
     public bool playerKilled;
 
+    bool coroutineOn = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +66,6 @@ public class EnemyDetection : MonoBehaviour
             {
                 playerDetected = true;
             }
-         
         }
     }
 

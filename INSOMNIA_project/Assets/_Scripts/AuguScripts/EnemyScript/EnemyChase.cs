@@ -35,7 +35,7 @@ public class EnemyChase : EnemyBaseState
         }
 
         //TO IDLE
-        if (enemyState.isInIdle && !enemyState.isInChase)
+        if (/*enemyState.isInIdle &&*/ !enemyState.isInChase)
         {
             enemyState.TransitionToState(enemyState.enemyIdle);
         }
