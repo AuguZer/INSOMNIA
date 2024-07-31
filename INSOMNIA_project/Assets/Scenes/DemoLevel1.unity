@@ -49656,7 +49656,7 @@ PrefabInstance:
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
@@ -112049,7 +112049,7 @@ GameObject:
   - component: {fileID: 1231309869}
   - component: {fileID: 1231309868}
   - component: {fileID: 1231309867}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ProtoWindow (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112064,7 +112064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231309865}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -7.922, y: 2.282, z: 34.802}
+  m_LocalPosition: {x: -7.922, y: 1.804, z: 34.802}
   m_LocalScale: {x: 0.009780001, y: 1.5731194, z: 3.0156946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112323,7 +112323,7 @@ PrefabInstance:
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
@@ -152489,7 +152489,7 @@ GameObject:
   - component: {fileID: 1596836294}
   - component: {fileID: 1596836293}
   - component: {fileID: 1596836292}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ProtoWindow (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152504,7 +152504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596836290}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -7.9222, y: 2.282, z: 32.514}
+  m_LocalPosition: {x: -7.9222, y: 1.86, z: 32.514}
   m_LocalScale: {x: 0.009780001, y: 1.5731194, z: 3.0156946}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210509,7 +210509,7 @@ PrefabInstance:
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6237919617846094425, guid: 87e0df4b4c7ce6c448dec9879f2c0307,
         type: 3}
