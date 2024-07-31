@@ -20,7 +20,6 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] public float detectionRadius = 1f;
 
     [SerializeField] LayerMask wallMask;
-    [SerializeField] LayerMask glassMask;
     [SerializeField] LayerMask playerMask;
     [SerializeField] LayerMask doorMask;
 
@@ -89,66 +88,6 @@ public class EnemyDetection : MonoBehaviour
         }
 
     }
-
-    public bool RayDetectGlass()
-    {
-        RaycastHit hit;
-        Ray ray = new Ray();
-        ray.origin = headPoint.position;
-        ray.direction = playerPos.position - headPoint.position;
-
-        float distance = Vector3.Distance(transform.position, playerPos.position);
-
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, distance, glassMask))
-        {
-            Debug.DrawLine(headPoint.position, hit.point, Color.red);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
-    }
-
-    private bool WallDetect()
-    {
-
-        Ray ray = new Ray();
-        ray.origin = headPoint.position;
-        ray.direction = playerPos.position - headPoint.position;
-
-        float distance = Vector3.Distance(transform.position, playerPos.position);
-
-        RaycastHit hitWall;
-        RaycastHit hitGlass;
-        bool _hitWall = Physics.Raycast(ray.origin, ray.direction, out hitWall, distance, wallMask);
-        bool _hitGlass = Physics.Raycast(ray.origin, ray.direction, out hitGlass, distance, glassMask);
-
-
-
-        if (_hitWall && (!_hitGlass || hitWall.distance < hitGlass.distance))
-        {
-            // Si un objet interactif est détecté avant un objet non-interactif
-            Debug.DrawLine(transform.position, hitWall.point, Color.green);
-            return true;
-        }
-        //else if (hitNonInteractable && (!hitInteractable || hitInteract.distance > hitNonInteract.distance))
-        //{
-        //    // Si un objet non-interactif est détecté avant un objet interactif
-        //    Debug.DrawLine(transform.position, hitNonInteract.point, Color.red);
-        //        playerStateManager.canInteract = false;
-        //}
-        else
-        {
-            return false;
-        }
-    }
-
-
-
-
-
 
     public bool RayDetectPlayer()
     {
