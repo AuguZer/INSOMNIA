@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Grabber : MonoBehaviour
 {
@@ -23,9 +23,6 @@ public class Grabber : MonoBehaviour
     [SerializeField] public bool isHiding;
     [SerializeField] public bool isInInterationState;
 
-    [SerializeField] LayerMask interactMask;
-    [SerializeField] LayerMask nonInteractMask;
-
     [SerializeField] GameObject mainCam;
 
     [Header("Focus Objects Cam Look")]
@@ -37,6 +34,13 @@ public class Grabber : MonoBehaviour
     [SerializeField] float TVMaxDown;
     [SerializeField] float TVMaxUp;
 
+
+    [Header("UI")]
+    [SerializeField] Sprite noPickUpImage;
+    [SerializeField] Sprite pickUpImage;
+    [SerializeField] Image interactUIImage;
+    [SerializeField] LayerMask interactMask;
+    [SerializeField] LayerMask nonInteractMask;
 
     PlayerInventory playerInventory;
     PlayerStateManager playerStateManager;
@@ -152,7 +156,7 @@ public class Grabber : MonoBehaviour
         if (blindObject.tag == "Blinds")
         {
             Debug.Log("izi");
-                Blinds blindsCript = blindObject.GetComponentInParent<Blinds>();
+            Blinds blindsCript = blindObject.GetComponentInParent<Blinds>();
             if (blindObject.GetComponentInParent<Blinds>() != null)
             {
 
@@ -454,6 +458,15 @@ public class Grabber : MonoBehaviour
             Debug.DrawLine(transform.position, hitInteract.point, Color.green);
             if (!isHiding)
                 playerStateManager.canInteract = true;
+
+            if (hitInteract.collider.gameObject.tag == "PickUpObj")
+            {
+                interactUIImage.sprite = pickUpImage;
+            }
+            else
+            {
+                interactUIImage.sprite = noPickUpImage;
+            }
         }
         //else if (hitNonInteractable && (!hitInteractable || hitInteract.distance > hitNonInteract.distance))
         //{

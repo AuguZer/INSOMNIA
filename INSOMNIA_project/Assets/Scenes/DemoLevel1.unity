@@ -101824,6 +101824,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1141262367}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1144458936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 480932717969675724, guid: aa9bb74d487f0a443a9de7f773200afe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472803632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1144458938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 729154337167455950, guid: aa9bb74d487f0a443a9de7f773200afe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472803632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144458936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1144542239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141515,6 +141533,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 480932717969675724, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 729154337167455950, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4708b633a05c304428cba9f8090ae335,
+        type: 3}
     - target: {fileID: 782639836160466952, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: groundDetectionRadius
@@ -141545,6 +141574,28 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 262135
       objectReference: {fileID: 0}
+    - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: uiObject
+      value: 
+      objectReference: {fileID: 1144458936}
+    - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: pickUpImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 231c32a3dd86f7d45ab94a0145f8bd22,
+        type: 3}
+    - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: noPickUpImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 4708b633a05c304428cba9f8090ae335,
+        type: 3}
+    - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
+        type: 3}
+      propertyPath: interactUIImage
+      value: 
+      objectReference: {fileID: 1144458938}
     - target: {fileID: 1909557698861846554, guid: aa9bb74d487f0a443a9de7f773200afe,
         type: 3}
       propertyPath: interactMask.m_Bits
