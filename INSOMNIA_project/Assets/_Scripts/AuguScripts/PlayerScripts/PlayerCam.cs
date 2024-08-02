@@ -11,19 +11,19 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] InputActionAsset inputActions;
 
     [Header("CAMERA SPEED")]
-    [SerializeField]public float sensX = 200f;
-    [SerializeField]public float sensY = 200f;
+    [SerializeField] public float sensX = 200f;
+    [SerializeField] public float sensY = 200f;
 
     [Header("CAMERA ROTATIONS")]
     [SerializeField] float rotationSpeed = 5f;
-    [SerializeField]public float maxLookDown = 72f;
-    [SerializeField]public float maxLookUp = -80f;
+    [SerializeField] public float maxLookDown = 72f;
+    [SerializeField] public float maxLookUp = -80f;
     [SerializeField] float maxLookBackRight = 130f;
     [SerializeField] float maxLookBackLeft = -130f;
-    [SerializeField]public float focusMaxDown = 20f;
-    [SerializeField]public float focusMaxUp = 0f;
-    [SerializeField]public float focusMaxRight = 20f;
-    [SerializeField]public float focusMaxLeft = -20f;
+    [SerializeField] public float focusMaxDown = 20f;
+    [SerializeField] public float focusMaxUp = 0f;
+    [SerializeField] public float focusMaxRight = 20f;
+    [SerializeField] public float focusMaxLeft = -20f;
 
     [Header("CAMERA POSITIONS")]
     [SerializeField] public float camZpos;
@@ -58,7 +58,7 @@ public class PlayerCam : MonoBehaviour
     private void Awake()
     {
 
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -183,7 +183,7 @@ public class PlayerCam : MonoBehaviour
 
     private void LateUpdate()
     {
-        
+
     }
 
     private void SetCameraPositionAndRotation()
@@ -255,7 +255,7 @@ public class PlayerCam : MonoBehaviour
 
             //Rot & Pos to the LEFT
             targetRotationL = new Vector3(0f, maxLookBackLeft, 5f);
-            targetPositionL = new Vector3(camXposLeft -.1f, playerInputManager.camYposCrawl, camZposCrawl);
+            targetPositionL = new Vector3(camXposLeft - .1f, playerInputManager.camYposCrawl, camZposCrawl);
         }
     }
 
@@ -280,7 +280,10 @@ public class PlayerCam : MonoBehaviour
 
     public void CameraOnDeath()
     {
-        StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
+        if (mainCam != null)
+        {
+            StartCoroutine(LerpRotationCam(transform.localRotation, Quaternion.Euler(xRotation, 0f, 0f), rotationSpeed, transform.localPosition, new Vector3(0f, transform.localPosition.y, transform.localPosition.z)));
+        }
     }
 
     private void CameraRotation()
