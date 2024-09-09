@@ -24,6 +24,8 @@ public class Vent : MonoBehaviour
         ventOpen = false;
         animator = GetComponent<Animator>();
         targetPosition = new Vector3(transform.localPosition.x, Ypos, transform.localPosition.z);
+
+        screwDriverNumber = 0;
     }
 
     // Update is called once per frame
