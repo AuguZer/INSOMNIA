@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class EventClosetDoor : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
 
     [SerializeField] public bool playerInZone;
     [SerializeField] public bool eventStarted;
-    [SerializeField] bool eventPlayed;
+    [SerializeField] public bool eventPlayed;
     [SerializeField] public Transform enemyPosition;
 
     [SerializeField] AudioClip doorKnock;
     [SerializeField] AudioClip moodMusic;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     [SerializeField] AudioSource moodMusicAudioSource;
 
-    bool isOpen;
+    public bool isOpen;
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         playerInZone = false;
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         isOpen = animator.GetBool("Open");
 
@@ -45,7 +45,7 @@ public class EventClosetDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -60,7 +60,7 @@ public class EventClosetDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {

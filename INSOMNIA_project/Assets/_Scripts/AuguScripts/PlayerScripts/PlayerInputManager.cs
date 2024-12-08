@@ -35,7 +35,11 @@ public class PlayerInputManager : MonoBehaviour
         playerStateManager = GetComponent<PlayerStateManager>();
         playerCam = cam.GetComponent<PlayerCam>();
         playerPhysics = GetComponent<PlayerPhysics>();
-        uiManager.continueBtn.onClick.AddListener(() => gameIsPaused = false);
+
+        if (uiManager != null)
+        {
+            uiManager.continueBtn.onClick.AddListener(() => gameIsPaused = false);
+        }
     }
 
     private void OnEnable()
@@ -70,7 +74,7 @@ public class PlayerInputManager : MonoBehaviour
             uiManager.ActivePausePanel();
             gameIsPaused = true;
         }
-        else if(gameIsPaused)
+        else if (gameIsPaused)
         {
             uiManager.DeactivePausePanel();
             gameIsPaused = false;
@@ -87,7 +91,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void MoveInput()
     {
-        if(playerStateManager.state == PlayerStateManager.PlayerState.Hide || grabber.isInInterationState) return;
+        if (playerStateManager.state == PlayerStateManager.PlayerState.Hide || grabber.isInInterationState) return;
         moveInput = inputActions.FindAction("Move").ReadValue<Vector2>();
         dirInput = new Vector3(moveInput.x, 0f, moveInput.y);
 
@@ -103,7 +107,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (inputActions.FindAction("Crouch").WasPerformedThisFrame() && playerStateManager.state != PlayerStateManager.PlayerState.Hide && !gameIsPaused)
         {
-            if(playerStateManager.state == PlayerStateManager.PlayerState.Crawl || playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
+            if (playerStateManager.state == PlayerStateManager.PlayerState.Crawl || playerStateManager.state == PlayerStateManager.PlayerState.CrawlIdle)
             {
                 if (playerPhysics.CantGetUp())
                 {
@@ -118,12 +122,12 @@ public class PlayerInputManager : MonoBehaviour
             {
                 if (!playerPhysics.CantGetUp())
                 {
-                playerStateManager.isCrouching = false;
-                StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
+                    playerStateManager.isCrouching = false;
+                    StartCoroutine(LerpCameraPosition(cam.transform.localPosition, new Vector3(cam.transform.localPosition.x, camYposNormal, playerCam.camZpos), camSpeed));
                 }
             }
         }
-        else if(inputActions.FindAction("Crouch").WasPerformedThisFrame() && gameIsPaused)
+        else if (inputActions.FindAction("Crouch").WasPerformedThisFrame() && gameIsPaused)
         {
             uiManager.DeactivePausePanel();
             gameIsPaused = false;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class EventKeyDesk8 : Key
 {
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,10 @@ public class Key : MonoBehaviour
         
     }
 
-    public virtual void KeyCollected()
+    public override void KeyCollected()
     {
-        gameObject.SetActive(false);
-        Destroy(gameObject,3f);
+        base.KeyCollected();
+        Debug.Log("Activer l'event porte");
     }
+
 }
